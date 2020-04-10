@@ -155,6 +155,121 @@
   </entry>
   
   <entry>
+    <title>Linux可执行文件添加到PATH环境变量的方法</title>
+    <link href="https://www.ling218.cn/archives/4ba04316.html"/>
+    <id>https://www.ling218.cn/archives/4ba04316.html</id>
+    <published>2020-04-08T00:00:00.000Z</published>
+    <updated>2020-04-10T09:34:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>linux命令行下面执行某个命令的时候，首先保证该命令是否存在，若存在，但输入命令的时候若仍提示：command not found</p><p>这个时候就的查看PATH环境变量的设置了，当前命令是否存在于PATH环境变量中</p><p>#查看PATH：echo $PATH</p><p>举例说，命令 composr 在/usr/loca/bin</p><p>但执行的时候提示：</p><p>-bash: composr: command not found</p><p>这个时候，通过echo $PATH，，发现composer并未在PATH环境变量中有设置，这个时候就需要把composer所在路径添加到PATH中</p><p>所以需要修改PATH环境变量，具体如下：</p><p>方法一：</p><p>export PATH=/usr/local/bin:$PATH</p><p>#配置完后可以通过echo $PATH查看配置结果。</p><p>#生效方法：立即生效</p><p>#有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢#复原有的path配置</p><p>#用户局限：仅对当前用户</p><p>方法二：</p><p>#通过修改.bashrc文件:</p><p>vim ~/.bashrc</p><p>#在最后一行添上：</p><p>export PATH=/usr/local/bin:$PATH</p><p>#生效方法：（有以下两种）</p><p>#1、关闭当前终端窗口，重新打开一个新终端窗口就能生效</p><p>#2、输入“source ~/.bashrc”命令，立即生效</p><p>#有效期限：永久有效</p><p>#用户局限：仅对当前用户</p><p>方法三：</p><p>#通过修改profile文件:</p><p>vim /etc/profile</p><p>export PATH=/usr/local/bin:$PATH</p><p>#生效方法：系统重启</p><p>#有效期限：永久有效</p><p>#用户局限：对所有用户</p><p>方法四：</p><p>#通过修改environment文件:</p><p>vim /etc/environment</p><p>在PATH=”/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin”中加入 “:/usr/local/bin”</p><p>#生效方法：系统重启</p><p>#有效期限：永久有效</p><p>#用户局限：对所有用户</p>]]></content>
+    
+    <summary type="html">
+    
+      命令若存在，但输入命令时仍提示 command not found
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
+    
+    
+      <category term="PATH" scheme="https://www.ling218.cn/tags/PATH/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Debian10 系统上从软件包安装 Docker-CE</title>
+    <link href="https://www.ling218.cn/archives/f9fb805e.html"/>
+    <id>https://www.ling218.cn/archives/f9fb805e.html</id>
+    <published>2020-04-08T00:00:00.000Z</published>
+    <updated>2020-04-10T09:36:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这种方法安装Docker-CE，每次升级Docker时，都需要下载一个新的软件包 重复安装过程。</p><p>如果不是在新主机上首次安装 Docker-CE，为确保安装不会出错，可以执行卸载旧版本操作。</p><h2 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h2><p>Docker 的旧版本被称为<code>docker</code>，<code>docker.io</code>或<code>docker-engine</code>。如果已安装，请卸载它们：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol><li><p>转到 <a href="https://download.docker.com/linux/debian/dists/，选择您Debina10的版本，下载要安装Docker-CE的版本文件。" target="_blank" rel="external nofollow noopener noreferrer">https://download.docker.com/linux/debian/dists/，选择您Debina10的版本，下载要安装Docker-CE的版本文件。</a></p></li><li><p>安装Docker-CE，将下面的路径更改为下载Docker软件包的存储路径。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i &#x2F;path&#x2F;to&#x2F;package.deb</span><br></pre></td></tr></table></figure></li><li><p>验证是否正解安装Docker-CE。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure><p>此命令下载测试图像并在容器中运行它。容器运行时，它会打印参考消息并退出。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      软件包安装docker-ce
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
+    
+    
+      <category term="docker-ce" scheme="https://www.ling218.cn/tags/docker-ce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Debian10 系统上使用存储库安装 Docker-CE</title>
+    <link href="https://www.ling218.cn/archives/75aa58a.html"/>
+    <id>https://www.ling218.cn/archives/75aa58a.html</id>
+    <published>2020-04-08T00:00:00.000Z</published>
+    <updated>2020-04-10T09:37:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在新主机上首次安装 Docker-CE 之前，需要设置 Docker存储库。之后，您可以从存储库安装和更新 Docker 。如果不是在新主机上首次安装 Docker-CE，为确保安装不会出错，可以执行卸载旧版本操作。</p><h2 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h2><p>Docker 的旧版本被称为<code>docker</code>，<code>docker.io</code>或<code>docker-engine</code>。如果已安装，请卸载它们：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol><li><p>更新 apt 包索引：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></li><li><p>安装软件包以允许 apt 通过HTTPS使用存储库：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install \</span><br><span class="line">apt-transport-https \</span><br><span class="line">ca-certificates \</span><br><span class="line">curl \</span><br><span class="line">gnupg2 \</span><br><span class="line">software-properties-common</span><br></pre></td></tr></table></figure></li><li><p>添加Docker的官方GPG密钥：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian&#x2F;gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure></li><li><p>使用下行命令来设置稳定的存储库：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;debian buster stable&quot; &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br></pre></td></tr></table></figure><p>buster是Debian10的发行版的名称。lsb_release -cs 命令可以返回Debian发行版的名称。</p></li><li><p>安装Docker-CE：</p><p>更新 apt 包索引并安装最新版本的 Docker-CE。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure></li><li><p>验证是否正解安装Docker-CE:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure><p>此命令下载测试图像并在容器中运行它。容器运行时，它会打印参考消息并退出。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      存储库安装docker-ce
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
+    
+    
+      <category term="docker-ce" scheme="https://www.ling218.cn/tags/docker-ce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Debian10 系统上使用脚本安装 Docker-CE</title>
+    <link href="https://www.ling218.cn/archives/c0d5ccf9.html"/>
+    <id>https://www.ling218.cn/archives/c0d5ccf9.html</id>
+    <published>2020-04-08T00:00:00.000Z</published>
+    <updated>2020-04-10T09:38:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Docker 在 get.docker.com和test.docker.com上提供了安装脚本，用于快速安装Docker-CE。</p><p>get.docker.com上的脚本是最新版本Docker-CE。</p><p>test.docker.com上的脚本是最新测试版本Docker-CE。 </p><p>在本地运行它们之前，请务必检查从internet下载的脚本。</p><p>如果不是在新主机上首次安装 Docker-CE，为确保安装不会出错，可以执行卸载旧版本操作。</p><h2 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h2><p>Docker 的旧版本被称为<code>docker</code>，<code>docker.io</code>或<code>docker-engine</code>。如果已安装，请卸载它们：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https:&#x2F;&#x2F;get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br></pre></td></tr></table></figure><p>如果想要以非root用户身份使用Docker，可以用以下方式将用户添加到 docker 组：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker your-user</span><br></pre></td></tr></table></figure><p>注销重新登录用户才能生效！</p><h3 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h3><blockquote><p>它会自动在<code>DEB</code>基于分发的版本上启动。</p><p>在 <code>RPM</code>基于发行版的系统上，您需要使用相应的<code>systemctl</code>或<code>service</code>命令手动启动它 。如消息所示，默认情况下，非root用户不能运行Docker命令。</p></blockquote><h2 id="升级Docker-CE"><a href="#升级Docker-CE" class="headerlink" title="升级Docker-CE"></a>升级Docker-CE</h2><ol><li><p>卸载docker-ce软件包：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge docker-ce</span><br></pre></td></tr></table></figure></li><li><p>主机上的映像，容器，卷或自定义配置文件不会自动删除。要删除所有图像，容器和卷：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf &#x2F;var&#x2F;lib&#x2F;docker</span><br></pre></td></tr></table></figure><p>您必须手动删除所有已编辑的配置文件。</p></li><li><p>然后再重新安装Docker-CE。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      自动化脚本安装docker-ce
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
+    
+    
+      <category term="docker-ce" scheme="https://www.ling218.cn/tags/docker-ce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在Debian10系统上安装Docker-CE的方法</title>
+    <link href="https://www.ling218.cn/archives/bad80a60.html"/>
+    <id>https://www.ling218.cn/archives/bad80a60.html</id>
+    <published>2020-04-08T00:00:00.000Z</published>
+    <updated>2020-04-10T09:40:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="卸载旧版本"><a href="#卸载旧版本" class="headerlink" title="卸载旧版本"></a>卸载旧版本</h2><p>Docker 的旧版本被称为<code>docker</code>，<code>docker.io</code>或<code>docker-engine</code>。如果已安装，请卸载它们：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure><p>各类安装方式前最好都要进行的操作。</p><h2 id="安装-Docker-CE-的方法"><a href="#安装-Docker-CE-的方法" class="headerlink" title="安装 Docker-CE 的方法"></a>安装 Docker-CE 的方法</h2><h3 id="可以根据需要使用不同的安装方式："><a href="#可以根据需要使用不同的安装方式：" class="headerlink" title="可以根据需要使用不同的安装方式："></a>可以根据需要使用不同的安装方式：</h3><ul><li>大多数用户会设置 <code>docker 的存储库</code>并从中进行安装，以简化安装和升级任务。</li><li>很少的用户下载并手动安装 <code>deb 软件包</code>，并安全手动管理升级。这类在无法访问互联网的系统上安装 docker 的情况很有用。</li><li>在测试和开发环境中，一些用户选择使用<code>自动脚本</code>来安装 docker。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      介绍几种安装docker-ce的方式
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
+    
+    
+      <category term="docker-ce" scheme="https://www.ling218.cn/tags/docker-ce/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Debian 使用 curl 获得外部 IP 地址（公网地址）</title>
     <link href="https://www.ling218.cn/archives/7cfdd891.html"/>
     <id>https://www.ling218.cn/archives/7cfdd891.html</id>
@@ -358,121 +473,6 @@
     
     
       <category term="ssh" scheme="https://www.ling218.cn/tags/ssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一个脚本轻松生成实时 Linux ISO映像</title>
-    <link href="https://www.ling218.cn/archives/62d08263.html"/>
-    <id>https://www.ling218.cn/archives/62d08263.html</id>
-    <published>2020-04-05T00:00:00.000Z</published>
-    <updated>2020-04-10T09:26:42.157Z</updated>
-    
-    <content type="html"><![CDATA[<p>一个脚本可以轻松生成功能齐全的实时Linux ISO映像。这是基于<a href="http://github.com/ivandavidov/minimal" target="_blank" rel="external nofollow noopener noreferrer">Minimal Linux Live</a>的第一个发布版本，并在下一版本中进行了一些改进。已删除所有空行和注释，并且已修改脚本以减少总长度。</p><p>下面的脚本使用<strong>Linux内核4.19.12</strong>，<strong>BusyBox 1.29.3</strong>和<strong>Syslinux 6.03</strong>。源包将自动下载和编译。如果您使用的是Ubuntu或Linux Mint，则应该能够通过执行以下命令来解决所有构建依赖项：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt install wget make gawk gcc bc bison flex xorriso libelf-dev libssl-dev</span><br></pre></td></tr></table></figure><p>之后，只需运行以下脚本。它不需要 <strong>root</strong> 权限。最后，生成<strong>minimal_linux_live.iso</strong>文件，在执行脚本的同一目录中。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kernel.org&#x2F;linux&#x2F;kernel&#x2F;v4.x&#x2F;linux-4.19.12.tar.xz</span><br><span class="line">wget http:&#x2F;&#x2F;busybox.net&#x2F;downloads&#x2F;busybox-1.29.3.tar.bz2</span><br><span class="line">wget http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kernel.org&#x2F;linux&#x2F;utils&#x2F;boot&#x2F;syslinux&#x2F;syslinux-6.03.tar.xz</span><br><span class="line">mkdir isoimage</span><br><span class="line">tar -xvf linux-4.19.12.tar.xz</span><br><span class="line">tar -xvf busybox-1.29.3.tar.bz2</span><br><span class="line">tar -xvf syslinux-6.03.tar.xz</span><br><span class="line">cd busybox-1.29.3</span><br><span class="line">make distclean defconfig</span><br><span class="line">sed -i &quot;s|.*CONFIG_STATIC.*|CONFIG_STATIC&#x3D;y|&quot; .config</span><br><span class="line">make busybox install</span><br><span class="line">cd _install</span><br><span class="line">rm -f linuxrc</span><br><span class="line">mkdir dev proc sys</span><br><span class="line">echo &#39;#!&#x2F;bin&#x2F;sh&#39; &gt; init</span><br><span class="line">echo &#39;dmesg -n 1&#39; &gt;&gt; init</span><br><span class="line">echo &#39;mount -t devtmpfs none &#x2F;dev&#39; &gt;&gt; init</span><br><span class="line">echo &#39;mount -t proc none &#x2F;proc&#39; &gt;&gt; init</span><br><span class="line">echo &#39;mount -t sysfs none &#x2F;sys&#39; &gt;&gt; init</span><br><span class="line">echo &#39;setsid cttyhack &#x2F;bin&#x2F;sh&#39; &gt;&gt; init</span><br><span class="line">chmod +x init</span><br><span class="line">find . | cpio -R root:root -H newc -o | gzip &gt; ..&#x2F;..&#x2F;isoimage&#x2F;rootfs.gz</span><br><span class="line">cd ..&#x2F;..&#x2F;linux-4.19.12</span><br><span class="line">make mrproper defconfig bzImage</span><br><span class="line">cp arch&#x2F;x86&#x2F;boot&#x2F;bzImage ..&#x2F;isoimage&#x2F;kernel.gz</span><br><span class="line">cd ..&#x2F;isoimage</span><br><span class="line">cp ..&#x2F;syslinux-6.03&#x2F;bios&#x2F;core&#x2F;isolinux.bin .</span><br><span class="line">cp ..&#x2F;syslinux-6.03&#x2F;bios&#x2F;com32&#x2F;elflink&#x2F;ldlinux&#x2F;ldlinux.c32 .</span><br><span class="line">echo &#39;default kernel.gz initrd&#x3D;rootfs.gz&#39; &gt; .&#x2F;isolinux.cfg</span><br><span class="line">xorriso \</span><br><span class="line">  -as mkisofs \</span><br><span class="line">  -o ..&#x2F;minimal_linux_live.iso \</span><br><span class="line">  -b isolinux.bin \</span><br><span class="line">  -c boot.cat \</span><br><span class="line">  -no-emul-boot \</span><br><span class="line">  -boot-load-size 4 \</span><br><span class="line">  -boot-info-table \</span><br><span class="line">  .&#x2F;</span><br><span class="line">cd ..</span><br></pre></td></tr></table></figure><p>请注意，此脚本生成非常小的实时Linux操作系统，仅支持shell，不支持网络。网络功能已在<a href="http://github.com/ivandavidov/minimal" target="_blank" rel="external nofollow noopener noreferrer">Minimal Linux Live</a>项目中正确实现，该项目具有广泛的文档记录和更丰富的功能，但仍然可以生成非常小的实时Linux ISO映像。</p>]]></content>
-    
-    <summary type="html">
-    
-      一个脚本可以轻松生成功能齐全的实时Linux ISO映像
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="https://www.ling218.cn/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>允许使用 root 远程 ssh 登陆 Debian</title>
-    <link href="https://www.ling218.cn/archives/27fcce8d.html"/>
-    <id>https://www.ling218.cn/archives/27fcce8d.html</id>
-    <published>2020-04-05T00:00:00.000Z</published>
-    <updated>2020-04-10T09:26:42.197Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文介绍如果在正确安装 ssh 服务的前提下，配置允许使用 root 远程登陆 Debian 。</p><p>1、编辑<code>/etc/ssh/sshd_config</code> ssh服务配置文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes  #允许root远程登陆</span><br><span class="line">PasswordAuthentication yes  #开启秘钥和密码认证</span><br></pre></td></tr></table></figure><p>2、保存配置后，重启ssh服务。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#x2F;etc&#x2F;inin.d&#x2F;ssh restart  #重启ssh服务</span><br></pre></td></tr></table></figure><p>3、以 root 用户登陆ssh服务示例。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ssh root@x.x.x.x</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      配置允许使用 root 远程登陆linux主机
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
-    
-    
-      <category term="ssh" scheme="https://www.ling218.cn/tags/ssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Debian 系统老版本 iso 下载</title>
-    <link href="https://www.ling218.cn/archives/b2adb537.html"/>
-    <id>https://www.ling218.cn/archives/b2adb537.html</id>
-    <published>2020-04-03T00:00:00.000Z</published>
-    <updated>2020-04-10T09:26:42.141Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Debian-系统老版本-iso-下载"><a href="#Debian-系统老版本-iso-下载" class="headerlink" title="Debian 系统老版本 iso 下载"></a>Debian 系统老版本 iso 下载</h1><p>debian官方默认只提供最新的版本下载，有时需要找一些旧的版本的debian，着实费用。下面这个debian iso镜像站可以下载各个版本的debian下载：<a href="http://cdimage.debian.org/cdimage/archive/" target="_blank" rel="external nofollow noopener noreferrer">debian 系统各个版本ISO下载</a></p>]]></content>
-    
-    <summary type="html">
-    
-      Debian 系统老版本 iso 下载
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
-    
-    
-      <category term="iso" scheme="https://www.ling218.cn/tags/iso/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sytemctl 命令管理 systemd 服务</title>
-    <link href="https://www.ling218.cn/archives/47790c48.html"/>
-    <id>https://www.ling218.cn/archives/47790c48.html</id>
-    <published>2020-04-03T00:00:00.000Z</published>
-    <updated>2020-04-10T09:26:42.149Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Sytemctl-命令管理-systemd-服务"><a href="#Sytemctl-命令管理-systemd-服务" class="headerlink" title="Sytemctl 命令管理 systemd 服务"></a>Sytemctl 命令管理 systemd 服务</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">systemctl start service  #启动服务</span><br><span class="line">systemctl stop service  #停止服务</span><br><span class="line">systemctl restart service  #重启服务</span><br><span class="line">systemctl reload service  #重新加载配置文件</span><br><span class="line">systemctl enable service  #开机启动</span><br><span class="line">systemctl disable service  #关闭开机启动</span><br><span class="line">systemctl status service  #服务状态</span><br><span class="line">systemctl list-units  #列出系统中所有可用的服务</span><br><span class="line">systemctl is-active application.service  #服务是否运行</span><br><span class="line">systemctl is-enabled application.service  #服务是否开机启动</span><br><span class="line">systemctl is-failed application.service  #服务运行是否正常</span><br><span class="line">man systemctl  #帮助命令</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      Sytemctl 命令管理 systemd 服务
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
-    
-    
-      <category term="systemctl" scheme="https://www.ling218.cn/tags/systemctl/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu 16.04 安装 PyCharm 和 卸载</title>
-    <link href="https://www.ling218.cn/archives/c342aa2b.html"/>
-    <id>https://www.ling218.cn/archives/c342aa2b.html</id>
-    <published>2020-04-03T00:00:00.000Z</published>
-    <updated>2020-04-10T09:26:42.149Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Ubuntu-16-04-安装-PyCharm-和-卸载"><a href="#Ubuntu-16-04-安装-PyCharm-和-卸载" class="headerlink" title="Ubuntu 16.04 安装 PyCharm 和 卸载"></a>Ubuntu 16.04 安装 PyCharm 和 卸载</h3><p>1、添加 PyCharm 软件源。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo add-apt-repository ppa:mystic-mirage&#x2F;pycharm</span><br></pre></td></tr></table></figure><p>2、安装 PyCharm 专业版。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get update</span><br><span class="line"># sudo apt-get install pycharm</span><br></pre></td></tr></table></figure><p>3、安装 PyCharm 社区版。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># sudo apt-get update</span><br><span class="line"># sudo apt-get pycharm-community</span><br></pre></td></tr></table></figure><p>4、卸载 PyCharm 。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># apt remove pycharm</span><br><span class="line"># apt remove pycharm-community</span><br><span class="line"># apt autoremove</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      Ubuntu 16.04 安装 PyCharm 和 卸载
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
-    
-    
-      <category term="pycharm,ubuntu" scheme="https://www.ling218.cn/tags/pycharm-ubuntu/"/>
     
   </entry>
   
