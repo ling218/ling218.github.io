@@ -328,6 +328,60 @@
       </div>
 
       <h3 class="post-title">
+          <a class="post-title-link" href="/archives/19cdbd33.html" itemprop="url">
+            <span itemprop="name">将自定义Debian Live安装到USB驱动器 (img格式)</span>
+          </a>
+      </h3>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated" datetime="2019-12-01T08:00:00+08:00" content="2019-12-01">
+          12-01
+        </time>
+      </div>
+
+      <h3 class="post-title">
+          <a class="post-title-link" href="/archives/b4ad7c54.html" itemprop="url">
+            <span itemprop="name">将自定义Debian安装到硬盘</span>
+          </a>
+      </h3>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated" datetime="2019-12-01T08:00:00+08:00" content="2019-12-01">
+          12-01
+        </time>
+      </div>
+
+      <h3 class="post-title">
+          <a class="post-title-link" href="/archives/29fc0db9.html" itemprop="url">
+            <span itemprop="name">创建一个自定义BIOS启动的Debian Live环境（CD或USB）</span>
+          </a>
+      </h3>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated" datetime="2019-12-01T08:00:00+08:00" content="2019-12-01">
+          12-01
+        </time>
+      </div>
+
+      <h3 class="post-title">
           <a class="post-title-link" href="/archives/64471.html" itemprop="url">
             <span itemprop="name">Debian10 环境下安装 hexo 并选择 next7.6 主题</span>
           </a>
@@ -348,60 +402,6 @@
       <h3 class="post-title">
           <a class="post-title-link" href="/archives/32702.html" itemprop="url">
             <span itemprop="name">hexo next 7.xx 添加背景图片</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2019-12-01T08:00:00+08:00" content="2019-12-01">
-          12-01
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/archives/34374.html" itemprop="url">
-            <span itemprop="name">在基于非Kali Debian的系统上构建Kali</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2019-12-01T08:00:00+08:00" content="2019-12-01">
-          12-01
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/archives/21215.html" itemprop="url">
-            <span itemprop="name">重建源程序包</span>
-          </a>
-      </h3>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2019-12-01T08:00:00+08:00" content="2019-12-01">
-          12-01
-        </time>
-      </div>
-
-      <h3 class="post-title">
-          <a class="post-title-link" href="/archives/52863.html" itemprop="url">
-            <span itemprop="name">重新编译Kali Linux内核</span>
           </a>
       </h3>
 
@@ -606,99 +606,6 @@ setInterval("createtime()",250);
 
 
 
-  <script>
-  function leancloudSelector(url) {
-    return document.getElementById(url).querySelector('.leancloud-visitors-count');
-  }
-  if (CONFIG.page.isPost) {
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = visitors.getAttribute('id').trim();
-      var title = visitors.getAttribute('data-flag-title').trim();
-
-      Counter('get', `/classes/Counter?where=${(JSON.stringify({ url })}`)
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .then(response => response.json())
-              .then(() => {
-                leancloudSelector(url).innerText = counter.time + 1;
-              })
-              .catch(error => {
-                console.log('Failed to save visitor count', error);
-              })
-          } else {
-              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.log('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.log('LeanCloud Counter Error', error);
-        });
-    }
-  } else {
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return element.getAttribute('id').trim();
-      });
-
-      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length === 0) {
-            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
-              element.innerText = 0;
-            });
-            return;
-          }
-          for (let item of results) {
-            let { url, time } = item;
-            leancloudSelector(url).innerText = time;
-          }
-          for (let url of entries) {
-            var element = leancloudSelector(url);
-            if (element.innerText == '') {
-              element.innerText = 0;
-            }
-          }
-        })
-        .catch(error => {
-          console.log('LeanCloud Counter Error', error);
-        });
-    }
-  }
-
-  fetch('https://app-router.leancloud.cn/2/route?appId=jdo2MzyDb7y5qr7GOIJ3tebd-MdYXbMMI')
-    .then(response => response.json())
-    .then(({ api_server }) => {
-      var Counter = (method, url, data) => {
-        return fetch(`https://${api_server}/1.1${url}`, {
-          method: method,
-          headers: {
-            'X-LC-Id': 'jdo2MzyDb7y5qr7GOIJ3tebd-MdYXbMMI',
-            'X-LC-Key': 'Kl0MtvN6of7KLf6GAA6wq6Jo',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
 
 
       </div>
@@ -806,7 +713,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       avatar: 'mm',
       meta: guest,
       pageSize: '10' || 10,
-      visitor: false,
+      visitor: true,
       lang: '' || 'zh-cn',
       path: location.pathname,
       recordIP: false,
