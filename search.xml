@@ -303,9 +303,24 @@
       </tags>
   </entry>
   <entry>
-    <title>kali-linux-mate-top10-nonroot.sh</title>
-    <url>/archives/fa25fe82.html</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line"># Kali Linux ISO recipe for : Top 10 Mate non-root</span><br><span class="line">#########################################################################################</span><br><span class="line"># Desktop 	: Mate 1.8</span><br><span class="line"># Metapackages	: kali-linux-top10</span><br><span class="line"># ISO size 	: 1.36 GB </span><br><span class="line"># Special notes	: Non root user installation enabled through preseed.cfg. </span><br><span class="line">#		: This script is not meant to run unattended.</span><br><span class="line"># Look and Feel	: Custom wallpaper and terminal configs through post install hooks.</span><br><span class="line"># Background	: http:&#x2F;&#x2F;www.offensive-security.com&#x2F;kali-linux&#x2F;kali-linux-recipes&#x2F;</span><br><span class="line">#########################################################################################</span><br><span class="line"></span><br><span class="line"># Update and install dependencies</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">apt-get install git live-build cdebootstrap devscripts -y</span><br><span class="line"></span><br><span class="line"># Clone the default Kali live-build config.</span><br><span class="line"></span><br><span class="line">git clone https:&#x2F;&#x2F;gitlab.com&#x2F;kalilinux&#x2F;build-scripts&#x2F;live-build-config.git</span><br><span class="line"></span><br><span class="line"># Get the source package of the debian installer. </span><br><span class="line"># The default Kali preseed file lives here, and will need changing for non-root user support.</span><br><span class="line"></span><br><span class="line">apt-get source debian-installer</span><br><span class="line"></span><br><span class="line"># Let&#39;s begin our customisations:</span><br><span class="line"></span><br><span class="line">cd live-build-config</span><br><span class="line"></span><br><span class="line"># The user doesn&#39;t need the kali-linux-full metapackage, we overwrite with our own basic packages.</span><br><span class="line"># This includes the debian-installer and the kali-linux-top10 metapackage (commented out for brevity of build, uncomment if needed).</span><br><span class="line"></span><br><span class="line">cat &gt; config&#x2F;package-lists&#x2F;kali.list.chroot &lt;&lt; EOF</span><br><span class="line">kali-root-login</span><br><span class="line">kali-defaults</span><br><span class="line">kali-menu</span><br><span class="line">kali-debtags</span><br><span class="line">kali-archive-keyring</span><br><span class="line">debian-installer-launcher</span><br><span class="line">alsa-tools</span><br><span class="line">locales-all</span><br><span class="line">xorg</span><br><span class="line">#kali-linux-top10</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># Add the new Mate 1.8 as a Windows Manager.</span><br><span class="line"># We instruct live-build to add external MATE repositories and add relevant keys.</span><br><span class="line"># Taken from http:&#x2F;&#x2F;wiki.mate-desktop.org&#x2F;download</span><br><span class="line"></span><br><span class="line">mkdir -p config&#x2F;archives&#x2F;</span><br><span class="line">echo &quot;deb http:&#x2F;&#x2F;repo.mate-desktop.org&#x2F;archive&#x2F;1.8&#x2F;debian&#x2F; wheezy main&quot; &gt; config&#x2F;archives&#x2F;mate.list.chroot</span><br><span class="line">wget http:&#x2F;&#x2F;mirror1.mate-desktop.org&#x2F;debian&#x2F;mate-archive-keyring.gpg -O config&#x2F;archives&#x2F;mate.key.chroot</span><br><span class="line"></span><br><span class="line"># We download a wallpaper and overlay it.</span><br><span class="line"></span><br><span class="line">mkdir -p config&#x2F;includes.chroot&#x2F;usr&#x2F;share&#x2F;wallpapers&#x2F;kali&#x2F;contents&#x2F;images</span><br><span class="line">wget http:&#x2F;&#x2F;1hdwallpapers.com&#x2F;wallpapers&#x2F;kali_linux.jpg</span><br><span class="line">mv kali_linux.jpg config&#x2F;includes.chroot&#x2F;usr&#x2F;share&#x2F;wallpapers&#x2F;kali&#x2F;contents&#x2F;images</span><br><span class="line"></span><br><span class="line"># We add a chroot hook to add the MATE archive-keyring, and install MATE. </span><br><span class="line"># We even configure some of the terminal settings and wallpaper.</span><br><span class="line"></span><br><span class="line">cat &gt; config&#x2F;hooks&#x2F;mate.chroot&lt;&lt; EOF</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">wget http:&#x2F;&#x2F;mirror1.mate-desktop.org&#x2F;debian&#x2F;mate-archive-keyring.gpg</span><br><span class="line">apt-key add mate-archive-keyring.gpg</span><br><span class="line">rm -rf mate-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line">apt-get --yes --force-yes --quiet --allow-unauthenticated install mate-core mate-desktop-environment-extra</span><br><span class="line"></span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.background picture-filename &#39;&#x2F;usr&#x2F;share&#x2F;wallpapers&#x2F;kali&#x2F;contents&#x2F;images&#x2F;kali_linux.jpg&#39;</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.interface gtk-theme &#39;BlackMATE&#39;</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.interface icon-theme &#39;mate&#39;</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.terminal.profile:&#x2F;org&#x2F;mate&#x2F;terminal&#x2F;profiles&#x2F;default&#x2F; background-darkness 0.86</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.terminal.profile:&#x2F;org&#x2F;mate&#x2F;terminal&#x2F;profiles&#x2F;default&#x2F; background-type &#39;transparent&#39;</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.terminal.profile:&#x2F;org&#x2F;mate&#x2F;terminal&#x2F;profiles&#x2F;default&#x2F; background-color &#39;#FFFFFFFFDDDD&#39;</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.terminal.profile:&#x2F;org&#x2F;mate&#x2F;terminal&#x2F;profiles&#x2F;default&#x2F; scrollback-unlimited true</span><br><span class="line"></span><br><span class="line">cp -rf &#x2F;root&#x2F;.config &#x2F;etc&#x2F;skel&#x2F;</span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># We modify the default Kali preseed which disables normal user creation. </span><br><span class="line"># We copied this from the debian installer package we initially downloaded.</span><br><span class="line"></span><br><span class="line">mkdir -p config&#x2F;debian-installer</span><br><span class="line">cp ..&#x2F;debian-installer-*&#x2F;build&#x2F;preseed.cfg config&#x2F;debian-installer&#x2F;</span><br><span class="line">sed -i &#39;s&#x2F;make-user boolean false&#x2F;make-user boolean true&#x2F;&#39; config&#x2F;debian-installer&#x2F;preseed.cfg</span><br><span class="line">echo &quot;d-i passwd&#x2F;root-login boolean false&quot; &gt;&gt; config&#x2F;debian-installer&#x2F;preseed.cfg</span><br><span class="line"></span><br><span class="line"># Go ahead and run the build!</span><br><span class="line">lb build</span><br></pre></td></tr></table></figure>
+    <title>kali-dojo-defcon-2017</title>
+    <url>/archives/44255abf.html</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">apt-get upgrade</span><br><span class="line"></span><br><span class="line">apt install -y git live-build cdebootstrap curl</span><br><span class="line"></span><br><span class="line">git clone https:&#x2F;&#x2F;gitlab.com&#x2F;kalilinux&#x2F;live-build-config.git</span><br><span class="line"></span><br><span class="line">cd live-build-config</span><br><span class="line">echo cryptsetup &gt; kali-config&#x2F;variant-default&#x2F;package-lists&#x2F;kali.list.chroot</span><br><span class="line">echo openssh-server &gt;&gt; kali-config&#x2F;variant-default&#x2F;package-lists&#x2F;kali.list.chroot</span><br><span class="line">echo nmap &gt;&gt; kali-config&#x2F;variant-default&#x2F;package-lists&#x2F;kali.list.chroot</span><br><span class="line"></span><br><span class="line">mkdir -p kali-config&#x2F;common&#x2F;includes.chroot&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;</span><br><span class="line"></span><br><span class="line">cat &lt;&lt; EOF &gt; kali-config&#x2F;common&#x2F;includes.chroot&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;angela.service</span><br><span class="line">[Unit]</span><br><span class="line">Description&#x3D;Start Custom Script</span><br><span class="line">After&#x3D;multi-user.target</span><br><span class="line"> </span><br><span class="line">[Service]</span><br><span class="line">Type&#x3D;idle</span><br><span class="line">ExecStart&#x3D;&#x2F;bin&#x2F;bash &#x2F;usr&#x2F;bin&#x2F;startssh</span><br><span class="line"> </span><br><span class="line">[Install]</span><br><span class="line">WantedBy&#x3D;multi-user.target</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">mkdir -p kali-config&#x2F;common&#x2F;includes.chroot&#x2F;usr&#x2F;bin&#x2F;</span><br><span class="line"></span><br><span class="line">cat &lt;&lt; EOF &gt; kali-config&#x2F;common&#x2F;includes.chroot&#x2F;usr&#x2F;bin&#x2F;startssh</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo hola &gt; &#x2F;root&#x2F;test.txt</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &lt;&lt; EOF &gt; kali-config&#x2F;common&#x2F;hooks&#x2F;live&#x2F;angela.chroot</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">systemctl enable angela.service || true</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">chmod 755 kali-config&#x2F;common&#x2F;hooks&#x2F;live&#x2F;angela.chroot</span><br><span class="line"></span><br><span class="line">mkdir -p kali-config&#x2F;common&#x2F;includes.installer</span><br><span class="line">wget https:&#x2F;&#x2F;www.kali.org&#x2F;dojo&#x2F;preseed.cfg -O .&#x2F;kali-config&#x2F;common&#x2F;includes.installer&#x2F;preseed.cfg</span><br><span class="line"></span><br><span class="line">cat &lt;&lt; EOF &gt; kali-config&#x2F;common&#x2F;includes.binary&#x2F;isolinux&#x2F;install.cfg</span><br><span class="line">label install</span><br><span class="line">menu label ^Install Automated</span><br><span class="line">linux &#x2F;install&#x2F;vmlinuz</span><br><span class="line">initrd &#x2F;install&#x2F;initrd.gz</span><br><span class="line">append vga&#x3D;788 -- quiet file&#x3D;&#x2F;cdrom&#x2F;install&#x2F;preseed.cfg locale&#x3D;en_US keymap&#x3D;us hostname&#x3D;kali domain&#x3D;local.lan</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">ssh-keygen -f &#x2F;root&#x2F;.ssh&#x2F;id_rsa -t rsa -N &#39;&#39; # optional if you&#39;ve already done it!</span><br><span class="line"></span><br><span class="line">mkdir -p kali-config&#x2F;common&#x2F;includes.chroot&#x2F;root&#x2F;.ssh&#x2F;</span><br><span class="line"></span><br><span class="line">cat &#x2F;root&#x2F;.ssh&#x2F;id_rsa.pub &gt; kali-config&#x2F;common&#x2F;includes.chroot&#x2F;root&#x2F;.ssh&#x2F;authorized_keys</span><br><span class="line"></span><br><span class="line">echo &#39;systemctl enable ssh&#39; &gt; kali-config&#x2F;common&#x2F;hooks&#x2F;01-start-ssh.chroot</span><br><span class="line"></span><br><span class="line">.&#x2F;build.sh --verbose</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>live-build</category>
+      </categories>
+      <tags>
+        <tag>live-build,kali</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>kali-linux-evil-access-point.sh</title>
+    <url>/archives/da66f02.html</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line"># Kali Linux ISO recipe for : Evil Access Point</span><br><span class="line">#########################################################################################</span><br><span class="line"># Desktop 	: None</span><br><span class="line"># Metapackages	: None</span><br><span class="line"># ISO size 	: 1.36 GB </span><br><span class="line"># Special notes	: Boots into an Access Point.</span><br><span class="line">#		: ppp0 and wlan0 hardcoded.</span><br><span class="line"># Background	: http:&#x2F;&#x2F;www.offensive-security.com&#x2F;kali-linux&#x2F;kali-linux-recipes&#x2F;</span><br><span class="line">#########################################################################################</span><br><span class="line"></span><br><span class="line"># Update and install dependencies</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">apt-get install git live-build cdebootstrap -y</span><br><span class="line"></span><br><span class="line"># Clone the default Kali live-build config.</span><br><span class="line"></span><br><span class="line">git clone https:&#x2F;&#x2F;gitlab.com&#x2F;kalilinux&#x2F;build-scripts&#x2F;live-build-config.git</span><br><span class="line"></span><br><span class="line"># Let&#39;s begin our customisations:</span><br><span class="line"></span><br><span class="line">cd live-build-config</span><br><span class="line"></span><br><span class="line"># The user doesn&#39;t need the kali-linux-full metapackage, we overwrite with our own basic packages.</span><br><span class="line">cat &lt;&lt;EOF &gt; config&#x2F;package-lists&#x2F;kali.list.chroot</span><br><span class="line"># kali meta-package depends on everything we want</span><br><span class="line">kali-root-login</span><br><span class="line">kali-defaults</span><br><span class="line">kali-debtags</span><br><span class="line">kali-archive-keyring</span><br><span class="line">debian-installer-launcher</span><br><span class="line">cryptsetup</span><br><span class="line">locales-all</span><br><span class="line">hostapd</span><br><span class="line">dnsmasq</span><br><span class="line">nginx</span><br><span class="line">wireless-tools</span><br><span class="line">iw</span><br><span class="line">aircrack-ng</span><br><span class="line">openssl</span><br><span class="line">sslsplit</span><br><span class="line">responder</span><br><span class="line">openssh-server</span><br><span class="line">openvpn</span><br><span class="line">nginx</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mkdir -p config&#x2F;includes.chroot&#x2F;etc&#x2F;hostapd</span><br><span class="line">mkdir -p config&#x2F;includes.chroot&#x2F;etc&#x2F;init.d</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt; config&#x2F;includes.chroot&#x2F;etc&#x2F;hostapd&#x2F;hostapd.conf</span><br><span class="line">interface&#x3D;wlan0</span><br><span class="line">driver&#x3D;nl80211</span><br><span class="line">ssid&#x3D;KaliFreeWifi</span><br><span class="line">channel&#x3D;1</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt; config&#x2F;includes.chroot&#x2F;etc&#x2F;dnsmasq.conf</span><br><span class="line">log-facility&#x3D;&#x2F;var&#x2F;log&#x2F;dnsmasq.log</span><br><span class="line">#address&#x3D;&#x2F;#&#x2F;10.0.0.1</span><br><span class="line">#address&#x3D;&#x2F;google.com&#x2F;10.0.0.1</span><br><span class="line">interface&#x3D;wlan0</span><br><span class="line">dhcp-range&#x3D;10.0.0.10,10.0.0.250,12h</span><br><span class="line">dhcp-option&#x3D;3,10.0.0.1</span><br><span class="line">dhcp-option&#x3D;6,10.0.0.1</span><br><span class="line">#no-resolv</span><br><span class="line">log-queries</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt;&gt; config&#x2F;includes.chroot&#x2F;etc&#x2F;iptables.rules </span><br><span class="line"># Generated by iptables-save v1.4.14 on Mon Jun  9 08:46:32 2014</span><br><span class="line">*nat</span><br><span class="line">:PREROUTING ACCEPT [0:0]</span><br><span class="line">:INPUT ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line">:POSTROUTING ACCEPT [0:0]</span><br><span class="line">-A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Mon Jun  9 08:46:32 2014</span><br><span class="line"># Generated by iptables-save v1.4.14 on Mon Jun  9 08:46:32 2014</span><br><span class="line">*filter</span><br><span class="line">:INPUT ACCEPT [0:0]</span><br><span class="line">:FORWARD ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line">-A FORWARD -i wlan0 -o eth0 -j ACCEPT</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Mon Jun  9 08:46:32 2014</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt; config&#x2F;includes.chroot&#x2F;etc&#x2F;rc.local</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">ifconfig wlan0 up</span><br><span class="line">ifconfig wlan0 10.0.0.1&#x2F;24</span><br><span class="line">iptables-restore &lt; &#x2F;etc&#x2F;iptables.rules</span><br><span class="line">echo &#39;1&#39; &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt;config&#x2F;hooks&#x2F;enableservices.chroot</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">update-rc.d nginx enable</span><br><span class="line">update-rc.d hostapd enable</span><br><span class="line">update-rc.d dnsmasq enable</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt;config&#x2F;hooks&#x2F;configurehostapd.chroot</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">sed -i &#39;s#^DAEMON_CONF&#x3D;.*#DAEMON_CONF&#x3D;&#x2F;etc&#x2F;hostapd&#x2F;hostapd.conf#&#39; &#x2F;etc&#x2F;init.d&#x2F;hostapd</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chmod 755 config&#x2F;hooks&#x2F;enableservices.chroot</span><br><span class="line">chmod 755 config&#x2F;hooks&#x2F;configurehostapd.chroot</span><br><span class="line">chmod 755 config&#x2F;includes.chroot&#x2F;etc&#x2F;rc.local </span><br><span class="line"></span><br><span class="line"># Go ahead and run the build!</span><br><span class="line">lb build</span><br></pre></td></tr></table></figure>
+
+
 
 <p>脚本地址：<a href="https://gitlab.com/kalilinux/recipes/live-build-config-examples/" target="_blank" rel="external nofollow noopener noreferrer">https://gitlab.com/kalilinux/recipes/live-build-config-examples/</a></p>
 ]]></content>
@@ -446,26 +461,11 @@
       </tags>
   </entry>
   <entry>
-    <title>kali-linux-evil-access-point.sh</title>
-    <url>/archives/da66f02.html</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line"># Kali Linux ISO recipe for : Evil Access Point</span><br><span class="line">#########################################################################################</span><br><span class="line"># Desktop 	: None</span><br><span class="line"># Metapackages	: None</span><br><span class="line"># ISO size 	: 1.36 GB </span><br><span class="line"># Special notes	: Boots into an Access Point.</span><br><span class="line">#		: ppp0 and wlan0 hardcoded.</span><br><span class="line"># Background	: http:&#x2F;&#x2F;www.offensive-security.com&#x2F;kali-linux&#x2F;kali-linux-recipes&#x2F;</span><br><span class="line">#########################################################################################</span><br><span class="line"></span><br><span class="line"># Update and install dependencies</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">apt-get install git live-build cdebootstrap -y</span><br><span class="line"></span><br><span class="line"># Clone the default Kali live-build config.</span><br><span class="line"></span><br><span class="line">git clone https:&#x2F;&#x2F;gitlab.com&#x2F;kalilinux&#x2F;build-scripts&#x2F;live-build-config.git</span><br><span class="line"></span><br><span class="line"># Let&#39;s begin our customisations:</span><br><span class="line"></span><br><span class="line">cd live-build-config</span><br><span class="line"></span><br><span class="line"># The user doesn&#39;t need the kali-linux-full metapackage, we overwrite with our own basic packages.</span><br><span class="line">cat &lt;&lt;EOF &gt; config&#x2F;package-lists&#x2F;kali.list.chroot</span><br><span class="line"># kali meta-package depends on everything we want</span><br><span class="line">kali-root-login</span><br><span class="line">kali-defaults</span><br><span class="line">kali-debtags</span><br><span class="line">kali-archive-keyring</span><br><span class="line">debian-installer-launcher</span><br><span class="line">cryptsetup</span><br><span class="line">locales-all</span><br><span class="line">hostapd</span><br><span class="line">dnsmasq</span><br><span class="line">nginx</span><br><span class="line">wireless-tools</span><br><span class="line">iw</span><br><span class="line">aircrack-ng</span><br><span class="line">openssl</span><br><span class="line">sslsplit</span><br><span class="line">responder</span><br><span class="line">openssh-server</span><br><span class="line">openvpn</span><br><span class="line">nginx</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mkdir -p config&#x2F;includes.chroot&#x2F;etc&#x2F;hostapd</span><br><span class="line">mkdir -p config&#x2F;includes.chroot&#x2F;etc&#x2F;init.d</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt; config&#x2F;includes.chroot&#x2F;etc&#x2F;hostapd&#x2F;hostapd.conf</span><br><span class="line">interface&#x3D;wlan0</span><br><span class="line">driver&#x3D;nl80211</span><br><span class="line">ssid&#x3D;KaliFreeWifi</span><br><span class="line">channel&#x3D;1</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt; config&#x2F;includes.chroot&#x2F;etc&#x2F;dnsmasq.conf</span><br><span class="line">log-facility&#x3D;&#x2F;var&#x2F;log&#x2F;dnsmasq.log</span><br><span class="line">#address&#x3D;&#x2F;#&#x2F;10.0.0.1</span><br><span class="line">#address&#x3D;&#x2F;google.com&#x2F;10.0.0.1</span><br><span class="line">interface&#x3D;wlan0</span><br><span class="line">dhcp-range&#x3D;10.0.0.10,10.0.0.250,12h</span><br><span class="line">dhcp-option&#x3D;3,10.0.0.1</span><br><span class="line">dhcp-option&#x3D;6,10.0.0.1</span><br><span class="line">#no-resolv</span><br><span class="line">log-queries</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt;&gt; config&#x2F;includes.chroot&#x2F;etc&#x2F;iptables.rules </span><br><span class="line"># Generated by iptables-save v1.4.14 on Mon Jun  9 08:46:32 2014</span><br><span class="line">*nat</span><br><span class="line">:PREROUTING ACCEPT [0:0]</span><br><span class="line">:INPUT ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line">:POSTROUTING ACCEPT [0:0]</span><br><span class="line">-A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Mon Jun  9 08:46:32 2014</span><br><span class="line"># Generated by iptables-save v1.4.14 on Mon Jun  9 08:46:32 2014</span><br><span class="line">*filter</span><br><span class="line">:INPUT ACCEPT [0:0]</span><br><span class="line">:FORWARD ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line">-A FORWARD -i wlan0 -o eth0 -j ACCEPT</span><br><span class="line">COMMIT</span><br><span class="line"># Completed on Mon Jun  9 08:46:32 2014</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt; config&#x2F;includes.chroot&#x2F;etc&#x2F;rc.local</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">ifconfig wlan0 up</span><br><span class="line">ifconfig wlan0 10.0.0.1&#x2F;24</span><br><span class="line">iptables-restore &lt; &#x2F;etc&#x2F;iptables.rules</span><br><span class="line">echo &#39;1&#39; &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt;config&#x2F;hooks&#x2F;enableservices.chroot</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">update-rc.d nginx enable</span><br><span class="line">update-rc.d hostapd enable</span><br><span class="line">update-rc.d dnsmasq enable</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cat &lt;&lt;EOF &gt;config&#x2F;hooks&#x2F;configurehostapd.chroot</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">sed -i &#39;s#^DAEMON_CONF&#x3D;.*#DAEMON_CONF&#x3D;&#x2F;etc&#x2F;hostapd&#x2F;hostapd.conf#&#39; &#x2F;etc&#x2F;init.d&#x2F;hostapd</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">chmod 755 config&#x2F;hooks&#x2F;enableservices.chroot</span><br><span class="line">chmod 755 config&#x2F;hooks&#x2F;configurehostapd.chroot</span><br><span class="line">chmod 755 config&#x2F;includes.chroot&#x2F;etc&#x2F;rc.local </span><br><span class="line"></span><br><span class="line"># Go ahead and run the build!</span><br><span class="line">lb build</span><br></pre></td></tr></table></figure>
-
-
+    <title>kali-linux-mate-top10-nonroot.sh</title>
+    <url>/archives/fa25fe82.html</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line"># Kali Linux ISO recipe for : Top 10 Mate non-root</span><br><span class="line">#########################################################################################</span><br><span class="line"># Desktop 	: Mate 1.8</span><br><span class="line"># Metapackages	: kali-linux-top10</span><br><span class="line"># ISO size 	: 1.36 GB </span><br><span class="line"># Special notes	: Non root user installation enabled through preseed.cfg. </span><br><span class="line">#		: This script is not meant to run unattended.</span><br><span class="line"># Look and Feel	: Custom wallpaper and terminal configs through post install hooks.</span><br><span class="line"># Background	: http:&#x2F;&#x2F;www.offensive-security.com&#x2F;kali-linux&#x2F;kali-linux-recipes&#x2F;</span><br><span class="line">#########################################################################################</span><br><span class="line"></span><br><span class="line"># Update and install dependencies</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">apt-get install git live-build cdebootstrap devscripts -y</span><br><span class="line"></span><br><span class="line"># Clone the default Kali live-build config.</span><br><span class="line"></span><br><span class="line">git clone https:&#x2F;&#x2F;gitlab.com&#x2F;kalilinux&#x2F;build-scripts&#x2F;live-build-config.git</span><br><span class="line"></span><br><span class="line"># Get the source package of the debian installer. </span><br><span class="line"># The default Kali preseed file lives here, and will need changing for non-root user support.</span><br><span class="line"></span><br><span class="line">apt-get source debian-installer</span><br><span class="line"></span><br><span class="line"># Let&#39;s begin our customisations:</span><br><span class="line"></span><br><span class="line">cd live-build-config</span><br><span class="line"></span><br><span class="line"># The user doesn&#39;t need the kali-linux-full metapackage, we overwrite with our own basic packages.</span><br><span class="line"># This includes the debian-installer and the kali-linux-top10 metapackage (commented out for brevity of build, uncomment if needed).</span><br><span class="line"></span><br><span class="line">cat &gt; config&#x2F;package-lists&#x2F;kali.list.chroot &lt;&lt; EOF</span><br><span class="line">kali-root-login</span><br><span class="line">kali-defaults</span><br><span class="line">kali-menu</span><br><span class="line">kali-debtags</span><br><span class="line">kali-archive-keyring</span><br><span class="line">debian-installer-launcher</span><br><span class="line">alsa-tools</span><br><span class="line">locales-all</span><br><span class="line">xorg</span><br><span class="line">#kali-linux-top10</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># Add the new Mate 1.8 as a Windows Manager.</span><br><span class="line"># We instruct live-build to add external MATE repositories and add relevant keys.</span><br><span class="line"># Taken from http:&#x2F;&#x2F;wiki.mate-desktop.org&#x2F;download</span><br><span class="line"></span><br><span class="line">mkdir -p config&#x2F;archives&#x2F;</span><br><span class="line">echo &quot;deb http:&#x2F;&#x2F;repo.mate-desktop.org&#x2F;archive&#x2F;1.8&#x2F;debian&#x2F; wheezy main&quot; &gt; config&#x2F;archives&#x2F;mate.list.chroot</span><br><span class="line">wget http:&#x2F;&#x2F;mirror1.mate-desktop.org&#x2F;debian&#x2F;mate-archive-keyring.gpg -O config&#x2F;archives&#x2F;mate.key.chroot</span><br><span class="line"></span><br><span class="line"># We download a wallpaper and overlay it.</span><br><span class="line"></span><br><span class="line">mkdir -p config&#x2F;includes.chroot&#x2F;usr&#x2F;share&#x2F;wallpapers&#x2F;kali&#x2F;contents&#x2F;images</span><br><span class="line">wget http:&#x2F;&#x2F;1hdwallpapers.com&#x2F;wallpapers&#x2F;kali_linux.jpg</span><br><span class="line">mv kali_linux.jpg config&#x2F;includes.chroot&#x2F;usr&#x2F;share&#x2F;wallpapers&#x2F;kali&#x2F;contents&#x2F;images</span><br><span class="line"></span><br><span class="line"># We add a chroot hook to add the MATE archive-keyring, and install MATE. </span><br><span class="line"># We even configure some of the terminal settings and wallpaper.</span><br><span class="line"></span><br><span class="line">cat &gt; config&#x2F;hooks&#x2F;mate.chroot&lt;&lt; EOF</span><br><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">wget http:&#x2F;&#x2F;mirror1.mate-desktop.org&#x2F;debian&#x2F;mate-archive-keyring.gpg</span><br><span class="line">apt-key add mate-archive-keyring.gpg</span><br><span class="line">rm -rf mate-archive-keyring.gpg</span><br><span class="line"></span><br><span class="line">apt-get --yes --force-yes --quiet --allow-unauthenticated install mate-core mate-desktop-environment-extra</span><br><span class="line"></span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.background picture-filename &#39;&#x2F;usr&#x2F;share&#x2F;wallpapers&#x2F;kali&#x2F;contents&#x2F;images&#x2F;kali_linux.jpg&#39;</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.interface gtk-theme &#39;BlackMATE&#39;</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.interface icon-theme &#39;mate&#39;</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.terminal.profile:&#x2F;org&#x2F;mate&#x2F;terminal&#x2F;profiles&#x2F;default&#x2F; background-darkness 0.86</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.terminal.profile:&#x2F;org&#x2F;mate&#x2F;terminal&#x2F;profiles&#x2F;default&#x2F; background-type &#39;transparent&#39;</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.terminal.profile:&#x2F;org&#x2F;mate&#x2F;terminal&#x2F;profiles&#x2F;default&#x2F; background-color &#39;#FFFFFFFFDDDD&#39;</span><br><span class="line">dbus-launch --exit-with-session gsettings set org.mate.terminal.profile:&#x2F;org&#x2F;mate&#x2F;terminal&#x2F;profiles&#x2F;default&#x2F; scrollback-unlimited true</span><br><span class="line"></span><br><span class="line">cp -rf &#x2F;root&#x2F;.config &#x2F;etc&#x2F;skel&#x2F;</span><br><span class="line"></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># We modify the default Kali preseed which disables normal user creation. </span><br><span class="line"># We copied this from the debian installer package we initially downloaded.</span><br><span class="line"></span><br><span class="line">mkdir -p config&#x2F;debian-installer</span><br><span class="line">cp ..&#x2F;debian-installer-*&#x2F;build&#x2F;preseed.cfg config&#x2F;debian-installer&#x2F;</span><br><span class="line">sed -i &#39;s&#x2F;make-user boolean false&#x2F;make-user boolean true&#x2F;&#39; config&#x2F;debian-installer&#x2F;preseed.cfg</span><br><span class="line">echo &quot;d-i passwd&#x2F;root-login boolean false&quot; &gt;&gt; config&#x2F;debian-installer&#x2F;preseed.cfg</span><br><span class="line"></span><br><span class="line"># Go ahead and run the build!</span><br><span class="line">lb build</span><br></pre></td></tr></table></figure>
 
 <p>脚本地址：<a href="https://gitlab.com/kalilinux/recipes/live-build-config-examples/" target="_blank" rel="external nofollow noopener noreferrer">https://gitlab.com/kalilinux/recipes/live-build-config-examples/</a></p>
-]]></content>
-      <categories>
-        <category>live-build</category>
-      </categories>
-      <tags>
-        <tag>live-build,kali</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kali-dojo-defcon-2017</title>
-    <url>/archives/44255abf.html</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line">apt-get upgrade</span><br><span class="line"></span><br><span class="line">apt install -y git live-build cdebootstrap curl</span><br><span class="line"></span><br><span class="line">git clone https:&#x2F;&#x2F;gitlab.com&#x2F;kalilinux&#x2F;live-build-config.git</span><br><span class="line"></span><br><span class="line">cd live-build-config</span><br><span class="line">echo cryptsetup &gt; kali-config&#x2F;variant-default&#x2F;package-lists&#x2F;kali.list.chroot</span><br><span class="line">echo openssh-server &gt;&gt; kali-config&#x2F;variant-default&#x2F;package-lists&#x2F;kali.list.chroot</span><br><span class="line">echo nmap &gt;&gt; kali-config&#x2F;variant-default&#x2F;package-lists&#x2F;kali.list.chroot</span><br><span class="line"></span><br><span class="line">mkdir -p kali-config&#x2F;common&#x2F;includes.chroot&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;</span><br><span class="line"></span><br><span class="line">cat &lt;&lt; EOF &gt; kali-config&#x2F;common&#x2F;includes.chroot&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;angela.service</span><br><span class="line">[Unit]</span><br><span class="line">Description&#x3D;Start Custom Script</span><br><span class="line">After&#x3D;multi-user.target</span><br><span class="line"> </span><br><span class="line">[Service]</span><br><span class="line">Type&#x3D;idle</span><br><span class="line">ExecStart&#x3D;&#x2F;bin&#x2F;bash &#x2F;usr&#x2F;bin&#x2F;startssh</span><br><span class="line"> </span><br><span class="line">[Install]</span><br><span class="line">WantedBy&#x3D;multi-user.target</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">mkdir -p kali-config&#x2F;common&#x2F;includes.chroot&#x2F;usr&#x2F;bin&#x2F;</span><br><span class="line"></span><br><span class="line">cat &lt;&lt; EOF &gt; kali-config&#x2F;common&#x2F;includes.chroot&#x2F;usr&#x2F;bin&#x2F;startssh</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">echo hola &gt; &#x2F;root&#x2F;test.txt</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">cat &lt;&lt; EOF &gt; kali-config&#x2F;common&#x2F;hooks&#x2F;live&#x2F;angela.chroot</span><br><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">systemctl enable angela.service || true</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">chmod 755 kali-config&#x2F;common&#x2F;hooks&#x2F;live&#x2F;angela.chroot</span><br><span class="line"></span><br><span class="line">mkdir -p kali-config&#x2F;common&#x2F;includes.installer</span><br><span class="line">wget https:&#x2F;&#x2F;www.kali.org&#x2F;dojo&#x2F;preseed.cfg -O .&#x2F;kali-config&#x2F;common&#x2F;includes.installer&#x2F;preseed.cfg</span><br><span class="line"></span><br><span class="line">cat &lt;&lt; EOF &gt; kali-config&#x2F;common&#x2F;includes.binary&#x2F;isolinux&#x2F;install.cfg</span><br><span class="line">label install</span><br><span class="line">menu label ^Install Automated</span><br><span class="line">linux &#x2F;install&#x2F;vmlinuz</span><br><span class="line">initrd &#x2F;install&#x2F;initrd.gz</span><br><span class="line">append vga&#x3D;788 -- quiet file&#x3D;&#x2F;cdrom&#x2F;install&#x2F;preseed.cfg locale&#x3D;en_US keymap&#x3D;us hostname&#x3D;kali domain&#x3D;local.lan</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">ssh-keygen -f &#x2F;root&#x2F;.ssh&#x2F;id_rsa -t rsa -N &#39;&#39; # optional if you&#39;ve already done it!</span><br><span class="line"></span><br><span class="line">mkdir -p kali-config&#x2F;common&#x2F;includes.chroot&#x2F;root&#x2F;.ssh&#x2F;</span><br><span class="line"></span><br><span class="line">cat &#x2F;root&#x2F;.ssh&#x2F;id_rsa.pub &gt; kali-config&#x2F;common&#x2F;includes.chroot&#x2F;root&#x2F;.ssh&#x2F;authorized_keys</span><br><span class="line"></span><br><span class="line">echo &#39;systemctl enable ssh&#39; &gt; kali-config&#x2F;common&#x2F;hooks&#x2F;01-start-ssh.chroot</span><br><span class="line"></span><br><span class="line">.&#x2F;build.sh --verbose</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>live-build</category>
@@ -1083,91 +1083,6 @@
       </tags>
   </entry>
   <entry>
-    <title>将自定义Debian安装到硬盘</title>
-    <url>/archives/b4ad7c54.html</url>
-    <content><![CDATA[<h1 id="将自定义Debian安装到硬盘"><a href="#将自定义Debian安装到硬盘" class="headerlink" title="将自定义Debian安装到硬盘"></a>将自定义Debian安装到硬盘</h1><p>Debian提供的库存Debian安装程序非常棒。它直观，简单。但是，如果出于某种原因（特定配置，计算机部署，最小映像）想要自定义安装，则可以使用以下步骤来完成。</p>
-<p>为此，我们将需要任何基于Debian的实时CD。您可以使用我的指南来<a href="https://willhaley.com/blog/custom-debian-live-environment/" target="_blank" rel="external nofollow noopener noreferrer">创建自定义的Debian Live CD或USB</a>来生成该文件，也可以仅使用Ubuntu或Debian Live CD或USB。</p>
-<p>使用自定义实时环境的优势在于您可以将所需工具打包在实时环境中，以便它们始终可用。如果您使用库存的Ubuntu或Debian Live CD，则可能需要网络连接才能安装所需的工具。</p>
-<p><strong>警告</strong>：我已<strong>突出显示</strong>您应该在目标安装chroot中的所有位置。</p>
-<ol>
-<li><p>使用实时CD或USB引导计算机并安装必要的工具（假设它们尚不可用）。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install debootstrap</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>确定要在其中安装自定义Debian的设备。</p>
-<p>我假设您打算使用的硬盘位于<code>/dev/sdz</code>，您只希望该磁盘上有一个分区，并且希望将MBR与grub2一起使用。</p>
-<p>您<strong>必须</strong>替换的任何实例<code>/dev/sdz</code>与同位置在这些步骤中<strong>您的</strong>硬盘驱动器或会不小心丢失数据。</p>
-</li>
-<li><p>用一个可引导的Linux分区创建一个MBR表。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo -e &quot;o\nn\np\n1\n\n\nw&quot; | sudo fdisk &#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo -e &quot;a\nw\n&quot; | sudo fdisk &#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>格式化分区。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkfs.ext4 &#x2F;dev&#x2F;sdz1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果安装点尚不存在，请创建一个。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;mnt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>挂载分区。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount &#x2F;dev&#x2F;sdz1 &#x2F;mnt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置基本的Debian安装。我在我的发行版中使用Stretch，在架构上使用i386。如果您不在美国，或者您知道更近的镜子，请更换镜子。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo debootstrap \</span><br><span class="line">    --arch&#x3D;i386 \</span><br><span class="line">    --variant&#x3D;minbase \</span><br><span class="line">    stretch &#x2F;mnt http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>绑定<code>/dev</code>并<code>/proc</code>从主机到chroot。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -o bind &#x2F;dev &#x2F;mnt&#x2F;dev</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -t proc &#x2F;proc &#x2F;mnt&#x2F;proc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Chroot到我们的Debian安装。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chroot &#x2F;mnt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>chroot</strong></p>
-<p>找出要在安装中使用的Linux内核。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-cache search linux-image</span><br></pre></td></tr></table></figure>
-
-<p>我选择了图像<code>linux-image-586</code>。<code>systemd-sys</code>（或等效项）是必须提供的<code>init</code>。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; \</span><br><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    linux-image-586 systemd-sysv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>chroot</strong></p>
-<p>安装您选择的程序。我使用<code>--no-install-recommends</code>以避免多余的程序包。您应该确定安装所需的内容。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    network-manager net-tools wireless-tools wpagui \</span><br><span class="line">    tcpdump wget openssh-client \</span><br><span class="line">    blackbox xserver-xorg-core xserver-xorg x11-xserver-utils \</span><br><span class="line">    xinit xterm \</span><br><span class="line">    pciutils usbutils gparted nano</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>chroot</strong></p>
-<p>创建<code>/etc/fstab</code>用于安装的文件。</p>
-<p>我们可以使用类似的脚本来生成它。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UUID&#x3D;&#96;blkid -s UUID -o value &#x2F;dev&#x2F;sdz1&#96;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;UUID&#x3D;$&#123;UUID&#125; &#x2F; ext4 defaults 1 1&quot; &gt; &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>chroot</strong></p>
-<p>安装grub引导加载程序。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install grub2</span><br></pre></td></tr></table></figure>
-
-<p>出现提示时，请确保选择<code>/dev/sdz</code>（<strong>不是</strong> <code>/dev/sdz1</code>）作为<code>Grub install device</code>。</p>
-</li>
-<li><p><strong>chroot</strong></p>
-<p>设置root密码。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>chroot</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新启动您的Debian安装！</p>
-</li>
-</ol>
-<h2 id="原文地址："><a href="#原文地址：" class="headerlink" title="原文地址："></a>原文地址：</h2><ul>
-<li><a href="https://willhaley.com/blog/custom-debian-hard-drive-install/" target="_blank" rel="external nofollow noopener noreferrer">https://willhaley.com/blog/custom-debian-hard-drive-install/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>live-build</category>
-      </categories>
-      <tags>
-        <tag>live-build</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>将自定义Debian Live安装到USB驱动器 (img格式)</title>
     <url>/archives/19cdbd33.html</url>
     <content><![CDATA[<h1 id="将自定义Debian-Live安装到USB驱动器-img格式"><a href="#将自定义Debian-Live安装到USB驱动器-img格式" class="headerlink" title="将自定义Debian Live安装到USB驱动器 (img格式)"></a>将自定义Debian Live安装到USB驱动器 (img格式)</h1><p>这些说明<strong>不是</strong>用于实时安装，而是用于将Debian安装到USB闪存介质。</p>
@@ -1259,6 +1174,91 @@
 </ul>
 <h2 id="原文地址："><a href="#原文地址：" class="headerlink" title="原文地址："></a>原文地址：</h2><ul>
 <li><a href="https://willhaley.com/blog/install-debian-usb/" target="_blank" rel="external nofollow noopener noreferrer">https://willhaley.com/blog/install-debian-usb/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>live-build</category>
+      </categories>
+      <tags>
+        <tag>live-build</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>将自定义Debian安装到硬盘</title>
+    <url>/archives/b4ad7c54.html</url>
+    <content><![CDATA[<h1 id="将自定义Debian安装到硬盘"><a href="#将自定义Debian安装到硬盘" class="headerlink" title="将自定义Debian安装到硬盘"></a>将自定义Debian安装到硬盘</h1><p>Debian提供的库存Debian安装程序非常棒。它直观，简单。但是，如果出于某种原因（特定配置，计算机部署，最小映像）想要自定义安装，则可以使用以下步骤来完成。</p>
+<p>为此，我们将需要任何基于Debian的实时CD。您可以使用我的指南来<a href="https://willhaley.com/blog/custom-debian-live-environment/" target="_blank" rel="external nofollow noopener noreferrer">创建自定义的Debian Live CD或USB</a>来生成该文件，也可以仅使用Ubuntu或Debian Live CD或USB。</p>
+<p>使用自定义实时环境的优势在于您可以将所需工具打包在实时环境中，以便它们始终可用。如果您使用库存的Ubuntu或Debian Live CD，则可能需要网络连接才能安装所需的工具。</p>
+<p><strong>警告</strong>：我已<strong>突出显示</strong>您应该在目标安装chroot中的所有位置。</p>
+<ol>
+<li><p>使用实时CD或USB引导计算机并安装必要的工具（假设它们尚不可用）。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install debootstrap</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确定要在其中安装自定义Debian的设备。</p>
+<p>我假设您打算使用的硬盘位于<code>/dev/sdz</code>，您只希望该磁盘上有一个分区，并且希望将MBR与grub2一起使用。</p>
+<p>您<strong>必须</strong>替换的任何实例<code>/dev/sdz</code>与同位置在这些步骤中<strong>您的</strong>硬盘驱动器或会不小心丢失数据。</p>
+</li>
+<li><p>用一个可引导的Linux分区创建一个MBR表。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo -e &quot;o\nn\np\n1\n\n\nw&quot; | sudo fdisk &#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo -e &quot;a\nw\n&quot; | sudo fdisk &#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式化分区。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkfs.ext4 &#x2F;dev&#x2F;sdz1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果安装点尚不存在，请创建一个。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;mnt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>挂载分区。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount &#x2F;dev&#x2F;sdz1 &#x2F;mnt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置基本的Debian安装。我在我的发行版中使用Stretch，在架构上使用i386。如果您不在美国，或者您知道更近的镜子，请更换镜子。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo debootstrap \</span><br><span class="line">    --arch&#x3D;i386 \</span><br><span class="line">    --variant&#x3D;minbase \</span><br><span class="line">    stretch &#x2F;mnt http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绑定<code>/dev</code>并<code>/proc</code>从主机到chroot。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -o bind &#x2F;dev &#x2F;mnt&#x2F;dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -t proc &#x2F;proc &#x2F;mnt&#x2F;proc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Chroot到我们的Debian安装。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chroot &#x2F;mnt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>chroot</strong></p>
+<p>找出要在安装中使用的Linux内核。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-cache search linux-image</span><br></pre></td></tr></table></figure>
+
+<p>我选择了图像<code>linux-image-586</code>。<code>systemd-sys</code>（或等效项）是必须提供的<code>init</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; \</span><br><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    linux-image-586 systemd-sysv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>chroot</strong></p>
+<p>安装您选择的程序。我使用<code>--no-install-recommends</code>以避免多余的程序包。您应该确定安装所需的内容。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    network-manager net-tools wireless-tools wpagui \</span><br><span class="line">    tcpdump wget openssh-client \</span><br><span class="line">    blackbox xserver-xorg-core xserver-xorg x11-xserver-utils \</span><br><span class="line">    xinit xterm \</span><br><span class="line">    pciutils usbutils gparted nano</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>chroot</strong></p>
+<p>创建<code>/etc/fstab</code>用于安装的文件。</p>
+<p>我们可以使用类似的脚本来生成它。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UUID&#x3D;&#96;blkid -s UUID -o value &#x2F;dev&#x2F;sdz1&#96;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;UUID&#x3D;$&#123;UUID&#125; &#x2F; ext4 defaults 1 1&quot; &gt; &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>chroot</strong></p>
+<p>安装grub引导加载程序。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install grub2</span><br></pre></td></tr></table></figure>
+
+<p>出现提示时，请确保选择<code>/dev/sdz</code>（<strong>不是</strong> <code>/dev/sdz1</code>）作为<code>Grub install device</code>。</p>
+</li>
+<li><p><strong>chroot</strong></p>
+<p>设置root密码。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>chroot</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新启动您的Debian安装！</p>
+</li>
+</ol>
+<h2 id="原文地址："><a href="#原文地址：" class="headerlink" title="原文地址："></a>原文地址：</h2><ul>
+<li><a href="https://willhaley.com/blog/custom-debian-hard-drive-install/" target="_blank" rel="external nofollow noopener noreferrer">https://willhaley.com/blog/custom-debian-hard-drive-install/</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -1529,6 +1529,45 @@
         <tag>kali</tag>
         <tag>live-build</tag>
         <tag>debian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>重建源程序包</title>
+    <url>/archives/21215.html</url>
+    <content><![CDATA[<p>Kali Linux <a href="https://www.kali.org/docs/development/live-build-a-custom-kali-iso/" target="_blank" rel="external nofollow noopener noreferrer">易于在每个软件包级别进行自定义</a>，并且对单个<a href="http://pkg.kali.org/" target="_blank" rel="external nofollow noopener noreferrer">软件包</a>进行修改并从其源代码重建它们以包含在自定义ISO或桌面安装中也很简单。</p>
+<p>完成此过程很简单，只需三个步骤：</p>
+<ul>
+<li>使用<strong>apt</strong>提取软件包源</li>
+<li>根据需要修改它们</li>
+<li>使用Debian工具重建软件包。</li>
+</ul>
+<p>在此示例中，我们将重建<a href="https://github.com/nfc-tools/libfreefare" target="_blank" rel="external nofollow noopener noreferrer">libfreefare</a>软件包，以便将一些额外的硬编码Mifare访问密钥添加到mifare格式的工具中。</p>
+<p>在进行其他操作之前，请确保未注释掉该<code>deb-src</code>行<code>/etc/apt/sources.list</code>。</p>
+<h2 id="下载包源"><a href="#下载包源" class="headerlink" title="下载包源"></a>下载包源</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Get the source package</span><br><span class="line">apt update</span><br><span class="line">apt-get source libfreefare</span><br><span class="line">cd libfreefare-0.4.0&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编辑包源代码"><a href="#编辑包源代码" class="headerlink" title="编辑包源代码"></a>编辑包源代码</h2><p>对程序包的源代码进行所需的更改。在本例中，我们修改了示例文件mifare-classic-format.c。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">nano examples/mifare-classic-format.c</span><br></pre></td></tr></table></figure>
+
+<h2 id="检查构建依赖关系"><a href="#检查构建依赖关系" class="headerlink" title="检查构建依赖关系"></a>检查构建依赖关系</h2><p>检查软件包可能具有的任何构建依赖项。必须先安装这些工具，然后才能构建软件包。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">dpkg-checkbuilddeps</span><br></pre></td></tr></table></figure>
+
+<p>输出应类似于以下内容，具体取决于您已经安装了哪些软件包。如果<strong>dpkg-checkbuilddeps不</strong>返回任何输出，则意味着您可以继续进行构建，所有依赖项都已满足。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">dpkg-checkbuilddeps: Unmet build dependencies:</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装构建依赖项"><a href="#安装构建依赖项" class="headerlink" title="安装构建依赖项"></a>安装构建依赖项</h2><p>如果需要，请安装所有构建依赖项，如<strong>dpkg-checkbuilddeps</strong>的输出所示：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">apt install dh-autoreconf libnfc-dev libssl-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="构建修改后的程序包"><a href="#构建修改后的程序包" class="headerlink" title="构建修改后的程序包"></a>构建修改后的程序包</h2><p>安装了所有依赖项之后，<strong>dpkg-buildpackage</strong>命令就可以构建新版本。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装新软件包"><a href="#安装新软件包" class="headerlink" title="安装新软件包"></a>安装新软件包</h2><p>如果构建顺利完成，则可以使用<strong>dpkg</strong>安装新创建的软件包。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">dpkg -i ../libfreefare*.deb</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>kali</tag>
       </tags>
   </entry>
   <entry>
@@ -1844,45 +1883,6 @@
       </categories>
       <tags>
         <tag>apt-get</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>重建源程序包</title>
-    <url>/archives/21215.html</url>
-    <content><![CDATA[<p>Kali Linux <a href="https://www.kali.org/docs/development/live-build-a-custom-kali-iso/" target="_blank" rel="external nofollow noopener noreferrer">易于在每个软件包级别进行自定义</a>，并且对单个<a href="http://pkg.kali.org/" target="_blank" rel="external nofollow noopener noreferrer">软件包</a>进行修改并从其源代码重建它们以包含在自定义ISO或桌面安装中也很简单。</p>
-<p>完成此过程很简单，只需三个步骤：</p>
-<ul>
-<li>使用<strong>apt</strong>提取软件包源</li>
-<li>根据需要修改它们</li>
-<li>使用Debian工具重建软件包。</li>
-</ul>
-<p>在此示例中，我们将重建<a href="https://github.com/nfc-tools/libfreefare" target="_blank" rel="external nofollow noopener noreferrer">libfreefare</a>软件包，以便将一些额外的硬编码Mifare访问密钥添加到mifare格式的工具中。</p>
-<p>在进行其他操作之前，请确保未注释掉该<code>deb-src</code>行<code>/etc/apt/sources.list</code>。</p>
-<h2 id="下载包源"><a href="#下载包源" class="headerlink" title="下载包源"></a>下载包源</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Get the source package</span><br><span class="line">apt update</span><br><span class="line">apt-get source libfreefare</span><br><span class="line">cd libfreefare-0.4.0&#x2F;</span><br></pre></td></tr></table></figure>
-
-<h2 id="编辑包源代码"><a href="#编辑包源代码" class="headerlink" title="编辑包源代码"></a>编辑包源代码</h2><p>对程序包的源代码进行所需的更改。在本例中，我们修改了示例文件mifare-classic-format.c。</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">nano examples/mifare-classic-format.c</span><br></pre></td></tr></table></figure>
-
-<h2 id="检查构建依赖关系"><a href="#检查构建依赖关系" class="headerlink" title="检查构建依赖关系"></a>检查构建依赖关系</h2><p>检查软件包可能具有的任何构建依赖项。必须先安装这些工具，然后才能构建软件包。</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">dpkg-checkbuilddeps</span><br></pre></td></tr></table></figure>
-
-<p>输出应类似于以下内容，具体取决于您已经安装了哪些软件包。如果<strong>dpkg-checkbuilddeps不</strong>返回任何输出，则意味着您可以继续进行构建，所有依赖项都已满足。</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">dpkg-checkbuilddeps: Unmet build dependencies:</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装构建依赖项"><a href="#安装构建依赖项" class="headerlink" title="安装构建依赖项"></a>安装构建依赖项</h2><p>如果需要，请安装所有构建依赖项，如<strong>dpkg-checkbuilddeps</strong>的输出所示：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">apt install dh-autoreconf libnfc-dev libssl-dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="构建修改后的程序包"><a href="#构建修改后的程序包" class="headerlink" title="构建修改后的程序包"></a>构建修改后的程序包</h2><p>安装了所有依赖项之后，<strong>dpkg-buildpackage</strong>命令就可以构建新版本。</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装新软件包"><a href="#安装新软件包" class="headerlink" title="安装新软件包"></a>安装新软件包</h2><p>如果构建顺利完成，则可以使用<strong>dpkg</strong>安装新创建的软件包。</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">dpkg -i ../libfreefare*.deb</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>kali</tag>
       </tags>
   </entry>
   <entry>
@@ -2761,7 +2761,7 @@
 <h3 id="参考式"><a href="#参考式" class="headerlink" title="参考式"></a>参考式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">常用的搜索引擎[Google][1],[Baidu][2],[example][]  </span><br><span class="line">[1]:https:&#x2F;&#x2F;www.google.com</span><br><span class="line">[2]:https:&#x2F;&#x2F;www.baidu.com </span><br><span class="line">[example]:https:&#x2F;&#x2F;www.example.com</span><br></pre></td></tr></table></figure>
 <p>效果：<br>常用的搜索引擎[Google][1],[Baidu][2],[example][]<br>[1]:<a href="https://www.google.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.google.com</a><br>[2]:<a href="https://www.baidu.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.baidu.com</a><br>[example]:<a href="https://www.example.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.example.com</a></p>
 <h3 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;http:&#x2F;&#x2F;example.com&gt; </span><br><span class="line">&lt;address@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p>效果：<a href="http://example.com" target="_blank" rel="external nofollow noopener noreferrer">http://example.com</a><br>效果：<a href="mailto:&#97;&#x64;&#100;&#x72;&#101;&#115;&#115;&#64;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#97;&#x64;&#100;&#x72;&#101;&#115;&#115;&#64;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<p>效果：<a href="http://example.com" target="_blank" rel="external nofollow noopener noreferrer">http://example.com</a><br>效果：<a href="mailto:&#x61;&#100;&#x64;&#114;&#x65;&#115;&#x73;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#x6d;">&#x61;&#100;&#x64;&#114;&#x65;&#115;&#x73;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#108;&#101;&#x2e;&#99;&#x6f;&#x6d;</a></p>
 <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>使用 <code>*，+，-</code> 表示无序列表 。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* 无序列表项   </span><br><span class="line">- 无序列表项  </span><br><span class="line">+ 无序列表项</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
