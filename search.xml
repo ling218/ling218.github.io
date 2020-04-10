@@ -1,6 +1,422 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>GitHub Build-live 项目收集</title>
+    <url>/archives/3311a575.html</url>
+    <content><![CDATA[<h1 id="GitHub-Build-live-项目收集"><a href="#GitHub-Build-live-项目收集" class="headerlink" title="GitHub Build-live 项目收集"></a>GitHub Build-live 项目收集</h1><h3 id="创建-Ubuntu-live-脚本"><a href="#创建-Ubuntu-live-脚本" class="headerlink" title="创建 Ubuntu live 脚本"></a>创建 Ubuntu live 脚本</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;RTXI&#x2F;live-image</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Debain-live-脚本-（基于-debian-live）"><a href="#构建-Debain-live-脚本-（基于-debian-live）" class="headerlink" title="构建 Debain live 脚本 （基于 debian live）"></a>构建 Debain live 脚本 （基于 debian live）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;s-vincent&#x2F;debian-live-image</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Debain-live-脚本-分步骤小脚本"><a href="#构建-Debain-live-脚本-分步骤小脚本" class="headerlink" title="构建 Debain live 脚本 (分步骤小脚本)"></a>构建 Debain live 脚本 (分步骤小脚本)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;dinooz&#x2F;devuanos</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-NIIX-LINUX-中文项目，项目完整度高"><a href="#构建-NIIX-LINUX-中文项目，项目完整度高" class="headerlink" title="构建 NIIX-LINUX (中文项目，项目完整度高)"></a>构建 NIIX-LINUX (中文项目，项目完整度高)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;etony&#x2F;niix-linux</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Debian-live-（非常完整的项目，没成功构建过）"><a href="#构建-Debian-live-（非常完整的项目，没成功构建过）" class="headerlink" title="构建 Debian live （非常完整的项目，没成功构建过）"></a>构建 Debian live （非常完整的项目，没成功构建过）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;nodiscc&#x2F;debian-live-config</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Debian-live-（非常完整的项目）"><a href="#构建-Debian-live-（非常完整的项目）" class="headerlink" title="构建 Debian live （非常完整的项目）"></a>构建 Debian live （非常完整的项目）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;StamusNetworks&#x2F;SELKS</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Debain-live-（日文项目，很好的项目）"><a href="#构建-Debain-live-（日文项目，很好的项目）" class="headerlink" title="构建 Debain live （日文项目，很好的项目）"></a>构建 Debain live （日文项目，很好的项目）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;homelith&#x2F;debian-live-custom</span><br></pre></td></tr></table></figure>
+
+<p>网站详情：<a href="https://qiita.com/homelith/items/f30a1fbac89dc977c1ff" target="_blank" rel="external nofollow noopener noreferrer">https://qiita.com/homelith/items/f30a1fbac89dc977c1ff</a></p>
+<h3 id="构建-Debian-live-（非常不错的项目）"><a href="#构建-Debian-live-（非常不错的项目）" class="headerlink" title="构建 Debian live （非常不错的项目）"></a>构建 Debian live （非常不错的项目）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;mafredri&#x2F;debian-my-live-build</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Minimal-linux-live-（研究linux系统基础）"><a href="#构建-Minimal-linux-live-（研究linux系统基础）" class="headerlink" title="构建 Minimal linux live （研究linux系统基础）"></a>构建 Minimal linux live （研究linux系统基础）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;ivandavidov&#x2F;minimal-linux-script</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>live-build</category>
+      </categories>
+      <tags>
+        <tag>URL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Linux系统中安装man中文包实现man命令中文手册查看</title>
+    <url>/archives/f5603251.html</url>
+    <content><![CDATA[<h3 id="下载源代码："><a href="#下载源代码：" class="headerlink" title="下载源代码："></a>下载源代码：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># wget https:&#x2F;&#x2F;src.fedoraproject.org&#x2F;repo&#x2F;pkgs&#x2F;man-pages-zh-CN&#x2F;v1.5.2.tar.gz&#x2F;1bbdc4f32272df0b95146518b27bf4be&#x2F;v1.5.2.tar.gz</span><br><span class="line"># wget  https:&#x2F;&#x2F;src.fedoraproject.org&#x2F;repo&#x2F;pkgs&#x2F;man-pages-zh-CN&#x2F;manpages-zh-1.5.1.tar.gz&#x2F;13275fd039de8788b15151c896150bc4&#x2F;manpages-zh-1.5.1.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h3 id="解压并安装："><a href="#解压并安装：" class="headerlink" title="解压并安装："></a>解压并安装：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar xf manpages-zh-1.5.1.tar.gz</span><br><span class="line"># cd manpages-zh-1.5.1&#x2F;</span><br><span class="line"># .&#x2F;configure --disable-zhtw --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;zhman</span><br><span class="line"># make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<h3 id="为了不抵消-man-我们新建别名-cman-命令作为中文查询"><a href="#为了不抵消-man-我们新建别名-cman-命令作为中文查询" class="headerlink" title="为了不抵消 man ,我们新建别名  cman 命令作为中文查询"></a>为了不抵消 <strong>man</strong> ,我们新建别名  <strong>cman</strong> 命令作为中文查询</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># cd ~</span><br><span class="line"># echo &quot;alias cman&#x3D;&#39;man -M &#x2F;usr&#x2F;local&#x2F;zhman&#x2F;share&#x2F;man&#x2F;zh_CN&#39; &quot; &gt;&gt;.bash_profile</span><br><span class="line"># source .bash_profile</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试，使用中文-cman-查询命令"><a href="#测试，使用中文-cman-查询命令" class="headerlink" title="测试，使用中文 cman 查询命令"></a>测试，使用中文 <strong>cman</strong> 查询命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># cman find</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>man</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 允许用户通过sudo仅运行特定命令</title>
+    <url>/archives/18f1a1f0.html</url>
+    <content><![CDATA[<h1 id="Debian-允许用户通过sudo仅运行特定命令"><a href="#Debian-允许用户通过sudo仅运行特定命令" class="headerlink" title="Debian 允许用户通过sudo仅运行特定命令"></a>Debian 允许用户通过sudo仅运行特定命令</h1><p>执行下面命令实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username ALL&#x3D;(ALL) NOPASSWD:&#x2F;bin&#x2F;mkdir,&#x2F;bin&#x2F;rmdir</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>sudo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 安装 mate 桌面环境的方法</title>
+    <url>/archives/5eedfe66.html</url>
+    <content><![CDATA[<h1 id="Debian-安装-mate-桌面环境的方法"><a href="#Debian-安装-mate-桌面环境的方法" class="headerlink" title="Debian 安装 mate 桌面环境的方法"></a>Debian 安装 mate 桌面环境的方法</h1><p>mate是一个轻量级的桌面环境，占用系统资源非常少，正常使用下，大约占300MB左右，界面做得非常漂亮，本人十分喜爱，也是我最喜欢的桌面环境。安装了其他桌面(如：gnome) 后，怎么安装mate?</p>
+<h2 id="操作步骤："><a href="#操作步骤：" class="headerlink" title="操作步骤："></a>操作步骤：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install task-mate-desktop  </span><br><span class="line">apt-get install mate-desktop-environment-extras  #完全安装mate及扩展部分</span><br></pre></td></tr></table></figure>
+
+<p>执行命令后，网速不慢，几分钟就完事，注销选择mate，进入后即是mate了。</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>mate</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 安装并开启 SSH 服务</title>
+    <url>/archives/292c2173.html</url>
+    <content><![CDATA[<p>下文介绍在 Debian10 安装并开启 SSH 服务。</p>
+<p>1、执行下面命令，查看是否安装ssh服务。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ps -e | grep ssh</span><br></pre></td></tr></table></figure>
+
+<p>2、执行下面命令，安装ssh服务并启动ssh服务。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt update  #更新包缓存</span><br><span class="line">sudo apt install -y openssh-server openssh-client</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;ssh start  #启动ssh服务</span><br><span class="line">&#x2F;etc&#x2F;init.d&#x2F;ssh restart  #重启ssh服务</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 使用 curl 获得外部 IP 地址（公网地址）</title>
+    <url>/archives/7cfdd891.html</url>
+    <content><![CDATA[<h1 id="Debian-使用-curl-获得外部-IP-地址（公网地址）"><a href="#Debian-使用-curl-获得外部-IP-地址（公网地址）" class="headerlink" title="Debian 使用 curl 获得外部 IP 地址（公网地址）"></a>Debian 使用 curl 获得外部 IP 地址（公网地址）</h1><p>执行下面命令获得：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># curl icanhazip.com   #速度快点</span><br><span class="line"># curl ipinfo.io&#x2F;ip   #速度稍慢</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>curl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 创建 sudo 用户</title>
+    <url>/archives/a396cc0c.html</url>
+    <content><![CDATA[<h1 id="Debian-创建-sudo-用户"><a href="#Debian-创建-sudo-用户" class="headerlink" title="Debian 创建 sudo 用户"></a>Debian 创建 sudo 用户</h1><p>sudo命令提供了临时使用root权限的机制，使普通用户可以执行超级管理员任务。</p>
+<p>添加用户。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># adduser newuser</span><br></pre></td></tr></table></figure>
+
+<p>设置用户密码。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># passwd newuser</span><br></pre></td></tr></table></figure>
+
+<p>把新建用户加入sudo组。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># usermod -aG sudo newuser</span><br></pre></td></tr></table></figure>
+
+<p>测试新用户sudo机制。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># su newuser</span><br><span class="line"># sudo apt update</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>sudo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 执行 sudo 不用输入密码</title>
+    <url>/archives/c80a599a.html</url>
+    <content><![CDATA[<h1 id="Debian-执行-sudo-不用输入密码"><a href="#Debian-执行-sudo-不用输入密码" class="headerlink" title="Debian 执行 sudo 不用输入密码"></a>Debian 执行 sudo 不用输入密码</h1><p>在 <code>/etc/sudoers</code> 文件尾添加下面一行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username ALL&#x3D;(ALL)NOPASSWD:ALL</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>sudo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 添加删除用户</title>
+    <url>/archives/1044a86e.html</url>
+    <content><![CDATA[<h1 id="Debian-添加删除用户"><a href="#Debian-添加删除用户" class="headerlink" title="Debian 添加删除用户"></a>Debian 添加删除用户</h1><h3 id="添加用户："><a href="#添加用户：" class="headerlink" title="添加用户："></a>添加用户：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># adduser newuser</span><br></pre></td></tr></table></figure>
+
+<h3 id="把用户添加到sudo组："><a href="#把用户添加到sudo组：" class="headerlink" title="把用户添加到sudo组："></a>把用户添加到sudo组：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># usermod -aG sudo newuser</span><br></pre></td></tr></table></figure>
+
+<p>或：编辑 <code>/etc/sudoers</code>  文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">newuser ALL&#x3D;(ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除用户而不删除用户家目录："><a href="#删除用户而不删除用户家目录：" class="headerlink" title="删除用户而不删除用户家目录："></a>删除用户而不删除用户家目录：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># deluser newuser</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除用户并删除用户家目录："><a href="#删除用户并删除用户家目录：" class="headerlink" title="删除用户并删除用户家目录："></a>删除用户并删除用户家目录：</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dleuser --remove-home newuser</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>adduser</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 给用户添加 sudo 权限</title>
+    <url>/archives/c779294b.html</url>
+    <content><![CDATA[<h1 id="Debian-给用户添加-sudo-权限"><a href="#Debian-给用户添加-sudo-权限" class="headerlink" title="Debian 给用户添加 sudo 权限"></a>Debian 给用户添加 sudo 权限</h1><p>1、给 <code>/etc/sudoers</code> 添加写权限。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># chmod +w &#x2F;etc&#x2F;sudoers</span><br></pre></td></tr></table></figure>
+
+<p>2、编辑 <code>/etc/sudoers</code> 文件，给 <strong>username</strong> 用户添加 sudo 权限。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username ALL&#x3D;(ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<p>3、去除 <code>/etc/sudoers</code> 写权限。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># chmod -w &#x2F;etc&#x2F;sudoers</span><br></pre></td></tr></table></figure>
+
+<p>上面操作完成后，<strong>username</strong> 用户就拥有了sudo权限了。</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>sudo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kali Linux 安装五笔输入法</title>
+    <url>/archives/8d420006.html</url>
+    <content><![CDATA[<h1 id="Kali-Linux-安装五笔输入法"><a href="#Kali-Linux-安装五笔输入法" class="headerlink" title="Kali Linux 安装五笔输入法"></a>Kali Linux 安装五笔输入法</h1><p>执行下面命令，安装五笔输入法。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt update</span><br><span class="line"># apt install fcitx fcitx-table-wubi</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>wubi,kali linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>dpkg 命令的用法</title>
+    <url>/archives/a1571737.html</url>
+    <content><![CDATA[<h1 id="dpkg-命令的用法"><a href="#dpkg-命令的用法" class="headerlink" title="dpkg 命令的用法"></a>dpkg 命令的用法</h1><p>dpkg 是 Debian Package 的简写，为Debian操作系统专门开发的套件管理系统，用于软件的安装、更新和移除。</p>
+<h3 id="安装软件。"><a href="#安装软件。" class="headerlink" title="安装软件。"></a>安装软件。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -i ~&#x2F;package.deb</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="列出与该包关联的文件。"><a href="#列出与该包关联的文件。" class="headerlink" title="列出与该包关联的文件。"></a>列出与该包关联的文件。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -L package</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="显示软件包的版本。"><a href="#显示软件包的版本。" class="headerlink" title="显示软件包的版本。"></a>显示软件包的版本。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -l package</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="移除软件包（保留配置）"><a href="#移除软件包（保留配置）" class="headerlink" title="移除软件包（保留配置）"></a>移除软件包（保留配置）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -r package</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="移除软件包-（不保留配置）"><a href="#移除软件包-（不保留配置）" class="headerlink" title="移除软件包 （不保留配置）"></a>移除软件包 （不保留配置）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -P package</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查看软件包的详细信息"><a href="#查看软件包的详细信息" class="headerlink" title="查看软件包的详细信息"></a>查看软件包的详细信息</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -s package</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="列出deb包的内容"><a href="#列出deb包的内容" class="headerlink" title="列出deb包的内容"></a>列出deb包的内容</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -c package.deb</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>dpkg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决 Debian 终端命令行无法自动补全</title>
+    <url>/archives/7d602a45.html</url>
+    <content><![CDATA[<p>1、安装命令补全：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt-get install bash-completion</span><br></pre></td></tr></table></figure>
+
+<p>2、在 <code>/etc/profile</code> 添加</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if [ -f &#x2F;etc&#x2F;bash_completion ]; then</span><br><span class="line">. &#x2F;etc&#x2F;bash_completion</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p>3、刷新 <code>/etc/profile</code> 配置文件，使其生效</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># source &#x2F;etc&#x2F;profile</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>debain</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>防止远程 Linux 主机自动断开 SSH 连接</title>
+    <url>/archives/e41226c8.html</url>
+    <content><![CDATA[<p>由于ssh的安全机制，如果10分钟没有任何操作，本次SSH会话会自动关闭。</p>
+<p>1、编辑SSH配置文件，并添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># vim ~&#x2F;.ssh&#x2F;config</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Host *</span><br><span class="line">ServerAliveInterval 30</span><br></pre></td></tr></table></figure>
+
+<p><code>*</code>号代表所有主机，你也可以指定某个主机ip，如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Host x.x.x.x</span><br></pre></td></tr></table></figure>
+
+<p><code>ServerAliveInterval 30</code> 表示ssh客户端每隔30秒给远程主机发送一个no-op包，no-op是无任何操作的意思，这样远程主机就不会关闭这个SSH会话。</p>
+<p>为了使所有用户生效，你可以在<code>/etc/ssh/ssh_config</code>全局配置文件添加如下一行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ServerAliveInterval 30</span><br></pre></td></tr></table></figure>
+
+<p>还可以在连接时使用选项：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># ssh -o ServerAliveInterval&#x3D;30 user@remote-ssh-server-ip</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个脚本轻松生成实时 Linux ISO映像</title>
+    <url>/archives/62d08263.html</url>
+    <content><![CDATA[<p>一个脚本可以轻松生成功能齐全的实时Linux ISO映像。这是基于<a href="http://github.com/ivandavidov/minimal" target="_blank" rel="external nofollow noopener noreferrer">Minimal Linux Live</a>的第一个发布版本，并在下一版本中进行了一些改进。已删除所有空行和注释，并且已修改脚本以减少总长度。</p>
+<p>下面的脚本使用<strong>Linux内核4.19.12</strong>，<strong>BusyBox 1.29.3</strong>和<strong>Syslinux 6.03</strong>。源包将自动下载和编译。如果您使用的是Ubuntu或Linux Mint，则应该能够通过执行以下命令来解决所有构建依赖项：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo apt install wget make gawk gcc bc bison flex xorriso libelf-dev libssl-dev</span><br></pre></td></tr></table></figure>
+
+<p>之后，只需运行以下脚本。它不需要 <strong>root</strong> 权限。最后，生成<strong>minimal_linux_live.iso</strong>文件，在执行脚本的同一目录中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kernel.org&#x2F;linux&#x2F;kernel&#x2F;v4.x&#x2F;linux-4.19.12.tar.xz</span><br><span class="line">wget http:&#x2F;&#x2F;busybox.net&#x2F;downloads&#x2F;busybox-1.29.3.tar.bz2</span><br><span class="line">wget http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kernel.org&#x2F;linux&#x2F;utils&#x2F;boot&#x2F;syslinux&#x2F;syslinux-6.03.tar.xz</span><br><span class="line">mkdir isoimage</span><br><span class="line">tar -xvf linux-4.19.12.tar.xz</span><br><span class="line">tar -xvf busybox-1.29.3.tar.bz2</span><br><span class="line">tar -xvf syslinux-6.03.tar.xz</span><br><span class="line">cd busybox-1.29.3</span><br><span class="line">make distclean defconfig</span><br><span class="line">sed -i &quot;s|.*CONFIG_STATIC.*|CONFIG_STATIC&#x3D;y|&quot; .config</span><br><span class="line">make busybox install</span><br><span class="line">cd _install</span><br><span class="line">rm -f linuxrc</span><br><span class="line">mkdir dev proc sys</span><br><span class="line">echo &#39;#!&#x2F;bin&#x2F;sh&#39; &gt; init</span><br><span class="line">echo &#39;dmesg -n 1&#39; &gt;&gt; init</span><br><span class="line">echo &#39;mount -t devtmpfs none &#x2F;dev&#39; &gt;&gt; init</span><br><span class="line">echo &#39;mount -t proc none &#x2F;proc&#39; &gt;&gt; init</span><br><span class="line">echo &#39;mount -t sysfs none &#x2F;sys&#39; &gt;&gt; init</span><br><span class="line">echo &#39;setsid cttyhack &#x2F;bin&#x2F;sh&#39; &gt;&gt; init</span><br><span class="line">chmod +x init</span><br><span class="line">find . | cpio -R root:root -H newc -o | gzip &gt; ..&#x2F;..&#x2F;isoimage&#x2F;rootfs.gz</span><br><span class="line">cd ..&#x2F;..&#x2F;linux-4.19.12</span><br><span class="line">make mrproper defconfig bzImage</span><br><span class="line">cp arch&#x2F;x86&#x2F;boot&#x2F;bzImage ..&#x2F;isoimage&#x2F;kernel.gz</span><br><span class="line">cd ..&#x2F;isoimage</span><br><span class="line">cp ..&#x2F;syslinux-6.03&#x2F;bios&#x2F;core&#x2F;isolinux.bin .</span><br><span class="line">cp ..&#x2F;syslinux-6.03&#x2F;bios&#x2F;com32&#x2F;elflink&#x2F;ldlinux&#x2F;ldlinux.c32 .</span><br><span class="line">echo &#39;default kernel.gz initrd&#x3D;rootfs.gz&#39; &gt; .&#x2F;isolinux.cfg</span><br><span class="line">xorriso \</span><br><span class="line">  -as mkisofs \</span><br><span class="line">  -o ..&#x2F;minimal_linux_live.iso \</span><br><span class="line">  -b isolinux.bin \</span><br><span class="line">  -c boot.cat \</span><br><span class="line">  -no-emul-boot \</span><br><span class="line">  -boot-load-size 4 \</span><br><span class="line">  -boot-info-table \</span><br><span class="line">  .&#x2F;</span><br><span class="line">cd ..</span><br></pre></td></tr></table></figure>
+
+<p>请注意，此脚本生成非常小的实时Linux操作系统，仅支持shell，不支持网络。网络功能已在<a href="http://github.com/ivandavidov/minimal" target="_blank" rel="external nofollow noopener noreferrer">Minimal Linux Live</a>项目中正确实现，该项目具有广泛的文档记录和更丰富的功能，但仍然可以生成非常小的实时Linux ISO映像。</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>允许使用 root 远程 ssh 登陆 Debian</title>
+    <url>/archives/27fcce8d.html</url>
+    <content><![CDATA[<p>本文介绍如果在正确安装 ssh 服务的前提下，配置允许使用 root 远程登陆 Debian 。</p>
+<p>1、编辑<code>/etc/ssh/sshd_config</code> ssh服务配置文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PermitRootLogin yes  #允许root远程登陆</span><br><span class="line">PasswordAuthentication yes  #开启秘钥和密码认证</span><br></pre></td></tr></table></figure>
+
+<p>2、保存配置后，重启ssh服务。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># &#x2F;etc&#x2F;inin.d&#x2F;ssh restart  #重启ssh服务</span><br></pre></td></tr></table></figure>
+
+<p>3、以 root 用户登陆ssh服务示例。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># ssh root@x.x.x.x</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 系统老版本 iso 下载</title>
+    <url>/archives/b2adb537.html</url>
+    <content><![CDATA[<h1 id="Debian-系统老版本-iso-下载"><a href="#Debian-系统老版本-iso-下载" class="headerlink" title="Debian 系统老版本 iso 下载"></a>Debian 系统老版本 iso 下载</h1><p>debian官方默认只提供最新的版本下载，有时需要找一些旧的版本的debian，着实费用。下面这个debian iso镜像站可以下载各个版本的debian下载：<a href="http://cdimage.debian.org/cdimage/archive/" target="_blank" rel="external nofollow noopener noreferrer">debian 系统各个版本ISO下载</a></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>iso</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Sytemctl 命令管理 systemd 服务</title>
+    <url>/archives/47790c48.html</url>
+    <content><![CDATA[<h1 id="Sytemctl-命令管理-systemd-服务"><a href="#Sytemctl-命令管理-systemd-服务" class="headerlink" title="Sytemctl 命令管理 systemd 服务"></a>Sytemctl 命令管理 systemd 服务</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl start service  #启动服务</span><br><span class="line">systemctl stop service  #停止服务</span><br><span class="line">systemctl restart service  #重启服务</span><br><span class="line">systemctl reload service  #重新加载配置文件</span><br><span class="line">systemctl enable service  #开机启动</span><br><span class="line">systemctl disable service  #关闭开机启动</span><br><span class="line">systemctl status service  #服务状态</span><br><span class="line">systemctl list-units  #列出系统中所有可用的服务</span><br><span class="line">systemctl is-active application.service  #服务是否运行</span><br><span class="line">systemctl is-enabled application.service  #服务是否开机启动</span><br><span class="line">systemctl is-failed application.service  #服务运行是否正常</span><br><span class="line">man systemctl  #帮助命令</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>systemctl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 16.04 安装 PyCharm 和 卸载</title>
+    <url>/archives/c342aa2b.html</url>
+    <content><![CDATA[<h3 id="Ubuntu-16-04-安装-PyCharm-和-卸载"><a href="#Ubuntu-16-04-安装-PyCharm-和-卸载" class="headerlink" title="Ubuntu 16.04 安装 PyCharm 和 卸载"></a>Ubuntu 16.04 安装 PyCharm 和 卸载</h3><p>1、添加 PyCharm 软件源。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo add-apt-repository ppa:mystic-mirage&#x2F;pycharm</span><br></pre></td></tr></table></figure>
+
+<p>2、安装 PyCharm 专业版。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo apt-get update</span><br><span class="line"># sudo apt-get install pycharm</span><br></pre></td></tr></table></figure>
+
+<p>3、安装 PyCharm 社区版。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo apt-get update</span><br><span class="line"># sudo apt-get pycharm-community</span><br></pre></td></tr></table></figure>
+
+<p>4、卸载 PyCharm 。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt remove pycharm</span><br><span class="line"># apt remove pycharm-community</span><br><span class="line"># apt autoremove</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>pycharm,ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kali Linux 更新系统</title>
+    <url>/archives/4eae18c.html</url>
+    <content><![CDATA[<h1 id="Kali-Linux-更新系统"><a href="#Kali-Linux-更新系统" class="headerlink" title="Kali Linux 更新系统"></a>Kali Linux 更新系统</h1><p>添加中科大kali软件源。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># echo &quot;deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;kali kali-rolling main non-free contrib&quot; &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br></pre></td></tr></table></figure>
+
+<p>更新软件包列表缓存并更新系统。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt update</span><br><span class="line"># apt upgrade -y</span><br></pre></td></tr></table></figure>
+
+<p>重启计算机。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># reboot</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>upgrade,kali linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何获取Next主题</title>
     <url>/archives/37314.html</url>
     <content><![CDATA[<h2 id="下载最新release版本"><a href="#下载最新release版本" class="headerlink" title="下载最新release版本"></a>下载最新release版本</h2><p>这种方式将<strong>仅提供最新的 release 版本</strong></p>
@@ -1516,6 +1932,283 @@
       </categories>
       <tags>
         <tag>live-build</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debain Live 实时构建脚本</title>
+    <url>/archives/3f9a2b60.html</url>
+    <content><![CDATA[<h1 id="Debain-Live-实时构建脚本"><a href="#Debain-Live-实时构建脚本" class="headerlink" title="Debain Live 实时构建脚本"></a>Debain Live 实时构建脚本</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">#</span><br><span class="line"># Debian Live image creator</span><br><span class="line">#</span><br><span class="line"># Author: Mathias Fredriksson</span><br><span class="line"># Based on: https:&#x2F;&#x2F;willhaley.com&#x2F;blog&#x2F;custom-debian-live-environment&#x2F;</span><br><span class="line">set -e</span><br><span class="line"></span><br><span class="line">IN_CHROOT&#x3D;0</span><br><span class="line">if [[ $1 &#x3D;&#x3D; chroot ]]; then</span><br><span class="line">	IN_CHROOT&#x3D;1</span><br><span class="line">	shift</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">SCRIPT&#x3D;&quot;$0&quot;</span><br><span class="line">MIRROR&#x3D;&quot;http:&#x2F;&#x2F;www.nic.funet.fi&#x2F;debian&#x2F;&quot;</span><br><span class="line">WORK&#x3D;$(mktemp -d -t live-image.XXXX)</span><br><span class="line">#WORK&#x3D;&#x2F;tmp&#x2F;live-image.21Lr</span><br><span class="line">CHROOT&#x3D;&quot;$WORK&#x2F;chroot&quot;</span><br><span class="line">mkdir -p &quot;$WORK&quot;</span><br><span class="line"></span><br><span class="line">prepare() &#123;</span><br><span class="line">	apt-get -y install \</span><br><span class="line">		debootstrap \</span><br><span class="line">		squashfs-tools \</span><br><span class="line">		xorriso \</span><br><span class="line">		grub-pc-bin \</span><br><span class="line">		grub-efi-amd64-bin \</span><br><span class="line">		mtools</span><br><span class="line"></span><br><span class="line">	debootstrap \</span><br><span class="line">		--arch&#x3D;amd64 \</span><br><span class="line">		--variant&#x3D;minbase \</span><br><span class="line">		stretch \</span><br><span class="line">		&quot;$CHROOT&quot; \</span><br><span class="line">		$MIRROR</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cont_in_chroot() &#123;</span><br><span class="line">	local name</span><br><span class="line"></span><br><span class="line">	name&#x3D;&quot;$(basename &quot;$SCRIPT&quot;)&quot;</span><br><span class="line">	cp -a &quot;$SCRIPT&quot; &quot;$CHROOT&quot;</span><br><span class="line"></span><br><span class="line">	mount --rbind &#x2F;dev &quot;$CHROOT&quot;&#x2F;dev</span><br><span class="line">	mount --make-rslave &quot;$CHROOT&quot;&#x2F;dev</span><br><span class="line">	mount --rbind &#x2F;proc &quot;$CHROOT&quot;&#x2F;proc</span><br><span class="line">	mount --make-rslave &quot;$CHROOT&quot;&#x2F;proc</span><br><span class="line">	mount --rbind &#x2F;sys &quot;$CHROOT&quot;&#x2F;sys</span><br><span class="line">	mount --make-rslave &quot;$CHROOT&quot;&#x2F;sys</span><br><span class="line"></span><br><span class="line">	chroot &quot;$CHROOT&quot; &#x2F;bin&#x2F;bash .&#x2F;&quot;$name&quot; chroot &quot;$@&quot;</span><br><span class="line"></span><br><span class="line">	# Try to unmount a few times since this doesn&#39;t alway work on the first try...</span><br><span class="line">	grep &quot;$CHROOT&quot; &#x2F;proc&#x2F;mounts | cut -f2 -d&quot; &quot; | sort -r | xargs umount -n || \</span><br><span class="line">		grep &quot;$CHROOT&quot; &#x2F;proc&#x2F;mounts | cut -f2 -d&quot; &quot; | sort -r | xargs umount -n || \</span><br><span class="line">		grep &quot;$CHROOT&quot; &#x2F;proc&#x2F;mounts | cut -f2 -d&quot; &quot; | sort -r | xargs umount -n</span><br><span class="line"></span><br><span class="line">	rm &quot;$CHROOT&#x2F;$name&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chroot_prepare() &#123;</span><br><span class="line">	echo debian-live &gt; &#x2F;etc&#x2F;hostname</span><br><span class="line"></span><br><span class="line">	# Set root password to &#39;live&#39;.</span><br><span class="line">	echo $&#39;live\nlive&#39; | passwd root</span><br><span class="line"></span><br><span class="line">	apt-get update</span><br><span class="line">	apt-get -y install --no-install-recommends \</span><br><span class="line">		linux-image-amd64 \</span><br><span class="line">		live-boot \</span><br><span class="line">		systemd-sysv</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chroot_install_tools() &#123;</span><br><span class="line">	cat &lt;&lt;-EOS &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;contrib-non-free.list</span><br><span class="line">	deb http:&#x2F;&#x2F;deb.debian.org&#x2F;debian&#x2F; stretch contrib non-free</span><br><span class="line">	EOS</span><br><span class="line"></span><br><span class="line">	apt update</span><br><span class="line">	apt-get -y install --no-install-recommends \</span><br><span class="line">		grub-pc-bin \</span><br><span class="line">		grub-efi-amd64-bin \</span><br><span class="line">		sudo \</span><br><span class="line">		curl \</span><br><span class="line">		hdparm \</span><br><span class="line">		sdparm \</span><br><span class="line">		pciutils \</span><br><span class="line">		usbutils \</span><br><span class="line">		dnsutils \</span><br><span class="line">		moreutils \</span><br><span class="line">		net-tools \</span><br><span class="line">		dosfstools \</span><br><span class="line">		openssh-server \</span><br><span class="line">		openssh-client \</span><br><span class="line">		nano \</span><br><span class="line">		vim \</span><br><span class="line">		zsh \</span><br><span class="line">		lsof \</span><br><span class="line">		lshw \</span><br><span class="line">		less \</span><br><span class="line">		rsync \</span><br><span class="line">		smartmontools \</span><br><span class="line">		intel-microcode \</span><br><span class="line">		cryptsetup \</span><br><span class="line">		lvm2 \</span><br><span class="line">		mdadm</span><br><span class="line"></span><br><span class="line">	chsh -s &#x2F;bin&#x2F;zsh</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chroot_install_zfs() &#123;</span><br><span class="line">	cat &lt;&lt;-EOS &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;zfs.list</span><br><span class="line">	deb http:&#x2F;&#x2F;deb.debian.org&#x2F;debian&#x2F; stretch-backports main contrib non-free</span><br><span class="line">	EOS</span><br><span class="line"></span><br><span class="line">	apt-get update</span><br><span class="line">	apt-get -y install dpkg-dev linux-headers-amd64</span><br><span class="line">	apt-get -y install -t stretch-backports zfs-dkms</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chroot_finalize() &#123;</span><br><span class="line">	apt-get clean</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">finalize() &#123;</span><br><span class="line">	mkdir -p &quot;$WORK&quot;&#x2F;&#123;scratch,image&#x2F;live&#125;</span><br><span class="line"></span><br><span class="line">	mksquashfs \</span><br><span class="line">		&quot;$CHROOT&quot; \</span><br><span class="line">		&quot;$WORK&quot;&#x2F;image&#x2F;live&#x2F;filesystem.squashfs \</span><br><span class="line">		-e boot</span><br><span class="line"></span><br><span class="line">	cp &quot;$CHROOT&quot;&#x2F;boot&#x2F;vmlinuz-* &quot;$CHROOT&quot;&#x2F;boot&#x2F;initrd.img-* \</span><br><span class="line">		&quot;$WORK&quot;&#x2F;image&#x2F;live</span><br><span class="line"></span><br><span class="line">	cat &lt;&lt;EOF &gt; &quot;$WORK&quot;&#x2F;scratch&#x2F;grub.cfg</span><br><span class="line">insmod all_video</span><br><span class="line">insmod play</span><br><span class="line">play 960 440 1 0 4 440 1</span><br><span class="line">if [ \$&#123;iso_path&#125; ] ; then</span><br><span class="line">  set loopback&#x3D;&quot;findiso&#x3D;\$&#123;iso_path&#125;&quot;</span><br><span class="line">fi</span><br><span class="line">search --set&#x3D;root --file &#x2F;DEBIAN_LIVE</span><br><span class="line">set default&#x3D;&quot;0&quot;</span><br><span class="line">set timeout&#x3D;5</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">	(cd &quot;$CHROOT&quot;&#x2F;boot || exit 1</span><br><span class="line">		for kernel in vmlinuz-*; do</span><br><span class="line">			version&#x3D;$&#123;kernel#vmlinuz-&#125;</span><br><span class="line">			cat &lt;&lt;EOF &gt;&gt; &quot;$WORK&quot;&#x2F;scratch&#x2F;grub.cfg</span><br><span class="line">menuentry &quot;Debian GNU&#x2F;Linux Live (kernel $version)&quot; &#123;</span><br><span class="line">  linux  &#x2F;live&#x2F;vmlinuz-$version boot&#x3D;live components &quot;\$&#123;loopback&#125;&quot;</span><br><span class="line">  initrd &#x2F;live&#x2F;initrd.img-$version</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">		done</span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">	# Create file used by grub to search for boot device.</span><br><span class="line">	touch &quot;$WORK&quot;&#x2F;image&#x2F;DEBIAN_LIVE</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">create_iso() &#123;</span><br><span class="line">	grub-mkstandalone \</span><br><span class="line">		--format&#x3D;x86_64-efi \</span><br><span class="line">		--output&#x3D;&quot;$WORK&quot;&#x2F;scratch&#x2F;bootx64.efi \</span><br><span class="line">		--locales&#x3D;&quot;&quot; \</span><br><span class="line">		--fonts&#x3D;&quot;&quot; \</span><br><span class="line">		&quot;boot&#x2F;grub&#x2F;grub.cfg&#x3D;$WORK&#x2F;scratch&#x2F;grub.cfg&quot;</span><br><span class="line"></span><br><span class="line">	(cd &quot;$WORK&quot;&#x2F;scratch</span><br><span class="line">		dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;efiboot.img bs&#x3D;1M count&#x3D;10</span><br><span class="line">		mkfs.vfat efiboot.img</span><br><span class="line">		mmd -i efiboot.img efi efi&#x2F;boot</span><br><span class="line">		mcopy -i efiboot.img .&#x2F;bootx64.efi ::efi&#x2F;boot&#x2F;</span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">	grub-mkstandalone \</span><br><span class="line">		--format&#x3D;i386-pc \</span><br><span class="line">		--output&#x3D;&quot;$WORK&quot;&#x2F;scratch&#x2F;core.img \</span><br><span class="line">		--install-modules&#x3D;&quot;linux normal iso9660 biosdisk memdisk search tar ls&quot; \</span><br><span class="line">		--modules&#x3D;&quot;linux normal iso9660 biosdisk search&quot; \</span><br><span class="line">		--locales&#x3D;&quot;&quot; \</span><br><span class="line">		--fonts&#x3D;&quot;&quot; \</span><br><span class="line">		&quot;boot&#x2F;grub&#x2F;grub.cfg&#x3D;$WORK&#x2F;scratch&#x2F;grub.cfg&quot;</span><br><span class="line"></span><br><span class="line">	cat &#x2F;usr&#x2F;lib&#x2F;grub&#x2F;i386-pc&#x2F;cdboot.img &quot;$WORK&quot;&#x2F;scratch&#x2F;core.img \</span><br><span class="line">		&gt; &quot;$WORK&quot;&#x2F;scratch&#x2F;bios.img</span><br><span class="line"></span><br><span class="line">	xorriso \</span><br><span class="line">		-as mkisofs \</span><br><span class="line">		-iso-level 3 \</span><br><span class="line">		-full-iso9660-filenames \</span><br><span class="line">		-volid &quot;DEBIAN_LIVE&quot; \</span><br><span class="line">		-eltorito-boot boot&#x2F;grub&#x2F;bios.img \</span><br><span class="line">		-no-emul-boot \</span><br><span class="line">		-boot-load-size 4 \</span><br><span class="line">		-boot-info-table \</span><br><span class="line">		--eltorito-catalog boot&#x2F;grub&#x2F;boot.cat \</span><br><span class="line">		--grub2-boot-info \</span><br><span class="line">		--grub2-mbr &#x2F;usr&#x2F;lib&#x2F;grub&#x2F;i386-pc&#x2F;boot_hybrid.img \</span><br><span class="line">		-eltorito-alt-boot \</span><br><span class="line">		-e EFI&#x2F;efiboot.img \</span><br><span class="line">		-no-emul-boot \</span><br><span class="line">		-append_partition 2 0xef &quot;$WORK&quot;&#x2F;scratch&#x2F;efiboot.img \</span><br><span class="line">		-output &quot;$WORK&#x2F;debian-custom.iso&quot; \</span><br><span class="line">		-graft-points \</span><br><span class="line">		&quot;$WORK&#x2F;image&quot; \</span><br><span class="line">		&#x2F;boot&#x2F;grub&#x2F;bios.img&#x3D;&quot;$WORK&quot;&#x2F;scratch&#x2F;bios.img \</span><br><span class="line">		&#x2F;EFI&#x2F;efiboot.img&#x3D;&quot;$WORK&quot;&#x2F;scratch&#x2F;efiboot.img</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (( IN_CHROOT )); then</span><br><span class="line">	chroot_prepare</span><br><span class="line">	chroot_install_tools</span><br><span class="line">	chroot_install_zfs</span><br><span class="line">	chroot_finalize</span><br><span class="line">	exit 0</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">prepare</span><br><span class="line">cont_in_chroot &quot;$@&quot;</span><br><span class="line">finalize</span><br><span class="line">create_iso</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a href="https://github.com/mafredri/debian-my-live-build/blob/master/misc/deprecated/create_live_cd.sh" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/mafredri/debian-my-live-build/blob/master/misc/deprecated/create_live_cd.sh</a></p>
+]]></content>
+      <categories>
+        <category>live-build</category>
+      </categories>
+      <tags>
+        <tag>live-build-script</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debain tar 命令常用参数及示例</title>
+    <url>/archives/56a7b24e.html</url>
+    <content><![CDATA[<h1 id="Debain-tar-命令常用参数及示例"><a href="#Debain-tar-命令常用参数及示例" class="headerlink" title="Debain tar 命令常用参数及示例"></a>Debain tar 命令常用参数及示例</h1><p>tar 命令常用来把文件和目录打包成一个文件。</p>
+<h2 id="选项参数："><a href="#选项参数：" class="headerlink" title="选项参数："></a>选项参数：</h2><ul>
+<li>-c 创建压缩文件</li>
+<li>-x 解压文件</li>
+<li>-v 显示进度</li>
+<li>-f 文件名</li>
+<li>-t 查看压缩文件内容</li>
+<li>-j 通过bzip归档</li>
+<li>-z 通过gzip归档</li>
+<li>-r 在压缩文件中追加文件或目录 </li>
+<li>-W 验证压缩文件</li>
+</ul>
+<h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><h3 id="把目录-home-abc-code-打包为code-tar"><a href="#把目录-home-abc-code-打包为code-tar" class="headerlink" title="把目录/home/abc/code 打包为code.tar"></a>把目录/home/abc/code 打包为code.tar</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar -cvf code.tar &#x2F;home&#x2F;abc&#x2F;code&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="压缩为tar-gz-格式的包"><a href="#压缩为tar-gz-格式的包" class="headerlink" title="压缩为tar.gz 格式的包"></a>压缩为tar.gz 格式的包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar cvzf code.tar.gz &#x2F;home&#x2F;abc&#x2F;code&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="压缩率更高的tar-bz2-格式的包"><a href="#压缩率更高的tar-bz2-格式的包" class="headerlink" title="压缩率更高的tar.bz2 格式的包"></a>压缩率更高的tar.bz2 格式的包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar cvfj code.tar.bz2 &#x2F;home&#x2F;abc&#x2F;code&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解压tar包"><a href="#解压tar包" class="headerlink" title="解压tar包"></a>解压tar包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar -xvf code.tar -C &#x2F;home&#x2F;abc&#x2F;code</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解压tar-gz包"><a href="#解压tar-gz包" class="headerlink" title="解压tar.gz包"></a>解压tar.gz包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar -xvf code.tar.gz</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解压tar-bz2-包"><a href="#解压tar-bz2-包" class="headerlink" title="解压tar.bz2 包"></a>解压tar.bz2 包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar -xvf code.tar.bz2</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="列出tar包内容"><a href="#列出tar包内容" class="headerlink" title="列出tar包内容"></a>列出tar包内容</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar -tvf code.tar</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解压tar包中的单个文件"><a href="#解压tar包中的单个文件" class="headerlink" title="解压tar包中的单个文件"></a>解压tar包中的单个文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar --extract --file&#x3D;code.tar Readme.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解压tar包中的多个文件"><a href="#解压tar包中的多个文件" class="headerlink" title="解压tar包中的多个文件"></a>解压tar包中的多个文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar -xvf code.tar &quot;file1&quot; &quot;file2&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解压同一种类型的文件（下面是解压txt文件）"><a href="#解压同一种类型的文件（下面是解压txt文件）" class="headerlink" title="解压同一种类型的文件（下面是解压txt文件）"></a>解压同一种类型的文件（下面是解压txt文件）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar -xvf code.tar --wildcards *.txt&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="在tar包中加入文件或目录"><a href="#在tar包中加入文件或目录" class="headerlink" title="在tar包中加入文件或目录"></a>在tar包中加入文件或目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># tar -rvf code.tar abcd.txt</span><br><span class="line"># tar -rvf code.tar Doc&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="tar帮助信息查看"><a href="#tar帮助信息查看" class="headerlink" title="tar帮助信息查看"></a>tar帮助信息查看</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># man tar</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>tar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debain vim语法高亮并显示行号</title>
+    <url>/archives/1609fb63.html</url>
+    <content><![CDATA[<h1 id="Debain-vim语法高亮并显示行号"><a href="#Debain-vim语法高亮并显示行号" class="headerlink" title="Debain vim语法高亮并显示行号"></a>Debain vim语法高亮并显示行号</h1><h2 id="临时生效："><a href="#临时生效：" class="headerlink" title="临时生效："></a>临时生效：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">:syntax on  #高亮开</span><br><span class="line">:syntax off  #高亮关</span><br><span class="line">:set nu  #行号</span><br></pre></td></tr></table></figure>
+
+<h2 id="永久生效："><a href="#永久生效：" class="headerlink" title="永久生效："></a>永久生效：</h2><p>切换到当前登陆用户家目录并编辑 .vimrc 文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># cd ~</span><br><span class="line"># vim .vimrc</span><br></pre></td></tr></table></figure>
+
+<p>添加以下行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">syntax on</span><br><span class="line">set nu</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debain 压缩和解压.bz2文件</title>
+    <url>/archives/7e620ba9.html</url>
+    <content><![CDATA[<h1 id="Debain-压缩和解压-bz2文件"><a href="#Debain-压缩和解压-bz2文件" class="headerlink" title="Debain 压缩和解压.bz2文件"></a>Debain 压缩和解压.bz2文件</h1><p>1、如果没有安装，执行如下命令安装。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt update</span><br><span class="line"># apt install bzip2</span><br></pre></td></tr></table></figure>
+
+<p>2、使用bzip2压缩文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># bzip2 filename&#x2F; </span><br><span class="line"># bzip2 -z filename</span><br></pre></td></tr></table></figure>
+
+<p>上面命令执行后，会把原文件删除，如果要保留原文件，使用-k选项。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># bzip2 -zk filename</span><br></pre></td></tr></table></figure>
+
+<p>-f 选项强制覆盖已经存在的文件。</p>
+<p>3、使用bzip2解压文件。(-d 选项解压)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># bzip2 -d filename.bz2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># bzip2 -vfd filename.bz2</span><br></pre></td></tr></table></figure>
+
+<p>4、选项总结。</p>
+<ul>
+<li>-f 覆盖文件 </li>
+<li>-v 可视化输出 </li>
+<li>-k 保留原文件</li>
+<li>-d 解压文件</li>
+</ul>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>bz2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian Linux tar命令示例</title>
+    <url>/archives/b76eb839.html</url>
+    <content><![CDATA[<h1 id="Debian-Linux-tar命令示例"><a href="#Debian-Linux-tar命令示例" class="headerlink" title="Debian Linux tar命令示例"></a>Debian Linux tar命令示例</h1><h2 id="tar命令参数："><a href="#tar命令参数：" class="headerlink" title="tar命令参数："></a>tar命令参数：</h2><ul>
+<li>-c 创建压缩文件</li>
+<li>-x 解压文件</li>
+<li>-v 显示进度</li>
+<li>-f 文件名</li>
+<li>-t 查看压缩文件内容</li>
+<li>-j 通过bzip2归档</li>
+<li>-z 通过gzip归档</li>
+<li>-r 在压缩文件中追加文件或目录</li>
+<li>-W 验证压缩文件</li>
+</ul>
+<h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -cvf code.tar &#x2F;home&#x2F;abc&#x2F;code&#x2F;</span><br><span class="line">tar cvzf code.tar.gz &#x2F;home&#x2F;abc&#x2F;code&#x2F;</span><br><span class="line">tar cvfj code.tar.bz2 &#x2F;home&#x2F;abc&#x2F;code&#x2F;</span><br><span class="line">tar xvf code.tar -C &#x2F;home&#x2F;abc&#x2F;code</span><br><span class="line">tar xvf code.tar.gz</span><br><span class="line">tar xvf code.tar.bz2</span><br><span class="line">tar tvf code.tar</span><br><span class="line">tar --extract --file&#x3D;code.tar Readme.txt  解压tar包中的单个文件</span><br><span class="line">tar -xvf code.tar &quot;file1&quot; &quot;file2&quot;</span><br><span class="line">tar -rvf code.tar abc.txt 在tar包中加入文件</span><br><span class="line">tar -rvf code.tar &#x2F;home&#x2F;abc&#x2F;doc 在tar包中加入目录</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>tar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian rpm和deb包相互转换</title>
+    <url>/archives/6596e5c7.html</url>
+    <content><![CDATA[<h1 id="Debian-rpm和deb包相互转换"><a href="#Debian-rpm和deb包相互转换" class="headerlink" title="Debian rpm和deb包相互转换"></a>Debian rpm和deb包相互转换</h1><h2 id="安装alien软件包："><a href="#安装alien软件包：" class="headerlink" title="安装alien软件包："></a>安装alien软件包：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt update</span><br><span class="line"># apt install alien -y</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="RPM-gt-DEB"><a href="#RPM-gt-DEB" class="headerlink" title="RPM=&gt;DEB"></a>RPM=&gt;DEB</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alien google-chrome.rpm google-chrome.deb generated</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="DEB-gt-RPM-添加参数-r进行转换"><a href="#DEB-gt-RPM-添加参数-r进行转换" class="headerlink" title="DEB=&gt;RPM(添加参数-r进行转换)"></a>DEB=&gt;RPM(添加参数-r进行转换)</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alien -r google-chrome.deb google-chrome.rpm generated</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="DEB包手动安装"><a href="#DEB包手动安装" class="headerlink" title="DEB包手动安装"></a>DEB包手动安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dpkg -i google-chrome.deb</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>rpm,deb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 安装 Google Chrome 浏览器</title>
+    <url>/archives/c945e1f0.html</url>
+    <content><![CDATA[<h1 id="Debian-安装-Google-Chrome-浏览器"><a href="#Debian-安装-Google-Chrome-浏览器" class="headerlink" title="Debian 安装 Google Chrome 浏览器"></a>Debian 安装 Google Chrome 浏览器</h1><p>1、首先需要下载并安装谷歌官方秘钥：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># wget -q -O - https:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;linux_signing_key.pub | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+
+<p>2、然后是添加谷歌官方软件源：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># echo &quot;deb http:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;chrome&#x2F;deb&#x2F; stable main&quot; | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;google-chrome.list</span><br></pre></td></tr></table></figure>
+
+<p>3、执行安装命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt-get update</span><br><span class="line"># apt-get -y install google-chrome-stable</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>chrome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>apt-get 安装过程被强制中断后</title>
+    <url>/archives/668adeaf.html</url>
+    <content><![CDATA[<h1 id="apt-get-安装过程被强制中断后"><a href="#apt-get-安装过程被强制中断后" class="headerlink" title="apt-get 安装过程被强制中断后"></a>apt-get 安装过程被强制中断后</h1><p>apt-get 操作被强行中断后，会出现无法进行新的安装和删除的情况只是提示您使用apt-get -f install来解决问题，但实际上，你按它的提示操作却解决不了任何问题。</p>
+<p>这时你需要这样做：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo dpkg --configure -a</span><br><span class="line"># sudo apt-get update</span><br><span class="line"># sudo apt-get install -f</span><br><span class="line"># sudo apt-get autoremove </span><br><span class="line"># sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>如果还有一些有问题的软件包可以用下面这个命令干掉它：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -r pack</span><br></pre></td></tr></table></figure>
+
+<p><code>-r</code> 选项：移除软件包（保留配置）</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>apt-get</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>apt-get 常用命令参数及常用选项</title>
+    <url>/archives/b9dbae5f.html</url>
+    <content><![CDATA[<h1 id="apt-get-常用命令参数及常用选项"><a href="#apt-get-常用命令参数及常用选项" class="headerlink" title="apt-get 常用命令参数及常用选项"></a>apt-get 常用命令参数及常用选项</h1><h2 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h2><h3 id="更新软件包列表"><a href="#更新软件包列表" class="headerlink" title="更新软件包列表"></a>更新软件包列表</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt update</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除本地缓存的所有软件包"><a href="#删除本地缓存的所有软件包" class="headerlink" title="删除本地缓存的所有软件包"></a>删除本地缓存的所有软件包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt clean</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="升级系统中的所有软件包"><a href="#升级系统中的所有软件包" class="headerlink" title="升级系统中的所有软件包"></a>升级系统中的所有软件包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt upgrade</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt install pack</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除软件包"><a href="#删除软件包" class="headerlink" title="删除软件包"></a>删除软件包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt remove pack</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="彻底删除软件包（包括其配置文件）"><a href="#彻底删除软件包（包括其配置文件）" class="headerlink" title="彻底删除软件包（包括其配置文件）"></a>彻底删除软件包（包括其配置文件）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt purge pack</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除本地缓存中无用的软件包"><a href="#删除本地缓存中无用的软件包" class="headerlink" title="删除本地缓存中无用的软件包"></a>删除本地缓存中无用的软件包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt autoclean</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除所有自动安装且不再使用的软件包"><a href="#删除所有自动安装且不再使用的软件包" class="headerlink" title="删除所有自动安装且不再使用的软件包"></a>删除所有自动安装且不再使用的软件包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt autoremove</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="搜索软件包"><a href="#搜索软件包" class="headerlink" title="搜索软件包"></a>搜索软件包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-cache search pack</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h2><ul>
+<li>–fix-missing</li>
+<li>–yes </li>
+<li>–no-install-recommends</li>
+</ul>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>apt-get</tag>
       </tags>
   </entry>
   <entry>
