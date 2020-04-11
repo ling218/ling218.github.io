@@ -1339,357 +1339,6 @@
       </tags>
   </entry>
   <entry>
-    <title>将自定义Debian Live安装到USB驱动器 (img格式)</title>
-    <url>/archives/19cdbd33.html</url>
-    <content><![CDATA[<h1 id="将自定义Debian-Live安装到USB驱动器-img格式"><a href="#将自定义Debian-Live安装到USB驱动器-img格式" class="headerlink" title="将自定义Debian Live安装到USB驱动器 (img格式)"></a>将自定义Debian Live安装到USB驱动器 (img格式)</h1><p>这些说明<strong>不是</strong>用于实时安装，而是用于将Debian安装到USB闪存介质。</p>
-<p>这里的一个额外好处是，我们将首先在<code>img</code>作为环回设备安装的文件中准备Debian chroot 。</p>
-<p>然后，我们可以将该<code>img</code>文件用作通用基础映像，然后将其部署到大量USB驱动器中。</p>
-<p>你为什么想做这个？好吧，一方面，该<code>img</code>文件有助于减少混乱，并为您提供易于管理的文件，该文件可以一次又一次地重新部署。这对于创建将在多台计算机上重用的通用映像也是理想的。就像您在网吧中所做的那样，每次启动时都会重新安装Debian，或者在教室中。</p>
-<p><strong>警告</strong>：我已<strong>突出显示</strong>您应该在chroot环境中的所有位置。小心！在本地环境而不是chroot中运行其中一些命令可能会导致问题。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install \</span><br><span class="line">    debootstrap</span><br></pre></td></tr></table></figure>
-
-<p>创建图像文件并将其格式化。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fallocate -l 2G debian.img</span><br><span class="line">echo -e &quot;o\nn\np\n1\n\n\nw&quot; | sudo fdisk debian.img</span><br><span class="line">echo -e &quot;a\nw\n&quot; | sudo fdisk debian.img</span><br></pre></td></tr></table></figure>
-
-<p><strong>请注意以下命令返回的内容。</strong>对我来说，回送设备是<code>/dev/loop0</code>，但它可能因您而异。如果您的回送设备地址不同，请相应地更新以下说明。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo losetup --partscan --show --find debian.img</span><br></pre></td></tr></table></figure>
-
-<p>格式化回送设备的linux分区，就像我们对真实物理设备所做的一样。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkfs.ext4 &#x2F;dev&#x2F;loop0p1</span><br></pre></td></tr></table></figure>
-
-<p>挂载分区。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;mnt&#x2F;debian</span><br><span class="line">sudo mount &#x2F;dev&#x2F;loop0p1 &#x2F;mnt&#x2F;debian</span><br></pre></td></tr></table></figure>
-
-<p>引导chroot。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo debootstrap \</span><br><span class="line">    --arch&#x3D;i386 \</span><br><span class="line">    --variant&#x3D;minbase \</span><br><span class="line">    stretch &#x2F;mnt&#x2F;debian http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>将特殊设备安装到chroot。这对于以后安装grub非常重要。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -t proc &#x2F;proc &#x2F;mnt&#x2F;debian&#x2F;proc</span><br><span class="line">sudo mount -t sysfs &#x2F;sys &#x2F;mnt&#x2F;debian&#x2F;sys</span><br><span class="line">sudo mount -o bind &#x2F;dev &#x2F;mnt&#x2F;debian&#x2F;dev</span><br></pre></td></tr></table></figure>
-
-<p>将root更改为chroot环境。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chroot &#x2F;mnt&#x2F;debian</span><br></pre></td></tr></table></figure>
-
-<p><strong>chroot</strong></p>
-<p>至少需要这些软件包，但根据需要添加更多。</p>
-<p><strong>当提示您将grub安装到设备上时，请勿安装它。只需单击“ Enter”，然后选择不将其安装到任何设备。</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; \</span><br><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    linux-image-586 systemd-sysv \</span><br><span class="line">	grub2-common grub-pc</span><br></pre></td></tr></table></figure>
-
-<p><strong>chroot</strong></p>
-<p>我们要基于磁盘标签而不是UUID或类似的命名磁盘<code>fstab</code>进行装载。这是因为，根据计算机的不同，USB驱动器<em>可能不是/ dev / sda</em>，而且因为UUID会根据文件的部署位置而有所不同。<code>/``/dev/sda``img</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;LABEL&#x3D;DEBUSB &#x2F; ext4 defaults 0 1&quot; &gt; &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
-
-<p><strong>chroot</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
-
-<p><strong>chroot</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grub-install \</span><br><span class="line">    --target&#x3D;i386-pc \</span><br><span class="line">    --boot-directory&#x3D;&#x2F;boot \</span><br><span class="line">    --force-file-id \</span><br><span class="line">    --skip-fs-probe \</span><br><span class="line">    --recheck &#x2F;dev&#x2F;loop0</span><br></pre></td></tr></table></figure>
-
-<p><strong>chroot</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
-
-<p>在中编辑<code>grub.cfg</code>文件<code>img</code>。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo nano &#x2F;mnt&#x2F;debian&#x2F;boot&#x2F;grub&#x2F;grub.cfg</span><br></pre></td></tr></table></figure>
-
-<p>将此内容粘贴到<code>grub.cfg</code>文件中。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># grub.cfg</span><br><span class="line">set default&#x3D;&quot;0&quot;</span><br><span class="line">set timeout&#x3D;10</span><br><span class="line"></span><br><span class="line">menuentry &quot;Debian&quot; &#123;</span><br><span class="line">    linux &#x2F;vmlinuz root&#x3D;&#x2F;dev&#x2F;disk&#x2F;by-label&#x2F;DEBUSB quiet</span><br><span class="line">    initrd &#x2F;initrd.img</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用与我们<code>fstab</code>上面相同的名称标记映像分区。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo e2label &#x2F;dev&#x2F;loop0p1 DEBUSB</span><br></pre></td></tr></table></figure>
-
-<p>设置的主机名<code>img</code>。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;debian-usb&quot; | sudo tee &#x2F;mnt&#x2F;debian&#x2F;etc&#x2F;hostname</span><br></pre></td></tr></table></figure>
-
-<p>清理特殊设备。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo umount &#x2F;mnt&#x2F;debian&#x2F;&#123;dev,sys,proc&#125;</span><br></pre></td></tr></table></figure>
-
-<p>卸载回路设备。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo umount &#x2F;mnt&#x2F;debian</span><br></pre></td></tr></table></figure>
-
-<p>卸下<code>img</code>。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo losetup -d &#x2F;dev&#x2F;loop0</span><br></pre></td></tr></table></figure>
-
-<p>现在，您具有通用的Debian安装，可以像这样将其部署到多个设备。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dd if&#x3D;debian.img of&#x3D;&#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
-
-<h1 id="引文"><a href="#引文" class="headerlink" title="引文"></a>引文</h1><ul>
-<li><a href="https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key" target="_blank" rel="external nofollow noopener noreferrer">在USB密钥上安装Arch Linux</a></li>
-<li><a href="http://www.wyae.de/docs/boot-usb3/" target="_blank" rel="external nofollow noopener noreferrer">从USB 3启动</a></li>
-<li><a href="https://www.cyberciti.biz/faq/linux-partition-howto-set-labels/" target="_blank" rel="external nofollow noopener noreferrer">标记Linux分区</a></li>
-<li><a href="https://ubuntuforums.org/showthread.php?t=1529777" target="_blank" rel="external nofollow noopener noreferrer">如何生成使用LABEL而不是UUID的grub.cfg？</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/GRUB" target="_blank" rel="external nofollow noopener noreferrer">格鲁布</a></li>
-<li><a href="https://www.gnu.org/software/grub/manual/html_node/Multi_002dboot-manual-config.html" target="_blank" rel="external nofollow noopener noreferrer">6.3多引导手动配置</a></li>
-<li><a href="https://unix.stackexchange.com/questions/10010/safe-to-delete-system-map-files-in-boot" target="_blank" rel="external nofollow noopener noreferrer">可以安全删除/ boot中的System.map- *文件吗？</a></li>
-<li><a href="https://ubuntuforums.org/showthread.php?t=1530532" target="_blank" rel="external nofollow noopener noreferrer">使用标签引导GRUB2（无UUID）</a></li>
-<li><a href="https://www.gnu.org/software/grub/manual/grub.html#search" target="_blank" rel="external nofollow noopener noreferrer">16.3.64搜索</a></li>
-<li><a href="https://ubuntuforums.org/showthread.php?t=1854142" target="_blank" rel="external nofollow noopener noreferrer">错误：没有这样的设备：grub抢救&gt;</a></li>
-<li><a href="https://askubuntu.com/questions/491604/grub-rescue-no-such-partition" target="_blank" rel="external nofollow noopener noreferrer">grub救援-&gt;没有这样的分区[重复]</a></li>
-<li><a href="https://superuser.com/questions/130955/how-to-install-grub-into-an-img-file" target="_blank" rel="external nofollow noopener noreferrer">如何将grub安装到.img文件中？</a></li>
-<li><a href="https://unix.stackexchange.com/questions/120198/how-to-fix-boot-into-initramfs-prompt-and-mount-cant-read-etc-fstab-no-su" target="_blank" rel="external nofollow noopener noreferrer">如何解决引导进入initramfs提示符和“装载：无法读取’/ etc / fstab’：无此文件或目录”和“找不到init”的问题？</a></li>
-<li><a href="https://serverfault.com/questions/540492/sudo-echo-bla-etc-sysctl-conf-permission-denied" target="_blank" rel="external nofollow noopener noreferrer"><code>sudo echo “bla” &gt;&gt; /etc/sysctl.conf</code> 没有权限</a></li>
-<li><a href="https://superuser.com/questions/165116/mount-dev-proc-sys-in-a-chroot-environment" target="_blank" rel="external nofollow noopener noreferrer">在chroot环境中挂载dev，proc，sys？</a></li>
-</ul>
-<h2 id="原文地址："><a href="#原文地址：" class="headerlink" title="原文地址："></a>原文地址：</h2><ul>
-<li><a href="https://willhaley.com/blog/install-debian-usb/" target="_blank" rel="external nofollow noopener noreferrer">https://willhaley.com/blog/install-debian-usb/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>live-build</category>
-      </categories>
-      <tags>
-        <tag>live-build</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>将自定义Debian安装到硬盘</title>
-    <url>/archives/b4ad7c54.html</url>
-    <content><![CDATA[<h1 id="将自定义Debian安装到硬盘"><a href="#将自定义Debian安装到硬盘" class="headerlink" title="将自定义Debian安装到硬盘"></a>将自定义Debian安装到硬盘</h1><p>Debian提供的库存Debian安装程序非常棒。它直观，简单。但是，如果出于某种原因（特定配置，计算机部署，最小映像）想要自定义安装，则可以使用以下步骤来完成。</p>
-<p>为此，我们将需要任何基于Debian的实时CD。您可以使用我的指南来<a href="https://willhaley.com/blog/custom-debian-live-environment/" target="_blank" rel="external nofollow noopener noreferrer">创建自定义的Debian Live CD或USB</a>来生成该文件，也可以仅使用Ubuntu或Debian Live CD或USB。</p>
-<p>使用自定义实时环境的优势在于您可以将所需工具打包在实时环境中，以便它们始终可用。如果您使用库存的Ubuntu或Debian Live CD，则可能需要网络连接才能安装所需的工具。</p>
-<p><strong>警告</strong>：我已<strong>突出显示</strong>您应该在目标安装chroot中的所有位置。</p>
-<ol>
-<li><p>使用实时CD或USB引导计算机并安装必要的工具（假设它们尚不可用）。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install debootstrap</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>确定要在其中安装自定义Debian的设备。</p>
-<p>我假设您打算使用的硬盘位于<code>/dev/sdz</code>，您只希望该磁盘上有一个分区，并且希望将MBR与grub2一起使用。</p>
-<p>您<strong>必须</strong>替换的任何实例<code>/dev/sdz</code>与同位置在这些步骤中<strong>您的</strong>硬盘驱动器或会不小心丢失数据。</p>
-</li>
-<li><p>用一个可引导的Linux分区创建一个MBR表。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo -e &quot;o\nn\np\n1\n\n\nw&quot; | sudo fdisk &#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo -e &quot;a\nw\n&quot; | sudo fdisk &#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>格式化分区。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkfs.ext4 &#x2F;dev&#x2F;sdz1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果安装点尚不存在，请创建一个。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;mnt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>挂载分区。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount &#x2F;dev&#x2F;sdz1 &#x2F;mnt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置基本的Debian安装。我在我的发行版中使用Stretch，在架构上使用i386。如果您不在美国，或者您知道更近的镜子，请更换镜子。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo debootstrap \</span><br><span class="line">    --arch&#x3D;i386 \</span><br><span class="line">    --variant&#x3D;minbase \</span><br><span class="line">    stretch &#x2F;mnt http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>绑定<code>/dev</code>并<code>/proc</code>从主机到chroot。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -o bind &#x2F;dev &#x2F;mnt&#x2F;dev</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -t proc &#x2F;proc &#x2F;mnt&#x2F;proc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Chroot到我们的Debian安装。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chroot &#x2F;mnt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>chroot</strong></p>
-<p>找出要在安装中使用的Linux内核。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-cache search linux-image</span><br></pre></td></tr></table></figure>
-
-<p>我选择了图像<code>linux-image-586</code>。<code>systemd-sys</code>（或等效项）是必须提供的<code>init</code>。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; \</span><br><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    linux-image-586 systemd-sysv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>chroot</strong></p>
-<p>安装您选择的程序。我使用<code>--no-install-recommends</code>以避免多余的程序包。您应该确定安装所需的内容。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    network-manager net-tools wireless-tools wpagui \</span><br><span class="line">    tcpdump wget openssh-client \</span><br><span class="line">    blackbox xserver-xorg-core xserver-xorg x11-xserver-utils \</span><br><span class="line">    xinit xterm \</span><br><span class="line">    pciutils usbutils gparted nano</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>chroot</strong></p>
-<p>创建<code>/etc/fstab</code>用于安装的文件。</p>
-<p>我们可以使用类似的脚本来生成它。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UUID&#x3D;&#96;blkid -s UUID -o value &#x2F;dev&#x2F;sdz1&#96;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;UUID&#x3D;$&#123;UUID&#125; &#x2F; ext4 defaults 1 1&quot; &gt; &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>chroot</strong></p>
-<p>安装grub引导加载程序。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install grub2</span><br></pre></td></tr></table></figure>
-
-<p>出现提示时，请确保选择<code>/dev/sdz</code>（<strong>不是</strong> <code>/dev/sdz1</code>）作为<code>Grub install device</code>。</p>
-</li>
-<li><p><strong>chroot</strong></p>
-<p>设置root密码。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>chroot</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新启动您的Debian安装！</p>
-</li>
-</ol>
-<h2 id="原文地址："><a href="#原文地址：" class="headerlink" title="原文地址："></a>原文地址：</h2><ul>
-<li><a href="https://willhaley.com/blog/custom-debian-hard-drive-install/" target="_blank" rel="external nofollow noopener noreferrer">https://willhaley.com/blog/custom-debian-hard-drive-install/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>live-build</category>
-      </categories>
-      <tags>
-        <tag>live-build</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>创建一个自定义BIOS启动的Debian Live环境（CD或USB）</title>
-    <url>/archives/29fc0db9.html</url>
-    <content><![CDATA[<h1 id="创建一个自定义BIOS启动的Debian-Live环境（CD或USB）"><a href="#创建一个自定义BIOS启动的Debian-Live环境（CD或USB）" class="headerlink" title="创建一个自定义BIOS启动的Debian Live环境（CD或USB）"></a>创建一个自定义BIOS启动的Debian Live环境（CD或USB）</h1><p>这些是我在<strong>Ubuntu 18.04 LTS（Bionic Beaver）</strong> 64位系统上使用的步骤，用于构建可以从CD或USB引导的<strong>x86 Debian 9（Stretch）</strong>实时环境。</p>
-<p>这些步骤可用于创建可启动BIOS（MBR），可启动UEFI（GPT）或可启动UEFI和BIOS的组合的实时环境。本指南的独特之处在于<strong>未使用Syslinux / Isolinux。只有Grub引导设备。</strong>这样做是为了保持一致性，并避免两者混淆（仅Syslinux / Isolinux不能完成本文中介绍的所有内容，但是Grub可以做到）。</p>
-<p>以下是我的指南的替代方法，对于那些阅读本文的人来说，它们可能是更好的解决方案：<a href="https://manpages.debian.org/jessie/live-build/live-build.7.en.html" target="_blank" rel="external nofollow noopener noreferrer">live-build</a>，<a href="https://help.ubuntu.com/community/mkusb" target="_blank" rel="external nofollow noopener noreferrer">mkusb</a>，<a href="https://unetbootin.github.io/" target="_blank" rel="external nofollow noopener noreferrer">UNetbootin</a>，<a href="https://github.com/jnalley/xixer" target="_blank" rel="external nofollow noopener noreferrer">xixer</a>，<a href="https://rufus.akeo.ie/" target="_blank" rel="external nofollow noopener noreferrer">rufus</a>，<a href="https://www.pendrivelinux.com/yumi-multiboot-usb-creator/" target="_blank" rel="external nofollow noopener noreferrer">YUMI</a>，<a href="https://wiki.debian.org/Simple-CDD" target="_blank" rel="external nofollow noopener noreferrer">Simple-cdd</a>。您还应该查看<a href="https://wiki.debian.org/DebianCustomCD" target="_blank" rel="external nofollow noopener noreferrer">Debian DebianCustomCD文档，</a>因为它将比本文提供的信息多得多。</p>
-<p>我写这本指南的目的更多是出于教育目的。它不一定是满足您需求的最快指南或最佳指南。希望对您有所帮助。</p>
-<p><strong>警告</strong>：我已<strong>突出显示</strong>您应该在 <strong>[chroot]</strong>环境中的所有位置。小心！在本地环境而不是<a href="https://en.wikipedia.org/wiki/Chroot" target="_blank" rel="external nofollow noopener noreferrer"> chroot中</a>运行其中一些命令可能会损坏系统。</p>
-<h1 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h1><p>安装我们需要构建环境的应用程序。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install \</span><br><span class="line">    debootstrap \</span><br><span class="line">    squashfs-tools \</span><br><span class="line">    xorriso \</span><br><span class="line">    grub-pc-bin \</span><br><span class="line">    grub-efi-amd64-bin \</span><br><span class="line">    mtools</span><br></pre></td></tr></table></figure>
-
-<p>创建一个目录，我们将在其中存储在本指南中创建的所有文件。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p $HOME&#x2F;LIVE_BOOT</span><br></pre></td></tr></table></figure>
-
-<h1 id="引导和配置Debian"><a href="#引导和配置Debian" class="headerlink" title="引导和配置Debian"></a>引导和配置Debian</h1><p>设置基本的Debian环境。我正在使用<code>stretch</code>我的发行版和<code>i386</code>体系结构。请查阅<a href="https://www.debian.org/mirror/list" target="_blank" rel="external nofollow noopener noreferrer">debian镜像</a>列表。</p>
-<p><em>如果附近有镜像网站，请在此命令中更改URL。</em></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo debootstrap \</span><br><span class="line">    --arch&#x3D;i386 \</span><br><span class="line">    --variant&#x3D;minbase \</span><br><span class="line">    stretch \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;chroot \</span><br><span class="line">    http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>Chroot到我们刚刚引导的Debian环境。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chroot $HOME&#x2F;LIVE_BOOT&#x2F;chroot</span><br></pre></td></tr></table></figure>
-
-<p><strong>[chroot]</strong>为您的Debian环境设置自定义主机名。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;ling&quot; &gt; &#x2F;etc&#x2F;hostname</span><br></pre></td></tr></table></figure>
-
-<p><strong>[chroot]</strong>确定实时环境中需要哪个Linux内核。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-cache search linux-image</span><br></pre></td></tr></table></figure>
-
-<p><strong>[chroot]</strong>我选择了图像<code>linux-image-686</code>。我也认为这<code>live-boot</code>是必要的。<code>systemd-sys</code>（或等效项）也是提供init所必需的。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; \</span><br><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    linux-image-686 \</span><br><span class="line">    live-boot \</span><br><span class="line">    systemd-sysv</span><br></pre></td></tr></table></figure>
-
-<p><strong>[chroot]</strong>安装您选择的程序，然后运行<code>apt-get clean</code>以节省一些空间。我使用<code>--no-install-recommends</code>以避免多余的程序包。您应该确定环境所需的内容。</p>
-<p>阅读Debian的<a href="https://wiki.debian.org/ReduceDebian" target="_blank" rel="external nofollow noopener noreferrer">ReduceDebian文章，</a>以获取有关减小Debian环境大小的技巧（如果大小很重要并且您需要最小和紧凑的安装）。请注意，某些实时环境（如<a href="https://en.wikipedia.org/wiki/Tiny_Core_Linux" target="_blank" rel="external nofollow noopener noreferrer">Tiny Core Linux</a>或<a href="https://en.wikipedia.org/wiki/Puppy_Linux" target="_blank" rel="external nofollow noopener noreferrer">Puppy Linux）</a>经过专门优化，仅占很小的空间。尽管本文提供了一个相对较小的实时环境，但生成仅几十MB大小的环境仍需要付出额外的精力，而本文并未涉及。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    network-manager net-tools wireless-tools wpagui \</span><br><span class="line">    curl openssh-client \</span><br><span class="line">    blackbox xserver-xorg-core xserver-xorg xinit xterm \</span><br><span class="line">    nano &amp;&amp; \</span><br><span class="line">apt-get clean</span><br></pre></td></tr></table></figure>
-
-<p><strong>[chroot]</strong>设置root密码。<code>root</code>将默认为该实时环境中的唯一用户，但是您可以根据需要添加其他用户。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
-
-<p><strong>[chroot]</strong>退出chroot。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
-
-<p>创建目录，其中将包含我们的实时环境文件和暂存文件的文件。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p $HOME&#x2F;LIVE_BOOT&#x2F;&#123;scratch,image&#x2F;live&#125;</span><br></pre></td></tr></table></figure>
-
-<p>将chroot环境压缩到一个Squash文件系统中。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mksquashfs \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;chroot \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;image&#x2F;live&#x2F;filesystem.squashfs \</span><br><span class="line">    -e boot</span><br></pre></td></tr></table></figure>
-
-<p>将内核和initramfs从中复制<code>chroot</code>到<code>live</code>目录中。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp $HOME&#x2F;LIVE_BOOT&#x2F;chroot&#x2F;boot&#x2F;vmlinuz-* \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;image&#x2F;vmlinuz &amp;&amp; \</span><br><span class="line">cp $HOME&#x2F;LIVE_BOOT&#x2F;chroot&#x2F;boot&#x2F;initrd.img-* \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;image&#x2F;initrd</span><br></pre></td></tr></table></figure>
-
-<p>为grub创建菜单配置文件。请注意，<code>insmod all_video</code>在我的测试中需要该行来处理我的一台计算机的<a href="https://askubuntu.com/a/857008/413290" target="_blank" rel="external nofollow noopener noreferrer">UEFI引导中的错误</a>。也许不是每个人都需要那条线，但我确实需要。</p>
-<p>此配置指示Grub使用该<code>search</code>命令来推断哪个设备包含我们的实时环境。考虑到我们可以将实时环境写入可启动媒体的各种方式，这似乎是最可移植的解决方案。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;&#39;EOF&#39; &gt;$HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;grub.cfg</span><br><span class="line"></span><br><span class="line">insmod all_video</span><br><span class="line"></span><br><span class="line">search --set&#x3D;root --file &#x2F;DEBIAN_CUSTOM</span><br><span class="line"></span><br><span class="line">set default&#x3D;&quot;0&quot;</span><br><span class="line">set timeout&#x3D;30</span><br><span class="line"></span><br><span class="line">menuentry &quot;Debian Live&quot; &#123;</span><br><span class="line">    linux &#x2F;vmlinuz boot&#x3D;live quiet nomodeset</span><br><span class="line">    initrd &#x2F;initrd</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<p>在<code>image</code>named中创建一个特殊文件<code>DEBIAN_CUSTOM</code>。该文件将用于帮助<code>Grub</code>确定哪个设备包含我们的实时文件系统。该文件名必须唯一，并且必须与我们的<code>grub.cfg</code>配置中的文件名匹配。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch $HOME&#x2F;LIVE_BOOT&#x2F;image&#x2F;DEBIAN_CUSTOM</span><br></pre></td></tr></table></figure>
-
-<p>您的<code>LIVE_BOOT</code>目录现在应该大致如下所示。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LIVE_BOOT&#x2F;chroot&#x2F;*tons of chroot files*</span><br><span class="line">LIVE_BOOT&#x2F;scratch&#x2F;grub.cfg</span><br><span class="line">LIVE_BOOT&#x2F;image&#x2F;DEBIAN_CUSTOM</span><br><span class="line">LIVE_BOOT&#x2F;image&#x2F;initrd</span><br><span class="line">LIVE_BOOT&#x2F;image&#x2F;vmlinuz</span><br><span class="line">LIVE_BOOT&#x2F;image&#x2F;live&#x2F;filesystem.squashfs</span><br></pre></td></tr></table></figure>
-
-<h1 id="创建可启动媒体"><a href="#创建可启动媒体" class="headerlink" title="创建可启动媒体"></a>创建可启动媒体</h1><p>请注意，下面有两组<strong>单独</strong>的说明，用于为实时环境创建可启动媒体。一个进程名为<a href="https://willhaley.com/blog/custom-debian-live-environment/#create-bootable-isocd" target="_blank" rel="external nofollow noopener noreferrer">Create Bootable ISO / CD</a>，<strong>另一个进程</strong>名为<a href="https://willhaley.com/blog/custom-debian-live-environment/#create-bootable-usb" target="_blank" rel="external nofollow noopener noreferrer">Create Bootable USB</a>。</p>
-<ul>
-<li>在<strong>创建可启动ISO / CD</strong>指令将导致<code>.iso</code>包含我们的生活环境中的图像文件。</li>
-<li>“ <strong>创建可启动USB”</strong>说明将导致我们的实时环境直接安装到USB设备上。</li>
-</ul>
-<p><code>.iso</code>我们使用<strong>创建可启动ISO / CD</strong>指令<strong>创建</strong>的文件可以刻录到CD-ROM（光学介质），或通过写入USB设备<code>dd</code>。允许我们<code>.iso</code>文件中这种“应收帐款”行为的功能<em>并非</em>免费提供。这个过程有点复杂，但是在许多现代的实时环境（例如Ubuntu安装<code>.iso</code>文件）中，这种行为是很常见的。</p>
-<p><em>请注意，将<code>.iso</code>文件写入USB设备与将实时环境直接安装到USB设备并不相同。在我的<a href="https://willhaley.com/blog/custom-debian-live-environment/#notes" target="_blank" rel="external nofollow noopener noreferrer">笔记</a>中详细了解我的发现。</em></p>
-<h2 id="创建可启动的ISO-CD-（BIOS-启动方式）"><a href="#创建可启动的ISO-CD-（BIOS-启动方式）" class="headerlink" title="创建可启动的ISO / CD （BIOS 启动方式）"></a>创建可启动的ISO / CD （BIOS 启动方式）</h2><p>将实时环境安装到<code>.iso</code>可以刻录到光学介质的文件中。</p>
-<p>如上所述，<code>.iso</code>通过这些步骤生成的文件<strong>可以</strong>使用写入到USB设备<code>dd</code>。</p>
-<p>创建一个grub BIOS映像。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grub-mkstandalone \</span><br><span class="line">    --format&#x3D;i386-pc \</span><br><span class="line">    --output&#x3D;$HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;core.img \</span><br><span class="line">    --install-modules&#x3D;&quot;linux normal iso9660 biosdisk memdisk search tar ls&quot; \</span><br><span class="line">    --modules&#x3D;&quot;linux normal iso9660 biosdisk search&quot; \</span><br><span class="line">    --locales&#x3D;&quot;&quot; \</span><br><span class="line">    --fonts&#x3D;&quot;&quot; \</span><br><span class="line">    &quot;boot&#x2F;grub&#x2F;grub.cfg&#x3D;$HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;grub.cfg&quot;</span><br></pre></td></tr></table></figure>
-
-<p><code>cat</code>用于将可引导的Grub <code>cdboot.img</code>引导加载程序与我们的引导映像结合使用。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat \</span><br><span class="line">    &#x2F;usr&#x2F;lib&#x2F;grub&#x2F;i386-pc&#x2F;cdboot.img \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;core.img \</span><br><span class="line">&gt; $HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;bios.img</span><br></pre></td></tr></table></figure>
-
-<p>生成ISO文件。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xorriso \</span><br><span class="line">    -as mkisofs \</span><br><span class="line">    -iso-level 3 \</span><br><span class="line">    -full-iso9660-filenames \</span><br><span class="line">    -volid &quot;DEBIAN_CUSTOM&quot; \</span><br><span class="line">    --grub2-boot-info \</span><br><span class="line">    --grub2-mbr &#x2F;usr&#x2F;lib&#x2F;grub&#x2F;i386-pc&#x2F;boot_hybrid.img \</span><br><span class="line">    -eltorito-boot \</span><br><span class="line">        boot&#x2F;grub&#x2F;bios.img \</span><br><span class="line">        -no-emul-boot \</span><br><span class="line">        -boot-load-size 4 \</span><br><span class="line">        -boot-info-table \</span><br><span class="line">        --eltorito-catalog boot&#x2F;grub&#x2F;boot.cat \</span><br><span class="line">    -output &quot;$&#123;HOME&#125;&#x2F;LIVE_BOOT&#x2F;debian-custom.iso&quot; \</span><br><span class="line">    -graft-points \</span><br><span class="line">        &quot;$&#123;HOME&#125;&#x2F;LIVE_BOOT&#x2F;image&quot; \</span><br><span class="line">        &#x2F;boot&#x2F;grub&#x2F;bios.img&#x3D;$HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;bios.img</span><br></pre></td></tr></table></figure>
-
-<p>现在将ISO刻录到CD，您应该可以使用BIOS系统从CD引导了。</p>
-<h2 id="创建可启动USB"><a href="#创建可启动USB" class="headerlink" title="创建可启动USB"></a>创建可启动USB</h2><p>将实时环境安装到USB设备。</p>
-<p>如上所述，在安装现场环境到USB设备是<strong>不</strong>一样的书面<code>.iso</code>文件到USB设备。在这两种情况下，最终结果在大多数情况下都是相同的，但是存在一些细微的差异值得理解，并且有正当的理由，有人可能希望将实时环境直接安装到USB设备，而不是将<code>.iso</code>文件写入USB设备。 </p>
-<p>我假设您在<strong>/ dev /</strong> sdz上有一个已挂载的<strong>空白</strong> USB驱动器。为了在实际的块设备中轻松进行交换，我在这些命令中使用了一个变量。<code>$disk</code></p>
-<p>导出<code>disk</code>变量。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export disk&#x3D;&#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
-
-<p>为USB驱动器创建安装点。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;mnt&#x2F;usb</span><br></pre></td></tr></table></figure>
-
-<p>使用分割USB驱动器<code>parted</code>。该命令在传统的MBR布局中创建1个分区。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo parted --script $disk \</span><br><span class="line">    mklabel msdos \</span><br><span class="line">    mkpart primary fat32 1MiB 100%</span><br></pre></td></tr></table></figure>
-
-<p>格式化分区。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkfs.vfat -F32 $&#123;disk&#125;1</span><br></pre></td></tr></table></figure>
-
-<p>挂载分区。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount $&#123;disk&#125;1 &#x2F;mnt&#x2F;usb</span><br></pre></td></tr></table></figure>
-
-<p>安装用于i386-pc引导的Grub。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo grub-install \</span><br><span class="line">    --target&#x3D;i386-pc \</span><br><span class="line">    --boot-directory&#x3D;&#x2F;mnt&#x2F;usb&#x2F;boot \</span><br><span class="line">    --recheck \</span><br><span class="line">    $disk</span><br></pre></td></tr></table></figure>
-
-<p><code>live</code>在USB设备上创建目录。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;mnt&#x2F;usb&#x2F;&#123;boot&#x2F;grub,live&#125;</span><br></pre></td></tr></table></figure>
-
-<p>将我们先前生成的Debian实时环境文件复制到USB磁盘。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo cp -r $HOME&#x2F;LIVE_BOOT&#x2F;image&#x2F;* &#x2F;mnt&#x2F;usb&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>将<code>grub.cfg</code>启动配置复制到USB设备。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo cp \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;grub.cfg \</span><br><span class="line">    &#x2F;mnt&#x2F;usb&#x2F;boot&#x2F;grub&#x2F;grub.cfg</span><br></pre></td></tr></table></figure>
-
-<p>现在，卸下磁盘，您应该已经准备好在BIOS系统上从磁盘引导。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo umount &#x2F;mnt&#x2F;usb</span><br></pre></td></tr></table></figure>
-
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项 +"></a>注意事项 +</h1><h1 id="注释（Rufus支持）"><a href="#注释（Rufus支持）" class="headerlink" title="注释（Rufus支持） +"></a>注释（Rufus支持） +</h1><h1 id="引文"><a href="#引文" class="headerlink" title="引文"></a>引文</h1><ul>
-<li><a href="https://linux.die.net/man/8/sgdisk" target="_blank" rel="external nofollow noopener noreferrer">sgdisk（8）-Linux手册页</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Multiboot_USB_drive#Hybrid_UEFI_GPT_.2B_BIOS_GPT.2FMBR_boot" target="_blank" rel="external nofollow noopener noreferrer">混合UEFI GPT + BIOS GPT / MBR引导</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/GRUB#.22No_suitable_mode_found.22_error" target="_blank" rel="external nofollow noopener noreferrer">“找不到合适的模式”错误</a></li>
-<li><a href="https://askubuntu.com/questions/258991/where-is-the-memtest-option-on-the-ubuntu-64-bit-live-cd" target="_blank" rel="external nofollow noopener noreferrer">Ubuntu 64位实时CD上的memtest选项在哪里？</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Remastering_the_Install_ISO" target="_blank" rel="external nofollow noopener noreferrer">重新掌握安装ISO</a></li>
-<li><a href="https://help.ubuntu.com/community/UEFIBooting#Install_GRUB2_in_.28U.29EFI_systems" target="_blank" rel="external nofollow noopener noreferrer">在（U）EFI系统中安装GRUB2</a></li>
-<li><a href="https://www.gnu.org/software/grub/manual/grub/html_node/Embedded-configuration.html" target="_blank" rel="external nofollow noopener noreferrer">6.4将配置文件嵌入GRUB</a></li>
-<li><a href="https://askubuntu.com/questions/643938/standalone-grub2-efi-installation-grub-cfg-placement" target="_blank" rel="external nofollow noopener noreferrer">独立的Grub2 EFI安装-grub.cfg放置？</a></li>
-<li><a href="https://unix.stackexchange.com/questions/253657/actual-usage-of-grub-mkimage-config" target="_blank" rel="external nofollow noopener noreferrer">“ grub-mkimage –config =”的实际用法</a></li>
-<li><a href="http://lukeluo.blogspot.com/2013/06/grub-how-to-4-memdisk-and-loopback.html" target="_blank" rel="external nofollow noopener noreferrer">GRUB2使用方法（4）：内存磁盘和回送设备</a></li>
-<li><a href="https://unix.stackexchange.com/questions/267765/how-does-the-grub-efi-loader-find-the-correct-grub-cfg-and-boot-directory" target="_blank" rel="external nofollow noopener noreferrer">grub efi加载程序如何找到正确的grub.cfg和引导目录？</a></li>
-<li><a href="https://www.linux.com/learn/how-rescue-non-booting-grub-2-Linux" target="_blank" rel="external nofollow noopener noreferrer">如何在Linux上救援非引导式GRUB 2</a></li>
-<li><a href="https://help.ubuntu.com/community/BootFromUSB#Using_a_CD" target="_blank" rel="external nofollow noopener noreferrer">使用光盘</a></li>
-<li><a href="https://superuser.com/questions/746553/boot-linux-with-extlinux-from-efi-gpt" target="_blank" rel="external nofollow noopener noreferrer">从EFI和GPT用extlinux引导Linux</a></li>
-<li><a href="https://blog.fpmurphy.com/2010/06/grub2-modules.html" target="_blank" rel="external nofollow noopener noreferrer">GRUB2模块</a></li>
-<li><a href="https://github.com/coreos/grub/blob/master/util/grub-install.c" target="_blank" rel="external nofollow noopener noreferrer">grub-install.c</a></li>
-<li><a href="https://help.ubuntu.com/community/Grub2/Troubleshooting" target="_blank" rel="external nofollow noopener noreferrer">Grub2 /问题排查</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/Secure_Boot#Set_up_PreLoader" target="_blank" rel="external nofollow noopener noreferrer">设置预加载器</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/REFInd#Using_PreLoader" target="_blank" rel="external nofollow noopener noreferrer">使用PreLoader</a></li>
-<li><a href="https://github.com/Mic92/archlive/blob/master/build.sh#L138" target="_blank" rel="external nofollow noopener noreferrer">build.sh</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/archiso#Installing_packages_from_multilib" target="_blank" rel="external nofollow noopener noreferrer">阿奇索</a></li>
-<li><a href="https://www.syslinux.org/wiki/index.php?title=Menu#The_simple_menu_system" target="_blank" rel="external nofollow noopener noreferrer">简单的菜单系统</a></li>
-<li><a href="https://www.syslinux.org/wiki/index.php?title=Isohybrid#UEFI" target="_blank" rel="external nofollow noopener noreferrer">UEFI</a></li>
-<li><a href="https://www.linuxquestions.org/questions/linux-general-1/make-uefi-bootable-live-cd-926021/" target="_blank" rel="external nofollow noopener noreferrer">制作UEFI可启动实时CD</a></li>
-<li><a href="https://unix.stackexchange.com/questions/285193/what-is-the-proper-way-to-use-isolinux-with-uefi" target="_blank" rel="external nofollow noopener noreferrer">将ISOLINUX与UEFI一起使用的正确方法是什么？</a></li>
-<li><a href="https://wiki.debian.org/UEFI#Booting_from_removable_media" target="_blank" rel="external nofollow noopener noreferrer">从可移动媒体引导</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/GRUB#UEFI_systems" target="_blank" rel="external nofollow noopener noreferrer">UEFI系统</a></li>
-<li><a href="https://www.rodsbooks.com/efi-bootloaders/installation.html" target="_blank" rel="external nofollow noopener noreferrer">管理Linux的EFI引导加载程序：EFI引导加载程序安装</a></li>
-<li><a href="https://wiki.archlinux.org/index.php/syslinux#Boot_prompt" target="_blank" rel="external nofollow noopener noreferrer">例子</a></li>
-<li><a href="https://forum.osdev.org/viewtopic.php?t=22169&p=178135" target="_blank" rel="external nofollow noopener noreferrer">Grub2 El-Torito CD</a></li>
-<li><a href="https://forum.osdev.org/viewtopic.php?f=1&t=23766" target="_blank" rel="external nofollow noopener noreferrer">使用GRUB2创建ISO映像</a></li>
-<li><a href="https://wiki.debian.org/DebianLive/MultibootISO" target="_blank" rel="external nofollow noopener noreferrer">DebianLive MultibootISO</a></li>
-<li><a href="https://www.gnu.org/software/grub/manual/grub/html_node/Images.html" target="_blank" rel="external nofollow noopener noreferrer">11个GRUB图像文件</a></li>
-<li><a href="https://www.linuxquestions.org/questions/linux-software-2/stage2_eltorito-missing-884944/" target="_blank" rel="external nofollow noopener noreferrer">stage2_eltorito遗失</a></li>
-<li><a href="https://www.gnu.org/software/grub/manual/legacy/Making-a-GRUB-bootable-CD_002dROM.html" target="_blank" rel="external nofollow noopener noreferrer">3.4制作GRUB可引导CD-ROM</a></li>
-<li><a href="https://unix.stackexchange.com/questions/283994/why-is-grub2-ignoring-kernel-options-when-boot-from-el-torito-on-cd" target="_blank" rel="external nofollow noopener noreferrer">从CD上的el torito引导时，grub2为什么会忽略内核选项？</a></li>
-<li><a href="https://communities.vmware.com/message/2228281#2228281" target="_blank" rel="external nofollow noopener noreferrer">从CD / DVD引导UEFI无效</a></li>
-<li><a href="https://communities.vmware.com/message/2583742#2583742" target="_blank" rel="external nofollow noopener noreferrer">升级到VMWS Player 12后的UEFI问题</a></li>
-<li><a href="https://github.com/linuxkit/linuxkit/blob/master/tools/mkimage-iso-efi/make-efi" target="_blank" rel="external nofollow noopener noreferrer">品牌</a></li>
-<li><a href="https://unix.stackexchange.com/questions/382817/uefi-bios-bootable-live-debian-stretch-amd64-with-persistence" target="_blank" rel="external nofollow noopener noreferrer">UEFI + BIOS可启动实时Debian Stretch amd64持久化</a></li>
-<li><a href="https://www.syslinux.org/archives/2015-April/023381.html" target="_blank" rel="external nofollow noopener noreferrer">[syslinux] Isohybrid Wiki页面和UEFI</a></li>
-</ul>
-<h2 id="原文地址："><a href="#原文地址：" class="headerlink" title="原文地址："></a>原文地址：</h2><ul>
-<li><a href="https://willhaley.com/blog/custom-debian-live-environment/" target="_blank" rel="external nofollow noopener noreferrer">https://willhaley.com/blog/custom-debian-live-environment/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>live-build</category>
-      </categories>
-      <tags>
-        <tag>live-build</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Debian10 环境下安装 hexo 并选择 next7.6 主题</title>
     <url>/archives/64471.html</url>
     <content><![CDATA[<h2 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a>安装 nodejs</h2><p><strong>1、安装nodejs</strong></p>
@@ -2139,6 +1788,357 @@
       </categories>
       <tags>
         <tag>apt-get</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>将自定义Debian Live安装到USB驱动器 (img格式)</title>
+    <url>/archives/19cdbd33.html</url>
+    <content><![CDATA[<h1 id="将自定义Debian-Live安装到USB驱动器-img格式"><a href="#将自定义Debian-Live安装到USB驱动器-img格式" class="headerlink" title="将自定义Debian Live安装到USB驱动器 (img格式)"></a>将自定义Debian Live安装到USB驱动器 (img格式)</h1><p>这些说明<strong>不是</strong>用于实时安装，而是用于将Debian安装到USB闪存介质。</p>
+<p>这里的一个额外好处是，我们将首先在<code>img</code>作为环回设备安装的文件中准备Debian chroot 。</p>
+<p>然后，我们可以将该<code>img</code>文件用作通用基础映像，然后将其部署到大量USB驱动器中。</p>
+<p>你为什么想做这个？好吧，一方面，该<code>img</code>文件有助于减少混乱，并为您提供易于管理的文件，该文件可以一次又一次地重新部署。这对于创建将在多台计算机上重用的通用映像也是理想的。就像您在网吧中所做的那样，每次启动时都会重新安装Debian，或者在教室中。</p>
+<p><strong>警告</strong>：我已<strong>突出显示</strong>您应该在chroot环境中的所有位置。小心！在本地环境而不是chroot中运行其中一些命令可能会导致问题。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install \</span><br><span class="line">    debootstrap</span><br></pre></td></tr></table></figure>
+
+<p>创建图像文件并将其格式化。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fallocate -l 2G debian.img</span><br><span class="line">echo -e &quot;o\nn\np\n1\n\n\nw&quot; | sudo fdisk debian.img</span><br><span class="line">echo -e &quot;a\nw\n&quot; | sudo fdisk debian.img</span><br></pre></td></tr></table></figure>
+
+<p><strong>请注意以下命令返回的内容。</strong>对我来说，回送设备是<code>/dev/loop0</code>，但它可能因您而异。如果您的回送设备地址不同，请相应地更新以下说明。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo losetup --partscan --show --find debian.img</span><br></pre></td></tr></table></figure>
+
+<p>格式化回送设备的linux分区，就像我们对真实物理设备所做的一样。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkfs.ext4 &#x2F;dev&#x2F;loop0p1</span><br></pre></td></tr></table></figure>
+
+<p>挂载分区。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;mnt&#x2F;debian</span><br><span class="line">sudo mount &#x2F;dev&#x2F;loop0p1 &#x2F;mnt&#x2F;debian</span><br></pre></td></tr></table></figure>
+
+<p>引导chroot。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo debootstrap \</span><br><span class="line">    --arch&#x3D;i386 \</span><br><span class="line">    --variant&#x3D;minbase \</span><br><span class="line">    stretch &#x2F;mnt&#x2F;debian http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>将特殊设备安装到chroot。这对于以后安装grub非常重要。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -t proc &#x2F;proc &#x2F;mnt&#x2F;debian&#x2F;proc</span><br><span class="line">sudo mount -t sysfs &#x2F;sys &#x2F;mnt&#x2F;debian&#x2F;sys</span><br><span class="line">sudo mount -o bind &#x2F;dev &#x2F;mnt&#x2F;debian&#x2F;dev</span><br></pre></td></tr></table></figure>
+
+<p>将root更改为chroot环境。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chroot &#x2F;mnt&#x2F;debian</span><br></pre></td></tr></table></figure>
+
+<p><strong>chroot</strong></p>
+<p>至少需要这些软件包，但根据需要添加更多。</p>
+<p><strong>当提示您将grub安装到设备上时，请勿安装它。只需单击“ Enter”，然后选择不将其安装到任何设备。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; \</span><br><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    linux-image-586 systemd-sysv \</span><br><span class="line">	grub2-common grub-pc</span><br></pre></td></tr></table></figure>
+
+<p><strong>chroot</strong></p>
+<p>我们要基于磁盘标签而不是UUID或类似的命名磁盘<code>fstab</code>进行装载。这是因为，根据计算机的不同，USB驱动器<em>可能不是/ dev / sda</em>，而且因为UUID会根据文件的部署位置而有所不同。<code>/``/dev/sda``img</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;LABEL&#x3D;DEBUSB &#x2F; ext4 defaults 0 1&quot; &gt; &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+
+<p><strong>chroot</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+
+<p><strong>chroot</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grub-install \</span><br><span class="line">    --target&#x3D;i386-pc \</span><br><span class="line">    --boot-directory&#x3D;&#x2F;boot \</span><br><span class="line">    --force-file-id \</span><br><span class="line">    --skip-fs-probe \</span><br><span class="line">    --recheck &#x2F;dev&#x2F;loop0</span><br></pre></td></tr></table></figure>
+
+<p><strong>chroot</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<p>在中编辑<code>grub.cfg</code>文件<code>img</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo nano &#x2F;mnt&#x2F;debian&#x2F;boot&#x2F;grub&#x2F;grub.cfg</span><br></pre></td></tr></table></figure>
+
+<p>将此内容粘贴到<code>grub.cfg</code>文件中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># grub.cfg</span><br><span class="line">set default&#x3D;&quot;0&quot;</span><br><span class="line">set timeout&#x3D;10</span><br><span class="line"></span><br><span class="line">menuentry &quot;Debian&quot; &#123;</span><br><span class="line">    linux &#x2F;vmlinuz root&#x3D;&#x2F;dev&#x2F;disk&#x2F;by-label&#x2F;DEBUSB quiet</span><br><span class="line">    initrd &#x2F;initrd.img</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用与我们<code>fstab</code>上面相同的名称标记映像分区。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo e2label &#x2F;dev&#x2F;loop0p1 DEBUSB</span><br></pre></td></tr></table></figure>
+
+<p>设置的主机名<code>img</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;debian-usb&quot; | sudo tee &#x2F;mnt&#x2F;debian&#x2F;etc&#x2F;hostname</span><br></pre></td></tr></table></figure>
+
+<p>清理特殊设备。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo umount &#x2F;mnt&#x2F;debian&#x2F;&#123;dev,sys,proc&#125;</span><br></pre></td></tr></table></figure>
+
+<p>卸载回路设备。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo umount &#x2F;mnt&#x2F;debian</span><br></pre></td></tr></table></figure>
+
+<p>卸下<code>img</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo losetup -d &#x2F;dev&#x2F;loop0</span><br></pre></td></tr></table></figure>
+
+<p>现在，您具有通用的Debian安装，可以像这样将其部署到多个设备。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dd if&#x3D;debian.img of&#x3D;&#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
+
+<h1 id="引文"><a href="#引文" class="headerlink" title="引文"></a>引文</h1><ul>
+<li><a href="https://wiki.archlinux.org/index.php/Installing_Arch_Linux_on_a_USB_key" target="_blank" rel="external nofollow noopener noreferrer">在USB密钥上安装Arch Linux</a></li>
+<li><a href="http://www.wyae.de/docs/boot-usb3/" target="_blank" rel="external nofollow noopener noreferrer">从USB 3启动</a></li>
+<li><a href="https://www.cyberciti.biz/faq/linux-partition-howto-set-labels/" target="_blank" rel="external nofollow noopener noreferrer">标记Linux分区</a></li>
+<li><a href="https://ubuntuforums.org/showthread.php?t=1529777" target="_blank" rel="external nofollow noopener noreferrer">如何生成使用LABEL而不是UUID的grub.cfg？</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/GRUB" target="_blank" rel="external nofollow noopener noreferrer">格鲁布</a></li>
+<li><a href="https://www.gnu.org/software/grub/manual/html_node/Multi_002dboot-manual-config.html" target="_blank" rel="external nofollow noopener noreferrer">6.3多引导手动配置</a></li>
+<li><a href="https://unix.stackexchange.com/questions/10010/safe-to-delete-system-map-files-in-boot" target="_blank" rel="external nofollow noopener noreferrer">可以安全删除/ boot中的System.map- *文件吗？</a></li>
+<li><a href="https://ubuntuforums.org/showthread.php?t=1530532" target="_blank" rel="external nofollow noopener noreferrer">使用标签引导GRUB2（无UUID）</a></li>
+<li><a href="https://www.gnu.org/software/grub/manual/grub.html#search" target="_blank" rel="external nofollow noopener noreferrer">16.3.64搜索</a></li>
+<li><a href="https://ubuntuforums.org/showthread.php?t=1854142" target="_blank" rel="external nofollow noopener noreferrer">错误：没有这样的设备：grub抢救&gt;</a></li>
+<li><a href="https://askubuntu.com/questions/491604/grub-rescue-no-such-partition" target="_blank" rel="external nofollow noopener noreferrer">grub救援-&gt;没有这样的分区[重复]</a></li>
+<li><a href="https://superuser.com/questions/130955/how-to-install-grub-into-an-img-file" target="_blank" rel="external nofollow noopener noreferrer">如何将grub安装到.img文件中？</a></li>
+<li><a href="https://unix.stackexchange.com/questions/120198/how-to-fix-boot-into-initramfs-prompt-and-mount-cant-read-etc-fstab-no-su" target="_blank" rel="external nofollow noopener noreferrer">如何解决引导进入initramfs提示符和“装载：无法读取’/ etc / fstab’：无此文件或目录”和“找不到init”的问题？</a></li>
+<li><a href="https://serverfault.com/questions/540492/sudo-echo-bla-etc-sysctl-conf-permission-denied" target="_blank" rel="external nofollow noopener noreferrer"><code>sudo echo “bla” &gt;&gt; /etc/sysctl.conf</code> 没有权限</a></li>
+<li><a href="https://superuser.com/questions/165116/mount-dev-proc-sys-in-a-chroot-environment" target="_blank" rel="external nofollow noopener noreferrer">在chroot环境中挂载dev，proc，sys？</a></li>
+</ul>
+<h2 id="原文地址："><a href="#原文地址：" class="headerlink" title="原文地址："></a>原文地址：</h2><ul>
+<li><a href="https://willhaley.com/blog/install-debian-usb/" target="_blank" rel="external nofollow noopener noreferrer">https://willhaley.com/blog/install-debian-usb/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>live-build</category>
+      </categories>
+      <tags>
+        <tag>live-build</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>将自定义Debian安装到硬盘</title>
+    <url>/archives/b4ad7c54.html</url>
+    <content><![CDATA[<h1 id="将自定义Debian安装到硬盘"><a href="#将自定义Debian安装到硬盘" class="headerlink" title="将自定义Debian安装到硬盘"></a>将自定义Debian安装到硬盘</h1><p>Debian提供的库存Debian安装程序非常棒。它直观，简单。但是，如果出于某种原因（特定配置，计算机部署，最小映像）想要自定义安装，则可以使用以下步骤来完成。</p>
+<p>为此，我们将需要任何基于Debian的实时CD。您可以使用我的指南来<a href="https://willhaley.com/blog/custom-debian-live-environment/" target="_blank" rel="external nofollow noopener noreferrer">创建自定义的Debian Live CD或USB</a>来生成该文件，也可以仅使用Ubuntu或Debian Live CD或USB。</p>
+<p>使用自定义实时环境的优势在于您可以将所需工具打包在实时环境中，以便它们始终可用。如果您使用库存的Ubuntu或Debian Live CD，则可能需要网络连接才能安装所需的工具。</p>
+<p><strong>警告</strong>：我已<strong>突出显示</strong>您应该在目标安装chroot中的所有位置。</p>
+<ol>
+<li><p>使用实时CD或USB引导计算机并安装必要的工具（假设它们尚不可用）。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install debootstrap</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确定要在其中安装自定义Debian的设备。</p>
+<p>我假设您打算使用的硬盘位于<code>/dev/sdz</code>，您只希望该磁盘上有一个分区，并且希望将MBR与grub2一起使用。</p>
+<p>您<strong>必须</strong>替换的任何实例<code>/dev/sdz</code>与同位置在这些步骤中<strong>您的</strong>硬盘驱动器或会不小心丢失数据。</p>
+</li>
+<li><p>用一个可引导的Linux分区创建一个MBR表。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo -e &quot;o\nn\np\n1\n\n\nw&quot; | sudo fdisk &#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo -e &quot;a\nw\n&quot; | sudo fdisk &#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式化分区。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkfs.ext4 &#x2F;dev&#x2F;sdz1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果安装点尚不存在，请创建一个。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;mnt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>挂载分区。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount &#x2F;dev&#x2F;sdz1 &#x2F;mnt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置基本的Debian安装。我在我的发行版中使用Stretch，在架构上使用i386。如果您不在美国，或者您知道更近的镜子，请更换镜子。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo debootstrap \</span><br><span class="line">    --arch&#x3D;i386 \</span><br><span class="line">    --variant&#x3D;minbase \</span><br><span class="line">    stretch &#x2F;mnt http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绑定<code>/dev</code>并<code>/proc</code>从主机到chroot。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -o bind &#x2F;dev &#x2F;mnt&#x2F;dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount -t proc &#x2F;proc &#x2F;mnt&#x2F;proc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Chroot到我们的Debian安装。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chroot &#x2F;mnt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>chroot</strong></p>
+<p>找出要在安装中使用的Linux内核。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-cache search linux-image</span><br></pre></td></tr></table></figure>
+
+<p>我选择了图像<code>linux-image-586</code>。<code>systemd-sys</code>（或等效项）是必须提供的<code>init</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; \</span><br><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    linux-image-586 systemd-sysv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>chroot</strong></p>
+<p>安装您选择的程序。我使用<code>--no-install-recommends</code>以避免多余的程序包。您应该确定安装所需的内容。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    network-manager net-tools wireless-tools wpagui \</span><br><span class="line">    tcpdump wget openssh-client \</span><br><span class="line">    blackbox xserver-xorg-core xserver-xorg x11-xserver-utils \</span><br><span class="line">    xinit xterm \</span><br><span class="line">    pciutils usbutils gparted nano</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>chroot</strong></p>
+<p>创建<code>/etc/fstab</code>用于安装的文件。</p>
+<p>我们可以使用类似的脚本来生成它。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UUID&#x3D;&#96;blkid -s UUID -o value &#x2F;dev&#x2F;sdz1&#96;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;UUID&#x3D;$&#123;UUID&#125; &#x2F; ext4 defaults 1 1&quot; &gt; &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>chroot</strong></p>
+<p>安装grub引导加载程序。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install grub2</span><br></pre></td></tr></table></figure>
+
+<p>出现提示时，请确保选择<code>/dev/sdz</code>（<strong>不是</strong> <code>/dev/sdz1</code>）作为<code>Grub install device</code>。</p>
+</li>
+<li><p><strong>chroot</strong></p>
+<p>设置root密码。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>chroot</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新启动您的Debian安装！</p>
+</li>
+</ol>
+<h2 id="原文地址："><a href="#原文地址：" class="headerlink" title="原文地址："></a>原文地址：</h2><ul>
+<li><a href="https://willhaley.com/blog/custom-debian-hard-drive-install/" target="_blank" rel="external nofollow noopener noreferrer">https://willhaley.com/blog/custom-debian-hard-drive-install/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>live-build</category>
+      </categories>
+      <tags>
+        <tag>live-build</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>创建一个自定义BIOS启动的Debian Live环境（CD或USB）</title>
+    <url>/archives/29fc0db9.html</url>
+    <content><![CDATA[<h1 id="创建一个自定义BIOS启动的Debian-Live环境（CD或USB）"><a href="#创建一个自定义BIOS启动的Debian-Live环境（CD或USB）" class="headerlink" title="创建一个自定义BIOS启动的Debian Live环境（CD或USB）"></a>创建一个自定义BIOS启动的Debian Live环境（CD或USB）</h1><p>这些是我在<strong>Ubuntu 18.04 LTS（Bionic Beaver）</strong> 64位系统上使用的步骤，用于构建可以从CD或USB引导的<strong>x86 Debian 9（Stretch）</strong>实时环境。</p>
+<p>这些步骤可用于创建可启动BIOS（MBR），可启动UEFI（GPT）或可启动UEFI和BIOS的组合的实时环境。本指南的独特之处在于<strong>未使用Syslinux / Isolinux。只有Grub引导设备。</strong>这样做是为了保持一致性，并避免两者混淆（仅Syslinux / Isolinux不能完成本文中介绍的所有内容，但是Grub可以做到）。</p>
+<p>以下是我的指南的替代方法，对于那些阅读本文的人来说，它们可能是更好的解决方案：<a href="https://manpages.debian.org/jessie/live-build/live-build.7.en.html" target="_blank" rel="external nofollow noopener noreferrer">live-build</a>，<a href="https://help.ubuntu.com/community/mkusb" target="_blank" rel="external nofollow noopener noreferrer">mkusb</a>，<a href="https://unetbootin.github.io/" target="_blank" rel="external nofollow noopener noreferrer">UNetbootin</a>，<a href="https://github.com/jnalley/xixer" target="_blank" rel="external nofollow noopener noreferrer">xixer</a>，<a href="https://rufus.akeo.ie/" target="_blank" rel="external nofollow noopener noreferrer">rufus</a>，<a href="https://www.pendrivelinux.com/yumi-multiboot-usb-creator/" target="_blank" rel="external nofollow noopener noreferrer">YUMI</a>，<a href="https://wiki.debian.org/Simple-CDD" target="_blank" rel="external nofollow noopener noreferrer">Simple-cdd</a>。您还应该查看<a href="https://wiki.debian.org/DebianCustomCD" target="_blank" rel="external nofollow noopener noreferrer">Debian DebianCustomCD文档，</a>因为它将比本文提供的信息多得多。</p>
+<p>我写这本指南的目的更多是出于教育目的。它不一定是满足您需求的最快指南或最佳指南。希望对您有所帮助。</p>
+<p><strong>警告</strong>：我已<strong>突出显示</strong>您应该在 <strong>[chroot]</strong>环境中的所有位置。小心！在本地环境而不是<a href="https://en.wikipedia.org/wiki/Chroot" target="_blank" rel="external nofollow noopener noreferrer"> chroot中</a>运行其中一些命令可能会损坏系统。</p>
+<h1 id="先决条件"><a href="#先决条件" class="headerlink" title="先决条件"></a>先决条件</h1><p>安装我们需要构建环境的应用程序。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install \</span><br><span class="line">    debootstrap \</span><br><span class="line">    squashfs-tools \</span><br><span class="line">    xorriso \</span><br><span class="line">    grub-pc-bin \</span><br><span class="line">    grub-efi-amd64-bin \</span><br><span class="line">    mtools</span><br></pre></td></tr></table></figure>
+
+<p>创建一个目录，我们将在其中存储在本指南中创建的所有文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p $HOME&#x2F;LIVE_BOOT</span><br></pre></td></tr></table></figure>
+
+<h1 id="引导和配置Debian"><a href="#引导和配置Debian" class="headerlink" title="引导和配置Debian"></a>引导和配置Debian</h1><p>设置基本的Debian环境。我正在使用<code>stretch</code>我的发行版和<code>i386</code>体系结构。请查阅<a href="https://www.debian.org/mirror/list" target="_blank" rel="external nofollow noopener noreferrer">debian镜像</a>列表。</p>
+<p><em>如果附近有镜像网站，请在此命令中更改URL。</em></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo debootstrap \</span><br><span class="line">    --arch&#x3D;i386 \</span><br><span class="line">    --variant&#x3D;minbase \</span><br><span class="line">    stretch \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;chroot \</span><br><span class="line">    http:&#x2F;&#x2F;ftp.us.debian.org&#x2F;debian&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>Chroot到我们刚刚引导的Debian环境。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chroot $HOME&#x2F;LIVE_BOOT&#x2F;chroot</span><br></pre></td></tr></table></figure>
+
+<p><strong>[chroot]</strong>为您的Debian环境设置自定义主机名。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo &quot;ling&quot; &gt; &#x2F;etc&#x2F;hostname</span><br></pre></td></tr></table></figure>
+
+<p><strong>[chroot]</strong>确定实时环境中需要哪个Linux内核。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-cache search linux-image</span><br></pre></td></tr></table></figure>
+
+<p><strong>[chroot]</strong>我选择了图像<code>linux-image-686</code>。我也认为这<code>live-boot</code>是必要的。<code>systemd-sys</code>（或等效项）也是提供init所必需的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; \</span><br><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    linux-image-686 \</span><br><span class="line">    live-boot \</span><br><span class="line">    systemd-sysv</span><br></pre></td></tr></table></figure>
+
+<p><strong>[chroot]</strong>安装您选择的程序，然后运行<code>apt-get clean</code>以节省一些空间。我使用<code>--no-install-recommends</code>以避免多余的程序包。您应该确定环境所需的内容。</p>
+<p>阅读Debian的<a href="https://wiki.debian.org/ReduceDebian" target="_blank" rel="external nofollow noopener noreferrer">ReduceDebian文章，</a>以获取有关减小Debian环境大小的技巧（如果大小很重要并且您需要最小和紧凑的安装）。请注意，某些实时环境（如<a href="https://en.wikipedia.org/wiki/Tiny_Core_Linux" target="_blank" rel="external nofollow noopener noreferrer">Tiny Core Linux</a>或<a href="https://en.wikipedia.org/wiki/Puppy_Linux" target="_blank" rel="external nofollow noopener noreferrer">Puppy Linux）</a>经过专门优化，仅占很小的空间。尽管本文提供了一个相对较小的实时环境，但生成仅几十MB大小的环境仍需要付出额外的精力，而本文并未涉及。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install --no-install-recommends \</span><br><span class="line">    network-manager net-tools wireless-tools wpagui \</span><br><span class="line">    curl openssh-client \</span><br><span class="line">    blackbox xserver-xorg-core xserver-xorg xinit xterm \</span><br><span class="line">    nano &amp;&amp; \</span><br><span class="line">apt-get clean</span><br></pre></td></tr></table></figure>
+
+<p><strong>[chroot]</strong>设置root密码。<code>root</code>将默认为该实时环境中的唯一用户，但是您可以根据需要添加其他用户。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+
+<p><strong>[chroot]</strong>退出chroot。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<p>创建目录，其中将包含我们的实时环境文件和暂存文件的文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p $HOME&#x2F;LIVE_BOOT&#x2F;&#123;scratch,image&#x2F;live&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将chroot环境压缩到一个Squash文件系统中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mksquashfs \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;chroot \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;image&#x2F;live&#x2F;filesystem.squashfs \</span><br><span class="line">    -e boot</span><br></pre></td></tr></table></figure>
+
+<p>将内核和initramfs从中复制<code>chroot</code>到<code>live</code>目录中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp $HOME&#x2F;LIVE_BOOT&#x2F;chroot&#x2F;boot&#x2F;vmlinuz-* \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;image&#x2F;vmlinuz &amp;&amp; \</span><br><span class="line">cp $HOME&#x2F;LIVE_BOOT&#x2F;chroot&#x2F;boot&#x2F;initrd.img-* \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;image&#x2F;initrd</span><br></pre></td></tr></table></figure>
+
+<p>为grub创建菜单配置文件。请注意，<code>insmod all_video</code>在我的测试中需要该行来处理我的一台计算机的<a href="https://askubuntu.com/a/857008/413290" target="_blank" rel="external nofollow noopener noreferrer">UEFI引导中的错误</a>。也许不是每个人都需要那条线，但我确实需要。</p>
+<p>此配置指示Grub使用该<code>search</code>命令来推断哪个设备包含我们的实时环境。考虑到我们可以将实时环境写入可启动媒体的各种方式，这似乎是最可移植的解决方案。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;&#39;EOF&#39; &gt;$HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;grub.cfg</span><br><span class="line"></span><br><span class="line">insmod all_video</span><br><span class="line"></span><br><span class="line">search --set&#x3D;root --file &#x2F;DEBIAN_CUSTOM</span><br><span class="line"></span><br><span class="line">set default&#x3D;&quot;0&quot;</span><br><span class="line">set timeout&#x3D;30</span><br><span class="line"></span><br><span class="line">menuentry &quot;Debian Live&quot; &#123;</span><br><span class="line">    linux &#x2F;vmlinuz boot&#x3D;live quiet nomodeset</span><br><span class="line">    initrd &#x2F;initrd</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>在<code>image</code>named中创建一个特殊文件<code>DEBIAN_CUSTOM</code>。该文件将用于帮助<code>Grub</code>确定哪个设备包含我们的实时文件系统。该文件名必须唯一，并且必须与我们的<code>grub.cfg</code>配置中的文件名匹配。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch $HOME&#x2F;LIVE_BOOT&#x2F;image&#x2F;DEBIAN_CUSTOM</span><br></pre></td></tr></table></figure>
+
+<p>您的<code>LIVE_BOOT</code>目录现在应该大致如下所示。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LIVE_BOOT&#x2F;chroot&#x2F;*tons of chroot files*</span><br><span class="line">LIVE_BOOT&#x2F;scratch&#x2F;grub.cfg</span><br><span class="line">LIVE_BOOT&#x2F;image&#x2F;DEBIAN_CUSTOM</span><br><span class="line">LIVE_BOOT&#x2F;image&#x2F;initrd</span><br><span class="line">LIVE_BOOT&#x2F;image&#x2F;vmlinuz</span><br><span class="line">LIVE_BOOT&#x2F;image&#x2F;live&#x2F;filesystem.squashfs</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建可启动媒体"><a href="#创建可启动媒体" class="headerlink" title="创建可启动媒体"></a>创建可启动媒体</h1><p>请注意，下面有两组<strong>单独</strong>的说明，用于为实时环境创建可启动媒体。一个进程名为<a href="https://willhaley.com/blog/custom-debian-live-environment/#create-bootable-isocd" target="_blank" rel="external nofollow noopener noreferrer">Create Bootable ISO / CD</a>，<strong>另一个进程</strong>名为<a href="https://willhaley.com/blog/custom-debian-live-environment/#create-bootable-usb" target="_blank" rel="external nofollow noopener noreferrer">Create Bootable USB</a>。</p>
+<ul>
+<li>在<strong>创建可启动ISO / CD</strong>指令将导致<code>.iso</code>包含我们的生活环境中的图像文件。</li>
+<li>“ <strong>创建可启动USB”</strong>说明将导致我们的实时环境直接安装到USB设备上。</li>
+</ul>
+<p><code>.iso</code>我们使用<strong>创建可启动ISO / CD</strong>指令<strong>创建</strong>的文件可以刻录到CD-ROM（光学介质），或通过写入USB设备<code>dd</code>。允许我们<code>.iso</code>文件中这种“应收帐款”行为的功能<em>并非</em>免费提供。这个过程有点复杂，但是在许多现代的实时环境（例如Ubuntu安装<code>.iso</code>文件）中，这种行为是很常见的。</p>
+<p><em>请注意，将<code>.iso</code>文件写入USB设备与将实时环境直接安装到USB设备并不相同。在我的<a href="https://willhaley.com/blog/custom-debian-live-environment/#notes" target="_blank" rel="external nofollow noopener noreferrer">笔记</a>中详细了解我的发现。</em></p>
+<h2 id="创建可启动的ISO-CD-（BIOS-启动方式）"><a href="#创建可启动的ISO-CD-（BIOS-启动方式）" class="headerlink" title="创建可启动的ISO / CD （BIOS 启动方式）"></a>创建可启动的ISO / CD （BIOS 启动方式）</h2><p>将实时环境安装到<code>.iso</code>可以刻录到光学介质的文件中。</p>
+<p>如上所述，<code>.iso</code>通过这些步骤生成的文件<strong>可以</strong>使用写入到USB设备<code>dd</code>。</p>
+<p>创建一个grub BIOS映像。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grub-mkstandalone \</span><br><span class="line">    --format&#x3D;i386-pc \</span><br><span class="line">    --output&#x3D;$HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;core.img \</span><br><span class="line">    --install-modules&#x3D;&quot;linux normal iso9660 biosdisk memdisk search tar ls&quot; \</span><br><span class="line">    --modules&#x3D;&quot;linux normal iso9660 biosdisk search&quot; \</span><br><span class="line">    --locales&#x3D;&quot;&quot; \</span><br><span class="line">    --fonts&#x3D;&quot;&quot; \</span><br><span class="line">    &quot;boot&#x2F;grub&#x2F;grub.cfg&#x3D;$HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;grub.cfg&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>cat</code>用于将可引导的Grub <code>cdboot.img</code>引导加载程序与我们的引导映像结合使用。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat \</span><br><span class="line">    &#x2F;usr&#x2F;lib&#x2F;grub&#x2F;i386-pc&#x2F;cdboot.img \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;core.img \</span><br><span class="line">&gt; $HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;bios.img</span><br></pre></td></tr></table></figure>
+
+<p>生成ISO文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xorriso \</span><br><span class="line">    -as mkisofs \</span><br><span class="line">    -iso-level 3 \</span><br><span class="line">    -full-iso9660-filenames \</span><br><span class="line">    -volid &quot;DEBIAN_CUSTOM&quot; \</span><br><span class="line">    --grub2-boot-info \</span><br><span class="line">    --grub2-mbr &#x2F;usr&#x2F;lib&#x2F;grub&#x2F;i386-pc&#x2F;boot_hybrid.img \</span><br><span class="line">    -eltorito-boot \</span><br><span class="line">        boot&#x2F;grub&#x2F;bios.img \</span><br><span class="line">        -no-emul-boot \</span><br><span class="line">        -boot-load-size 4 \</span><br><span class="line">        -boot-info-table \</span><br><span class="line">        --eltorito-catalog boot&#x2F;grub&#x2F;boot.cat \</span><br><span class="line">    -output &quot;$&#123;HOME&#125;&#x2F;LIVE_BOOT&#x2F;debian-custom.iso&quot; \</span><br><span class="line">    -graft-points \</span><br><span class="line">        &quot;$&#123;HOME&#125;&#x2F;LIVE_BOOT&#x2F;image&quot; \</span><br><span class="line">        &#x2F;boot&#x2F;grub&#x2F;bios.img&#x3D;$HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;bios.img</span><br></pre></td></tr></table></figure>
+
+<p>现在将ISO刻录到CD，您应该可以使用BIOS系统从CD引导了。</p>
+<h2 id="创建可启动USB"><a href="#创建可启动USB" class="headerlink" title="创建可启动USB"></a>创建可启动USB</h2><p>将实时环境安装到USB设备。</p>
+<p>如上所述，在安装现场环境到USB设备是<strong>不</strong>一样的书面<code>.iso</code>文件到USB设备。在这两种情况下，最终结果在大多数情况下都是相同的，但是存在一些细微的差异值得理解，并且有正当的理由，有人可能希望将实时环境直接安装到USB设备，而不是将<code>.iso</code>文件写入USB设备。 </p>
+<p>我假设您在<strong>/ dev /</strong> sdz上有一个已挂载的<strong>空白</strong> USB驱动器。为了在实际的块设备中轻松进行交换，我在这些命令中使用了一个变量。<code>$disk</code></p>
+<p>导出<code>disk</code>变量。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export disk&#x3D;&#x2F;dev&#x2F;sdz</span><br></pre></td></tr></table></figure>
+
+<p>为USB驱动器创建安装点。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;mnt&#x2F;usb</span><br></pre></td></tr></table></figure>
+
+<p>使用分割USB驱动器<code>parted</code>。该命令在传统的MBR布局中创建1个分区。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo parted --script $disk \</span><br><span class="line">    mklabel msdos \</span><br><span class="line">    mkpart primary fat32 1MiB 100%</span><br></pre></td></tr></table></figure>
+
+<p>格式化分区。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkfs.vfat -F32 $&#123;disk&#125;1</span><br></pre></td></tr></table></figure>
+
+<p>挂载分区。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mount $&#123;disk&#125;1 &#x2F;mnt&#x2F;usb</span><br></pre></td></tr></table></figure>
+
+<p>安装用于i386-pc引导的Grub。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo grub-install \</span><br><span class="line">    --target&#x3D;i386-pc \</span><br><span class="line">    --boot-directory&#x3D;&#x2F;mnt&#x2F;usb&#x2F;boot \</span><br><span class="line">    --recheck \</span><br><span class="line">    $disk</span><br></pre></td></tr></table></figure>
+
+<p><code>live</code>在USB设备上创建目录。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo mkdir -p &#x2F;mnt&#x2F;usb&#x2F;&#123;boot&#x2F;grub,live&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将我们先前生成的Debian实时环境文件复制到USB磁盘。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo cp -r $HOME&#x2F;LIVE_BOOT&#x2F;image&#x2F;* &#x2F;mnt&#x2F;usb&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>将<code>grub.cfg</code>启动配置复制到USB设备。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo cp \</span><br><span class="line">    $HOME&#x2F;LIVE_BOOT&#x2F;scratch&#x2F;grub.cfg \</span><br><span class="line">    &#x2F;mnt&#x2F;usb&#x2F;boot&#x2F;grub&#x2F;grub.cfg</span><br></pre></td></tr></table></figure>
+
+<p>现在，卸下磁盘，您应该已经准备好在BIOS系统上从磁盘引导。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo umount &#x2F;mnt&#x2F;usb</span><br></pre></td></tr></table></figure>
+
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项 +"></a>注意事项 +</h1><h1 id="注释（Rufus支持）"><a href="#注释（Rufus支持）" class="headerlink" title="注释（Rufus支持） +"></a>注释（Rufus支持） +</h1><h1 id="引文"><a href="#引文" class="headerlink" title="引文"></a>引文</h1><ul>
+<li><a href="https://linux.die.net/man/8/sgdisk" target="_blank" rel="external nofollow noopener noreferrer">sgdisk（8）-Linux手册页</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Multiboot_USB_drive#Hybrid_UEFI_GPT_.2B_BIOS_GPT.2FMBR_boot" target="_blank" rel="external nofollow noopener noreferrer">混合UEFI GPT + BIOS GPT / MBR引导</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/GRUB#.22No_suitable_mode_found.22_error" target="_blank" rel="external nofollow noopener noreferrer">“找不到合适的模式”错误</a></li>
+<li><a href="https://askubuntu.com/questions/258991/where-is-the-memtest-option-on-the-ubuntu-64-bit-live-cd" target="_blank" rel="external nofollow noopener noreferrer">Ubuntu 64位实时CD上的memtest选项在哪里？</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Remastering_the_Install_ISO" target="_blank" rel="external nofollow noopener noreferrer">重新掌握安装ISO</a></li>
+<li><a href="https://help.ubuntu.com/community/UEFIBooting#Install_GRUB2_in_.28U.29EFI_systems" target="_blank" rel="external nofollow noopener noreferrer">在（U）EFI系统中安装GRUB2</a></li>
+<li><a href="https://www.gnu.org/software/grub/manual/grub/html_node/Embedded-configuration.html" target="_blank" rel="external nofollow noopener noreferrer">6.4将配置文件嵌入GRUB</a></li>
+<li><a href="https://askubuntu.com/questions/643938/standalone-grub2-efi-installation-grub-cfg-placement" target="_blank" rel="external nofollow noopener noreferrer">独立的Grub2 EFI安装-grub.cfg放置？</a></li>
+<li><a href="https://unix.stackexchange.com/questions/253657/actual-usage-of-grub-mkimage-config" target="_blank" rel="external nofollow noopener noreferrer">“ grub-mkimage –config =”的实际用法</a></li>
+<li><a href="http://lukeluo.blogspot.com/2013/06/grub-how-to-4-memdisk-and-loopback.html" target="_blank" rel="external nofollow noopener noreferrer">GRUB2使用方法（4）：内存磁盘和回送设备</a></li>
+<li><a href="https://unix.stackexchange.com/questions/267765/how-does-the-grub-efi-loader-find-the-correct-grub-cfg-and-boot-directory" target="_blank" rel="external nofollow noopener noreferrer">grub efi加载程序如何找到正确的grub.cfg和引导目录？</a></li>
+<li><a href="https://www.linux.com/learn/how-rescue-non-booting-grub-2-Linux" target="_blank" rel="external nofollow noopener noreferrer">如何在Linux上救援非引导式GRUB 2</a></li>
+<li><a href="https://help.ubuntu.com/community/BootFromUSB#Using_a_CD" target="_blank" rel="external nofollow noopener noreferrer">使用光盘</a></li>
+<li><a href="https://superuser.com/questions/746553/boot-linux-with-extlinux-from-efi-gpt" target="_blank" rel="external nofollow noopener noreferrer">从EFI和GPT用extlinux引导Linux</a></li>
+<li><a href="https://blog.fpmurphy.com/2010/06/grub2-modules.html" target="_blank" rel="external nofollow noopener noreferrer">GRUB2模块</a></li>
+<li><a href="https://github.com/coreos/grub/blob/master/util/grub-install.c" target="_blank" rel="external nofollow noopener noreferrer">grub-install.c</a></li>
+<li><a href="https://help.ubuntu.com/community/Grub2/Troubleshooting" target="_blank" rel="external nofollow noopener noreferrer">Grub2 /问题排查</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Secure_Boot#Set_up_PreLoader" target="_blank" rel="external nofollow noopener noreferrer">设置预加载器</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/REFInd#Using_PreLoader" target="_blank" rel="external nofollow noopener noreferrer">使用PreLoader</a></li>
+<li><a href="https://github.com/Mic92/archlive/blob/master/build.sh#L138" target="_blank" rel="external nofollow noopener noreferrer">build.sh</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/archiso#Installing_packages_from_multilib" target="_blank" rel="external nofollow noopener noreferrer">阿奇索</a></li>
+<li><a href="https://www.syslinux.org/wiki/index.php?title=Menu#The_simple_menu_system" target="_blank" rel="external nofollow noopener noreferrer">简单的菜单系统</a></li>
+<li><a href="https://www.syslinux.org/wiki/index.php?title=Isohybrid#UEFI" target="_blank" rel="external nofollow noopener noreferrer">UEFI</a></li>
+<li><a href="https://www.linuxquestions.org/questions/linux-general-1/make-uefi-bootable-live-cd-926021/" target="_blank" rel="external nofollow noopener noreferrer">制作UEFI可启动实时CD</a></li>
+<li><a href="https://unix.stackexchange.com/questions/285193/what-is-the-proper-way-to-use-isolinux-with-uefi" target="_blank" rel="external nofollow noopener noreferrer">将ISOLINUX与UEFI一起使用的正确方法是什么？</a></li>
+<li><a href="https://wiki.debian.org/UEFI#Booting_from_removable_media" target="_blank" rel="external nofollow noopener noreferrer">从可移动媒体引导</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/GRUB#UEFI_systems" target="_blank" rel="external nofollow noopener noreferrer">UEFI系统</a></li>
+<li><a href="https://www.rodsbooks.com/efi-bootloaders/installation.html" target="_blank" rel="external nofollow noopener noreferrer">管理Linux的EFI引导加载程序：EFI引导加载程序安装</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/syslinux#Boot_prompt" target="_blank" rel="external nofollow noopener noreferrer">例子</a></li>
+<li><a href="https://forum.osdev.org/viewtopic.php?t=22169&p=178135" target="_blank" rel="external nofollow noopener noreferrer">Grub2 El-Torito CD</a></li>
+<li><a href="https://forum.osdev.org/viewtopic.php?f=1&t=23766" target="_blank" rel="external nofollow noopener noreferrer">使用GRUB2创建ISO映像</a></li>
+<li><a href="https://wiki.debian.org/DebianLive/MultibootISO" target="_blank" rel="external nofollow noopener noreferrer">DebianLive MultibootISO</a></li>
+<li><a href="https://www.gnu.org/software/grub/manual/grub/html_node/Images.html" target="_blank" rel="external nofollow noopener noreferrer">11个GRUB图像文件</a></li>
+<li><a href="https://www.linuxquestions.org/questions/linux-software-2/stage2_eltorito-missing-884944/" target="_blank" rel="external nofollow noopener noreferrer">stage2_eltorito遗失</a></li>
+<li><a href="https://www.gnu.org/software/grub/manual/legacy/Making-a-GRUB-bootable-CD_002dROM.html" target="_blank" rel="external nofollow noopener noreferrer">3.4制作GRUB可引导CD-ROM</a></li>
+<li><a href="https://unix.stackexchange.com/questions/283994/why-is-grub2-ignoring-kernel-options-when-boot-from-el-torito-on-cd" target="_blank" rel="external nofollow noopener noreferrer">从CD上的el torito引导时，grub2为什么会忽略内核选项？</a></li>
+<li><a href="https://communities.vmware.com/message/2228281#2228281" target="_blank" rel="external nofollow noopener noreferrer">从CD / DVD引导UEFI无效</a></li>
+<li><a href="https://communities.vmware.com/message/2583742#2583742" target="_blank" rel="external nofollow noopener noreferrer">升级到VMWS Player 12后的UEFI问题</a></li>
+<li><a href="https://github.com/linuxkit/linuxkit/blob/master/tools/mkimage-iso-efi/make-efi" target="_blank" rel="external nofollow noopener noreferrer">品牌</a></li>
+<li><a href="https://unix.stackexchange.com/questions/382817/uefi-bios-bootable-live-debian-stretch-amd64-with-persistence" target="_blank" rel="external nofollow noopener noreferrer">UEFI + BIOS可启动实时Debian Stretch amd64持久化</a></li>
+<li><a href="https://www.syslinux.org/archives/2015-April/023381.html" target="_blank" rel="external nofollow noopener noreferrer">[syslinux] Isohybrid Wiki页面和UEFI</a></li>
+</ul>
+<h2 id="原文地址："><a href="#原文地址：" class="headerlink" title="原文地址："></a>原文地址：</h2><ul>
+<li><a href="https://willhaley.com/blog/custom-debian-live-environment/" target="_blank" rel="external nofollow noopener noreferrer">https://willhaley.com/blog/custom-debian-live-environment/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>live-build</category>
+      </categories>
+      <tags>
+        <tag>live-build</tag>
       </tags>
   </entry>
   <entry>
