@@ -57,7 +57,7 @@
 <meta property="og:description" content="基于next7.6版本进行优化">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-10T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-10T09:29:29.389Z">
+<meta property="article:modified_time" content="2020-04-11T05:59:31.000Z">
 <meta property="article:author" content="LING">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="next7.6">
@@ -246,10 +246,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-04-10 08:00:00 / 修改时间：17:29:29" itemprop="dateCreated datePublished" datetime="2020-04-10T08:00:00+08:00">2020-04-10</time>
+              <time title="创建时间：2020-04-10 08:00:00" itemprop="dateCreated datePublished" datetime="2020-04-10T08:00:00+08:00">2020-04-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-11 13:59:31" itemprop="dateModified" datetime="2020-04-11T13:59:31+08:00">2020-04-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -289,14 +295,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
             <div class="post-description">基于next7.6版本进行优化</div>
 
@@ -309,30 +315,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="文章置顶"><a href="#文章置顶" class="headerlink" title="文章置顶"></a>文章置顶</h2><p>在博客根目录运行下面命令安装插件。</p>
+        <h2 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h2><p>在博客根目录运行下面命令安装插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>打开<strong>站点配置文件 <code>_config.yml</code></strong> 并搜索 <code>deploy:</code> ,在其中添加下列代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> -</span><br><span class="line">  type: &#39;git&#39;</span><br><span class="line">  repository: https:&#x2F;&#x2F;github.com&#x2F;ling218&#x2F;ling218.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>在博客根目录运行下面命令部署博客：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="文章置顶"><a href="#文章置顶" class="headerlink" title="文章置顶"></a>文章置顶</h2><p>在博客根目录运行下面命令安装插件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-generator-index --save</span><br><span class="line">npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure>
 
 <p>打开<code>./themes/next/layout/_macro/post.swig</code>并搜索<code>&lt;div class=&quot;post-meta&quot;&gt;</code>,在其中添加下列代码以开启标签。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if post.top %&#125;</span><br><span class="line">	&lt;i class&#x3D;&quot;fa fa-thumb-tack&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">	&lt;font color&#x3D;FF0000&gt;置顶&lt;&#x2F;font&gt;</span><br><span class="line">	&lt;span class&#x3D;&quot;post-meta-divider&quot;&gt;|&lt;&#x2F;span&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在需要置顶的文章中加入<code>top: true</code>即可，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hexo</span><br><span class="line">date: 2019-05-02 19:00:00</span><br><span class="line">categories: Blog</span><br><span class="line">top: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hexo</span><br><span class="line">date: 2019-05-02 19:00:00</span><br><span class="line">categories: hexo</span><br><span class="line">top: 100</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h2><p>只在需要的时候加载图片，而不是一次性加载完成，加快速度，适用于图片较多的博客（<del>像我一样懒得放图的就不用看了</del>）。</p>
-<p>在博客根目录执行命令安装插件。</p>
+<p><strong>注意：top 中数字越大，文章越靠前</strong>。</p>
+<h2 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h2><p>只在需要的时候加载图片，而不是一次性加载完成，加快速度，适用于图片较多的博客。</p>
+<p>在博客根目录执行命令安装插件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-lazyload --save</span><br></pre></td></tr></table></figure>
 
-<p>在博客根目录的配置文件<code>_config.yml</code>中添加下列代码。</p>
+<p>在<strong>站点配置文件<code>_config.yml</code></strong>中添加下列代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lazyload:</span><br><span class="line">  enable: true</span><br><span class="line">  onlypost: false #是否只在文章中开启懒加载</span><br><span class="line">  # className: #可选 e.g. .J-lazyload-img</span><br><span class="line">  # loadingImg: #可选 eg. .&#x2F;images&#x2F;loading.png 作为图片未加载时的替代图片</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h2><p>开启站内搜索功能方便快速定位，运行下面命令安装插件。</p>
+<h2 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h2><p>开启站内搜索功能方便快速定位，在博客根目录执行命令安装插件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
 
-<p>打开Next主题的配置文件 <code>_config.yml</code> 并搜索 <code>local_search</code>，修改为。</p>
+<p>打开<strong>主题的配置文件 <code>_config.yml</code></strong> 并搜索 <code>local_search</code>，修改为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br></pre></td></tr></table></figure>
 
 
@@ -344,7 +360,7 @@
 <p>安装模块到<code>source/lib</code>文件夹。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-reading-progress source&#x2F;lib&#x2F;reading_progress</span><br></pre></td></tr></table></figure>
 
-<p>打开Next主题路径下的配置文件<code>_config.yml</code>，搜索<code>reading_progress</code>定位到如下代码并将<code>enable:</code>设置为<code>true</code>。</p>
+<p>打开<strong>主题配置文件<code>_config.yml</code></strong>，搜索<code>reading_progress</code>定位到如下代码并将<code>enable:</code>设置为<code>true</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Reading progress bar</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-reading-progress</span><br><span class="line">reading_progress:</span><br><span class="line">  enable: true</span><br><span class="line">  color: &quot;#ff0000&quot; # 调整线条颜色</span><br><span class="line">  height: 2px # 调整线条高度</span><br></pre></td></tr></table></figure>
 
 <p>默认颜色是青色，我修改的是红色。顶部阅读进度条可能会和加载条重合，可以通过修改线条高度覆盖，我的线条高度设置成了<code>3px</code>。</p>
@@ -355,7 +371,7 @@
 <p>安装模块到<code>source/lib</code>文件夹。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-pace source&#x2F;lib&#x2F;pace</span><br></pre></td></tr></table></figure>
 
-<p>打开Next主题路径下的配置文件<code>_config.yml</code>，搜索<code>pace</code>定位到如下代码。</p>
+<p>打开<strong>主题配置文件<code>_config.yml</code></strong>，搜索<code>pace</code>定位到如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Progress bar in the top during page loading.</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;theme-next-pace</span><br><span class="line">pace: true</span><br><span class="line"># Themes list:</span><br><span class="line"># pace-theme-big-counter | pace-theme-bounce | pace-theme-barber-shop | pace-theme-center-atom</span><br><span class="line"># pace-theme-center-circle | pace-theme-center-radar | pace-theme-center-simple | pace-theme-corner-indicator</span><br><span class="line"># pace-theme-fill-left | pace-theme-flash | pace-theme-loading-bar | pace-theme-mac-osx | pace-theme-minimal</span><br><span class="line">pace_theme: pace-theme-flash</span><br></pre></td></tr></table></figure>
 
 <p>将<code>pace:</code>设置为<code>true</code><br>将<code>pace_theme:</code>设置为上面<code>Themes list:</code>中的一种，主题样式可以在<a href="https://github.hubspot.com/pace/docs/welcome/" target="_blank" rel="external nofollow noopener noreferrer">PACE</a>查看。</p>
@@ -373,7 +389,7 @@
 
 
 <h2 id="背景及半透明效果"><a href="#背景及半透明效果" class="headerlink" title="背景及半透明效果"></a>背景及半透明效果</h2><p>将选好的背景图片放在<code>博客根目录/themes/next/source/images</code>中。</p>
-<p>打开 <code>themes/next/_config.yml</code> 并搜索 <code>custom_file_path</code>，修改为：</p>
+<p>打开 <strong>主题配置文件<code>_config.yml</code></strong> 并搜索 <code>custom_file_path</code>，修改为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  style: source&#x2F;_data&#x2F;styles.styl</span><br></pre></td></tr></table></figure>
 
 <p>在博客根目录下创建<code>_data</code>目录。</p>
@@ -384,7 +400,7 @@
 
 <p>背景图片不要太大，最好压缩一下，太大网站加载速度会极慢。</p>
 <p>透明度不要调太低，影响阅读。</p>
-<h2 id="在文章结尾添加本文结束标志"><a href="#在文章结尾添加本文结束标志" class="headerlink" title="在文章结尾添加本文结束标志"></a>在文章结尾添加本文结束标志</h2><p>打开 <code>themes/next/_config.yml</code> 并搜索 <code>custom_file_path</code>，修改为：</p>
+<h2 id="在文章结尾添加本文结束标志"><a href="#在文章结尾添加本文结束标志" class="headerlink" title="在文章结尾添加本文结束标志"></a>在文章结尾添加本文结束标志</h2><p>打开 <strong>主题配置文件<code>_config.yml</code></strong> 并搜索 <code>custom_file_path</code>，修改为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  postBodyEnd: source&#x2F;_data&#x2F;post-body-end.swig</span><br></pre></td></tr></table></figure>
 
 <p>在<code>_data</code>目录下创建<code>post-body-end.swig</code>文件，添加如下内容。</p>
@@ -402,14 +418,163 @@
 
 
 
-<h2 id="字数统计和阅读时长统计"><a href="#字数统计和阅读时长统计" class="headerlink" title="字数统计和阅读时长统计"></a>字数统计和阅读时长统计</h2><p>在博客根目录下运行下面命令安装统计插件。</p>
+<h2 id="永久链接"><a href="#永久链接" class="headerlink" title="永久链接"></a>永久链接</h2><p>在博客根目录下运行下面命令安装永久链接插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>站点配置文件<code>_config.yml</code></strong> 中，修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">url: https:&#x2F;&#x2F;tding.top&#x2F;</span><br><span class="line">root: &#x2F;</span><br><span class="line">permalink: archives&#x2F;:abbrlink.html</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  # 算法：crc16(default) and crc32</span><br><span class="line">  rep: hex    # 进制：dec(default) and hex</span><br><span class="line">permalink_defaults:</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="nofollow-标签"><a href="#nofollow-标签" class="headerlink" title="nofollow 标签"></a>nofollow 标签</h2><p>减少出站链接能够有效防止权重分散，hexo 有很方便的自动为出站链接添加 <code>nofollow</code> 标签的插件。</p>
+<p>在博客根目录下运行下面命令安装nofollow标签插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-filter-nofollow --save</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>站点配置文件<code>_config.yml</code></strong> 中添加配置，将 <code>nofollow</code> 设置为 <code>true</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 外部链接优化</span><br><span class="line">nofollow:</span><br><span class="line">  enable: true</span><br><span class="line">  field: site</span><br><span class="line">  exclude:</span><br><span class="line">    - &#39;blog.ling218.cn&#39;</span><br><span class="line">    - &#39;exclude2.com&#39;</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>exclude</code>（例外的链接，比如友链）将不会被加上 <code>nofollow</code> 属性。</p>
+<h2 id="404页面"><a href="#404页面" class="headerlink" title="404页面"></a>404页面</h2><p>在 <code>hexo/source/404/</code> 目录下创建自己的 <code>index.md</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">date: 2019-12-06 23:59:37</span><br><span class="line">type: &quot;404&quot;</span><br><span class="line">comments: false</span><br><span class="line">permalink: &#x2F;404</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**对不起，您所访问的页面不存在或者已删除**</span><br><span class="line">你可以**[点击此处](https:&#x2F;&#x2F;www.ling218.cn)**返回首页。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">* 我的Github：[http:&#x2F;&#x2F;github.com&#x2F;ling218](http:&#x2F;&#x2F;github.com&#x2F;ling218)</span><br><span class="line">* 我的Facebook：[https:&#x2F;&#x2F;www.facebook.com&#x2F;suixin911](https:&#x2F;&#x2F;www.facebook.com&#x2F;suixin911)</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就完成了 404 页面的创建。</p>
+<p>注意：本地测试不出来，发布出来就可以了。</p>
+<h2 id="RSS订阅"><a href="#RSS订阅" class="headerlink" title="RSS订阅"></a>RSS订阅</h2><p>在博客根目录下运行下面命令安装RSS订阅插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>主题配置文件<code>_config.yml</code></strong> 中搜索<code>social</code> 并添加以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">	RSS: &#x2F;atom.xml || rss</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="footer-跳动的红心"><a href="#footer-跳动的红心" class="headerlink" title="footer 跳动的红心"></a>footer 跳动的红心</h2><p>在<strong>主题配置文件 <code>_config.yml</code></strong>中搜索 <code>footer</code>  并修改以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">footer:</span><br><span class="line">	icon:</span><br><span class="line">	    name: heartbeat     #图标样式</span><br><span class="line">	    animated: true      #图标是否跳动</span><br><span class="line">	    color: &quot;#ff0000&quot;    #图标颜色</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="首页文章属性"><a href="#首页文章属性" class="headerlink" title="首页文章属性"></a>首页文章属性</h2><p>在<strong>主题配置文件 <code>_config.yml</code></strong>中搜索 <code>post_mate:</code>  并修改以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">post_meta:</span><br><span class="line">  item_text: false    # 设为true 可以一行显示，文章的所有属性</span><br><span class="line">  created_at: true    # 显示创建时间</span><br><span class="line">  updated_at:</span><br><span class="line">    enabled: true     # 显示修改的时间</span><br><span class="line">    another_day: true # 设true时，如果创建时间和修改时间一样则显示一个时间</span><br><span class="line">  categories: true    # 显示分类信息</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="页面阅读统计"><a href="#页面阅读统计" class="headerlink" title="页面阅读统计"></a>页面阅读统计</h2><p>在<strong>主题配置文件 <code>_config.yml</code></strong>中搜索 <code>busuanzi_count:</code>  并修改以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: false              # 设true 开启</span><br><span class="line">  total_visitors: true       # 总阅读人数（uv数）</span><br><span class="line">  total_visitors_icon: user  # 阅读总人数的图标</span><br><span class="line">  total_views: true          # 总阅读次数（pv数）</span><br><span class="line">  total_views_icon: eye      # 阅读总次数的图标</span><br><span class="line">  post_views: true           # 开启内容阅读次数</span><br><span class="line">  post_views_icon: eye       # 内容页阅读数的图标</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="字数统计、阅读时长"><a href="#字数统计、阅读时长" class="headerlink" title="字数统计、阅读时长"></a>字数统计、阅读时长</h2><p>在博客根目录下运行下面命令安装统计插件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
 
-<p>在博客根目录配置文件 <code>_config.yml</code> 中加入下列代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true # 文章字数</span><br><span class="line">  time: true # 阅读时长</span><br><span class="line">  total_symbols: true # 所有文章总字数</span><br><span class="line">  total_time: true # 所有文章阅读中时长</span><br></pre></td></tr></table></figure>
+<p>在<strong>主题配置文件<code>_config.yml</code></strong> 搜索 <code>symbols_count_time:</code> 并修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true  # false会显示一行</span><br><span class="line">  item_text_post: true  # 显示属性名称,设为false后只显示图标和统计数字,不显示属性的文字</span><br><span class="line">  item_text_total: true # 底部footer是否显示字数统计属性文字</span><br><span class="line">  awl: 4                # 计算字数的一个设置,没设置过</span><br><span class="line">  wpm: 275              # 一分钟阅读的字数</span><br></pre></td></tr></table></figure>
 
-<p>在Next主题配置文件<code>_config.yaml</code>中搜索<code>symbol_count</code>并修改为。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true</span><br><span class="line">  item_text_post: true</span><br><span class="line">  item_text_total: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure>
+<p>在<strong>站点配置文件<code>_config.yml</code></strong> 新增如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line"> #文章内是否显示</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line"> # 网页底部是否显示</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="LeanCloud-安全"><a href="#LeanCloud-安全" class="headerlink" title="LeanCloud 安全"></a>LeanCloud 安全</h2><p>在博客根目录下运行下面命令安装leancloud安全插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-leancloud-counter-security --save</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>主题配置文件<code>_config.yml</code></strong> 搜索 <code>leancloud_visitors</code> 并修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: &lt;&lt;your app id&gt;&gt;</span><br><span class="line">  app_key: &lt;&lt;your app key&gt;&gt;</span><br><span class="line">  # Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-leancloud-counter-security</span><br><span class="line">  security: true</span><br><span class="line">  betterPerformance: false</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>对 betterPerformance 选项的说明：由于 Leancloud 免费版的云引擎存在请求线程数和运行时间限制以及休眠机制，很多时候访客数量加载会很慢。如果设置 betterPerformance 为 true，则网页则会在提交请求之前直接显示访客人数为查询到的人数 + 1，以增加用户体验。</p>
+</blockquote>
+<p>在<strong>站点配置文件<code>_config.yml</code></strong> 新增如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">leancloud_counter_security:</span><br><span class="line">  enable_sync: true</span><br><span class="line">  app_id: &lt;&lt;your app id&gt;&gt;</span><br><span class="line">  app_key: &lt;&lt;your app key&gt;</span><br><span class="line">  username: &lt;&lt;username&gt;&gt;  #如留空则将在部署时询问</span><br><span class="line">  password: &lt;&lt;password&gt;&gt;  #建议留空以保证安全性，如留空则将在部署时询问</span><br></pre></td></tr></table></figure>
+
+<p>在博客根目录下运行下面命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo lc-counter register &lt;&lt;username&gt;&gt; &lt;&lt;password&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将 <code>&lt;username&gt;</code> 和 <code>&lt;password&gt;</code> 替换为你自己的用户名和密码（不必与 leancloud 的账号）相同。此用户名和密码将在 hexo 部署时使用。</p>
+<p>在<strong>站点配置文件<code>_config.yml</code></strong> 的 deploy 下新增如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  # other deployer</span><br><span class="line">- type: leancloud_counter_security_sync</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="微信，支付宝打赏"><a href="#微信，支付宝打赏" class="headerlink" title="微信，支付宝打赏"></a>微信，支付宝打赏</h2><p>在<strong>主题配置文件<code>_config.yml</code></strong> 搜索 <code>reward_comment:</code> 并修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Reward</span><br><span class="line">reward_comment:                   # 打赏描述</span><br><span class="line">wechatpay: &#x2F;images&#x2F;wechatpay.png  # 微信支付的二维码图片地址</span><br><span class="line">alipay: &#x2F;images&#x2F;alipay.png        # 支付宝的地址</span><br><span class="line">#bitcoin: &#x2F;images&#x2F;bitcoin.png     # 比特币地址</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="相关文章推荐"><a href="#相关文章推荐" class="headerlink" title="相关文章推荐"></a>相关文章推荐</h2><p>在博客根目录下运行下面命令安装相关文章推荐插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-related-popular-posts --save</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>主题配置文件 <code>_config.yml</code></strong> 搜索 <code>related_posts</code> 并修改如下内容:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">related_posts:</span><br><span class="line">  enable: true</span><br><span class="line">  title: 相关文章推荐      # 属性的命名</span><br><span class="line">  display_in_home: false # false代表首页不显示</span><br><span class="line">  params:</span><br><span class="line">    maxCount: 5          # 最多5条</span><br><span class="line">    #PPMixingRate: 0.0   # 相关度</span><br><span class="line">    #isDate: true        # 是否显示日期</span><br><span class="line">    #isImage: false      # 是否显示配图</span><br><span class="line">    isExcerpt: false     # 是否显示摘要</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="代码块复制按钮"><a href="#代码块复制按钮" class="headerlink" title="代码块复制按钮"></a>代码块复制按钮</h2><p>在<strong>主题配置文件<code>_config.yml</code></strong> 搜索 <code>codeblock:</code> 并修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  copy_button:</span><br><span class="line">    enable: false      # 增加复制按钮的开关</span><br><span class="line">    show_result: false # 点击复制完后是否显示 复制成功 结果提示</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="版权信息"><a href="#版权信息" class="headerlink" title="版权信息"></a>版权信息</h2><p>在<strong>主题配置文件<code>_config.yml</code></strong> 搜索 <code>creative_commons:</code> 并修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false</span><br><span class="line">  post: true       # 默认显示版权信息</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="豆瓣读书、豆瓣电影插件"><a href="#豆瓣读书、豆瓣电影插件" class="headerlink" title="豆瓣读书、豆瓣电影插件"></a>豆瓣读书、豆瓣电影插件</h2><p>在博客根目录下运行下面命令安装豆瓣读书、豆瓣电影插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-douban --save</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>站点配置文件<code>_config.yml</code></strong> 新增如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">douban:</span><br><span class="line">  user: mythsman</span><br><span class="line">  builtin: false</span><br><span class="line">  book:</span><br><span class="line">    title: &#39;This is my book title&#39;</span><br><span class="line">    quote: &#39;This is my book quote&#39;</span><br><span class="line">  movie:</span><br><span class="line">    title: &#39;This is my movie title&#39;</span><br><span class="line">    quote: &#39;This is my movie quote&#39;</span><br><span class="line">  game:</span><br><span class="line">    title: &#39;This is my game title&#39;</span><br><span class="line">    quote: &#39;This is my game quote&#39;</span><br><span class="line">  timeout: 10000</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>user: 你的豆瓣 ID. 打开豆瓣，登入账户，然后在右上角点击 “个人主页” ，这时候地址栏的 URL 大概是这样：”<code>https://www.douban.com/people/xxxxxx/</code>“，其中的”xxxxxx” 就是你的个人 ID 了。</li>
+<li>builtin: 是否将生成页面的功能嵌入 <code>hexo s</code> 和 <code>hexo g</code> 中，默认是 false, 另一可选项为 true (1.x.x 版本新增配置项)。</li>
+<li>title: 该页面的标题。</li>
+<li>quote: 写在页面开头的一段话，支持 html 语法。</li>
+<li>timeout: 爬取数据的超时时间，默认是 10000ms , 如果在使用时发现报了超时的错 (ETIMEOUT) 可以把这个数据设置的大一点。</li>
+</ul>
+<p>如果只想显示某一个页面 (比如 movie)，那就把其他的配置项注释掉即可。</p>
+<p>我们只需要在终端中输入以下命令：<code>hexo clean &amp;&amp; hexo douban -bgm &amp;&amp; hexo g &amp;&amp; hexo s</code> 即可，注意其中开启 hexo-douban 的命令中，-bgm 代表的是 book、game、movie 三个参数，如果只需要其中的一部分就只带你想要的那些参数。</p>
+<p><strong>注意：由于 hexo douban 的简写也是 hexo d，与 hexo deploy 的简写指令 hexo d 冲突，因此在进行二者部署的时候，只能都打全名而不能打简写形式</strong>。</p>
+<ul>
+<li>在 0.x.x 版本中，文章的更新和豆瓣页面的爬取操作是绑定在一起的，无法支持单独更新文章或者单独爬取文章。</li>
+<li>在 1.x.x 版本中，使用 hexo douban 命令即可生成指定页面，如果不加参数，那么默认参数为 - bgm。如果配置了 builtin 参数为 true，那么除了可以使用 hexo douban 命令之外，hexo g 或 hexo s 也内嵌了生成页面的功能。因此，还是按照 <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code> 就可以。</li>
+</ul>
+<p>上面都没问题之后，我们只需要在站点目录下测试 <code>http://localhost:4000/books</code> 或者 <code>http://localhost:4000/movies</code> 等，如果看到页面了就说明成功了。</p>
+<p>如果上述都没有问题，我们就可以在菜单栏中添加按钮了，打开主题配置文件<code>_config.yml</code>，找到菜单按钮，添加下面内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  movies: &#x2F;movies&#x2F; || film</span><br><span class="line">  books: &#x2F;books&#x2F; || book</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>next/language/zh-CN.yml</code> 文件中添加对应的中文参数信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  movies: 观影</span><br><span class="line">  books: 阅读</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="添加-Google-统计"><a href="#添加-Google-统计" class="headerlink" title="添加 Google 统计"></a>添加 Google 统计</h2><p>访问 Google Analytics，按照提示填写网站信息开通 GA 服务，获取统计 ID。</p>
+<p>在<strong>主题配置文件<code>_config.yml</code></strong>搜索 <code>google_analytics</code>，删除注释<code>#</code>并填写获取到的统计 ID：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Google Analytics</span><br><span class="line">google_analytics:</span><br><span class="line">  tracking_id: </span><br><span class="line">  localhost_ignored: true</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h2><h3 id="通用站点地图"><a href="#通用站点地图" class="headerlink" title="通用站点地图"></a>通用站点地图</h3><p>在博客根目录下运行下面命令安装sitemap插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>站点配置文件<code>_config.yml</code></strong> 新增如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 通用站点地图</span><br><span class="line">sitemap:</span><br><span class="line">  path: sitemap.xml</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="百度站点地图"><a href="#百度站点地图" class="headerlink" title="百度站点地图"></a>百度站点地图</h3><p>在博客根目录下运行下面命令安装baidu-sitemap插件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>站点配置文件<code>_config.yml</code></strong> 新增如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 百度站点地图</span><br><span class="line">baidusitemap:</span><br><span class="line">  path: baidusitemap.xml</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="百度主动推送"><a href="#百度主动推送" class="headerlink" title="百度主动推送"></a>百度主动推送</h3><p>在博客根目录下运行下面命令安装baidu主动推送插件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure>
+
+<p>在<strong>站点配置文件<code>_config.yml</code></strong> 新增如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 百度主动推送</span><br><span class="line">baidu_url_submit:</span><br><span class="line">  count: 5 				     ## 提交最新的1个链接</span><br><span class="line">  host: tding.top 	     ## 百度站长平台中注册的域名</span><br><span class="line">  token: 	 ## 准入秘钥</span><br><span class="line">  path: baidu_urls.txt 		 ## 文本文档的地址， 新链接会保存在此文本文档里</span><br></pre></td></tr></table></figure>
 
 
 
@@ -524,7 +689,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章置顶"><span class="nav-number">1.</span> <span class="nav-text">文章置顶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片懒加载"><span class="nav-number">2.</span> <span class="nav-text">图片懒加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索功能"><span class="nav-number">3.</span> <span class="nav-text">搜索功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顶部阅读进度条"><span class="nav-number">4.</span> <span class="nav-text">顶部阅读进度条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载条"><span class="nav-number">5.</span> <span class="nav-text">加载条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标点击特效-（心形特效）"><span class="nav-number">6.</span> <span class="nav-text">鼠标点击特效 （心形特效）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景及半透明效果"><span class="nav-number">7.</span> <span class="nav-text">背景及半透明效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在文章结尾添加本文结束标志"><span class="nav-number">8.</span> <span class="nav-text">在文章结尾添加本文结束标志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改代码块颜色"><span class="nav-number">9.</span> <span class="nav-text">修改代码块颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站运行时间"><span class="nav-number">10.</span> <span class="nav-text">网站运行时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字数统计和阅读时长统计"><span class="nav-number">11.</span> <span class="nav-text">字数统计和阅读时长统计</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#部署博客"><span class="nav-number">1.</span> <span class="nav-text">部署博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章置顶"><span class="nav-number">2.</span> <span class="nav-text">文章置顶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片懒加载"><span class="nav-number">3.</span> <span class="nav-text">图片懒加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索功能"><span class="nav-number">4.</span> <span class="nav-text">搜索功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顶部阅读进度条"><span class="nav-number">5.</span> <span class="nav-text">顶部阅读进度条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载条"><span class="nav-number">6.</span> <span class="nav-text">加载条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鼠标点击特效-（心形特效）"><span class="nav-number">7.</span> <span class="nav-text">鼠标点击特效 （心形特效）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景及半透明效果"><span class="nav-number">8.</span> <span class="nav-text">背景及半透明效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在文章结尾添加本文结束标志"><span class="nav-number">9.</span> <span class="nav-text">在文章结尾添加本文结束标志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改代码块颜色"><span class="nav-number">10.</span> <span class="nav-text">修改代码块颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站运行时间"><span class="nav-number">11.</span> <span class="nav-text">网站运行时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#永久链接"><span class="nav-number">12.</span> <span class="nav-text">永久链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nofollow-标签"><span class="nav-number">13.</span> <span class="nav-text">nofollow 标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#404页面"><span class="nav-number">14.</span> <span class="nav-text">404页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSS订阅"><span class="nav-number">15.</span> <span class="nav-text">RSS订阅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#footer-跳动的红心"><span class="nav-number">16.</span> <span class="nav-text">footer 跳动的红心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#首页文章属性"><span class="nav-number">17.</span> <span class="nav-text">首页文章属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面阅读统计"><span class="nav-number">18.</span> <span class="nav-text">页面阅读统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字数统计、阅读时长"><span class="nav-number">19.</span> <span class="nav-text">字数统计、阅读时长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LeanCloud-安全"><span class="nav-number">20.</span> <span class="nav-text">LeanCloud 安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信，支付宝打赏"><span class="nav-number">21.</span> <span class="nav-text">微信，支付宝打赏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关文章推荐"><span class="nav-number">22.</span> <span class="nav-text">相关文章推荐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块复制按钮"><span class="nav-number">23.</span> <span class="nav-text">代码块复制按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版权信息"><span class="nav-number">24.</span> <span class="nav-text">版权信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#豆瓣读书、豆瓣电影插件"><span class="nav-number">25.</span> <span class="nav-text">豆瓣读书、豆瓣电影插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-Google-统计"><span class="nav-number">26.</span> <span class="nav-text">添加 Google 统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#站点地图"><span class="nav-number">27.</span> <span class="nav-text">站点地图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通用站点地图"><span class="nav-number">27.1.</span> <span class="nav-text">通用站点地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度站点地图"><span class="nav-number">27.2.</span> <span class="nav-text">百度站点地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百度主动推送"><span class="nav-number">27.3.</span> <span class="nav-text">百度主动推送</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -619,13 +784,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">35k</span>
+    <span title="站点总字数">38k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">32 分钟</span>
+    <span title="站点阅读时长">34 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 强力驱动 v4.1.1
   </div>
