@@ -49,22 +49,21 @@
   };
 </script>
 
-  <meta name="description" content="Kali Linux 易于在每个软件包级别进行自定义，并且对单个软件包进行修改并从其源代码重建它们以包含在自定义ISO或桌面安装中也很简单。">
+  <meta name="description" content="apt-get是Debian、Ubuntu、Linux Mint、elementary OS、Kali Linux等Linux发行版的默认软件包管理器。本篇文章将介绍最一些实用的apt-get命令详解。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重建源程序包">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.ling218.cn&#x2F;archives&#x2F;21215.html">
+<meta property="og:title" content="Debian 和 Ubuntu 最有用的apt-get命令详解">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.ling218.cn&#x2F;archives&#x2F;492cf5be.html">
 <meta property="og:site_name" content="LING218">
-<meta property="og:description" content="Kali Linux 易于在每个软件包级别进行自定义，并且对单个软件包进行修改并从其源代码重建它们以包含在自定义ISO或桌面安装中也很简单。">
+<meta property="og:description" content="apt-get是Debian、Ubuntu、Linux Mint、elementary OS、Kali Linux等Linux发行版的默认软件包管理器。本篇文章将介绍最一些实用的apt-get命令详解。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-01T00:00:00.000Z">
-<meta property="article:modified_time" content="2020-04-10T08:59:03.000Z">
+<meta property="article:published_time" content="2020-04-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-04-11T09:10:28.000Z">
 <meta property="article:author" content="LING">
-<meta property="article:tag" content="kali">
+<meta property="article:tag" content="apt-get">
 <meta property="article:tag" content="linux">
-<meta property="article:tag" content="程序包">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.ling218.cn/archives/21215.html">
+<link rel="canonical" href="https://www.ling218.cn/archives/492cf5be.html">
 
 
 <script id="page-configurations">
@@ -76,7 +75,7 @@
   };
 </script>
 
-  <title>重建源程序包 | LING218</title>
+  <title>Debian 和 Ubuntu 最有用的apt-get命令详解 | LING218</title>
   
 
 
@@ -219,7 +218,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.ling218.cn/archives/21215.html">
+    <link itemprop="mainEntityOfPage" href="https://www.ling218.cn/archives/492cf5be.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/updates/avatar.jpg">
@@ -232,7 +231,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          重建源程序包
+          Debian 和 Ubuntu 最有用的apt-get命令详解
         </h2>
 
         <div class="post-meta">
@@ -243,16 +242,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-12-01 08:00:00" itemprop="dateCreated datePublished" datetime="2019-12-01T08:00:00+08:00">2019-12-01</time>
+              <time title="创建时间：2020-04-11 08:00:00 / 修改时间：17:10:28" itemprop="dateCreated datePublished" datetime="2020-04-11T08:00:00+08:00">2020-04-11</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-10 16:59:03" itemprop="dateModified" datetime="2020-04-10T16:59:03+08:00">2020-04-10</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -266,7 +259,7 @@
             </span>
 
           
-            <span id="/archives/21215.html" class="post-meta-item leancloud_visitors" data-flag-title="重建源程序包" title="阅读次数">
+            <span id="/archives/492cf5be.html" class="post-meta-item leancloud_visitors" data-flag-title="Debian 和 Ubuntu 最有用的apt-get命令详解" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -281,8 +274,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/archives/21215.html#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/21215.html" itemprop="commentCount"></span>
+    <a title="valine" href="/archives/492cf5be.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/492cf5be.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -292,7 +285,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>552</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -301,7 +294,7 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>1 分钟</span>
             </span>
-            <div class="post-description">Kali Linux 易于在每个软件包级别进行自定义，并且对单个软件包进行修改并从其源代码重建它们以包含在自定义ISO或桌面安装中也很简单。</div>
+            <div class="post-description">apt-get是Debian、Ubuntu、Linux Mint、elementary OS、Kali Linux等Linux发行版的默认软件包管理器。本篇文章将介绍最一些实用的apt-get命令详解。</div>
 
         </div>
       </header>
@@ -312,34 +305,53 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Kali Linux <a href="https://www.kali.org/docs/development/live-build-a-custom-kali-iso/" target="_blank" rel="external nofollow noopener noreferrer">易于在每个软件包级别进行自定义</a>，并且对单个<a href="http://pkg.kali.org/" target="_blank" rel="external nofollow noopener noreferrer">软件包</a>进行修改并从其源代码重建它们以包含在自定义ISO或桌面安装中也很简单。</p>
-<p>完成此过程很简单，只需三个步骤：</p>
-<ul>
-<li>使用<strong>apt</strong>提取软件包源</li>
-<li>根据需要修改它们</li>
-<li>使用Debian工具重建软件包。</li>
-</ul>
-<p>在此示例中，我们将重建<a href="https://github.com/nfc-tools/libfreefare" target="_blank" rel="external nofollow noopener noreferrer">libfreefare</a>软件包，以便将一些额外的硬编码Mifare访问密钥添加到mifare格式的工具中。</p>
-<p>在进行其他操作之前，请确保未注释掉该<code>deb-src</code>行<code>/etc/apt/sources.list</code>。</p>
-<h2 id="下载包源"><a href="#下载包源" class="headerlink" title="下载包源"></a>下载包源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Get the source package</span><br><span class="line">apt update</span><br><span class="line">apt-get source libfreefare</span><br><span class="line">cd libfreefare-0.4.0&#x2F;</span><br></pre></td></tr></table></figure>
+        <h2 id="从软件仓库中安装软件包"><a href="#从软件仓库中安装软件包" class="headerlink" title="从软件仓库中安装软件包"></a>从软件仓库中安装软件包</h2><h3 id="apt-get-update"><a href="#apt-get-update" class="headerlink" title="apt-get update"></a>apt-get update</h3><p>在安装任何软件之前，我们最好是要更新本地软件包索引（package index）。本地软件包索引列出了软件仓库中所有可安装的软件包以及版本信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 
-<h2 id="编辑包源代码"><a href="#编辑包源代码" class="headerlink" title="编辑包源代码"></a>编辑包源代码</h2><p>对程序包的源代码进行所需的更改。在本例中，我们修改了示例文件mifare-classic-format.c。</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano examples/mifare-classic-format.c</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>sudo 的在英语里的意思是switch user and do something。在Linux系统上，你需要root权限来安装和卸载软件包。sudo可以临时将你的用户ID切换为root。</p>
+</blockquote>
+<h3 id="apt-get-install"><a href="#apt-get-install" class="headerlink" title="apt-get install"></a>apt-get install</h3><p>apt-get install 是用来安装软件包的。你需要将软件包的名字添加到 apt-get install 之后。例如，你可以在Ubuntu系统上安装 vim文本编辑器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vim</span><br></pre></td></tr></table></figure>
 
-<h2 id="检查构建依赖关系"><a href="#检查构建依赖关系" class="headerlink" title="检查构建依赖关系"></a>检查构建依赖关系</h2><p>检查软件包可能具有的任何构建依赖项。必须先安装这些工具，然后才能构建软件包。</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-checkbuilddeps</span><br></pre></td></tr></table></figure>
+<p>有时候apt-get会询问你是否真的要安装软件包。如果你想自动回答yes，可以在安装命令中添加 -y 选项。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y vim</span><br></pre></td></tr></table></figure>
 
-<p>输出应类似于以下内容，具体取决于您已经安装了哪些软件包。如果<strong>dpkg-checkbuilddeps不</strong>返回任何输出，则意味着您可以继续进行构建，所有依赖项都已满足。</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-checkbuilddeps: Unmet build dependencies:</span><br></pre></td></tr></table></figure>
+<p>在你用apt-get install命令安装软件包之前，你需要知道这个软件包在软件仓库中的名称。这看起来有点麻烦。当你熟悉之后，你会感到非常方便。尤其是当你SSH远程管理Linux服务器的时候。</p>
+<p>apt-get首先会从软件仓库中下载deb安装包，这些deb安装在/var/cache/apt/archives目录下。下载后，apt-get会自动安装软件包。</p>
+<h3 id="一条命令安装多个软件包"><a href="#一条命令安装多个软件包" class="headerlink" title="一条命令安装多个软件包"></a>一条命令安装多个软件包</h3><p>apt-get install 可以一次性安装多个软件包，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install wireshark wget curl git</span><br></pre></td></tr></table></figure>
 
-<h2 id="安装构建依赖项"><a href="#安装构建依赖项" class="headerlink" title="安装构建依赖项"></a>安装构建依赖项</h2><p>如果需要，请安装所有构建依赖项，如<strong>dpkg-checkbuilddeps</strong>的输出所示：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install dh-autoreconf libnfc-dev libssl-dev</span><br></pre></td></tr></table></figure>
+<h3 id="apt-get-upgrade"><a href="#apt-get-upgrade" class="headerlink" title="apt-get upgrade"></a>apt-get upgrade</h3><p>apt-get upgrade命令用来升级系统上可以升级的软件包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
 
-<h2 id="构建修改后的程序包"><a href="#构建修改后的程序包" class="headerlink" title="构建修改后的程序包"></a>构建修改后的程序包</h2><p>安装了所有依赖项之后，<strong>dpkg-buildpackage</strong>命令就可以构建新版本。</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+<p>apt-get 会告诉你哪些软件包会升级。并且询问你是否真的需要升级这些软件包。你可以在命令中添加 -y 选项来自动回答yes。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y upgrade</span><br></pre></td></tr></table></figure>
 
-<h2 id="安装新软件包"><a href="#安装新软件包" class="headerlink" title="安装新软件包"></a>安装新软件包</h2><p>如果构建顺利完成，则可以使用<strong>dpkg</strong>安装新创建的软件包。</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -i ../libfreefare*.deb</span><br></pre></td></tr></table></figure>
+<h3 id="apt-get-remove"><a href="#apt-get-remove" class="headerlink" title="apt-get remove"></a>apt-get remove</h3><p>这条命令用来删除系统上的软件包，比如，删除Firefox</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove firefox</span><br></pre></td></tr></table></figure>
+
+<p>但它不会删除软件包的配置文件。</p>
+<h3 id="apt-get-purge"><a href="#apt-get-purge" class="headerlink" title="apt-get purge"></a>apt-get purge</h3><p>这条命令可以用来删除软件包及其配置文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge firefox</span><br></pre></td></tr></table></figure>
+
+<h3 id="apt-get-clean"><a href="#apt-get-clean" class="headerlink" title="apt-get clean"></a>apt-get clean</h3><p>当apt-get安装或升级软件包时，它会将deb安装包下载到文件系统的<strong>/var/cache/apt/archives</strong>目录下。软件包安装完成后，这些deb安装包基本上就没有什么用处了。apt-get clean命令可以帮你删除这些deb安装包。</p>
+<p>你可以使用下面的命令查看/var/cache/apt/archives目录下deb安装包的大小。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -sh &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives</span><br></pre></td></tr></table></figure>
+
+<h3 id="apt-get-autoclean"><a href="#apt-get-autoclean" class="headerlink" title="apt-get autoclean"></a>apt-get autoclean</h3><p>apt-get autoclean也可以用来删除/var/cache/apt/archives目录下的deb安装包。但它只删除那些已经不能从软件仓库中下载的deb安装包。这就是说，Debian或Ubuntu已经不维护那些软件包了，或者那些软件包有了一个新的名字。</p>
+<h3 id="apt-get-autoremove"><a href="#apt-get-autoremove" class="headerlink" title="apt-get autoremove"></a>apt-get autoremove</h3><p>这条命令用来删除不需要的依赖软件包。</p>
+<h3 id="apt-get-dist-upgrade"><a href="#apt-get-dist-upgrade" class="headerlink" title="apt-get dist-upgrade"></a>apt-get dist-upgrade</h3><p>这条命令可能会让很多人感到困惑．在Debian系统上，你用这条命令升级系统版本，比如从Debian9升级到Debian10。但是在Ubuntu系统上，这条命令只会升级Linux内核以及之前没有被升级的软件包．升级Ubuntu的版本你需要用到do-release-upgrade命令。</p>
+<h2 id="附：手动安装Deb软件包"><a href="#附：手动安装Deb软件包" class="headerlink" title="附：手动安装Deb软件包"></a>附：手动安装Deb软件包</h2><h3 id="dpkg-i"><a href="#dpkg-i" class="headerlink" title="dpkg -i"></a>dpkg -i</h3><p>如果你从网站上下载了一个deb软件包，那么你需要dpkg工具来安装这个deb包．例如，你可以下载WPS linux版。然后，在终端里将当前工作目录切换到下载目录，再输入下面的命令安装WPS  Linux版。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i wps-office*.deb</span><br></pre></td></tr></table></figure>
+
+<h3 id="gdebi"><a href="#gdebi" class="headerlink" title="gdebi"></a>gdebi</h3><p>dpkg的一个缺点是它不能解决依赖关系。你必须手动安装依赖包。而gdebi可以帮助我们自动安装依赖包。输入下面的命令安装gdebi。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gdebi</span><br></pre></td></tr></table></figure>
+
+<p>它的命令语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gdebi &lt;package.deb&gt;</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -358,14 +370,14 @@
 <ul class="post-copyright">
 
   <li class="post-copyright-title">
-    <strong>本文标题：</strong>重建源程序包</li>
+    <strong>本文标题：</strong>Debian 和 Ubuntu 最有用的apt-get命令详解</li>
 
   <li class="post-copyright-author">
     <strong>本文作者： </strong>LING
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.ling218.cn/archives/21215.html" title="重建源程序包">https://www.ling218.cn/archives/21215.html</a>
+    <a href="https://www.ling218.cn/archives/492cf5be.html" title="Debian 和 Ubuntu 最有用的apt-get命令详解">https://www.ling218.cn/archives/492cf5be.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -377,8 +389,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
-              <a href="/tags/kali/" rel="tag"><i class="fa fa-tag"></i> kali</a>
+              <a href="/tags/apt-get/" rel="tag"><i class="fa fa-tag"></i> apt-get</a>
           </div>
 
         
@@ -387,12 +398,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/archives/32702.html" rel="prev" title="hexo next 7.xx 添加背景图片">
-      <i class="fa fa-chevron-left"></i> hexo next 7.xx 添加背景图片
+    <a href="/archives/d0f44881.html" rel="prev" title="Next 主题深度优化">
+      <i class="fa fa-chevron-left"></i> Next 主题深度优化
     </a></div>
       <div class="post-nav-item">
-    <a href="/archives/34374.html" rel="next" title="在基于非Kali Debian的系统上构建Kali">
-      在基于非Kali Debian的系统上构建Kali <i class="fa fa-chevron-right"></i>
+    <a href="/archives/e3fe7203.html" rel="next" title="Debian/Ubuntu 安装 Typora">
+      Debian/Ubuntu 安装 Typora <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -454,7 +465,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载包源"><span class="nav-number">1.</span> <span class="nav-text">下载包源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑包源代码"><span class="nav-number">2.</span> <span class="nav-text">编辑包源代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查构建依赖关系"><span class="nav-number">3.</span> <span class="nav-text">检查构建依赖关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装构建依赖项"><span class="nav-number">4.</span> <span class="nav-text">安装构建依赖项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建修改后的程序包"><span class="nav-number">5.</span> <span class="nav-text">构建修改后的程序包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装新软件包"><span class="nav-number">6.</span> <span class="nav-text">安装新软件包</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#从软件仓库中安装软件包"><span class="nav-number">1.</span> <span class="nav-text">从软件仓库中安装软件包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apt-get-update"><span class="nav-number">1.1.</span> <span class="nav-text">apt-get update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apt-get-install"><span class="nav-number">1.2.</span> <span class="nav-text">apt-get install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一条命令安装多个软件包"><span class="nav-number">1.3.</span> <span class="nav-text">一条命令安装多个软件包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apt-get-upgrade"><span class="nav-number">1.4.</span> <span class="nav-text">apt-get upgrade</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apt-get-remove"><span class="nav-number">1.5.</span> <span class="nav-text">apt-get remove</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apt-get-purge"><span class="nav-number">1.6.</span> <span class="nav-text">apt-get purge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apt-get-clean"><span class="nav-number">1.7.</span> <span class="nav-text">apt-get clean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apt-get-autoclean"><span class="nav-number">1.8.</span> <span class="nav-text">apt-get autoclean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apt-get-autoremove"><span class="nav-number">1.9.</span> <span class="nav-text">apt-get autoremove</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apt-get-dist-upgrade"><span class="nav-number">1.10.</span> <span class="nav-text">apt-get dist-upgrade</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附：手动安装Deb软件包"><span class="nav-number">2.</span> <span class="nav-text">附：手动安装Deb软件包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dpkg-i"><span class="nav-number">2.1.</span> <span class="nav-text">dpkg -i</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gdebi"><span class="nav-number">2.2.</span> <span class="nav-text">gdebi</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -674,7 +685,7 @@ if (document.querySelectorAll('div.pdf').length) {
       quicklink({
         timeout: 3000,
         priority: true,
-        ignores: [uri => uri.includes('#'),uri => uri == 'https://www.ling218.cn/archives/21215.html',]
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://www.ling218.cn/archives/492cf5be.html',]
       });
       });
   </script>

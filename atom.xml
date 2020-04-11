@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ling218.cn/"/>
-  <updated>2020-04-11T05:59:31.000Z</updated>
+  <updated>2020-04-11T09:09:27.000Z</updated>
   <id>https://www.ling218.cn/</id>
   
   <author>
@@ -15,6 +15,75 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Debian 10如何将语言从英文更改为中文</title>
+    <link href="https://www.ling218.cn/archives/2e51ec06.html"/>
+    <id>https://www.ling218.cn/archives/2e51ec06.html</id>
+    <published>2020-04-11T00:00:00.000Z</published>
+    <updated>2020-04-11T09:09:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Debian-10如何将语言从英文更改为中文"><a href="#Debian-10如何将语言从英文更改为中文" class="headerlink" title="Debian 10如何将语言从英文更改为中文"></a>Debian 10如何将语言从英文更改为中文</h2><ol><li>打开终端并登录 <strong>root</strong> 用户。</li><li>使用 <strong>nano</strong> 文本编辑器打开 <code>/etc/locale.gen</code> 文件。</li><li>如果你在安装的 Debian10 系统时将语言环境设为美国英语，在这个文件中：<strong>en_US.UTF-8 UTF-8</strong> 行首没有 <code>#</code> 符号。</li><li>要添加中文语言支持，找到 <strong>zh_CN</strong> 开头的那几行。在行首把这几行的 <code>#</code> 符号去掉。</li><li>保存文件后，在终端执行 <code>locale-gen</code> 命令。</li><li>打开Gnome设置面板，选择<strong>Region &amp; Language</strong>，双击<strong>Language</strong>，选择<strong>汉语</strong>。</li><li>重新登录 Debian10 系统。你将会看见<strong>将标准文件夹更新到当前语言吗？</strong>对话框。它是问你要不要将home目录下文件夹的语言也更改成中文。我的建议是这些文件夹要使用英文。所以点击<strong>保留旧的名称</strong>。</li></ol><p>现在Debian的界面语言是中文了，但是有些程序如iceweasal, icedove, libreoffice等需要安装专门的中文语言包。输入下面的命令为这些程序安装中文语言包。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install chromium-l10n icedove-l10n-zh-cn iceowl-l10n-zh-cn iceweasel-l10n-zh-cn libreoffice-help-zh-cn libreoffice-l10n-zh-cn debian-faq-zh-cn kicad-doc-zh-cn openvanilla-imgeneric-data-zh-cn texlive-lang-chinese</span><br></pre></td></tr></table></figure><p>完成以上操作，Debian10汉化工作完成。</p>]]></content>
+    
+    <summary type="html">
+    
+      由于安装的是英文版 Debian 。我英语水平不怎么好，因此需要将默认语言改为中文。这篇文章向大家介绍如何将Debian 10 Buster 的语言从英文更改为中文。
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
+    
+    
+      <category term="debian" scheme="https://www.ling218.cn/tags/debian/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Debian/Ubuntu 安装 Typora</title>
+    <link href="https://www.ling218.cn/archives/e3fe7203.html"/>
+    <id>https://www.ling218.cn/archives/e3fe7203.html</id>
+    <published>2020-04-11T00:00:00.000Z</published>
+    <updated>2020-04-11T09:04:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装Typora"><a href="#安装Typora" class="headerlink" title="安装Typora"></a>安装Typora</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 添加typora仓库密钥</span><br><span class="line"># sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span><br><span class="line">wget -qO - https:&#x2F;&#x2F;typora.io&#x2F;linux&#x2F;public-key.asc | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"># 把typora软件源添加到系统源文件 </span><br><span class="line">echo -e &quot;\ndeb https:&#x2F;&#x2F;typora.io&#x2F;linux .&#x2F;&quot; | sudo tee -a &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># 安装typora</span><br><span class="line">sudo apt-get install typora</span><br></pre></td></tr></table></figure><h2 id="升级Typora"><a href="#升级Typora" class="headerlink" title="升级Typora"></a>升级Typora</h2><p>安装Typora之后，<code>typora</code>软件包将受到管理<code>apt-get</code>，因此当您的系统更新已安装的软件包或执行时<code>apt-get upgrade</code>，Typora将更新为最新版本。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      markdown编辑器
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
+    
+    
+      <category term="typora" scheme="https://www.ling218.cn/tags/typora/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Debian 和 Ubuntu 最有用的apt-get命令详解</title>
+    <link href="https://www.ling218.cn/archives/492cf5be.html"/>
+    <id>https://www.ling218.cn/archives/492cf5be.html</id>
+    <published>2020-04-11T00:00:00.000Z</published>
+    <updated>2020-04-11T09:10:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="从软件仓库中安装软件包"><a href="#从软件仓库中安装软件包" class="headerlink" title="从软件仓库中安装软件包"></a>从软件仓库中安装软件包</h2><h3 id="apt-get-update"><a href="#apt-get-update" class="headerlink" title="apt-get update"></a>apt-get update</h3><p>在安装任何软件之前，我们最好是要更新本地软件包索引（package index）。本地软件包索引列出了软件仓库中所有可安装的软件包以及版本信息。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure><blockquote><p>sudo 的在英语里的意思是switch user and do something。在Linux系统上，你需要root权限来安装和卸载软件包。sudo可以临时将你的用户ID切换为root。</p></blockquote><h3 id="apt-get-install"><a href="#apt-get-install" class="headerlink" title="apt-get install"></a>apt-get install</h3><p>apt-get install 是用来安装软件包的。你需要将软件包的名字添加到 apt-get install 之后。例如，你可以在Ubuntu系统上安装 vim文本编辑器。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vim</span><br></pre></td></tr></table></figure><p>有时候apt-get会询问你是否真的要安装软件包。如果你想自动回答yes，可以在安装命令中添加 -y 选项。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y vim</span><br></pre></td></tr></table></figure><p>在你用apt-get install命令安装软件包之前，你需要知道这个软件包在软件仓库中的名称。这看起来有点麻烦。当你熟悉之后，你会感到非常方便。尤其是当你SSH远程管理Linux服务器的时候。</p><p>apt-get首先会从软件仓库中下载deb安装包，这些deb安装在/var/cache/apt/archives目录下。下载后，apt-get会自动安装软件包。</p><h3 id="一条命令安装多个软件包"><a href="#一条命令安装多个软件包" class="headerlink" title="一条命令安装多个软件包"></a>一条命令安装多个软件包</h3><p>apt-get install 可以一次性安装多个软件包，比如</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install wireshark wget curl git</span><br></pre></td></tr></table></figure><h3 id="apt-get-upgrade"><a href="#apt-get-upgrade" class="headerlink" title="apt-get upgrade"></a>apt-get upgrade</h3><p>apt-get upgrade命令用来升级系统上可以升级的软件包。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure><p>apt-get 会告诉你哪些软件包会升级。并且询问你是否真的需要升级这些软件包。你可以在命令中添加 -y 选项来自动回答yes。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y upgrade</span><br></pre></td></tr></table></figure><h3 id="apt-get-remove"><a href="#apt-get-remove" class="headerlink" title="apt-get remove"></a>apt-get remove</h3><p>这条命令用来删除系统上的软件包，比如，删除Firefox</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove firefox</span><br></pre></td></tr></table></figure><p>但它不会删除软件包的配置文件。</p><h3 id="apt-get-purge"><a href="#apt-get-purge" class="headerlink" title="apt-get purge"></a>apt-get purge</h3><p>这条命令可以用来删除软件包及其配置文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge firefox</span><br></pre></td></tr></table></figure><h3 id="apt-get-clean"><a href="#apt-get-clean" class="headerlink" title="apt-get clean"></a>apt-get clean</h3><p>当apt-get安装或升级软件包时，它会将deb安装包下载到文件系统的<strong>/var/cache/apt/archives</strong>目录下。软件包安装完成后，这些deb安装包基本上就没有什么用处了。apt-get clean命令可以帮你删除这些deb安装包。</p><p>你可以使用下面的命令查看/var/cache/apt/archives目录下deb安装包的大小。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -sh &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives</span><br></pre></td></tr></table></figure><h3 id="apt-get-autoclean"><a href="#apt-get-autoclean" class="headerlink" title="apt-get autoclean"></a>apt-get autoclean</h3><p>apt-get autoclean也可以用来删除/var/cache/apt/archives目录下的deb安装包。但它只删除那些已经不能从软件仓库中下载的deb安装包。这就是说，Debian或Ubuntu已经不维护那些软件包了，或者那些软件包有了一个新的名字。</p><h3 id="apt-get-autoremove"><a href="#apt-get-autoremove" class="headerlink" title="apt-get autoremove"></a>apt-get autoremove</h3><p>这条命令用来删除不需要的依赖软件包。</p><h3 id="apt-get-dist-upgrade"><a href="#apt-get-dist-upgrade" class="headerlink" title="apt-get dist-upgrade"></a>apt-get dist-upgrade</h3><p>这条命令可能会让很多人感到困惑．在Debian系统上，你用这条命令升级系统版本，比如从Debian9升级到Debian10。但是在Ubuntu系统上，这条命令只会升级Linux内核以及之前没有被升级的软件包．升级Ubuntu的版本你需要用到do-release-upgrade命令。</p><h2 id="附：手动安装Deb软件包"><a href="#附：手动安装Deb软件包" class="headerlink" title="附：手动安装Deb软件包"></a>附：手动安装Deb软件包</h2><h3 id="dpkg-i"><a href="#dpkg-i" class="headerlink" title="dpkg -i"></a>dpkg -i</h3><p>如果你从网站上下载了一个deb软件包，那么你需要dpkg工具来安装这个deb包．例如，你可以下载WPS linux版。然后，在终端里将当前工作目录切换到下载目录，再输入下面的命令安装WPS  Linux版。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i wps-office*.deb</span><br></pre></td></tr></table></figure><h3 id="gdebi"><a href="#gdebi" class="headerlink" title="gdebi"></a>gdebi</h3><p>dpkg的一个缺点是它不能解决依赖关系。你必须手动安装依赖包。而gdebi可以帮助我们自动安装依赖包。输入下面的命令安装gdebi。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gdebi</span><br></pre></td></tr></table></figure><p>它的命令语法如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gdebi &lt;package.deb&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      apt-get是Debian、Ubuntu、Linux Mint、elementary OS、Kali Linux等Linux发行版的默认软件包管理器。本篇文章将介绍最一些实用的apt-get命令详解。
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
+    
+    
+      <category term="apt-get" scheme="https://www.ling218.cn/tags/apt-get/"/>
+    
+  </entry>
   
   <entry>
     <title>Next 主题深度优化</title>
@@ -159,7 +228,7 @@
     <link href="https://www.ling218.cn/archives/4ba04316.html"/>
     <id>https://www.ling218.cn/archives/4ba04316.html</id>
     <published>2020-04-08T00:00:00.000Z</published>
-    <updated>2020-04-10T09:40:45.134Z</updated>
+    <updated>2020-04-10T13:23:40.000Z</updated>
     
     <content type="html"><![CDATA[<p>linux命令行下面执行某个命令的时候，首先保证该命令是否存在，若存在，但输入命令的时候若仍提示：command not found</p><p>这个时候就的查看PATH环境变量的设置了，当前命令是否存在于PATH环境变量中</p><p>#查看PATH：echo $PATH</p><p>举例说，命令 composr 在/usr/loca/bin</p><p>但执行的时候提示：</p><p>-bash: composr: command not found</p><p>这个时候，通过echo $PATH，，发现composer并未在PATH环境变量中有设置，这个时候就需要把composer所在路径添加到PATH中</p><p>所以需要修改PATH环境变量，具体如下：</p><p>方法一：</p><p>export PATH=/usr/local/bin:$PATH</p><p>#配置完后可以通过echo $PATH查看配置结果。</p><p>#生效方法：立即生效</p><p>#有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢#复原有的path配置</p><p>#用户局限：仅对当前用户</p><p>方法二：</p><p>#通过修改.bashrc文件:</p><p>vim ~/.bashrc</p><p>#在最后一行添上：</p><p>export PATH=/usr/local/bin:$PATH</p><p>#生效方法：（有以下两种）</p><p>#1、关闭当前终端窗口，重新打开一个新终端窗口就能生效</p><p>#2、输入“source ~/.bashrc”命令，立即生效</p><p>#有效期限：永久有效</p><p>#用户局限：仅对当前用户</p><p>方法三：</p><p>#通过修改profile文件:</p><p>vim /etc/profile</p><p>export PATH=/usr/local/bin:$PATH</p><p>#生效方法：系统重启</p><p>#有效期限：永久有效</p><p>#用户局限：对所有用户</p><p>方法四：</p><p>#通过修改environment文件:</p><p>vim /etc/environment</p><p>在PATH=”/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin”中加入 “:/usr/local/bin”</p><p>#生效方法：系统重启</p><p>#有效期限：永久有效</p><p>#用户局限：对所有用户</p>]]></content>
     
@@ -404,75 +473,6 @@
     
     
       <category term="curl" scheme="https://www.ling218.cn/tags/curl/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Debian 创建 sudo 用户</title>
-    <link href="https://www.ling218.cn/archives/a396cc0c.html"/>
-    <id>https://www.ling218.cn/archives/a396cc0c.html</id>
-    <published>2020-04-06T00:00:00.000Z</published>
-    <updated>2020-04-10T09:26:42.053Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Debian-创建-sudo-用户"><a href="#Debian-创建-sudo-用户" class="headerlink" title="Debian 创建 sudo 用户"></a>Debian 创建 sudo 用户</h1><p>sudo命令提供了临时使用root权限的机制，使普通用户可以执行超级管理员任务。</p><p>添加用户。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># adduser newuser</span><br></pre></td></tr></table></figure><p>设置用户密码。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># passwd newuser</span><br></pre></td></tr></table></figure><p>把新建用户加入sudo组。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># usermod -aG sudo newuser</span><br></pre></td></tr></table></figure><p>测试新用户sudo机制。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># su newuser</span><br><span class="line"># sudo apt update</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      Debian 创建 sudo 用户
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
-    
-    
-      <category term="sudo" scheme="https://www.ling218.cn/tags/sudo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Debian 执行 sudo 不用输入密码</title>
-    <link href="https://www.ling218.cn/archives/c80a599a.html"/>
-    <id>https://www.ling218.cn/archives/c80a599a.html</id>
-    <published>2020-04-06T00:00:00.000Z</published>
-    <updated>2020-04-10T09:26:42.137Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Debian-执行-sudo-不用输入密码"><a href="#Debian-执行-sudo-不用输入密码" class="headerlink" title="Debian 执行 sudo 不用输入密码"></a>Debian 执行 sudo 不用输入密码</h1><p>在 <code>/etc/sudoers</code> 文件尾添加下面一行：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username ALL&#x3D;(ALL)NOPASSWD:ALL</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      Debian 执行 sudo 不用输入密码
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
-    
-    
-      <category term="sudo" scheme="https://www.ling218.cn/tags/sudo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Debian 添加删除用户</title>
-    <link href="https://www.ling218.cn/archives/1044a86e.html"/>
-    <id>https://www.ling218.cn/archives/1044a86e.html</id>
-    <published>2020-04-06T00:00:00.000Z</published>
-    <updated>2020-04-10T09:26:42.137Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Debian-添加删除用户"><a href="#Debian-添加删除用户" class="headerlink" title="Debian 添加删除用户"></a>Debian 添加删除用户</h1><h3 id="添加用户："><a href="#添加用户：" class="headerlink" title="添加用户："></a>添加用户：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># adduser newuser</span><br></pre></td></tr></table></figure><h3 id="把用户添加到sudo组："><a href="#把用户添加到sudo组：" class="headerlink" title="把用户添加到sudo组："></a>把用户添加到sudo组：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># usermod -aG sudo newuser</span><br></pre></td></tr></table></figure><p>或：编辑 <code>/etc/sudoers</code>  文件。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newuser ALL&#x3D;(ALL) ALL</span><br></pre></td></tr></table></figure><h3 id="删除用户而不删除用户家目录："><a href="#删除用户而不删除用户家目录：" class="headerlink" title="删除用户而不删除用户家目录："></a>删除用户而不删除用户家目录：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># deluser newuser</span><br></pre></td></tr></table></figure><h3 id="删除用户并删除用户家目录："><a href="#删除用户并删除用户家目录：" class="headerlink" title="删除用户并删除用户家目录："></a>删除用户并删除用户家目录：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># dleuser --remove-home newuser</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      Debian 添加删除用户
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
-    
-    
-      <category term="adduser" scheme="https://www.ling218.cn/tags/adduser/"/>
     
   </entry>
   
