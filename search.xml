@@ -1596,10 +1596,6 @@
     <url>/archives/1b5f6a82.html</url>
     <content><![CDATA[<p>在Linux中，创建一个文件时，该文件的拥有者都是创建该文件的用户。该文件用户可以修改该文件的拥有者及用户组，当然root用户可以修改任何文件的拥有者及用户组。在Linux中，对于文件的权限（rwx），分为三部分，一部分是该文件的拥有者所拥有的权限，一部分是该文件所在用户组的用户所拥有的权限，另一部分是其他用户所拥有的权限。</p>
 <p>在shell中，要修改文件当前的用户必须具有管理员root的权限。可以通过su命令切换到root用户，也可以通过sudo获得root的权限。</p>
-<a id="more"></a>
-
-
-
 <h2 id="chown-命令更改文件拥有者"><a href="#chown-命令更改文件拥有者" class="headerlink" title="chown 命令更改文件拥有者"></a>chown 命令更改文件拥有者</h2><p>在 shell 中，可以使用chown命令来改变文件所有者。chown命令是change owner（改变拥有者）的缩写。需要要注意的是，用户必须是已经存在系统中的，也就是只能改变为在 <code>/etc/passwd</code> 这个文件中有记录的用户名称才可以。</p>
 <p>chown命令的用途很多，还可以顺便直接修改用户组的名称。此外，如果要连目录下的所有子目录或文件同时更改文件拥有者的话，直接加上<code>-R</code>的参数即可。</p>
 <p><strong>语法：</strong></p>
@@ -1787,9 +1783,7 @@
   <entry>
     <title>让 Google 搜索引擎重新抓取我的网站</title>
     <url>/archives/7a1bc012.html</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 让 Google 搜索引擎重新抓取我的网站</span><br><span class="line">comments: true</span><br><span class="line">tags: google</span><br><span class="line">categories: blog</span><br><span class="line">keywords: &quot;Google&quot;</span><br><span class="line">description: 让Google搜索引擎抓取我们的网站</span><br></pre></td></tr></table></figure>
-
-<h2 id="提交站点地图-（很多个网址）"><a href="#提交站点地图-（很多个网址）" class="headerlink" title="提交站点地图 （很多个网址）"></a>提交站点地图 （很多个网址）</h2><p>站点地图是 Google 发现您网站上网址的重要方法。</p>
+    <content><![CDATA[<h2 id="提交站点地图-（很多个网址）"><a href="#提交站点地图-（很多个网址）" class="headerlink" title="提交站点地图 （很多个网址）"></a>提交站点地图 （很多个网址）</h2><p>站点地图是 Google 发现您网站上网址的重要方法。</p>
 <p>如果自 Google 上次抓取以来您并未更改站点地图，那么重新提交该站点地图不会获得任何其他好处。如果站点地图中有更新过的网页，请将其标记为 <code>&lt;lastmod&gt;</code>。</p>
 <h4 id="以下方法可以提交站点地图："><a href="#以下方法可以提交站点地图：" class="headerlink" title="以下方法可以提交站点地图："></a>以下方法可以提交站点地图：</h4><ul>
 <li>使用站点地图报告提交站点地图。</li>
@@ -1797,6 +1791,12 @@
 <li>将下面这行内容插入到 robots.txt 文件中的任意位置，以指定指向您站点地图的路径。我们会在下次抓取您的网站时找到该站点地图：<br>  Sitemap: <a href="http://example.com/my_sitemap.xml" target="_blank" rel="external nofollow noopener noreferrer">http://example.com/my_sitemap.xml</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>google</tag>
+      </tags>
   </entry>
   <entry>
     <title>清除 Debian/Ubuntu 系统 DNS 缓存</title>
@@ -3776,7 +3776,7 @@
 <p>常用的搜索引擎[Google][1],[Baidu][2],[example][]<br>[1]:<a href="https://www.google.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.google.com</a><br>[2]:<a href="https://www.baidu.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.baidu.com</a><br>[example]:<a href="https://www.example.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.example.com</a></p>
 <h3 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;http:&#x2F;&#x2F;example.com&gt; </span><br><span class="line">&lt;address@example.com&gt;</span><br></pre></td></tr></table></figure>
 <p>效果：<a href="http://example.com" target="_blank" rel="external nofollow noopener noreferrer">http://example.com</a> </p>
-<p>效果：<a href="mailto:&#97;&#x64;&#100;&#x72;&#x65;&#x73;&#x73;&#x40;&#101;&#x78;&#97;&#x6d;&#112;&#108;&#101;&#46;&#99;&#x6f;&#109;">&#97;&#x64;&#100;&#x72;&#x65;&#x73;&#x73;&#x40;&#101;&#x78;&#97;&#x6d;&#112;&#108;&#101;&#46;&#99;&#x6f;&#109;</a></p>
+<p>效果：<a href="mailto:&#x61;&#100;&#x64;&#x72;&#x65;&#115;&#x73;&#64;&#101;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#111;&#109;">&#x61;&#100;&#x64;&#x72;&#x65;&#115;&#x73;&#64;&#101;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#111;&#109;</a></p>
 <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>使用 <code>*，+，-</code> 表示无序列表 。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* 无序列表项   </span><br><span class="line">- 无序列表项  </span><br><span class="line">+ 无序列表项</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
@@ -4260,9 +4260,7 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
   <entry>
     <title>Google 抓取和编入索引</title>
     <url>/archives/aeb319f0.html</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: Google 抓取和编入索引</span><br><span class="line">comments: true</span><br><span class="line">tags: google</span><br><span class="line">categories: hexo</span><br><span class="line">keywords: &quot;blog,google&quot;</span><br><span class="line">description:</span><br></pre></td></tr></table></figure>
-
-<p><em>让搜索引擎知道你的网站，已经有的东西，就不再造轮子了。直接站在巨人的肩膀上。</em></p>
+    <content><![CDATA[<p><em>让搜索引擎知道你的网站，已经有的东西，就不再造轮子了。直接站在巨人的肩膀上。</em></p>
 <a id="more"></a>
 
 <h2 id="谷歌官方帮助："><a href="#谷歌官方帮助：" class="headerlink" title="谷歌官方帮助："></a>谷歌官方帮助：</h2><ul>
@@ -4270,6 +4268,12 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 </ul>
 <p><strong>觉得有点用处，链接发布分享给大家。</strong></p>
 ]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>google</tag>
+      </tags>
   </entry>
   <entry>
     <title>GitHub Build-live 项目收集</title>
