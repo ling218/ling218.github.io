@@ -1307,7 +1307,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff7d11;
+  background: #7c1dff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2713,7 +2713,7 @@ body {
   background-attachment: fixed;
   background-position: 50% 50%;
   color: #444;
-  font-size: 16px;
+  font-size: 14px;
 }
 .main-inner {
   background: #fff;
@@ -2762,7 +2762,7 @@ a:hover {
   bottom: 43px;
   background-color: #000;
   border-radius: 3px;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35);
+  box-shadow: 0px 0px 10px 0px #f00;
 }
 .page-post-detail .sidebar-toggle-line {
   background: #000;
@@ -2799,11 +2799,11 @@ h4,
 h5,
 h6 {
   border-left: 3px solid #f00;
-  padding-left: 8px;
+  padding-left: 6px;
 }
 .post-body h1 {
-  border-left: 5px solid #657b83;
-  padding-left: 10px;
+  border-left: 5px solid #f00;
+  padding-left: 8px;
 }
 .post-button .btn {
   color: #fff !important;
