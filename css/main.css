@@ -1307,7 +1307,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #622fff;
+  background: #adff85;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2724,7 +2724,7 @@ body {
 }
 .content {
   border-radius: 20px;
-  padding: 30px 60px 30px 60px;
+  padding: 5px 10px 5px 10px;
   background: rgba(255,255,255,0.8) none repeat scroll !important;
 }
 a {
@@ -2750,7 +2750,6 @@ a:hover {
   font-size: 16px;
 }
 .site-author-name {
-  font-family: 'Comic Sans MS', sans-serif;
   font-size: 20px;
 }
 .posts-expand .post-eof {
