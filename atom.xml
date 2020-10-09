@@ -343,18 +343,18 @@
     <link href="https://www.ling218.cn/archives/f4c68735.html"/>
     <id>https://www.ling218.cn/archives/f4c68735.html</id>
     <published>2020-05-14T01:13:00.493Z</published>
-    <updated>2020-04-24T16:45:30.000Z</updated>
+    <updated>2020-10-09T15:52:31.956Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="本文内容"><a href="#本文内容" class="headerlink" title="本文内容:"></a>本文内容:</h2><ul><li>把大文件分割成多个小文件</li><li>把分割成的小文件合并成大文件</li></ul><h2 id="示例"><a href="#示例" class="headerlink" title="示例:"></a>示例:</h2><p>创建一个大tar包:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvjf home1.tar.bz2 &#x2F;home&#x2F;snail&#x2F;*</span><br></pre></td></tr></table></figure><p>把tar包分成多个小文件:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">split -b 40M home1.tar.bz2 &quot;home.tar.bz2.part&quot;</span><br></pre></td></tr></table></figure><p>把多个小文件合并:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat home.tar.bz2.parta* &gt; home2.tar.bz2</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="本文内容"><a href="#本文内容" class="headerlink" title="本文内容"></a>本文内容</h2><ul><li>把大文件分割成多个小文件</li><li>把分割成的小文件合并成大文件</li></ul><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>创建一个大tar包:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvjf home1.tar.bz2 &#x2F;home&#x2F;snail&#x2F;*</span><br></pre></td></tr></table></figure><p>把tar包分成多个小文件:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">split -b 40M home1.tar.bz2 &quot;home.tar.bz2.part&quot;</span><br></pre></td></tr></table></figure><p>把多个小文件合并:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat home.tar.bz2.parta* &gt; home2.tar.bz2</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      分割tar包
+      打包程序
     
     </summary>
     
     
-      <category term="linux" scheme="https://www.ling218.cn/categories/linux/"/>
+      <category term="Tools" scheme="https://www.ling218.cn/categories/Tools/"/>
     
     
       <category term="tar" scheme="https://www.ling218.cn/tags/tar/"/>
@@ -366,7 +366,7 @@
     <link href="https://www.ling218.cn/archives/3454c8ba.html"/>
     <id>https://www.ling218.cn/archives/3454c8ba.html</id>
     <published>2020-05-14T01:13:00.473Z</published>
-    <updated>2020-04-24T16:45:30.000Z</updated>
+    <updated>2020-10-09T15:58:39.120Z</updated>
     
     <content type="html"><![CDATA[<p>假如你下载了一个IMG格式的系统镜像,然后想使用VirtualBox启动,这时你苦逼的发现VirtualBox不支持IMG格式。为了能在VirtualBox上启动这个IMG镜像,我们可以把它转换为VDI格式的镜像,洋文全称 Virtual Disk Image,这是VirtualBox默认使用的硬盘镜像格式。</p><blockquote><p>IMG镜像文件和ISO文件类似,QEMU虚拟机把IMG做为默认磁盘映像格式。</p></blockquote><h2 id="使用VirtualBox把IMG文件转换为VDI文件"><a href="#使用VirtualBox把IMG文件转换为VDI文件" class="headerlink" title="使用VirtualBox把IMG文件转换为VDI文件"></a>使用VirtualBox把IMG文件转换为VDI文件</h2><p>首先确保已安装VirtualBox。</p><p>需要使用的命令:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage -v</span><br><span class="line"></span><br><span class="line">5.0.28r111378</span><br></pre></td></tr></table></figure><p>语法:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage convertdd input.img output.vdi</span><br></pre></td></tr></table></figure><p>示例:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VBoxManage convertdd eos3.0.base.img eos.vdi</span><br></pre></td></tr></table></figure><p>根据转换文件大小,你可能需要等待几分钟。</p><p>新建虚拟机时只需选择’使用已有的虚拟硬盘文件。</p>]]></content>
     
@@ -377,10 +377,10 @@
     </summary>
     
     
-      <category term="other" scheme="https://www.ling218.cn/categories/other/"/>
+      <category term="Tools" scheme="https://www.ling218.cn/categories/Tools/"/>
     
     
-      <category term="virtualbox" scheme="https://www.ling218.cn/tags/virtualbox/"/>
+      <category term="VirtualBox" scheme="https://www.ling218.cn/tags/VirtualBox/"/>
     
   </entry>
   
