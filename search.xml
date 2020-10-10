@@ -163,7 +163,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>hexo</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>google</tag>
@@ -307,7 +307,7 @@
 <p>dns-clean其实就是bash脚本，如下:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PATH&#x3D;&#x2F;sbin:&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;bin</span><br><span class="line"> </span><br><span class="line">test -f &#x2F;usr&#x2F;sbin&#x2F;pppconfig || exit 0</span><br><span class="line">mkdir &#x2F;var&#x2F;run&#x2F;pppconfig &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 || true</span><br><span class="line">test -f &#x2F;etc&#x2F;ppp&#x2F;ip-down.d&#x2F;0dns-down || exit 0</span><br><span class="line"> </span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">  start)</span><br><span class="line">        &#x2F;bin&#x2F;echo -n &quot;Running 0dns-down to make sure resolv.conf is ok...&quot;</span><br><span class="line">        &#x2F;etc&#x2F;ppp&#x2F;ip-down.d&#x2F;0dns-down &quot;0dns-clean&quot; &amp;&amp; &#x2F;bin&#x2F;echo &quot;done.&quot;</span><br><span class="line">        ;;</span><br><span class="line">  stop|restart|force-reload)</span><br><span class="line">        ;;</span><br><span class="line">  *)</span><br><span class="line">        ;;</span><br><span class="line">esac</span><br><span class="line"> </span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Ubunru</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>dns</tag>
@@ -391,7 +391,7 @@
 <p>上面命令设置的mac地址是随机的。</p>
 ]]></content>
       <categories>
-        <category>Kali Linux</category>
+        <category>Kali</category>
       </categories>
       <tags>
         <tag>mac</tag>
@@ -1125,7 +1125,7 @@
 
 ]]></content>
       <categories>
-        <category>kali</category>
+        <category>Kali</category>
       </categories>
       <tags>
         <tag>google chrome</tag>
@@ -1215,7 +1215,7 @@
 
 ]]></content>
       <categories>
-        <category>debian</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>google chrome</tag>
@@ -3181,259 +3181,11 @@
 <a id="more"></a>
 
 
+<h2 id="markdown基本语法"><a href="#markdown基本语法" class="headerlink" title="markdown基本语法"></a>markdown基本语法</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">文字格式</span><br><span class="line">*斜体*或_斜体_ </span><br><span class="line">**粗体**</span><br><span class="line">***加粗斜体*** </span><br><span class="line">~~删除线~~</span><br><span class="line"></span><br><span class="line">标题</span><br><span class="line"># 一级标题  </span><br><span class="line">## 二级标题  </span><br><span class="line">### 三级标题  </span><br><span class="line">#### 四级标题  </span><br><span class="line">##### 五级标题  </span><br><span class="line">###### 六级标题</span><br><span class="line"></span><br><span class="line">超链接</span><br><span class="line">[LinG218](https:&#x2F;&#x2F;www.ling218.cn) </span><br><span class="line">常用的搜索引擎[Google][1],[Baidu][2],[example][]  </span><br><span class="line">[1]:https:&#x2F;&#x2F;www.google.com</span><br><span class="line">[2]:https:&#x2F;&#x2F;www.baidu.com </span><br><span class="line">[example]:https:&#x2F;&#x2F;www.example.com</span><br><span class="line"></span><br><span class="line">自动链接 </span><br><span class="line">&lt;http:&#x2F;&#x2F;example.com&gt; </span><br><span class="line">&lt;address@example.com&gt;</span><br><span class="line"></span><br><span class="line">无序列表  </span><br><span class="line">* 无序列表项   </span><br><span class="line">- 无序列表项  </span><br><span class="line">+ 无序列表项    </span><br><span class="line"></span><br><span class="line">有序列表</span><br><span class="line">1. 有序列表项  </span><br><span class="line">2. 有序列表项  </span><br><span class="line">3. 有序列表项  </span><br><span class="line"></span><br><span class="line">引用</span><br><span class="line">&gt; 引用项</span><br><span class="line"></span><br><span class="line">插入图片</span><br><span class="line">	![图片alt](图片地址 &quot;图片title&quot;)   </span><br><span class="line">	图片alt就是显示在图片下面的文字，相当于对图片内容的解释。    </span><br><span class="line">	图片title是图片的标题，当鼠标移动到图片上时显示的内容。title可加可不加。    </span><br><span class="line">![我的头像](https:&#x2F;&#x2F;www.ling218.cn&#x2F;updates&#x2F;avatar.jpg&quot;网络上引用图片&quot;)	  </span><br><span class="line"></span><br><span class="line">表格</span><br><span class="line">不管是哪种方式，**第一行为表头**，**第二行分隔表头和主体部分**，**第三行开始每一行为一个表格行**。 列于列之间用管道符 &#96;|&#96; 隔开。原生方式的表格每一行的两边也要有管道符。 第二行还可以为不同的列指定对齐方向。默认为左对齐，在-右边加上 &#96;:&#96; 就右对齐。 </span><br><span class="line"></span><br><span class="line">分隔线</span><br><span class="line">你可以在一行中用 &#96;3&#96; 个以上的**星号、减号、底线**来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线 。</span><br><span class="line"></span><br><span class="line">代码</span><br><span class="line">对于程序员来说这个功能是必不可少的，插入程序代码的方式有两种，一种是利用缩进(Tab), 另一种是利用&quot;&#96;&quot;符号（一般在ESC键下方）包裹代码。</span><br><span class="line">	1. 插入行内代码，即插入一个单词或者一句代码的情况。</span><br><span class="line">	2. 插入多行代码，可以使用缩进或者用三个符号包裹代码，具体看示例。 </span><br><span class="line">注意： 缩进式插入前方必须有空行。</span><br><span class="line"></span><br><span class="line">选项</span><br><span class="line">- [x] 选中</span><br><span class="line">- [] 未选中</span><br><span class="line"></span><br><span class="line">文章目录</span><br><span class="line">[TOC]</span><br></pre></td></tr></table></figure>
 
-<h2 id="自动生成文章目录"><a href="#自动生成文章目录" class="headerlink" title="自动生成文章目录"></a>自动生成文章目录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[TOC]</span><br></pre></td></tr></table></figure>
-<p>效果：<br>[TOC]</p>
-<h2 id="斜体和粗体"><a href="#斜体和粗体" class="headerlink" title="斜体和粗体"></a>斜体和粗体</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">*斜体*或_斜体_ </span><br><span class="line">**粗体**</span><br><span class="line">***加粗斜体*** </span><br><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<p><em>斜体</em>或<em>斜体</em> </p>
-<p><strong>粗体</strong></p>
-<p><strong><em>加粗斜体</em></strong> </p>
-<p><del>删除线</del></p>
-<h2 id="分级标题"><a href="#分级标题" class="headerlink" title="分级标题"></a>分级标题</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 一级标题  </span><br><span class="line">## 二级标题  </span><br><span class="line">### 三级标题  </span><br><span class="line">#### 四级标题  </span><br><span class="line">##### 五级标题  </span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
+<h2 id="markdown个人简历案例"><a href="#markdown个人简历案例" class="headerlink" title="markdown个人简历案例"></a>markdown个人简历案例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 个人简历</span><br><span class="line"></span><br><span class="line">## 基本信息</span><br><span class="line"></span><br><span class="line">**姓名：**LING218  **年龄：** **20**岁 **职业：**攻城师</span><br><span class="line"></span><br><span class="line">**爱好：**</span><br><span class="line">- 阅读</span><br><span class="line">- Debian</span><br><span class="line">- Python</span><br><span class="line"></span><br><span class="line">**人生格言：**</span><br><span class="line">&gt; 怕、你就会输一辈子</span><br><span class="line"></span><br><span class="line">**一段代码：** &#96;print(&quot;Hello!&quot;)&#96;</span><br><span class="line"></span><br><span class="line">## 擅长技能</span><br><span class="line">- [x] 网络运维</span><br><span class="line">- [x] Linux</span><br><span class="line">- [x] Windows 2008 Server</span><br><span class="line"></span><br><span class="line">## 联系方式</span><br><span class="line">1. 博客：*[LING218](https:&#x2F;&#x2F;www.ling218.cn)*</span><br><span class="line">2. Hotmail：*[Suixin911@hotmail.com](https:&#x2F;&#x2F;suixin911@hotmail.com)*</span><br><span class="line"></span><br><span class="line">**修订记录：**</span><br><span class="line">| 时间 | 内容 | 版本 |</span><br><span class="line">|:---:|:---:|:---:|</span><br><span class="line">|2020&#x2F;10&#x2F;9|修订完毕|v.01|</span><br></pre></td></tr></table></figure>
 
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><h3 id="行内式"><a href="#行内式" class="headerlink" title="行内式"></a>行内式</h3><p><code>[LinG218](https://www.ling218.cn)</code> </p>
-<p>效果：</p>
-<p><a href="https://www.ling218.cn">LinG218</a> </p>
-<h3 id="参考式"><a href="#参考式" class="headerlink" title="参考式"></a>参考式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">常用的搜索引擎[Google][1],[Baidu][2],[example][]  </span><br><span class="line">[1]:https:&#x2F;&#x2F;www.google.com</span><br><span class="line">[2]:https:&#x2F;&#x2F;www.baidu.com </span><br><span class="line">[example]:https:&#x2F;&#x2F;www.example.com</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<p>常用的搜索引擎[Google][1],[Baidu][2],[example][]<br>[1]:<a href="https://www.google.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.google.com</a><br>[2]:<a href="https://www.baidu.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.baidu.com</a><br>[example]:<a href="https://www.example.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.example.com</a></p>
-<h3 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;http:&#x2F;&#x2F;example.com&gt; </span><br><span class="line">&lt;address@example.com&gt;</span><br></pre></td></tr></table></figure>
-<p>效果：<a href="http://example.com" target="_blank" rel="external nofollow noopener noreferrer">http://example.com</a> </p>
-<p>效果：<a href="mailto:&#x61;&#x64;&#x64;&#x72;&#101;&#115;&#115;&#64;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x61;&#x64;&#x64;&#x72;&#101;&#115;&#115;&#64;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>使用 <code>*，+，-</code> 表示无序列表 。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* 无序列表项   </span><br><span class="line">- 无序列表项  </span><br><span class="line">+ 无序列表项</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ul>
-<li>无序列表项 </li>
-</ul>
-<ul>
-<li>无序列表项</li>
-</ul>
-<ul>
-<li>无序列表项</li>
-</ul>
-<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>有序列表则使用数字接着一个英文 <code>.</code> 句点。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 有序列表项  </span><br><span class="line">2. 有序列表项  </span><br><span class="line">3. 有序列表项</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<ol>
-<li>有序列表项 </li>
-<li>有序列表项 </li>
-<li>有序列表项 </li>
-</ol>
-<h3 id="列表缩进"><a href="#列表缩进" class="headerlink" title="列表缩进"></a>列表缩进</h3><p>列表项目标记通常是放在最左边，但是其实也可以缩进，最多<code>3</code>个空格，项目标记后面则一定要接着至少一个空格或制表符。</p>
-<h3 id="包含段落的列表"><a href="#包含段落的列表" class="headerlink" title="包含段落的列表"></a>包含段落的列表</h3><p>列表项目可以包含多个段落，每个项目下的段落都必须缩进 <code>4</code>个空格或是 <code>1</code>个制表符（显示效果与代码一致）。</p>
-<h3 id="包含引用的列表"><a href="#包含引用的列表" class="headerlink" title="包含引用的列表"></a>包含引用的列表</h3><p>如果要在列表项目内放进引用，那 <code>&gt;</code> 就需要缩进 。</p>
-<h3 id="包含代码区块的引用"><a href="#包含代码区块的引用" class="headerlink" title="包含代码区块的引用"></a>包含代码区块的引用</h3><p>如果要放代码区块的话，该区块就需要缩进两次，也就是 <code>8</code>个空格或是 <code>2</code> 个制表符。</p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>引用需要在被引用的文本前加上 <code>&gt;</code> 符号。  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 引用项</span><br></pre></td></tr></table></figure>
 
-<p>效果：</p>
-<blockquote>
-<p>引用项</p>
-</blockquote>
-<h2 id="插入图像"><a href="#插入图像" class="headerlink" title="插入图像"></a>插入图像</h2><pre><code>![图片alt](图片地址 &quot;图片title&quot;)   
-图片alt就是显示在图片下面的文字，相当于对图片内容的解释。    
-图片title是图片的标题，当鼠标移动到图片上时显示的内容。title可加可不加。    </code></pre><p><img src="https://www.ling218.cn/updates/avatar.jpg%22%E7%BD%91%E7%BB%9C%E4%B8%8A%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%22" alt="我的头像">      </p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>不管是哪种方式，<strong>第一行为表头</strong>，<strong>第二行分隔表头和主体部分</strong>，<strong>第三行开始每一行为一个表格行</strong>。 列于列之间用管道符 <code>|</code> 隔开。原生方式的表格每一行的两边也要有管道符。 第二行还可以为不同的列指定对齐方向。默认为左对齐，在-右边加上 <code>:</code> 就右对齐。 </p>
-<h3 id="简单方式写表格"><a href="#简单方式写表格" class="headerlink" title="简单方式写表格"></a>简单方式写表格</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">学号|姓名|分数 </span><br><span class="line">-|-|- </span><br><span class="line">小明|男|75 </span><br><span class="line">小红|女|79 </span><br><span class="line">小陆|男|92</span><br></pre></td></tr></table></figure>
-<p>效果：<br>学号|姓名|分数<br>-|-|-<br>小明|男|75<br>小红|女|79<br>小陆|男|92</p>
-<h3 id="原生方式写表格"><a href="#原生方式写表格" class="headerlink" title="原生方式写表格"></a>原生方式写表格</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|学号|姓名|分数| </span><br><span class="line">|-|-|-| </span><br><span class="line">|小明|男|75| </span><br><span class="line">|小红|女|79| </span><br><span class="line">|小陆|男|92|</span><br></pre></td></tr></table></figure>
-<p>效果：<br>|学号|姓名|分数|<br>|-|-|-|<br>|小明|男|75|<br>|小红|女|79|<br>|小陆|男|92|</p>
-<h3 id="为表格第二列指定方向"><a href="#为表格第二列指定方向" class="headerlink" title="为表格第二列指定方向"></a>为表格第二列指定方向</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">产品|价格 </span><br><span class="line">-|-: </span><br><span class="line">Leanote 高级账号|60元&#x2F;年</span><br><span class="line">Leanote 超级账号|120元&#x2F;年</span><br></pre></td></tr></table></figure>
-<p>效果：<br>产品|价格<br>-|-:<br>Leanote 高级账号|60元/年<br>Leanote 超级账号|120元/年</p>
-<h2 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h2><p>你可以在一行中用 <code>3</code> 个以上的<strong>星号、减号、底线</strong>来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线 。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">***  </span><br><span class="line">****  </span><br><span class="line">---  </span><br><span class="line">----</span><br></pre></td></tr></table></figure>
-<p>效果：</p>
-<hr>
-<hr>
-<hr>
-<hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>对于程序员来说这个功能是必不可少的，插入程序代码的方式有两种，一种是利用缩进(Tab), 另一种是利用”`”符号（一般在ESC键下方）包裹代码。<br>    1. 插入行内代码，即插入一个单词或者一句代码的情况。<br>    2. 插入多行代码，可以使用缩进或者用三个符号包裹代码，具体看示例。<br>注意： 缩进式插入前方必须有空行。</p>
-<h3 id="行内式-1"><a href="#行内式-1" class="headerlink" title="行内式"></a>行内式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C语言里的函数 &#96;scanf()&#96; 怎么使用？</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<p>C语言里的函数 <code>scanf()</code>怎么使用？ </p>
-<h3 id="缩进式多行代码"><a href="#缩进式多行代码" class="headerlink" title="缩进式多行代码"></a>缩进式多行代码</h3><p>缩进 4 个空格或是 1 个制表符<br>一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）。 </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print(&quot;Hello world!&quot;)</span><br><span class="line">print(&quot;Hello world!&quot;)</span><br><span class="line">print(&quot;Hello world!&quot;)</span><br><span class="line">print(&quot;Hello world!&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<pre><code>print(&quot;Hello world!&quot;)
-print(&quot;Hello world!&quot;)
-print(&quot;Hello world!&quot;)
-print(&quot;Hello world!&quot;)</code></pre>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown 使用入门</title>
-    <url>/archives/bbbe9f56.html</url>
-    <content><![CDATA[<p><code>.md</code>即 Markdown 文件的基本常用编写语法,是一种快速标记、快速排版语言，现在很多前段项目中的说明文件readme等都是用<code>.md</code>文件编写的，而且很多企业也在在鼓励使用这种编辑方式，特别作为一个前端从业者更要学会使用这种语言。下面就简单和大家分享一些<code>.md</code>基本语法。</p>
-<h2 id="一、基本符号：-gt"><a href="#一、基本符号：-gt" class="headerlink" title="一、基本符号：* - + _ &gt; `"></a>一、基本符号：* - + _ &gt; `</h2><p>基本上所有的 Markdown 标记都是基于这四个符号或组合，需要注意的是，如果以基本符号开头的标记，注意基本符号后有一个用于分割标记符和内容的空格。</p>
-<h2 id="二、标题"><a href="#二、标题" class="headerlink" title="二、标题"></a>二、标题</h2><p>前面带 <code>#</code> 号，后面带文字，分别表示<code>h1-h6</code>,只到<code>h6</code>，而且<code>h1</code>下面会有一条横线。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、列表"><a href="#三、列表" class="headerlink" title="三、列表"></a>三、列表</h2><h3 id="a-无序列表"><a href="#a-无序列表" class="headerlink" title="a. 无序列表"></a>a. 无序列表</h3><p>示例一：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ a</span><br><span class="line">+ b</span><br><span class="line">+ c</span><br></pre></td></tr></table></figure>
-<p>示例二：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- d</span><br><span class="line">- e</span><br><span class="line">- f</span><br></pre></td></tr></table></figure>
-<p>示例三：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* g</span><br><span class="line">* h</span><br><span class="line">* i</span><br></pre></td></tr></table></figure>
-
-<p> 以上三种书写形式，效果其实都是一样的。</p>
-<h3 id="b-有序列表"><a href="#b-有序列表" class="headerlink" title="b. 有序列表"></a>b. 有序列表</h3><p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. abc</span><br><span class="line">2. bcd</span><br><span class="line">3. cde</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意！数字后面的点只能是英文的点，有序列表的序号是根据第一行列表的数字顺序来的。</p>
-</blockquote>
-<h3 id="c-嵌套列表"><a href="#c-嵌套列表" class="headerlink" title="c. 嵌套列表"></a>c. 嵌套列表</h3><p>无序列表嵌套示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ 123</span><br><span class="line">    + abc</span><br><span class="line">    + bcd</span><br><span class="line">    + cde</span><br><span class="line">+ 465</span><br><span class="line">+ 789</span><br></pre></td></tr></table></figure>
-<p>有序列表嵌套示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. abcd</span><br><span class="line">    1. abcde</span><br><span class="line">    2. abcde</span><br><span class="line">    3. abcde</span><br><span class="line">2. bcde</span><br><span class="line">3. cdef</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>列表可以嵌套，使用时在嵌套列表前按 <code>tab</code> 或 <code>空格</code> 来缩进,去控制列表的层数</p>
-</blockquote>
-<h2 id="四、引用说明区块"><a href="#四、引用说明区块" class="headerlink" title="四、引用说明区块"></a>四、引用说明区块</h2><p>对某个部分做的内容做一些说明或者引用某某的话等，可以用这个语法。</p>
-<h3 id="a-正常形式"><a href="#a-正常形式" class="headerlink" title="a. 正常形式"></a>a. 正常形式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 引用内容、说明内容。在语句前面加一个 &gt; ，注意是英文的那个右尖括号，注意空格，引用因为是一个区块，理论上是应该什么内容都可以放，比如说：标题，列表，引用等等。</span><br></pre></td></tr></table></figure>
-
-<h3 id="b-嵌套区块"><a href="#b-嵌套区块" class="headerlink" title="b. 嵌套区块"></a>b. 嵌套区块</h3><p>这里我只介绍一下我常用的方法，也是个人认为比较规范的一种方法，就是给区块的下一级区块多加一个右尖括号。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 一级引用</span><br><span class="line">&gt;&gt; 二级引用</span><br><span class="line">&gt;&gt;&gt; 三级引用</span><br><span class="line">&gt;&gt;&gt;&gt; 四级引用</span><br><span class="line">&gt;&gt;&gt;&gt;&gt; 五级引用</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt; 六级引用</span><br></pre></td></tr></table></figure>
-
-<h2 id="五、代码块"><a href="#五、代码块" class="headerlink" title="五、代码块"></a>五、代码块</h2><p>在发布一些技术文章会涉及显示代码的问题，这时候代码块就显得尤为重要。</p>
-<p>a. 少量代码，单行使用，直接用`包裹起来就行了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;echo live &gt; &#x2F;etc&#x2F;hostname &#96;</span><br></pre></td></tr></table></figure>
-
-<p>b. 多行代码，需要多行使用，用```包裹起来</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">​</span><br></pre></td></tr></table></figure>
-<p>print(“Hello”)<br>print(“Hello”)<br>print(“Hello”)<br>​```</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## 六、链接</span><br><span class="line"></span><br><span class="line">### a. 行内式</span><br><span class="line"></span><br><span class="line">链接的文字放在[]中，链接地址放在随后的()中，链接也可以带title属性，链接地址后面空一格，然后用引号引起来</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.ling218.cn" title="博客地址">LinG218</a>,是我的个人博客地址。 </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### b. 参数式</span><br><span class="line"></span><br><span class="line">链接的文字放在&#96;[]&#96;中，链接地址放在随后的:后，链接地址后面空一格，然后用引号引起来</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.ling218.cn" title="博客地址">LinG218</a>是我的个人博客地址。<br>//参数定义的其他写法<br><a href="https://www.ling218.cn" title="博客地址">LinG218</a>: <a href="https://www.ling218.cn">https://www.ling218.cn</a> “创作你的创作”<br>[我的博客]: <a href="https://www.ling218.cn">https://www.ling218.cn</a> “创作你的创作”</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 七、图片</span><br><span class="line"></span><br><span class="line">### a. 行内式</span><br><span class="line"></span><br><span class="line">和链接的形式差不多，图片的名字放在&#96;[]&#96;中，图片地址放在随后的&#96;()&#96;中，&#96;title&#96;属性（图片地址后面空一格，然后用引号引起来）,注意的是&#96;[]&#96;前要加上&#96;!&#96;号。</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.ling218.cn/source/updates/avatar.jpg" alt="PK" title="my-logo"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### b. 参数式</span><br><span class="line"></span><br><span class="line">图片的文字放在&#96;[]&#96;中，图片地址放在随后的&#96;:&#96;后，&#96;title&#96;属性（图片地址后面空一格，然后用引号引起来）,注意引用图片的时候在&#96;[]&#96;前要加上&#96;!&#96;号。</span><br></pre></td></tr></table></figure>
-<p><img src="https://www.ling218.cn/source/updates/avatar.jpg" alt="LOGO" title="my-logo"><br>//参数定义的其他写法<br><a href="https://www.ling218.cn/source/updates/avatar.jpg" title="my-logo">LOGO</a>: <a href="https://www.ling218.cn/source/updates/avatar.jpg">https://www.ling218.cn/source/updates/avatar.jpg</a> “my-logo”<br><a href="https://www.ling218.cn/source/updates/avatar.jpg" title="my-logo">LOGO</a>: <a href="https://www.ling218.cn/source/updates/avatar.jpg">https://www.ling218.cn/source/updates/avatar.jpg</a> “my-logo”</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"> 以上两种方式其效果图都是一样的。</span><br><span class="line"></span><br><span class="line">## 八、分割线</span><br><span class="line"></span><br><span class="line">分割线可以由&#96;* - _&#96;（星号，减号，底线）这3个符号的至少3个符号表示，注意至少要3个，且不需要连续，有空格也可以。</span><br></pre></td></tr></table></figure>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## 九、其他</span><br><span class="line"></span><br><span class="line">### a. 强调字体</span><br><span class="line"></span><br><span class="line">一个 &#96;*&#96; 号或者是一个 &#96;_&#96; 包起来，会转换为&#96;倾斜&#96;。如果是2个，会转换为&#96;加粗&#96;。</span><br></pre></td></tr></table></figure>
-<p><em>md</em>    #倾斜<br><strong>md</strong>  #加粗<br><em>md</em>    #倾斜<br><strong>md</strong>  #加粗</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### b. 转义</span><br><span class="line"></span><br><span class="line">基本上和&#96;js&#96;转义一样,&#96;\&#96; 加需要&#96;转义&#96;的字符。</span><br></pre></td></tr></table></figure>
-<p>\<br>*<br>+<br>-<br>`<br>_</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### c. 删除线</span><br><span class="line"></span><br><span class="line">用&#96;~~&#96;符号把需要显示&#96;删除线&#96;的字符包裹起来。</span><br></pre></td></tr></table></figure>
-<p><del>删除</del></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## 十、表格</span><br><span class="line"></span><br><span class="line">示例一：</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th align="left">123</th>
-<th align="center">234</th>
-<th align="right">345</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">示例二：</span><br></pre></td></tr></table></figure></td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="left">123</td>
-<td align="center">234</td>
-<td align="right">345</td>
-</tr>
-<tr>
-<td align="left">:—</td>
-<td align="center">:—:</td>
-<td align="right">—:</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">示例三：</span><br></pre></td></tr></table></figure></td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="left">123</td>
-<td align="center">234</td>
-<td align="right">345</td>
-</tr>
-<tr>
-<td align="left">:-</td>
-<td align="center">:-:</td>
-<td align="right">-:</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">```</td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>上面三个示例的效果是一样的，由此可得：</p>
-<blockquote>
-<p>a. 表格的格式不一定要对的非常齐，但是为了良好的变成风格，尽量对齐是最好的</p>
-</blockquote>
-<blockquote>
-<p>b. 分割线后面的冒号表示对齐方式，写在左边表示左对齐，右边为右对齐，两边都写表示居中</p>
-</blockquote>
-</blockquote>
 ]]></content>
       <categories>
         <category>Hexo</category>
