@@ -39,10 +39,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>kali</tag>
       </tags>
   </entry>
   <entry>
@@ -58,10 +58,10 @@
 <p>请注意，此脚本生成非常小的实时Linux操作系统，仅支持shell，不支持网络。网络功能已在<a href="http://github.com/ivandavidov/minimal" target="_blank" rel="external nofollow noopener noreferrer">Minimal Linux Live</a>项目中正确实现，该项目具有广泛的文档记录和更丰富的功能，但仍然可以生成非常小的实时Linux ISO映像。</p>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -125,7 +125,7 @@
 <p>系统重新引导后，新内核应已运行。如果出现问题并且内核无法成功引导，您仍然可以使用GrUB菜单从原始的原始Kali内核引导并解决问题。</p>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Kali</category>
       </categories>
       <tags>
         <tag>kernl</tag>
@@ -145,7 +145,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>shell</tag>
@@ -163,7 +163,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>hexo</category>
       </categories>
       <tags>
         <tag>google</tag>
@@ -185,10 +185,10 @@
 </ol>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Kali</category>
       </categories>
       <tags>
-        <tag>kali</tag>
+        <tag>Google-Chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -205,10 +205,10 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>debain</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -262,10 +262,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -291,7 +291,7 @@
 <p><a href="https://askubuntu.com/questions/122505/how-do-i-create-a-completely-unattended-install-of-ubuntu" target="_blank" rel="external nofollow noopener noreferrer">system installation - How do I create a completely unattended install of Ubuntu? - Ask Ubuntu</a></p>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Live-build</category>
       </categories>
       <tags>
         <tag>ubuntu</tag>
@@ -307,10 +307,10 @@
 <p>dns-clean其实就是bash脚本，如下:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PATH&#x3D;&#x2F;sbin:&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;bin</span><br><span class="line"> </span><br><span class="line">test -f &#x2F;usr&#x2F;sbin&#x2F;pppconfig || exit 0</span><br><span class="line">mkdir &#x2F;var&#x2F;run&#x2F;pppconfig &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1 || true</span><br><span class="line">test -f &#x2F;etc&#x2F;ppp&#x2F;ip-down.d&#x2F;0dns-down || exit 0</span><br><span class="line"> </span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">  start)</span><br><span class="line">        &#x2F;bin&#x2F;echo -n &quot;Running 0dns-down to make sure resolv.conf is ok...&quot;</span><br><span class="line">        &#x2F;etc&#x2F;ppp&#x2F;ip-down.d&#x2F;0dns-down &quot;0dns-clean&quot; &amp;&amp; &#x2F;bin&#x2F;echo &quot;done.&quot;</span><br><span class="line">        ;;</span><br><span class="line">  stop|restart|force-reload)</span><br><span class="line">        ;;</span><br><span class="line">  *)</span><br><span class="line">        ;;</span><br><span class="line">esac</span><br><span class="line"> </span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>linux</category>
+        <category>Ubunru</category>
       </categories>
       <tags>
-        <tag>DNS</tag>
+        <tag>dns</tag>
       </tags>
   </entry>
   <entry>
@@ -333,7 +333,7 @@
         <category>Debian</category>
       </categories>
       <tags>
-        <tag>Debian</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -394,7 +394,7 @@
         <category>Kali Linux</category>
       </categories>
       <tags>
-        <tag>kali linux</tag>
+        <tag>mac</tag>
       </tags>
   </entry>
   <entry>
@@ -521,10 +521,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -622,10 +622,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -633,7 +633,7 @@
     <url>/archives/4971f44e.html</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir work</span><br><span class="line">cd work</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init</span><br><span class="line">hexo install</span><br><span class="line">hexo s</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br><span class="line">rm -rf themes&#x2F;next&#x2F;.git&#x2F;</span><br><span class="line">git init</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;gitlab.com&#x2F;ling218&#x2F;ling218.gitlab.io.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;Update&quot;</span><br><span class="line">git push -u origin master</span><br><span class="line">echo &quot;lab.ling218.cn&quot; &gt; source&#x2F;CNAME</span><br><span class="line">cat &lt;&lt;-EOF &gt;.gitlab-ci.yml</span><br><span class="line">image: node:11.15.0</span><br><span class="line">cache:</span><br><span class="line">  paths:</span><br><span class="line">    - node_modules&#x2F;</span><br><span class="line"></span><br><span class="line">before_script:</span><br><span class="line">  - npm install hexo-cli -g</span><br><span class="line">  - npm install</span><br><span class="line"></span><br><span class="line">pages:</span><br><span class="line">  script:</span><br><span class="line">    - hexo generate</span><br><span class="line">  artifacts:</span><br><span class="line">    paths:</span><br><span class="line">      - public</span><br><span class="line">  only:</span><br><span class="line">    - master</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>gitlab</tag>
@@ -723,7 +723,7 @@
         <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>kali linux</tag>
       </tags>
   </entry>
   <entry>
@@ -759,7 +759,7 @@
         <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>kali linux</tag>
       </tags>
   </entry>
   <entry>
@@ -786,10 +786,10 @@
 
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>kali linux</tag>
       </tags>
   </entry>
   <entry>
@@ -898,7 +898,7 @@
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>只需做一些工作，就可以自定义Ubuntu Live CD，以删除/包含某些软件，确保该Live CD是最新的，并且最重要的是，允许管理员部署预先定制的Ubuntu发行版。 </p>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
         <tag>ubuntu</tag>
@@ -946,7 +946,7 @@
 <p>现在，您将拥有一张CD。该CD可在从Ubuntu系统引导时安装，而无需一次击键。</p>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
         <tag>ubuntu</tag>
@@ -966,7 +966,7 @@
 
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>next</tag>
@@ -1005,10 +1005,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -1034,10 +1034,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>chown</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -1082,10 +1082,10 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">options iwlwifi bt_coex_active &#x3D; 0 swcrypto &#x3D; 1 11n_disable &#x3D; 8</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>Debian</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -1125,10 +1125,10 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>kali</category>
       </categories>
       <tags>
-        <tag>kali</tag>
+        <tag>google chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -1176,10 +1176,10 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Kali</category>
       </categories>
       <tags>
-        <tag>kali</tag>
+        <tag>virtualbox</tag>
       </tags>
   </entry>
   <entry>
@@ -1215,10 +1215,10 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>debian</category>
       </categories>
       <tags>
-        <tag>debian</tag>
+        <tag>google chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -1234,7 +1234,7 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>man</tag>
@@ -1275,10 +1275,10 @@
 </ol>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>docker-ce</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -1315,10 +1315,10 @@
 </ol>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>docker-ce</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -1343,10 +1343,10 @@
 </ol>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>docker-ce</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -1511,7 +1511,7 @@
         <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -1688,7 +1688,7 @@
         <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -1853,7 +1853,7 @@
         <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -1899,7 +1899,7 @@
 <p>那么您可能希望查看解决该问题的Microsoft社区文章。您可能还想验证所有文件是否正确复制<code>rsync</code>或重新复制文件以防万一有损坏。您可能还需要验证源<code>Windows 10 iso</code>文件的完整性。最后，我发现USB 2.0驱动程序对我来说比USB 3.0更可靠，并且当我在我的一台机器上遇到它时解决了这个错误。</p>
 ]]></content>
       <categories>
-        <category>other</category>
+        <category>Tools</category>
       </categories>
       <tags>
         <tag>grub</tag>
@@ -1944,10 +1944,10 @@
 <p>使用dd命令拷贝ISO镜像：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo dd if&#x3D;kali-linux-light-2016.1-amd64.iso of&#x3D;&#x2F;dev&#x2F;disk3</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>dd</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -1970,10 +1970,10 @@
 
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -2006,10 +2006,10 @@
 
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -2035,10 +2035,10 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">#</span><br><span class="line"># Debian Live Image Custom</span><br><span class="line">#</span><br><span class="line"># Author: Mathias Fredriksson</span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"></span><br><span class="line">IN_CHROOT&#x3D;0</span><br><span class="line">if [[ $1 &#x3D;&#x3D; chroot ]]; then</span><br><span class="line">	IN_CHROOT&#x3D;1</span><br><span class="line">	shift</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">SCRIPT&#x3D;&quot;$0&quot;</span><br><span class="line">MIRROR&#x3D;&quot;http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;debian&#x2F;&quot;</span><br><span class="line">#WORK&#x3D;$(mktemp -d -t live-image.XXXX)</span><br><span class="line">WORK&#x3D;$HOME&#x2F;build</span><br><span class="line">CHROOT&#x3D;&quot;$WORK&#x2F;chroot&quot;</span><br><span class="line">mkdir -p &quot;$WORK&quot;</span><br><span class="line"></span><br><span class="line">prepare() &#123;</span><br><span class="line">	apt-get -y install \</span><br><span class="line">		debootstrap \</span><br><span class="line">		squashfs-tools \</span><br><span class="line">		xorriso \</span><br><span class="line">		grub-pc-bin \</span><br><span class="line">		grub-efi-amd64-bin \</span><br><span class="line">		mtools</span><br><span class="line"></span><br><span class="line">	debootstrap \</span><br><span class="line">		--arch&#x3D;amd64 \</span><br><span class="line">		--variant&#x3D;minbase \</span><br><span class="line">		stretch \</span><br><span class="line">		&quot;$CHROOT&quot; \</span><br><span class="line">		$MIRROR</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cont_in_chroot() &#123;</span><br><span class="line">	local name</span><br><span class="line"></span><br><span class="line">	name&#x3D;&quot;$(basename &quot;$SCRIPT&quot;)&quot;</span><br><span class="line">	cp -a &quot;$SCRIPT&quot; &quot;$CHROOT&quot;</span><br><span class="line"></span><br><span class="line">	mount --rbind &#x2F;dev &quot;$CHROOT&quot;&#x2F;dev</span><br><span class="line">	mount --make-rslave &quot;$CHROOT&quot;&#x2F;dev</span><br><span class="line">	mount --rbind &#x2F;proc &quot;$CHROOT&quot;&#x2F;proc</span><br><span class="line">	mount --make-rslave &quot;$CHROOT&quot;&#x2F;proc</span><br><span class="line">	mount --rbind &#x2F;sys &quot;$CHROOT&quot;&#x2F;sys</span><br><span class="line">	mount --make-rslave &quot;$CHROOT&quot;&#x2F;sys</span><br><span class="line"></span><br><span class="line">	chroot &quot;$CHROOT&quot; &#x2F;bin&#x2F;bash .&#x2F;&quot;$name&quot; chroot &quot;$@&quot;</span><br><span class="line"></span><br><span class="line">	# Try to unmount a few times since this doesn&#39;t alway work on the first try...</span><br><span class="line">	grep &quot;$CHROOT&quot; &#x2F;proc&#x2F;mounts | cut -f2 -d&quot; &quot; | sort -r | xargs umount -n || \</span><br><span class="line">		grep &quot;$CHROOT&quot; &#x2F;proc&#x2F;mounts | cut -f2 -d&quot; &quot; | sort -r | xargs umount -n || \</span><br><span class="line">		grep &quot;$CHROOT&quot; &#x2F;proc&#x2F;mounts | cut -f2 -d&quot; &quot; | sort -r | xargs umount -n</span><br><span class="line"></span><br><span class="line">	rm &quot;$CHROOT&#x2F;$name&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chroot_prepare() &#123;</span><br><span class="line">	echo live &gt; &#x2F;etc&#x2F;hostname</span><br><span class="line"></span><br><span class="line">	# Set root password to &#39;live&#39;.</span><br><span class="line">	echo $&#39;toor\ntoor&#39; | passwd root</span><br><span class="line"></span><br><span class="line">	apt-get update</span><br><span class="line">	apt-get -y install --no-install-recommends \</span><br><span class="line">		linux-image-amd64 \</span><br><span class="line">		live-boot \</span><br><span class="line">		systemd-sysv</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chroot_install_tools() &#123;</span><br><span class="line">	cat &lt;&lt;-EOS &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;contrib-non-free.list</span><br><span class="line">	deb http:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;debian&#x2F; stretch main contrib non-free</span><br><span class="line">	EOS</span><br><span class="line"></span><br><span class="line">	apt update</span><br><span class="line">	apt-get -y install --no-install-recommends \</span><br><span class="line">		grub-pc-bin \</span><br><span class="line">		grub-efi-amd64-bin \</span><br><span class="line">		sudo \</span><br><span class="line">		curl \</span><br><span class="line">		hdparm \</span><br><span class="line">		sdparm \</span><br><span class="line">		pciutils \</span><br><span class="line">		usbutils \</span><br><span class="line">		dnsutils \</span><br><span class="line">		moreutils \</span><br><span class="line">		net-tools \</span><br><span class="line">		dosfstools \</span><br><span class="line">		openssh-server \</span><br><span class="line">		openssh-client \</span><br><span class="line">		nano \</span><br><span class="line">		vim \</span><br><span class="line">		zsh \</span><br><span class="line">		lsof \</span><br><span class="line">		lshw \</span><br><span class="line">		less \</span><br><span class="line">		rsync \</span><br><span class="line">		smartmontools \</span><br><span class="line">		intel-microcode \</span><br><span class="line">		cryptsetup \</span><br><span class="line">		lvm2 \</span><br><span class="line">		mdadm</span><br><span class="line"></span><br><span class="line">	chsh -s &#x2F;bin&#x2F;zsh</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chroot_install_zfs() &#123;</span><br><span class="line">	cat &lt;&lt;-EOS &gt; &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;zfs.list</span><br><span class="line">	deb http:&#x2F;&#x2F;mirrors.163.com&#x2F;debian&#x2F; stretch-backports main contrib non-free</span><br><span class="line">	EOS</span><br><span class="line"></span><br><span class="line">	apt-get update</span><br><span class="line">	apt-get -y install dpkg-dev linux-headers-amd64</span><br><span class="line">	apt-get -y install -t stretch-backports zfs-dkms</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chroot_finalize() &#123;</span><br><span class="line">	apt-get clean</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">finalize() &#123;</span><br><span class="line">	mkdir -p &quot;$WORK&quot;&#x2F;&#123;scratch,image&#x2F;live&#125;</span><br><span class="line"></span><br><span class="line">	mksquashfs \</span><br><span class="line">		&quot;$CHROOT&quot; \</span><br><span class="line">		&quot;$WORK&quot;&#x2F;image&#x2F;live&#x2F;filesystem.squashfs \</span><br><span class="line">		-e boot</span><br><span class="line"></span><br><span class="line">	cp &quot;$CHROOT&quot;&#x2F;boot&#x2F;vmlinuz-* &quot;$CHROOT&quot;&#x2F;boot&#x2F;initrd.img-* \</span><br><span class="line">		&quot;$WORK&quot;&#x2F;image&#x2F;live</span><br><span class="line"></span><br><span class="line">	cat &lt;&lt;EOF &gt; &quot;$WORK&quot;&#x2F;scratch&#x2F;grub.cfg</span><br><span class="line">insmod all_video</span><br><span class="line">insmod play</span><br><span class="line">play 960 440 1 0 4 440 1</span><br><span class="line">if [ \$&#123;iso_path&#125; ] ; then</span><br><span class="line">  set loopback&#x3D;&quot;findiso&#x3D;\$&#123;iso_path&#125;&quot;</span><br><span class="line">fi</span><br><span class="line">search --set&#x3D;root --file &#x2F;DEBIAN_LIVE</span><br><span class="line">set default&#x3D;&quot;0&quot;</span><br><span class="line">set timeout&#x3D;5</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">	(cd &quot;$CHROOT&quot;&#x2F;boot || exit 1</span><br><span class="line">		for kernel in vmlinuz-*; do</span><br><span class="line">			version&#x3D;$&#123;kernel#vmlinuz-&#125;</span><br><span class="line">			cat &lt;&lt;EOF &gt;&gt; &quot;$WORK&quot;&#x2F;scratch&#x2F;grub.cfg</span><br><span class="line">menuentry &quot;Debian GNU&#x2F;Linux Live (kernel $version)&quot; &#123;</span><br><span class="line">  linux  &#x2F;live&#x2F;vmlinuz-$version boot&#x3D;live components &quot;\$&#123;loopback&#125;&quot;</span><br><span class="line">  initrd &#x2F;live&#x2F;initrd.img-$version</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">		done</span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">	# Create file used by grub to search for boot device.</span><br><span class="line">	touch &quot;$WORK&quot;&#x2F;image&#x2F;DEBIAN_LIVE</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">create_iso() &#123;</span><br><span class="line">	grub-mkstandalone \</span><br><span class="line">		--format&#x3D;x86_64-efi \</span><br><span class="line">		--output&#x3D;&quot;$WORK&quot;&#x2F;scratch&#x2F;bootx64.efi \</span><br><span class="line">		--locales&#x3D;&quot;&quot; \</span><br><span class="line">		--fonts&#x3D;&quot;&quot; \</span><br><span class="line">		&quot;boot&#x2F;grub&#x2F;grub.cfg&#x3D;$WORK&#x2F;scratch&#x2F;grub.cfg&quot;</span><br><span class="line"></span><br><span class="line">	(cd &quot;$WORK&quot;&#x2F;scratch</span><br><span class="line">		dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;efiboot.img bs&#x3D;1M count&#x3D;10</span><br><span class="line">		mkfs.vfat efiboot.img</span><br><span class="line">		mmd -i efiboot.img efi efi&#x2F;boot</span><br><span class="line">		mcopy -i efiboot.img .&#x2F;bootx64.efi ::efi&#x2F;boot&#x2F;</span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">	grub-mkstandalone \</span><br><span class="line">		--format&#x3D;i386-pc \</span><br><span class="line">		--output&#x3D;&quot;$WORK&quot;&#x2F;scratch&#x2F;core.img \</span><br><span class="line">		--install-modules&#x3D;&quot;linux normal iso9660 biosdisk memdisk search tar ls&quot; \</span><br><span class="line">		--modules&#x3D;&quot;linux normal iso9660 biosdisk search&quot; \</span><br><span class="line">		--locales&#x3D;&quot;&quot; \</span><br><span class="line">		--fonts&#x3D;&quot;&quot; \</span><br><span class="line">		&quot;boot&#x2F;grub&#x2F;grub.cfg&#x3D;$WORK&#x2F;scratch&#x2F;grub.cfg&quot;</span><br><span class="line"></span><br><span class="line">	cat &#x2F;usr&#x2F;lib&#x2F;grub&#x2F;i386-pc&#x2F;cdboot.img &quot;$WORK&quot;&#x2F;scratch&#x2F;core.img \</span><br><span class="line">		&gt; &quot;$WORK&quot;&#x2F;scratch&#x2F;bios.img</span><br><span class="line"></span><br><span class="line">	xorriso \</span><br><span class="line">		-as mkisofs \</span><br><span class="line">		-iso-level 3 \</span><br><span class="line">		-full-iso9660-filenames \</span><br><span class="line">		-volid &quot;DEBIAN_LIVE&quot; \</span><br><span class="line">		-eltorito-boot boot&#x2F;grub&#x2F;bios.img \</span><br><span class="line">		-no-emul-boot \</span><br><span class="line">		-boot-load-size 4 \</span><br><span class="line">		-boot-info-table \</span><br><span class="line">		--eltorito-catalog boot&#x2F;grub&#x2F;boot.cat \</span><br><span class="line">		--grub2-boot-info \</span><br><span class="line">		--grub2-mbr &#x2F;usr&#x2F;lib&#x2F;grub&#x2F;i386-pc&#x2F;boot_hybrid.img \</span><br><span class="line">		-eltorito-alt-boot \</span><br><span class="line">		-e EFI&#x2F;efiboot.img \</span><br><span class="line">		-no-emul-boot \</span><br><span class="line">		-append_partition 2 0xef &quot;$WORK&quot;&#x2F;scratch&#x2F;efiboot.img \</span><br><span class="line">		-output &quot;$WORK&#x2F;ling218_linux.iso&quot; \</span><br><span class="line">		-graft-points \</span><br><span class="line">		&quot;$WORK&#x2F;image&quot; \</span><br><span class="line">		&#x2F;boot&#x2F;grub&#x2F;bios.img&#x3D;&quot;$WORK&quot;&#x2F;scratch&#x2F;bios.img \</span><br><span class="line">		&#x2F;EFI&#x2F;efiboot.img&#x3D;&quot;$WORK&quot;&#x2F;scratch&#x2F;efiboot.img</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (( IN_CHROOT )); then</span><br><span class="line">	chroot_prepare</span><br><span class="line">	chroot_install_tools</span><br><span class="line">	chroot_install_zfs</span><br><span class="line">	chroot_finalize</span><br><span class="line">	exit 0</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">prepare</span><br><span class="line">cont_in_chroot &quot;$@&quot;</span><br><span class="line">finalize</span><br><span class="line">create_iso</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -2080,10 +2080,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
-        <tag>live-build</tag>
+        <tag>debian</tag>
       </tags>
   </entry>
   <entry>
@@ -2100,7 +2100,7 @@
 
 <h3 id="输出文件的名字"><a href="#输出文件的名字" class="headerlink" title="输出文件的名字"></a>输出文件的名字</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">youtube-dl &#39;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v&#x3D;y8CPXkP2CKc&amp;pbjreload&#x3D;10&#39; -o &#39;%(title)s.%(ext)s&#39;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>other</category>
+        <category>Tools</category>
       </categories>
       <tags>
         <tag>youtube-dl</tag>
@@ -2121,10 +2121,10 @@
 <p>分两次选择右侧两个 GoogleUpdate 的任务计划，右键菜单选择”禁用”。</p>
 ]]></content>
       <categories>
-        <category>windows</category>
+        <category>Tools</category>
       </categories>
       <tags>
-        <tag>chrome</tag>
+        <tag>google chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -2215,11 +2215,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>other</category>
+        <category>Tools</category>
       </categories>
       <tags>
-        <tag>kali</tag>
-        <tag>windows</tag>
+        <tag>windows pe</tag>
       </tags>
   </entry>
   <entry>
@@ -2229,10 +2228,10 @@
 <p>其实选中虚拟机-编辑虚拟机设置-选项-高级，右边的设置，有个选项叫通过efi而非bios引导。这个勾了就efi，不勾就是bios，还蛮方便的。</p>
 ]]></content>
       <categories>
-        <category>other</category>
+        <category>Tools</category>
       </categories>
       <tags>
-        <tag>EFI</tag>
+        <tag>vmware</tag>
       </tags>
   </entry>
   <entry>
@@ -2248,7 +2247,7 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>vim</tag>
@@ -2263,12 +2262,14 @@
 <p>带上http证书的域名就解决问题了。但是却让我查找了很久的问题。</p>
 <p>Web安全域名 例：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.ling218.cn</span><br><span class="line">https:&#x2F;&#x2F;ling218.github.io</span><br><span class="line">http:&#x2F;&#x2F;www.ling218.cn</span><br><span class="line">http:&#x2F;&#x2F;ling218.github.io</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意事项：</strong><br>请使用leancloud国际版，国内版域名需要备案。</p>
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Valine</tag>
+        <tag>valine</tag>
       </tags>
   </entry>
   <entry>
@@ -2295,10 +2296,10 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -2318,10 +2319,10 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>pycharm,ubuntu</tag>
+        <tag>pycharm</tag>
       </tags>
   </entry>
   <entry>
@@ -2391,7 +2392,7 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>tar</tag>
@@ -2404,7 +2405,7 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>systemctl</tag>
@@ -2425,7 +2426,7 @@
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>ssh</tag>
@@ -2449,7 +2450,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>shell</tag>
@@ -2478,7 +2479,7 @@
 
 ]]></content>
       <categories>
-        <category>other</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>scp</tag>
@@ -2518,10 +2519,10 @@
 
 ]]></content>
       <categories>
-        <category>other</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>Ruby</tag>
+        <tag>ruby</tag>
       </tags>
   </entry>
   <entry>
@@ -2531,7 +2532,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">npm config list</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>other</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>npm</tag>
@@ -2548,7 +2549,7 @@
 
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>next7.6</tag>
@@ -2893,10 +2894,10 @@
 
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Next7.6</tag>
+        <tag>next7.6</tag>
       </tags>
   </entry>
   <entry>
@@ -3167,7 +3168,7 @@
 
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>next7.6</tag>
@@ -3199,7 +3200,7 @@
 <p>常用的搜索引擎[Google][1],[Baidu][2],[example][]<br>[1]:<a href="https://www.google.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.google.com</a><br>[2]:<a href="https://www.baidu.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.baidu.com</a><br>[example]:<a href="https://www.example.com" target="_blank" rel="external nofollow noopener noreferrer">https://www.example.com</a></p>
 <h3 id="自动链接"><a href="#自动链接" class="headerlink" title="自动链接"></a>自动链接</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;http:&#x2F;&#x2F;example.com&gt; </span><br><span class="line">&lt;address@example.com&gt;</span><br></pre></td></tr></table></figure>
 <p>效果：<a href="http://example.com" target="_blank" rel="external nofollow noopener noreferrer">http://example.com</a> </p>
-<p>效果：<a href="mailto:&#97;&#100;&#100;&#114;&#101;&#x73;&#115;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;">&#97;&#100;&#100;&#114;&#101;&#x73;&#115;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;</a></p>
+<p>效果：<a href="mailto:&#x61;&#x64;&#x64;&#x72;&#101;&#115;&#115;&#64;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x61;&#x64;&#x64;&#x72;&#101;&#115;&#115;&#64;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
 <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>使用 <code>*，+，-</code> 表示无序列表 。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* 无序列表项   </span><br><span class="line">- 无序列表项  </span><br><span class="line">+ 无序列表项</span><br></pre></td></tr></table></figure>
 <p>效果：</p>
@@ -3262,7 +3263,7 @@ print(&quot;Hello world!&quot;)
 print(&quot;Hello world!&quot;)
 print(&quot;Hello world!&quot;)</code></pre>]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>markdown</tag>
@@ -3435,7 +3436,7 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 </blockquote>
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>markdown</tag>
@@ -3460,7 +3461,7 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 <h2 id="重启SSH服务"><a href="#重启SSH服务" class="headerlink" title="重启SSH服务"></a>重启SSH服务</h2><pre><code>service sshd restart</code></pre><p>使用myssh用户登录之后，使用<code>su -</code>切换到root用户。</p>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>ssh</tag>
@@ -3513,10 +3514,10 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 <p>#用户局限：对所有用户</p>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>PATH</tag>
+        <tag>path</tag>
       </tags>
   </entry>
   <entry>
@@ -3534,10 +3535,10 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 </ul>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -3567,7 +3568,7 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 </ul>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>bz2</tag>
@@ -3591,7 +3592,7 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Debian</category>
       </categories>
       <tags>
         <tag>tar</tag>
@@ -3608,7 +3609,7 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 </ul>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
         <tag>kali</tag>
@@ -3627,7 +3628,7 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 </ul>
 ]]></content>
       <categories>
-        <category>live-build</category>
+        <category>Live-build</category>
       </categories>
       <tags>
         <tag>kali</tag>
@@ -3655,10 +3656,10 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 </ol>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Kali</category>
       </categories>
       <tags>
-        <tag>google-chrome</tag>
+        <tag>google chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -3679,10 +3680,10 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 <p>如果你想要卸载 Kali light 使用的 XFCE 桌面环境：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get purge kali-desktop-xfce</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>linux</category>
+        <category>Kali</category>
       </categories>
       <tags>
-        <tag>kali</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -3751,10 +3752,10 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>Kali</category>
       </categories>
       <tags>
-        <tag>kali</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -3791,10 +3792,10 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 </ol>
 ]]></content>
       <categories>
-        <category>other</category>
+        <category>Kali</category>
       </categories>
       <tags>
-        <tag>ldlinux</tag>
+        <tag>error</tag>
       </tags>
   </entry>
   <entry>
@@ -3825,10 +3826,10 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 <p><strong>Step 3</strong>: 在robots.txt文件中添加</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Sitemap: http:&#x2F;&#x2F;www.jeyzhang.com&#x2F;sitemap.xml</span><br><span class="line">Sitemap: http:&#x2F;&#x2F;www.jeyzhang.com&#x2F;baidusitemap.xml</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>SEO</tag>
+        <tag>seo</tag>
       </tags>
   </entry>
   <entry>
@@ -3847,641 +3848,10 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 <p>再次执行 <code>hexo g -d</code> 命令，没有报错信息。</p>
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Google 抓取和编入索引</title>
-    <url>/archives/aeb319f0.html</url>
-    <content><![CDATA[<p><em>让搜索引擎知道你的网站，已经有的东西，就不再造轮子了。直接站在巨人的肩膀上。</em></p>
-<a id="more"></a>
-
-<h2 id="谷歌官方帮助："><a href="#谷歌官方帮助：" class="headerlink" title="谷歌官方帮助："></a>谷歌官方帮助：</h2><ul>
-<li><a href="https://support.google.com/webmasters/topic/9427949?hl=zh-Hans&amp;ref_topic=9428048" target="_blank" rel="external nofollow noopener noreferrer">https://support.google.com/webmasters/topic/9427949?hl=zh-Hans&amp;ref_topic=9428048</a></li>
-</ul>
-<p><strong>觉得有点用处，链接发布分享给大家。</strong></p>
-]]></content>
-      <categories>
-        <category>blog</category>
-      </categories>
-      <tags>
-        <tag>google</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GitHub Build-live 项目收集</title>
-    <url>/archives/3311a575.html</url>
-    <content><![CDATA[<h3 id="创建-Ubuntu-live-脚本"><a href="#创建-Ubuntu-live-脚本" class="headerlink" title="创建 Ubuntu live 脚本"></a>创建 Ubuntu live 脚本</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;RTXI&#x2F;live-image</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="构建-Debain-live-脚本-（基于-debian-live）"><a href="#构建-Debain-live-脚本-（基于-debian-live）" class="headerlink" title="构建 Debain live 脚本 （基于 debian live）"></a>构建 Debain live 脚本 （基于 debian live）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;s-vincent&#x2F;debian-live-image</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="构建-Debain-live-脚本-分步骤小脚本"><a href="#构建-Debain-live-脚本-分步骤小脚本" class="headerlink" title="构建 Debain live 脚本 (分步骤小脚本)"></a>构建 Debain live 脚本 (分步骤小脚本)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;dinooz&#x2F;devuanos</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="构建-NIIX-LINUX-中文项目，项目完整度高"><a href="#构建-NIIX-LINUX-中文项目，项目完整度高" class="headerlink" title="构建 NIIX-LINUX (中文项目，项目完整度高)"></a>构建 NIIX-LINUX (中文项目，项目完整度高)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;etony&#x2F;niix-linux</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="构建-Debian-live-（非常完整的项目，没成功构建过）"><a href="#构建-Debian-live-（非常完整的项目，没成功构建过）" class="headerlink" title="构建 Debian live （非常完整的项目，没成功构建过）"></a>构建 Debian live （非常完整的项目，没成功构建过）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;nodiscc&#x2F;debian-live-config</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="构建-Debian-live-（非常完整的项目）"><a href="#构建-Debian-live-（非常完整的项目）" class="headerlink" title="构建 Debian live （非常完整的项目）"></a>构建 Debian live （非常完整的项目）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;StamusNetworks&#x2F;SELKS</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="构建-Debain-live-（日文项目，很好的项目）"><a href="#构建-Debain-live-（日文项目，很好的项目）" class="headerlink" title="构建 Debain live （日文项目，很好的项目）"></a>构建 Debain live （日文项目，很好的项目）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;homelith&#x2F;debian-live-custom</span><br></pre></td></tr></table></figure>
-
-<p>网站详情：<a href="https://qiita.com/homelith/items/f30a1fbac89dc977c1ff" target="_blank" rel="external nofollow noopener noreferrer">https://qiita.com/homelith/items/f30a1fbac89dc977c1ff</a></p>
-<h3 id="构建-Debian-live-（非常不错的项目）"><a href="#构建-Debian-live-（非常不错的项目）" class="headerlink" title="构建 Debian live （非常不错的项目）"></a>构建 Debian live （非常不错的项目）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;mafredri&#x2F;debian-my-live-build</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="构建-Minimal-linux-live-（研究linux系统基础）"><a href="#构建-Minimal-linux-live-（研究linux系统基础）" class="headerlink" title="构建 Minimal linux live （研究linux系统基础）"></a>构建 Minimal linux live （研究linux系统基础）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;ivandavidov&#x2F;minimal-linux-script</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>live-build</category>
-      </categories>
-      <tags>
-        <tag>URL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git 学习笔记</title>
-    <url>/archives/3c3cdb74.html</url>
-    <content><![CDATA[<h2 id="一、设置账户名和账户邮箱"><a href="#一、设置账户名和账户邮箱" class="headerlink" title="一、设置账户名和账户邮箱"></a>一、设置账户名和账户邮箱</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;name&quot;</span><br><span class="line">git config --global user.email &quot;name@gmail.com</span><br><span class="line">git config --global http.proxy http:&#x2F;&#x2F;example.com:port</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、验证账户名和账户邮箱"><a href="#二、验证账户名和账户邮箱" class="headerlink" title="二、验证账户名和账户邮箱"></a>二、验证账户名和账户邮箱</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name</span><br><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、初始化仓库"><a href="#三、初始化仓库" class="headerlink" title="三、初始化仓库"></a>三、初始化仓库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init  #会生成 .git 文件夹，关于这个仓库的配置</span><br></pre></td></tr></table></figure>
-
-<h3 id="四、添加文件及文件夹"><a href="#四、添加文件及文件夹" class="headerlink" title="四、添加文件及文件夹"></a>四、添加文件及文件夹</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add name</span><br><span class="line"># 添加所有文件</span><br><span class="line">git add .</span><br></pre></td></tr></table></figure>
-
-<h3 id="五、添加描述-必须添加"><a href="#五、添加描述-必须添加" class="headerlink" title="五、添加描述(必须添加)"></a>五、添加描述(必须添加)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;hello world&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="六、查看状态"><a href="#六、查看状态" class="headerlink" title="六、查看状态"></a>六、查看状态</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
-<h3 id="七、查看修改的文件"><a href="#七、查看修改的文件" class="headerlink" title="七、查看修改的文件"></a>七、查看修改的文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git diff -- filename</span><br></pre></td></tr></table></figure>
-
-<h3 id="八、撤销修改"><a href="#八、撤销修改" class="headerlink" title="八、撤销修改"></a>八、撤销修改</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout filename</span><br></pre></td></tr></table></figure>
-
-<h3 id="九、撤销修改-针对GIT-ADD提交之后的"><a href="#九、撤销修改-针对GIT-ADD提交之后的" class="headerlink" title="九、撤销修改(针对GIT ADD提交之后的)"></a>九、撤销修改(针对GIT ADD提交之后的)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset HEAD filename</span><br><span class="line">git checkout filename</span><br></pre></td></tr></table></figure>
-
-<h3 id="十、查看提交记录"><a href="#十、查看提交记录" class="headerlink" title="十、查看提交记录"></a>十、查看提交记录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log</span><br><span class="line">git log logid -1 -p</span><br><span class="line"># -1  表示只看到上面的一条记录</span><br><span class="line"># -p 表示查看这条记录的所有信息</span><br></pre></td></tr></table></figure>
-
-<h3 id="十一、上传文件"><a href="#十一、上传文件" class="headerlink" title="十一、上传文件"></a>十一、上传文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote add origin github仓库地址</span><br><span class="line"># 如遇&quot;fatal: remote origin already exists.&quot;此问题</span><br><span class="line"># 输入 git remote rm origin</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-
-<h3 id="十二、分支"><a href="#十二、分支" class="headerlink" title="十二、分支"></a>十二、分支</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#查看分支</span><br><span class="line">git branch</span><br><span class="line">#当前分支前面会有一个*</span><br><span class="line">#创建分支</span><br><span class="line">git branch version1.0</span><br><span class="line">#切换分支</span><br><span class="line">git checkout version1.0</span><br><span class="line">#将version1.0同步到当前分支</span><br><span class="line">git merge version1.0</span><br><span class="line">#删除分支</span><br><span class="line">git branch -D version1.0</span><br><span class="line">#克隆远程项目</span><br><span class="line">git clone git@github.com:name&#x2F;项目名.git</span><br><span class="line">#将当前修改上传到服务器</span><br><span class="line">git push origin master</span><br><span class="line">#将远程修改同步到本地</span><br><span class="line">git fetch origin master</span><br><span class="line">#注：此方法不会将修改同步到当前分支，而是会同步到origin&#x2F;master分支上，需要使用git merge origin&#x2F;master同步到当前分支</span><br><span class="line">git pull origin master</span><br><span class="line">#此方法是fetch和merge两者的合并</span><br></pre></td></tr></table></figure>
-
-<h3 id="十三、其他"><a href="#十三、其他" class="headerlink" title="十三、其他"></a>十三、其他</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#创建密钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;name@gmail.com&quot;</span><br><span class="line">#将公钥添加到github</span><br><span class="line">cat .ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>other</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>dpkg 命令的用法</title>
-    <url>/archives/a1571737.html</url>
-    <content><![CDATA[<p>dpkg 是 Debian Package 的简写，为Debian操作系统专门开发的套件管理系统，用于软件的安装、更新和移除。</p>
-<a id="more"></a>
-
-
-<h3 id="安装软件。"><a href="#安装软件。" class="headerlink" title="安装软件。"></a>安装软件。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -i ~&#x2F;package.deb</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="列出与该包关联的文件。"><a href="#列出与该包关联的文件。" class="headerlink" title="列出与该包关联的文件。"></a>列出与该包关联的文件。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -L package</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="显示软件包的版本。"><a href="#显示软件包的版本。" class="headerlink" title="显示软件包的版本。"></a>显示软件包的版本。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -l package</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="移除软件包（保留配置）"><a href="#移除软件包（保留配置）" class="headerlink" title="移除软件包（保留配置）"></a>移除软件包（保留配置）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -r package</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="移除软件包-（不保留配置）"><a href="#移除软件包-（不保留配置）" class="headerlink" title="移除软件包 （不保留配置）"></a>移除软件包 （不保留配置）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -P package</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="查看软件包的详细信息"><a href="#查看软件包的详细信息" class="headerlink" title="查看软件包的详细信息"></a>查看软件包的详细信息</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -s package</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="列出deb包的内容"><a href="#列出deb包的内容" class="headerlink" title="列出deb包的内容"></a>列出deb包的内容</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -c package.deb</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>dpkg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian系统下 rpm 和 deb 包相互转换</title>
-    <url>/archives/a722ca9a.html</url>
-    <content><![CDATA[<h2 id="安装alien软件包："><a href="#安装alien软件包：" class="headerlink" title="安装alien软件包："></a>安装alien软件包：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt update</span><br><span class="line"># apt install alien -y</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="RPM-gt-DEB"><a href="#RPM-gt-DEB" class="headerlink" title="RPM=&gt;DEB"></a>RPM=&gt;DEB</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alien google-chrome.rpm google-chrome.deb generated</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="DEB-gt-RPM-添加参数-r进行转换"><a href="#DEB-gt-RPM-添加参数-r进行转换" class="headerlink" title="DEB=&gt;RPM(添加参数-r进行转换)"></a>DEB=&gt;RPM(添加参数-r进行转换)</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alien -r google-chrome.deb google-chrome.rpm generated</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="DEB包手动安装"><a href="#DEB包手动安装" class="headerlink" title="DEB包手动安装"></a>DEB包手动安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dpkg -i google-chrome.deb</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>rpm,deb</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian10 环境下搭建 Hexo 个人博客</title>
-    <url>/archives/752f7472.html</url>
-    <content><![CDATA[<h2 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a>安装 nodejs</h2><p><strong>1、安装nodejs</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -sL https:&#x2F;&#x2F;deb.nodesource.com&#x2F;setup_12.x | bash -</span><br><span class="line">apt-get install nodejs -y</span><br></pre></td></tr></table></figure>
-
-<p><strong>2、检测nodejs是否安装成功</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node -version      #显示版本号</span><br><span class="line">npm -version       #显示版本号</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h2><p><strong>1、更新安装源缓存并安装 git</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-
-<p>2、检测git是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version        #显示版本号</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Hexo-安装及初始化"><a href="#Hexo-安装及初始化" class="headerlink" title="Hexo 安装及初始化"></a>Hexo 安装及初始化</h2><p><strong>1、安装hexo</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli hexo-server hexo-deployer-git -g</span><br></pre></td></tr></table></figure>
-
-<p><strong>2、初始化hexo项目</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init &lt;blog_path_folder&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>3、hexo部署及生成</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="设置主题-（这里Next7-6）"><a href="#设置主题-（这里Next7-6）" class="headerlink" title="设置主题 （这里Next7.6）"></a>设置主题 （这里Next7.6）</h2><p><strong>1、下载主题</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &lt;you_hexo_blog_path&gt;</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
-
-<p><strong>2、启用主题</strong></p>
-<p>编辑 Hexo 站点配置文件 <code>_config.yml</code> ,找到 <code>theme</code> 字段，并将其值更改为 next。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>blog</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian 给用户添加 sudo 权限</title>
-    <url>/archives/c779294b.html</url>
-    <content><![CDATA[<h2 id="Linux-给用户添加-sudo-权限"><a href="#Linux-给用户添加-sudo-权限" class="headerlink" title="Linux 给用户添加 sudo 权限"></a>Linux 给用户添加 sudo 权限</h2><p>1、给 <code>/etc/sudoers</code> 添加写权限。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># chmod +w &#x2F;etc&#x2F;sudoers</span><br></pre></td></tr></table></figure>
-
-<p>2、编辑 <code>/etc/sudoers</code> 文件，给 <strong>username</strong> 用户添加 sudo 权限。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username ALL&#x3D;(ALL) ALL</span><br></pre></td></tr></table></figure>
-
-<p>3、去除 <code>/etc/sudoers</code> 写权限。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># chmod -w &#x2F;etc&#x2F;sudoers</span><br></pre></td></tr></table></figure>
-
-<p>上面操作完成后，<strong>username</strong> 用户就拥有了sudo权限了。</p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>sudo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian 系统老版本 iso 下载</title>
-    <url>/archives/b2adb537.html</url>
-    <content><![CDATA[<h2 id="Debian-系统老版本-iso-下载"><a href="#Debian-系统老版本-iso-下载" class="headerlink" title="Debian 系统老版本 iso 下载"></a>Debian 系统老版本 iso 下载</h2><p>debian官方默认只提供最新的版本下载，有时需要找一些旧的版本的debian，着实费用。下面这个debian iso镜像站可以下载各个版本的debian下载：<a href="http://cdimage.debian.org/cdimage/archive/" target="_blank" rel="external nofollow noopener noreferrer">debian 系统各个版本ISO下载</a></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>iso</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian 执行 sudo 不用输入密码</title>
-    <url>/archives/c80a599a.html</url>
-    <content><![CDATA[<p>在 <code>/etc/sudoers</code> 文件尾添加下面一行：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username ALL&#x3D;(ALL)NOPASSWD:ALL</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>sudo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian 安装 mate 桌面环境的方法</title>
-    <url>/archives/5eedfe66.html</url>
-    <content><![CDATA[<p>mate是一个轻量级的桌面环境，占用系统资源非常少，正常使用下，大约占300MB左右，界面做得非常漂亮，本人十分喜爱，也是我最喜欢的桌面环境。安装了其他桌面(如：gnome) 后，怎么安装mate?</p>
-<a id="more"></a>
-
-
-
-<h2 id="操作步骤："><a href="#操作步骤：" class="headerlink" title="操作步骤："></a>操作步骤：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install task-mate-desktop  </span><br><span class="line">apt-get install mate-desktop-environment-extras  #完全安装mate及扩展部分</span><br></pre></td></tr></table></figure>
-
-<p>执行命令后，网速不慢，几分钟就完事，注销选择mate，进入后即是mate了。</p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>mate</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian 安装 Google Chrome 浏览器</title>
-    <url>/archives/c945e1f0.html</url>
-    <content><![CDATA[<p>1、首先需要下载并安装谷歌官方秘钥：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># wget -q -O - https:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;linux_signing_key.pub | sudo apt-key add -</span><br></pre></td></tr></table></figure>
-
-<p>2、然后是添加谷歌官方软件源：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># echo &quot;deb http:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;chrome&#x2F;deb&#x2F; stable main&quot; | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;google-chrome.list</span><br></pre></td></tr></table></figure>
-
-<p>3、执行安装命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt-get update</span><br><span class="line"># apt-get -y install google-chrome-stable</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>chrome</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian/Ubuntu 最有用的 apt-get 命令详解</title>
-    <url>/archives/c4cc6c2d.html</url>
-    <content><![CDATA[<h2 id="从软件仓库中安装软件包"><a href="#从软件仓库中安装软件包" class="headerlink" title="从软件仓库中安装软件包"></a>从软件仓库中安装软件包</h2><h3 id="apt-get-update"><a href="#apt-get-update" class="headerlink" title="apt-get update"></a>apt-get update</h3><p>在安装任何软件之前，我们最好是要更新本地软件包索引（package index）。本地软件包索引列出了软件仓库中所有可安装的软件包以及版本信息。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>sudo 的在英语里的意思是switch user and do something。在Linux系统上，你需要root权限来安装和卸载软件包。sudo可以临时将你的用户ID切换为root。</p>
-</blockquote>
-<h3 id="apt-get-install"><a href="#apt-get-install" class="headerlink" title="apt-get install"></a>apt-get install</h3><p>apt-get install 是用来安装软件包的。你需要将软件包的名字添加到 apt-get install 之后。例如，你可以在Ubuntu系统上安装 vim文本编辑器。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install vim</span><br></pre></td></tr></table></figure>
-
-<p>有时候apt-get会询问你是否真的要安装软件包。如果你想自动回答yes，可以在安装命令中添加 -y 选项。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install -y vim</span><br></pre></td></tr></table></figure>
-
-<p>在你用apt-get install命令安装软件包之前，你需要知道这个软件包在软件仓库中的名称。这看起来有点麻烦。当你熟悉之后，你会感到非常方便。尤其是当你SSH远程管理Linux服务器的时候。</p>
-<p>apt-get首先会从软件仓库中下载deb安装包，这些deb安装在/var/cache/apt/archives目录下。下载后，apt-get会自动安装软件包。</p>
-<h3 id="一条命令安装多个软件包"><a href="#一条命令安装多个软件包" class="headerlink" title="一条命令安装多个软件包"></a>一条命令安装多个软件包</h3><p>apt-get install 可以一次性安装多个软件包，比如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install wireshark wget curl git</span><br></pre></td></tr></table></figure>
-
-<h3 id="apt-get-upgrade"><a href="#apt-get-upgrade" class="headerlink" title="apt-get upgrade"></a>apt-get upgrade</h3><p>apt-get upgrade命令用来升级系统上可以升级的软件包。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-
-<p>apt-get 会告诉你哪些软件包会升级。并且询问你是否真的需要升级这些软件包。你可以在命令中添加 -y 选项来自动回答yes。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get -y upgrade</span><br></pre></td></tr></table></figure>
-
-<h3 id="apt-get-remove"><a href="#apt-get-remove" class="headerlink" title="apt-get remove"></a>apt-get remove</h3><p>这条命令用来删除系统上的软件包，比如，删除Firefox</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove firefox</span><br></pre></td></tr></table></figure>
-
-<p>但它不会删除软件包的配置文件。</p>
-<h3 id="apt-get-purge"><a href="#apt-get-purge" class="headerlink" title="apt-get purge"></a>apt-get purge</h3><p>这条命令可以用来删除软件包及其配置文件。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get purge firefox</span><br></pre></td></tr></table></figure>
-
-<h3 id="apt-get-clean"><a href="#apt-get-clean" class="headerlink" title="apt-get clean"></a>apt-get clean</h3><p>当apt-get安装或升级软件包时，它会将deb安装包下载到文件系统的<strong>/var/cache/apt/archives</strong>目录下。软件包安装完成后，这些deb安装包基本上就没有什么用处了。apt-get clean命令可以帮你删除这些deb安装包。</p>
-<p>你可以使用下面的命令查看/var/cache/apt/archives目录下deb安装包的大小。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -sh &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives</span><br></pre></td></tr></table></figure>
-
-<h3 id="apt-get-autoclean"><a href="#apt-get-autoclean" class="headerlink" title="apt-get autoclean"></a>apt-get autoclean</h3><p>apt-get autoclean也可以用来删除/var/cache/apt/archives目录下的deb安装包。但它只删除那些已经不能从软件仓库中下载的deb安装包。这就是说，Debian或Ubuntu已经不维护那些软件包了，或者那些软件包有了一个新的名字。</p>
-<h3 id="apt-get-autoremove"><a href="#apt-get-autoremove" class="headerlink" title="apt-get autoremove"></a>apt-get autoremove</h3><p>这条命令用来删除不需要的依赖软件包。</p>
-<h3 id="apt-get-dist-upgrade"><a href="#apt-get-dist-upgrade" class="headerlink" title="apt-get dist-upgrade"></a>apt-get dist-upgrade</h3><p>这条命令可能会让很多人感到困惑．在Debian系统上，你用这条命令升级系统版本，比如从Debian9升级到Debian10。但是在Ubuntu系统上，这条命令只会升级Linux内核以及之前没有被升级的软件包．升级Ubuntu的版本你需要用到do-release-upgrade命令。</p>
-<h2 id="附：手动安装Deb软件包"><a href="#附：手动安装Deb软件包" class="headerlink" title="附：手动安装Deb软件包"></a>附：手动安装Deb软件包</h2><h3 id="dpkg-i"><a href="#dpkg-i" class="headerlink" title="dpkg -i"></a>dpkg -i</h3><p>如果你从网站上下载了一个deb软件包，那么你需要dpkg工具来安装这个deb包．例如，你可以下载WPS linux版。然后，在终端里将当前工作目录切换到下载目录，再输入下面的命令安装WPS  Linux版。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i wps-office*.deb</span><br></pre></td></tr></table></figure>
-
-<h3 id="gdebi"><a href="#gdebi" class="headerlink" title="gdebi"></a>gdebi</h3><p>dpkg的一个缺点是它不能解决依赖关系。你必须手动安装依赖包。而gdebi可以帮助我们自动安装依赖包。输入下面的命令安装gdebi。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install gdebi</span><br></pre></td></tr></table></figure>
-
-<p>它的命令语法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gdebi &lt;package.deb&gt;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>apt-get</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian/Ubuntu 安装 Typora</title>
-    <url>/archives/e3fe7203.html</url>
-    <content><![CDATA[<h2 id="安装Typora"><a href="#安装Typora" class="headerlink" title="安装Typora"></a>安装Typora</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加typora仓库密钥</span><br><span class="line"># sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span><br><span class="line">wget -qO - https:&#x2F;&#x2F;typora.io&#x2F;linux&#x2F;public-key.asc | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"># 把typora软件源添加到系统源文件 </span><br><span class="line">echo -e &quot;\ndeb https:&#x2F;&#x2F;typora.io&#x2F;linux .&#x2F;&quot; | sudo tee -a &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># 安装typora</span><br><span class="line">sudo apt-get install typora</span><br></pre></td></tr></table></figure>
-
-<h2 id="升级Typora"><a href="#升级Typora" class="headerlink" title="升级Typora"></a>升级Typora</h2><p>安装Typora之后，<code>typora</code>软件包将受到管理<code>apt-get</code>，因此当您的系统更新已安装的软件包或执行时<code>apt-get upgrade</code>，Typora将更新为最新版本。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>typora</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux 创建 sudo 用户</title>
-    <url>/archives/2a8b1abe.html</url>
-    <content><![CDATA[<p><code>sudo</code> 命令提供了临时使用root权限的机制，使普通用户可以执行超级管理员任务。</p>
-<a id="more"></a>
-
-
-
-<p>添加用户。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># adduser newuser</span><br></pre></td></tr></table></figure>
-
-<p>设置用户密码。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># passwd newuser</span><br></pre></td></tr></table></figure>
-
-<p>把新建用户加入sudo组。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># usermod -aG sudo newuser</span><br></pre></td></tr></table></figure>
-
-<p>测试新用户sudo机制。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># su newuser</span><br><span class="line"># sudo apt update</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>sudo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian 允许用户通过sudo仅运行特定命令</title>
-    <url>/archives/18f1a1f0.html</url>
-    <content><![CDATA[<p>执行下面命令实现：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username ALL&#x3D;(ALL) NOPASSWD:&#x2F;bin&#x2F;mkdir,&#x2F;bin&#x2F;rmdir</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>sudo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian 使用 curl 获得外部 IP 地址（公网地址）</title>
-    <url>/archives/7cfdd891.html</url>
-    <content><![CDATA[<p>执行下面命令获得：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># curl icanhazip.com   #速度快点</span><br><span class="line"># curl ipinfo.io&#x2F;ip   #速度稍慢</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>curl</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Debian 10 如何将语言从英文更改为中文</title>
-    <url>/archives/d639a0f.html</url>
-    <content><![CDATA[<p>由于安装的是英文版 Debian 。我英语水平不怎么好，因此需要将默认语言改为中文。这篇文章向大家介绍如何将 Debian 10 Buster 的语言从英文更改为中文。</p>
-<a id="more"></a>
-
-
-
-<h2 id="Debian-10如何将语言从英文更改为中文"><a href="#Debian-10如何将语言从英文更改为中文" class="headerlink" title="Debian 10如何将语言从英文更改为中文"></a>Debian 10如何将语言从英文更改为中文</h2><ol>
-<li>打开终端并登录 <strong>root</strong> 用户。</li>
-<li>使用 <strong>nano</strong> 文本编辑器打开 <code>/etc/locale.gen</code> 文件。</li>
-<li>如果你在安装的 Debian10 系统时将语言环境设为美国英语，在这个文件中：<strong>en_US.UTF-8 UTF-8</strong> 行首没有 <code>#</code> 符号。</li>
-<li>要添加中文语言支持，找到 <strong>zh_CN</strong> 开头的那几行。在行首把这几行的 <code>#</code> 符号去掉。</li>
-<li>保存文件后，在终端执行 <code>locale-gen</code> 命令。</li>
-<li>打开Gnome设置面板，选择<strong>Region &amp; Language</strong>，双击<strong>Language</strong>，选择<strong>汉语</strong>。</li>
-<li>重新登录 Debian10 系统。你将会看见<strong>将标准文件夹更新到当前语言吗？</strong>对话框。它是问你要不要将home目录下文件夹的语言也更改成中文。我的建议是这些文件夹要使用英文。所以点击<strong>保留旧的名称</strong>。</li>
-</ol>
-<p>现在Debian的界面语言是中文了，但是有些程序如iceweasal, icedove, libreoffice等需要安装专门的中文语言包。输入下面的命令为这些程序安装中文语言包。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install -y \</span><br><span class="line">	chromium-l10n icedove-l10n-zh-cn \</span><br><span class="line">	iceowl-l10n-zh-cn iceweasel-l10n-zh-cn \</span><br><span class="line">	libreoffice-help-zh-cn libreoffice-l10n-zh-cn \</span><br><span class="line">	debian-faq-zh-cn kicad-doc-zh-cn \</span><br><span class="line">	openvanilla-imgeneric-data-zh-cn \</span><br><span class="line">	texlive-lang-chinese</span><br></pre></td></tr></table></figure>
-
-<p>完成以上操作，Debian10汉化工作完成。</p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>debian</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bash 脚本 set 命令教程</title>
-    <url>/archives/19676771.html</url>
-    <content><![CDATA[<h1 id="bash-脚本-set-命令教程"><a href="#bash-脚本-set-命令教程" class="headerlink" title="bash 脚本 set 命令教程"></a>bash 脚本 set 命令教程</h1><p>服务器的开发和管理离不开 bash 脚本，掌握它需要学习大量的细节。</p>
-<p>set 命令是bash脚本的重要环节，却常常被忽视，导致脚本的安全性和可维护性出问题。</p>
-<p>本文介绍它的基本用法，让你可以更安心地使用 Bash 脚本。</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>我们知道，Bash 执行脚本的时候，会创建一个新的 Shell。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>script.sh</code>是在一个新的 Shell 里面执行。这个 Shell 就是脚本的执行环境，Bash 默认给定了这个环境的各种参数。</p>
-<p><code>set</code>命令用来修改 Shell 环境的运行参数，也就是可以定制环境。一共有十几个参数可以定制，<a href="https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html" target="_blank" rel="external nofollow noopener noreferrer">官方手册</a>有完整清单，本文介绍其中最常用的四个。</p>
-<p>顺便提一下，如果命令行下不带任何参数，直接运行<code>set</code>，会显示所有的环境变量和 Shell 函数。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">set</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="set-u"><a href="#set-u" class="headerlink" title="set -u"></a>set -u</h2><p>执行脚本的时候，如果遇到不存在的变量，Bash 默认忽略它。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span></span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>$a</code>是一个不存在的变量。执行结果如下。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line"></span><br><span class="line">bar</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，<code>echo $a</code>输出了一个空行，Bash 忽略了不存在的<code>$a</code>，然后继续执行<code>echo bar</code>。大多数情况下，这不是开发者想要的行为，遇到变量不存在，脚本应该报错，而不是一声不响地往下执行。</p>
-<p><code>set -u</code>就用来改变这种行为。脚本在头部加上它，遇到不存在的变量就会报错，并停止执行。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -u</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span></span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
-
-<p>运行结果如下。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">bash: script.sh:行4: a: 未绑定的变量</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，脚本报错了，并且不再执行后面的语句。</p>
-<p><code>-u</code>还有另一种写法<code>-o nounset</code>，两者是等价的。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -o nounset</span><br></pre></td></tr></table></figure>
-
-<h2 id="set-x"><a href="#set-x" class="headerlink" title="set -x"></a>set -x</h2><p>默认情况下，脚本执行后，屏幕只显示运行结果，没有其他内容。如果多个命令连续执行，它们的运行结果就会连续输出。有时会分不清，某一段内容是什么命令产生的。</p>
-<p><code>set -x</code>用来在运行结果之前，先输出执行的那一行命令。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -x</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
-
-<p>执行上面的脚本，结果如下。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">+ <span class="built_in">echo</span> bar</span><br><span class="line">bar</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，执行<code>echo bar</code>之前，该命令会先打印出来，行首以<code>+</code>表示。这对于调试复杂的脚本是很有用的。</p>
-<p><code>-x</code>还有另一种写法<code>-o xtrace</code>。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -o xtrace</span><br></pre></td></tr></table></figure>
-
-<h2 id="Bash-的错误处理"><a href="#Bash-的错误处理" class="headerlink" title="Bash 的错误处理"></a>Bash 的错误处理</h2><p>如果脚本里面有运行失败的命令（返回值非0），Bash 默认会继续执行后面的命令。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line">foo</span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
-
-<p>上面脚本中，<code>foo</code>是一个不存在的命令，执行时会报错。但是，Bash 会忽略这个错误，继续往下执行。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">script.sh:行3: foo: 未找到命令</span><br><span class="line">bar</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，Bash 只是显示有错误，并没有终止执行。</p>
-<p>这种行为很不利于脚本安全和除错。实际开发中，如果某个命令失败，往往需要脚本停止执行，防止错误累积。这时，一般采用下面的写法。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">command</span> || <span class="built_in">exit</span> 1</span><br></pre></td></tr></table></figure>
-
-<p>上面的写法表示只要<code>command</code>有非零返回值，脚本就会停止执行。</p>
-<p>如果停止执行之前需要完成多个操作，就要采用下面三种写法。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 写法一</span></span><br><span class="line"><span class="built_in">command</span> || &#123; <span class="built_in">echo</span> <span class="string">"command failed"</span>; <span class="built_in">exit</span> 1; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写法二</span></span><br><span class="line"><span class="keyword">if</span> ! <span class="built_in">command</span>; <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">"command failed"</span>; <span class="built_in">exit</span> 1; <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 写法三</span></span><br><span class="line"><span class="built_in">command</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"$?"</span> -ne 0 ]; <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">"command failed"</span>; <span class="built_in">exit</span> 1; <span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
-
-<p>另外，除了停止执行，还有一种情况。如果两个命令有继承关系，只有第一个命令成功了，才能继续执行第二个命令，那么就要采用下面的写法。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">command1 &amp;&amp; command2</span><br></pre></td></tr></table></figure>
-
-<h2 id="set-e"><a href="#set-e" class="headerlink" title="set -e"></a>set -e</h2><p>上面这些写法多少有些麻烦，容易疏忽。<code>set -e</code>从根本上解决了这个问题，它使得脚本只要发生错误，就终止执行。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">foo</span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
-
-<p>执行结果如下。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">script.sh:行4: foo: 未找到命令</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，第4行执行失败以后，脚本就终止执行了。</p>
-<p><code>set -e</code>根据返回值来判断，一个命令是否运行失败。但是，某些命令的非零返回值可能不表示失败，或者开发者希望在命令失败的情况下，脚本继续执行下去。这时可以暂时关闭<code>set -e</code>，该命令执行结束后，再重新打开<code>set -e</code>。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> +e</span><br><span class="line">command1</span><br><span class="line">command2</span><br><span class="line"><span class="built_in">set</span> -e</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>set +e</code>表示关闭<code>-e</code>选项，<code>set -e</code>表示重新打开<code>-e</code>选项。</p>
-<p>还有一种方法是使用<code>command || true</code>，使得该命令即使执行失败，脚本也不会终止执行。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">foo || <span class="literal">true</span></span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>true</code>使得这一行语句总是会执行成功，后面的<code>echo bar</code>会执行。</p>
-<p><code>-e</code>还有另一种写法<code>-o errexit</code>。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -o errexit</span><br></pre></td></tr></table></figure>
-
-<h2 id="set-o-pipefail"><a href="#set-o-pipefail" class="headerlink" title="set -o pipefail"></a>set -o pipefail</h2><p><code>set -e</code>有一个例外情况，就是不适用于管道命令。</p>
-<p>所谓管道命令，就是多个子命令通过管道运算符（<code>|</code>）组合成为一个大的命令。Bash 会把最后一个子命令的返回值，作为整个命令的返回值。也就是说，只要最后一个子命令不失败，管道命令总是会执行成功，因此它后面命令依然会执行，<code>set -e</code>就失效了。</p>
-<p>请看下面这个例子。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">foo | <span class="built_in">echo</span> a</span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
-
-<p>执行结果如下。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">a</span><br><span class="line">script.sh:行4: foo: 未找到命令</span><br><span class="line">bar</span><br></pre></td></tr></table></figure>
-
-<p>上面代码中，<code>foo</code>是一个不存在的命令，但是<code>foo | echo a</code>这个管道命令会执行成功，导致后面的<code>echo bar</code>会继续执行。</p>
-<p><code>set -o pipefail</code>用来解决这种情况，只要一个子命令失败，整个管道命令就失败，脚本就会终止执行。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -eo pipefail</span><br><span class="line"></span><br><span class="line">foo | <span class="built_in">echo</span> a</span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
-
-<p>运行后，结果如下。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">a</span><br><span class="line">script.sh:行4: foo: 未找到命令</span><br></pre></td></tr></table></figure>
-
-<p>可以看到，<code>echo bar</code>没有执行。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>set</code>命令的上面这四个参数，一般都放在一起使用。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 写法一</span></span><br><span class="line"><span class="built_in">set</span> -euxo pipefail</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写法二</span></span><br><span class="line"><span class="built_in">set</span> -eux</span><br><span class="line"><span class="built_in">set</span> -o pipefail</span><br></pre></td></tr></table></figure>
-
-<p>这两种写法建议放在所有 Bash 脚本的头部。</p>
-<p>另一种办法是在执行 Bash 脚本的时候，从命令行传入这些参数。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash -euxo pipefail script.sh</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>bash</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Apt-get 常用示例</title>
-    <url>/archives/578d7cdf.html</url>
-    <content><![CDATA[<p>是Debian及其派生的Linux软件包管理器。在Debian系统中，APT建构于dpkg之上。APT的软件安装来源在Debian安装的时候即可进行初始设置，除了Debian官方的网络安装来源之外，也可以使用Debian的安装光盘，甚至可以从非官方的安装来源中下载非官方的软件。APT同时也可以从一些安装来源中下载源代码软件，并且自行编译、安装。</p>
-<a id="more"></a>
-
-<p>注意：’xyz’只是一个占位符。</p>
-<h2 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h2><ul>
-<li><code>apt-get update</code> 下载新的软件包列表。</li>
-<li><code>apt-get upgrade</code> 安装您拥有的软件包的较新版本。</li>
-<li><code>apt-get dist-upgrade</code> 在先前的命令中执行升级，并智能地处理新版本软件包的依赖关系，并在必要时尝试以不重要的软​​件包为代价来升级最重要的软件包；有时在极少数必要的情况下删除软件包。</li>
-</ul>
-<h2 id="软件包搜索和软件包信息"><a href="#软件包搜索和软件包信息" class="headerlink" title="软件包搜索和软件包信息"></a>软件包搜索和软件包信息</h2><ul>
-<li><code>apt-cache pkgnames</code> 列出所有可用的软件包。</li>
-<li><code>apt-cache xyz</code> 搜索软件包。</li>
-<li><code>apt-cache search xyz</code> 搜索包含说明的结果的软件包。</li>
-<li><code>apt-cache pkgnames xyz</code> 列出所有以“ xyz”开头的软件包。</li>
-<li><code>apt-cache show xyz</code> 检查包装信息。</li>
-<li><code>apt-cache showpkg xyz</code> 检查软件包的依赖关系。</li>
-<li><code>apt-cache stats</code> 显示有关缓存的整体统计信息。</li>
-</ul>
-<h2 id="软件包安装和删除"><a href="#软件包安装和删除" class="headerlink" title="软件包安装和删除"></a>软件包安装和删除</h2><ul>
-<li><code>apt-get download xyz</code> 仅将软件包下载到当前工作目录。</li>
-<li><code>apt-get install xyz</code> 下载并安装软件包。通过在第一个软件包之后拥有所需的多个软件包来安装。</li>
-<li><code>apt-get install xyz --no-upgrade</code> 将软件包标记为永不升级。</li>
-<li><code>apt-get install xyz --only-upgrade</code> 仅升级指定的软件包，并禁用软件包的新安装。</li>
-<li><code>apt-get install &#39;*name*&#39;</code> 使用<em>通配符将安装几个包含’</em> name *’字符串的软件包，如软件包名称中所示。</li>
-<li><code>apt-get changelog xyz</code> 下载软件包更改日志并显示已安装的软件包版本。</li>
-<li><code>apt-get check</code> 检查损坏的依赖关系。</li>
-<li><code>apt-get remove xyz</code> 卸载软件包。</li>
-<li><code>apt-get purge xyz</code> 删除软件包中剩余的配置文件。</li>
-<li><code>apt-get autoremove</code> 删除孤立的软件包。</li>
-<li><code>apt-get clean</code> 删除下载的deb文件。</li>
-<li><code>apt-get autoclean</code> 删除已下载的无法再下载的deb文件。</li>
-</ul>
-<h2 id="源代码包"><a href="#源代码包" class="headerlink" title="源代码包"></a>源代码包</h2><ul>
-<li><code>apt-get source xyz</code> 将包的源代码下载并解压缩到目录中。</li>
-<li><code>apt-get build-dep xyz</code> 下载并安装软件包的构建依赖项。</li>
-<li><code>apt-get --compile source xyz</code> 下载，解压缩和编译源代码。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>apt-get</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Apt-get 安装软件包过程被强制中断后</title>
-    <url>/archives/b9cfb6eb.html</url>
-    <content><![CDATA[<p>apt-get 操作被强行中断后，会出现无法进行新的安装和删除的情况只是提示您使用apt-get -f install来解决问题，但实际上，你按它的提示操作却解决不了任何问题。</p>
-<a id="more"></a>
-
-<p>这时你需要这样做：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo dpkg --configure -a</span><br><span class="line"># sudo apt-get update</span><br><span class="line"># sudo apt-get install -f</span><br><span class="line"># sudo apt-get autoremove </span><br><span class="line"># sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-
-<p>如果还有一些有问题的软件包可以用下面这个命令干掉它：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -r pack</span><br></pre></td></tr></table></figure>
-
-<p><code>-r</code> 选项：移除软件包（保留配置）</p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>apt-get</tag>
+        <tag>error</tag>
       </tags>
   </entry>
   <entry>
@@ -4644,10 +4014,641 @@ print(&quot;Hello world!&quot;)</code></pre>]]></content>
 
 ]]></content>
       <categories>
-        <category>blog</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>next7.6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Google 抓取和编入索引</title>
+    <url>/archives/aeb319f0.html</url>
+    <content><![CDATA[<p><em>让搜索引擎知道你的网站，已经有的东西，就不再造轮子了。直接站在巨人的肩膀上。</em></p>
+<a id="more"></a>
+
+<h2 id="谷歌官方帮助："><a href="#谷歌官方帮助：" class="headerlink" title="谷歌官方帮助："></a>谷歌官方帮助：</h2><ul>
+<li><a href="https://support.google.com/webmasters/topic/9427949?hl=zh-Hans&amp;ref_topic=9428048" target="_blank" rel="external nofollow noopener noreferrer">https://support.google.com/webmasters/topic/9427949?hl=zh-Hans&amp;ref_topic=9428048</a></li>
+</ul>
+<p><strong>觉得有点用处，链接发布分享给大家。</strong></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>google</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub Build-live 项目收集</title>
+    <url>/archives/3311a575.html</url>
+    <content><![CDATA[<h3 id="创建-Ubuntu-live-脚本"><a href="#创建-Ubuntu-live-脚本" class="headerlink" title="创建 Ubuntu live 脚本"></a>创建 Ubuntu live 脚本</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;RTXI&#x2F;live-image</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Debain-live-脚本-（基于-debian-live）"><a href="#构建-Debain-live-脚本-（基于-debian-live）" class="headerlink" title="构建 Debain live 脚本 （基于 debian live）"></a>构建 Debain live 脚本 （基于 debian live）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;s-vincent&#x2F;debian-live-image</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Debain-live-脚本-分步骤小脚本"><a href="#构建-Debain-live-脚本-分步骤小脚本" class="headerlink" title="构建 Debain live 脚本 (分步骤小脚本)"></a>构建 Debain live 脚本 (分步骤小脚本)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;dinooz&#x2F;devuanos</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-NIIX-LINUX-中文项目，项目完整度高"><a href="#构建-NIIX-LINUX-中文项目，项目完整度高" class="headerlink" title="构建 NIIX-LINUX (中文项目，项目完整度高)"></a>构建 NIIX-LINUX (中文项目，项目完整度高)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;etony&#x2F;niix-linux</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Debian-live-（非常完整的项目，没成功构建过）"><a href="#构建-Debian-live-（非常完整的项目，没成功构建过）" class="headerlink" title="构建 Debian live （非常完整的项目，没成功构建过）"></a>构建 Debian live （非常完整的项目，没成功构建过）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;nodiscc&#x2F;debian-live-config</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Debian-live-（非常完整的项目）"><a href="#构建-Debian-live-（非常完整的项目）" class="headerlink" title="构建 Debian live （非常完整的项目）"></a>构建 Debian live （非常完整的项目）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;StamusNetworks&#x2F;SELKS</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Debain-live-（日文项目，很好的项目）"><a href="#构建-Debain-live-（日文项目，很好的项目）" class="headerlink" title="构建 Debain live （日文项目，很好的项目）"></a>构建 Debain live （日文项目，很好的项目）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;homelith&#x2F;debian-live-custom</span><br></pre></td></tr></table></figure>
+
+<p>网站详情：<a href="https://qiita.com/homelith/items/f30a1fbac89dc977c1ff" target="_blank" rel="external nofollow noopener noreferrer">https://qiita.com/homelith/items/f30a1fbac89dc977c1ff</a></p>
+<h3 id="构建-Debian-live-（非常不错的项目）"><a href="#构建-Debian-live-（非常不错的项目）" class="headerlink" title="构建 Debian live （非常不错的项目）"></a>构建 Debian live （非常不错的项目）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;mafredri&#x2F;debian-my-live-build</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建-Minimal-linux-live-（研究linux系统基础）"><a href="#构建-Minimal-linux-live-（研究linux系统基础）" class="headerlink" title="构建 Minimal linux live （研究linux系统基础）"></a>构建 Minimal linux live （研究linux系统基础）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;ivandavidov&#x2F;minimal-linux-script</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>Live-build</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git 学习笔记</title>
+    <url>/archives/3c3cdb74.html</url>
+    <content><![CDATA[<h2 id="一、设置账户名和账户邮箱"><a href="#一、设置账户名和账户邮箱" class="headerlink" title="一、设置账户名和账户邮箱"></a>一、设置账户名和账户邮箱</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;name&quot;</span><br><span class="line">git config --global user.email &quot;name@gmail.com</span><br><span class="line">git config --global http.proxy http:&#x2F;&#x2F;example.com:port</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、验证账户名和账户邮箱"><a href="#二、验证账户名和账户邮箱" class="headerlink" title="二、验证账户名和账户邮箱"></a>二、验证账户名和账户邮箱</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name</span><br><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、初始化仓库"><a href="#三、初始化仓库" class="headerlink" title="三、初始化仓库"></a>三、初始化仓库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init  #会生成 .git 文件夹，关于这个仓库的配置</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、添加文件及文件夹"><a href="#四、添加文件及文件夹" class="headerlink" title="四、添加文件及文件夹"></a>四、添加文件及文件夹</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add name</span><br><span class="line"># 添加所有文件</span><br><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、添加描述-必须添加"><a href="#五、添加描述-必须添加" class="headerlink" title="五、添加描述(必须添加)"></a>五、添加描述(必须添加)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &quot;hello world&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="六、查看状态"><a href="#六、查看状态" class="headerlink" title="六、查看状态"></a>六、查看状态</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<h3 id="七、查看修改的文件"><a href="#七、查看修改的文件" class="headerlink" title="七、查看修改的文件"></a>七、查看修改的文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git diff -- filename</span><br></pre></td></tr></table></figure>
+
+<h3 id="八、撤销修改"><a href="#八、撤销修改" class="headerlink" title="八、撤销修改"></a>八、撤销修改</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout filename</span><br></pre></td></tr></table></figure>
+
+<h3 id="九、撤销修改-针对GIT-ADD提交之后的"><a href="#九、撤销修改-针对GIT-ADD提交之后的" class="headerlink" title="九、撤销修改(针对GIT ADD提交之后的)"></a>九、撤销修改(针对GIT ADD提交之后的)</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset HEAD filename</span><br><span class="line">git checkout filename</span><br></pre></td></tr></table></figure>
+
+<h3 id="十、查看提交记录"><a href="#十、查看提交记录" class="headerlink" title="十、查看提交记录"></a>十、查看提交记录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log</span><br><span class="line">git log logid -1 -p</span><br><span class="line"># -1  表示只看到上面的一条记录</span><br><span class="line"># -p 表示查看这条记录的所有信息</span><br></pre></td></tr></table></figure>
+
+<h3 id="十一、上传文件"><a href="#十一、上传文件" class="headerlink" title="十一、上传文件"></a>十一、上传文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote add origin github仓库地址</span><br><span class="line"># 如遇&quot;fatal: remote origin already exists.&quot;此问题</span><br><span class="line"># 输入 git remote rm origin</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<h3 id="十二、分支"><a href="#十二、分支" class="headerlink" title="十二、分支"></a>十二、分支</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#查看分支</span><br><span class="line">git branch</span><br><span class="line">#当前分支前面会有一个*</span><br><span class="line">#创建分支</span><br><span class="line">git branch version1.0</span><br><span class="line">#切换分支</span><br><span class="line">git checkout version1.0</span><br><span class="line">#将version1.0同步到当前分支</span><br><span class="line">git merge version1.0</span><br><span class="line">#删除分支</span><br><span class="line">git branch -D version1.0</span><br><span class="line">#克隆远程项目</span><br><span class="line">git clone git@github.com:name&#x2F;项目名.git</span><br><span class="line">#将当前修改上传到服务器</span><br><span class="line">git push origin master</span><br><span class="line">#将远程修改同步到本地</span><br><span class="line">git fetch origin master</span><br><span class="line">#注：此方法不会将修改同步到当前分支，而是会同步到origin&#x2F;master分支上，需要使用git merge origin&#x2F;master同步到当前分支</span><br><span class="line">git pull origin master</span><br><span class="line">#此方法是fetch和merge两者的合并</span><br></pre></td></tr></table></figure>
+
+<h3 id="十三、其他"><a href="#十三、其他" class="headerlink" title="十三、其他"></a>十三、其他</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#创建密钥</span><br><span class="line">ssh-keygen -t rsa -C &quot;name@gmail.com&quot;</span><br><span class="line">#将公钥添加到github</span><br><span class="line">cat .ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>dpkg 命令的用法</title>
+    <url>/archives/a1571737.html</url>
+    <content><![CDATA[<p>dpkg 是 Debian Package 的简写，为Debian操作系统专门开发的套件管理系统，用于软件的安装、更新和移除。</p>
+<a id="more"></a>
+
+
+<h3 id="安装软件。"><a href="#安装软件。" class="headerlink" title="安装软件。"></a>安装软件。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -i ~&#x2F;package.deb</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="列出与该包关联的文件。"><a href="#列出与该包关联的文件。" class="headerlink" title="列出与该包关联的文件。"></a>列出与该包关联的文件。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -L package</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="显示软件包的版本。"><a href="#显示软件包的版本。" class="headerlink" title="显示软件包的版本。"></a>显示软件包的版本。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -l package</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="移除软件包（保留配置）"><a href="#移除软件包（保留配置）" class="headerlink" title="移除软件包（保留配置）"></a>移除软件包（保留配置）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -r package</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="移除软件包-（不保留配置）"><a href="#移除软件包-（不保留配置）" class="headerlink" title="移除软件包 （不保留配置）"></a>移除软件包 （不保留配置）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -P package</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查看软件包的详细信息"><a href="#查看软件包的详细信息" class="headerlink" title="查看软件包的详细信息"></a>查看软件包的详细信息</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -s package</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="列出deb包的内容"><a href="#列出deb包的内容" class="headerlink" title="列出deb包的内容"></a>列出deb包的内容</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -c package.deb</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>dpkg</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian系统下 rpm 和 deb 包相互转换</title>
+    <url>/archives/a722ca9a.html</url>
+    <content><![CDATA[<h2 id="安装alien软件包："><a href="#安装alien软件包：" class="headerlink" title="安装alien软件包："></a>安装alien软件包：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt update</span><br><span class="line"># apt install alien -y</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="RPM-gt-DEB"><a href="#RPM-gt-DEB" class="headerlink" title="RPM=&gt;DEB"></a>RPM=&gt;DEB</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alien google-chrome.rpm google-chrome.deb generated</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="DEB-gt-RPM-添加参数-r进行转换"><a href="#DEB-gt-RPM-添加参数-r进行转换" class="headerlink" title="DEB=&gt;RPM(添加参数-r进行转换)"></a>DEB=&gt;RPM(添加参数-r进行转换)</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alien -r google-chrome.deb google-chrome.rpm generated</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="DEB包手动安装"><a href="#DEB包手动安装" class="headerlink" title="DEB包手动安装"></a>DEB包手动安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dpkg -i google-chrome.deb</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>deb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian10 环境下搭建 Hexo 个人博客</title>
+    <url>/archives/752f7472.html</url>
+    <content><![CDATA[<h2 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a>安装 nodejs</h2><p><strong>1、安装nodejs</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -sL https:&#x2F;&#x2F;deb.nodesource.com&#x2F;setup_12.x | bash -</span><br><span class="line">apt-get install nodejs -y</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、检测nodejs是否安装成功</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node -version      #显示版本号</span><br><span class="line">npm -version       #显示版本号</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h2><p><strong>1、更新安装源缓存并安装 git</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>2、检测git是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git --version        #显示版本号</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Hexo-安装及初始化"><a href="#Hexo-安装及初始化" class="headerlink" title="Hexo 安装及初始化"></a>Hexo 安装及初始化</h2><p><strong>1、安装hexo</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli hexo-server hexo-deployer-git -g</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、初始化hexo项目</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init &lt;blog_path_folder&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、hexo部署及生成</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="设置主题-（这里Next7-6）"><a href="#设置主题-（这里Next7-6）" class="headerlink" title="设置主题 （这里Next7.6）"></a>设置主题 （这里Next7.6）</h2><p><strong>1、下载主题</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &lt;you_hexo_blog_path&gt;</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、启用主题</strong></p>
+<p>编辑 Hexo 站点配置文件 <code>_config.yml</code> ,找到 <code>theme</code> 字段，并将其值更改为 next。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 给用户添加 sudo 权限</title>
+    <url>/archives/c779294b.html</url>
+    <content><![CDATA[<h2 id="Linux-给用户添加-sudo-权限"><a href="#Linux-给用户添加-sudo-权限" class="headerlink" title="Linux 给用户添加 sudo 权限"></a>Linux 给用户添加 sudo 权限</h2><p>1、给 <code>/etc/sudoers</code> 添加写权限。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># chmod +w &#x2F;etc&#x2F;sudoers</span><br></pre></td></tr></table></figure>
+
+<p>2、编辑 <code>/etc/sudoers</code> 文件，给 <strong>username</strong> 用户添加 sudo 权限。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username ALL&#x3D;(ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<p>3、去除 <code>/etc/sudoers</code> 写权限。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># chmod -w &#x2F;etc&#x2F;sudoers</span><br></pre></td></tr></table></figure>
+
+<p>上面操作完成后，<strong>username</strong> 用户就拥有了sudo权限了。</p>
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>sudo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 系统老版本 iso 下载</title>
+    <url>/archives/b2adb537.html</url>
+    <content><![CDATA[<h2 id="Debian-系统老版本-iso-下载"><a href="#Debian-系统老版本-iso-下载" class="headerlink" title="Debian 系统老版本 iso 下载"></a>Debian 系统老版本 iso 下载</h2><p>debian官方默认只提供最新的版本下载，有时需要找一些旧的版本的debian，着实费用。下面这个debian iso镜像站可以下载各个版本的debian下载：<a href="http://cdimage.debian.org/cdimage/archive/" target="_blank" rel="external nofollow noopener noreferrer">debian 系统各个版本ISO下载</a></p>
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>iso</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 执行 sudo 不用输入密码</title>
+    <url>/archives/c80a599a.html</url>
+    <content><![CDATA[<p>在 <code>/etc/sudoers</code> 文件尾添加下面一行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username ALL&#x3D;(ALL)NOPASSWD:ALL</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>sudo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 安装 mate 桌面环境的方法</title>
+    <url>/archives/5eedfe66.html</url>
+    <content><![CDATA[<p>mate是一个轻量级的桌面环境，占用系统资源非常少，正常使用下，大约占300MB左右，界面做得非常漂亮，本人十分喜爱，也是我最喜欢的桌面环境。安装了其他桌面(如：gnome) 后，怎么安装mate?</p>
+<a id="more"></a>
+
+
+
+<h2 id="操作步骤："><a href="#操作步骤：" class="headerlink" title="操作步骤："></a>操作步骤：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install task-mate-desktop  </span><br><span class="line">apt-get install mate-desktop-environment-extras  #完全安装mate及扩展部分</span><br></pre></td></tr></table></figure>
+
+<p>执行命令后，网速不慢，几分钟就完事，注销选择mate，进入后即是mate了。</p>
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>mate</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 安装 Google Chrome 浏览器</title>
+    <url>/archives/c945e1f0.html</url>
+    <content><![CDATA[<p>1、首先需要下载并安装谷歌官方秘钥：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># wget -q -O - https:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;linux_signing_key.pub | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+
+<p>2、然后是添加谷歌官方软件源：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># echo &quot;deb http:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;chrome&#x2F;deb&#x2F; stable main&quot; | sudo tee &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;google-chrome.list</span><br></pre></td></tr></table></figure>
+
+<p>3、执行安装命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># apt-get update</span><br><span class="line"># apt-get -y install google-chrome-stable</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>google chrome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian/Ubuntu 最有用的 apt-get 命令详解</title>
+    <url>/archives/c4cc6c2d.html</url>
+    <content><![CDATA[<h2 id="从软件仓库中安装软件包"><a href="#从软件仓库中安装软件包" class="headerlink" title="从软件仓库中安装软件包"></a>从软件仓库中安装软件包</h2><h3 id="apt-get-update"><a href="#apt-get-update" class="headerlink" title="apt-get update"></a>apt-get update</h3><p>在安装任何软件之前，我们最好是要更新本地软件包索引（package index）。本地软件包索引列出了软件仓库中所有可安装的软件包以及版本信息。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>sudo 的在英语里的意思是switch user and do something。在Linux系统上，你需要root权限来安装和卸载软件包。sudo可以临时将你的用户ID切换为root。</p>
+</blockquote>
+<h3 id="apt-get-install"><a href="#apt-get-install" class="headerlink" title="apt-get install"></a>apt-get install</h3><p>apt-get install 是用来安装软件包的。你需要将软件包的名字添加到 apt-get install 之后。例如，你可以在Ubuntu系统上安装 vim文本编辑器。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install vim</span><br></pre></td></tr></table></figure>
+
+<p>有时候apt-get会询问你是否真的要安装软件包。如果你想自动回答yes，可以在安装命令中添加 -y 选项。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install -y vim</span><br></pre></td></tr></table></figure>
+
+<p>在你用apt-get install命令安装软件包之前，你需要知道这个软件包在软件仓库中的名称。这看起来有点麻烦。当你熟悉之后，你会感到非常方便。尤其是当你SSH远程管理Linux服务器的时候。</p>
+<p>apt-get首先会从软件仓库中下载deb安装包，这些deb安装在/var/cache/apt/archives目录下。下载后，apt-get会自动安装软件包。</p>
+<h3 id="一条命令安装多个软件包"><a href="#一条命令安装多个软件包" class="headerlink" title="一条命令安装多个软件包"></a>一条命令安装多个软件包</h3><p>apt-get install 可以一次性安装多个软件包，比如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install wireshark wget curl git</span><br></pre></td></tr></table></figure>
+
+<h3 id="apt-get-upgrade"><a href="#apt-get-upgrade" class="headerlink" title="apt-get upgrade"></a>apt-get upgrade</h3><p>apt-get upgrade命令用来升级系统上可以升级的软件包。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>apt-get 会告诉你哪些软件包会升级。并且询问你是否真的需要升级这些软件包。你可以在命令中添加 -y 选项来自动回答yes。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get -y upgrade</span><br></pre></td></tr></table></figure>
+
+<h3 id="apt-get-remove"><a href="#apt-get-remove" class="headerlink" title="apt-get remove"></a>apt-get remove</h3><p>这条命令用来删除系统上的软件包，比如，删除Firefox</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove firefox</span><br></pre></td></tr></table></figure>
+
+<p>但它不会删除软件包的配置文件。</p>
+<h3 id="apt-get-purge"><a href="#apt-get-purge" class="headerlink" title="apt-get purge"></a>apt-get purge</h3><p>这条命令可以用来删除软件包及其配置文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get purge firefox</span><br></pre></td></tr></table></figure>
+
+<h3 id="apt-get-clean"><a href="#apt-get-clean" class="headerlink" title="apt-get clean"></a>apt-get clean</h3><p>当apt-get安装或升级软件包时，它会将deb安装包下载到文件系统的<strong>/var/cache/apt/archives</strong>目录下。软件包安装完成后，这些deb安装包基本上就没有什么用处了。apt-get clean命令可以帮你删除这些deb安装包。</p>
+<p>你可以使用下面的命令查看/var/cache/apt/archives目录下deb安装包的大小。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">du -sh &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives</span><br></pre></td></tr></table></figure>
+
+<h3 id="apt-get-autoclean"><a href="#apt-get-autoclean" class="headerlink" title="apt-get autoclean"></a>apt-get autoclean</h3><p>apt-get autoclean也可以用来删除/var/cache/apt/archives目录下的deb安装包。但它只删除那些已经不能从软件仓库中下载的deb安装包。这就是说，Debian或Ubuntu已经不维护那些软件包了，或者那些软件包有了一个新的名字。</p>
+<h3 id="apt-get-autoremove"><a href="#apt-get-autoremove" class="headerlink" title="apt-get autoremove"></a>apt-get autoremove</h3><p>这条命令用来删除不需要的依赖软件包。</p>
+<h3 id="apt-get-dist-upgrade"><a href="#apt-get-dist-upgrade" class="headerlink" title="apt-get dist-upgrade"></a>apt-get dist-upgrade</h3><p>这条命令可能会让很多人感到困惑．在Debian系统上，你用这条命令升级系统版本，比如从Debian9升级到Debian10。但是在Ubuntu系统上，这条命令只会升级Linux内核以及之前没有被升级的软件包．升级Ubuntu的版本你需要用到do-release-upgrade命令。</p>
+<h2 id="附：手动安装Deb软件包"><a href="#附：手动安装Deb软件包" class="headerlink" title="附：手动安装Deb软件包"></a>附：手动安装Deb软件包</h2><h3 id="dpkg-i"><a href="#dpkg-i" class="headerlink" title="dpkg -i"></a>dpkg -i</h3><p>如果你从网站上下载了一个deb软件包，那么你需要dpkg工具来安装这个deb包．例如，你可以下载WPS linux版。然后，在终端里将当前工作目录切换到下载目录，再输入下面的命令安装WPS  Linux版。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i wps-office*.deb</span><br></pre></td></tr></table></figure>
+
+<h3 id="gdebi"><a href="#gdebi" class="headerlink" title="gdebi"></a>gdebi</h3><p>dpkg的一个缺点是它不能解决依赖关系。你必须手动安装依赖包。而gdebi可以帮助我们自动安装依赖包。输入下面的命令安装gdebi。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install gdebi</span><br></pre></td></tr></table></figure>
+
+<p>它的命令语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo gdebi &lt;package.deb&gt;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>apt-get</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian/Ubuntu 安装 Typora</title>
+    <url>/archives/e3fe7203.html</url>
+    <content><![CDATA[<h2 id="安装Typora"><a href="#安装Typora" class="headerlink" title="安装Typora"></a>安装Typora</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 添加typora仓库密钥</span><br><span class="line"># sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span><br><span class="line">wget -qO - https:&#x2F;&#x2F;typora.io&#x2F;linux&#x2F;public-key.asc | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"># 把typora软件源添加到系统源文件 </span><br><span class="line">echo -e &quot;\ndeb https:&#x2F;&#x2F;typora.io&#x2F;linux .&#x2F;&quot; | sudo tee -a &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"># 安装typora</span><br><span class="line">sudo apt-get install typora</span><br></pre></td></tr></table></figure>
+
+<h2 id="升级Typora"><a href="#升级Typora" class="headerlink" title="升级Typora"></a>升级Typora</h2><p>安装Typora之后，<code>typora</code>软件包将受到管理<code>apt-get</code>，因此当您的系统更新已安装的软件包或执行时<code>apt-get upgrade</code>，Typora将更新为最新版本。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>typora</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux 创建 sudo 用户</title>
+    <url>/archives/2a8b1abe.html</url>
+    <content><![CDATA[<p><code>sudo</code> 命令提供了临时使用root权限的机制，使普通用户可以执行超级管理员任务。</p>
+<a id="more"></a>
+
+
+
+<p>添加用户。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># adduser newuser</span><br></pre></td></tr></table></figure>
+
+<p>设置用户密码。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># passwd newuser</span><br></pre></td></tr></table></figure>
+
+<p>把新建用户加入sudo组。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># usermod -aG sudo newuser</span><br></pre></td></tr></table></figure>
+
+<p>测试新用户sudo机制。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># su newuser</span><br><span class="line"># sudo apt update</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>sudo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 允许用户通过sudo仅运行特定命令</title>
+    <url>/archives/18f1a1f0.html</url>
+    <content><![CDATA[<p>执行下面命令实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">username ALL&#x3D;(ALL) NOPASSWD:&#x2F;bin&#x2F;mkdir,&#x2F;bin&#x2F;rmdir</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>sudo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 使用 curl 获得外部 IP 地址（公网地址）</title>
+    <url>/archives/7cfdd891.html</url>
+    <content><![CDATA[<p>执行下面命令获得：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># curl icanhazip.com   #速度快点</span><br><span class="line"># curl ipinfo.io&#x2F;ip   #速度稍慢</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>curl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Debian 10 如何将语言从英文更改为中文</title>
+    <url>/archives/d639a0f.html</url>
+    <content><![CDATA[<p>由于安装的是英文版 Debian 。我英语水平不怎么好，因此需要将默认语言改为中文。这篇文章向大家介绍如何将 Debian 10 Buster 的语言从英文更改为中文。</p>
+<a id="more"></a>
+
+
+
+<h2 id="Debian-10如何将语言从英文更改为中文"><a href="#Debian-10如何将语言从英文更改为中文" class="headerlink" title="Debian 10如何将语言从英文更改为中文"></a>Debian 10如何将语言从英文更改为中文</h2><ol>
+<li>打开终端并登录 <strong>root</strong> 用户。</li>
+<li>使用 <strong>nano</strong> 文本编辑器打开 <code>/etc/locale.gen</code> 文件。</li>
+<li>如果你在安装的 Debian10 系统时将语言环境设为美国英语，在这个文件中：<strong>en_US.UTF-8 UTF-8</strong> 行首没有 <code>#</code> 符号。</li>
+<li>要添加中文语言支持，找到 <strong>zh_CN</strong> 开头的那几行。在行首把这几行的 <code>#</code> 符号去掉。</li>
+<li>保存文件后，在终端执行 <code>locale-gen</code> 命令。</li>
+<li>打开Gnome设置面板，选择<strong>Region &amp; Language</strong>，双击<strong>Language</strong>，选择<strong>汉语</strong>。</li>
+<li>重新登录 Debian10 系统。你将会看见<strong>将标准文件夹更新到当前语言吗？</strong>对话框。它是问你要不要将home目录下文件夹的语言也更改成中文。我的建议是这些文件夹要使用英文。所以点击<strong>保留旧的名称</strong>。</li>
+</ol>
+<p>现在Debian的界面语言是中文了，但是有些程序如iceweasal, icedove, libreoffice等需要安装专门的中文语言包。输入下面的命令为这些程序安装中文语言包。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install -y \</span><br><span class="line">	chromium-l10n icedove-l10n-zh-cn \</span><br><span class="line">	iceowl-l10n-zh-cn iceweasel-l10n-zh-cn \</span><br><span class="line">	libreoffice-help-zh-cn libreoffice-l10n-zh-cn \</span><br><span class="line">	debian-faq-zh-cn kicad-doc-zh-cn \</span><br><span class="line">	openvanilla-imgeneric-data-zh-cn \</span><br><span class="line">	texlive-lang-chinese</span><br></pre></td></tr></table></figure>
+
+<p>完成以上操作，Debian10汉化工作完成。</p>
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bash 脚本 set 命令教程</title>
+    <url>/archives/19676771.html</url>
+    <content><![CDATA[<h1 id="bash-脚本-set-命令教程"><a href="#bash-脚本-set-命令教程" class="headerlink" title="bash 脚本 set 命令教程"></a>bash 脚本 set 命令教程</h1><p>服务器的开发和管理离不开 bash 脚本，掌握它需要学习大量的细节。</p>
+<p>set 命令是bash脚本的重要环节，却常常被忽视，导致脚本的安全性和可维护性出问题。</p>
+<p>本文介绍它的基本用法，让你可以更安心地使用 Bash 脚本。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>我们知道，Bash 执行脚本的时候，会创建一个新的 Shell。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>script.sh</code>是在一个新的 Shell 里面执行。这个 Shell 就是脚本的执行环境，Bash 默认给定了这个环境的各种参数。</p>
+<p><code>set</code>命令用来修改 Shell 环境的运行参数，也就是可以定制环境。一共有十几个参数可以定制，<a href="https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html" target="_blank" rel="external nofollow noopener noreferrer">官方手册</a>有完整清单，本文介绍其中最常用的四个。</p>
+<p>顺便提一下，如果命令行下不带任何参数，直接运行<code>set</code>，会显示所有的环境变量和 Shell 函数。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">set</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="set-u"><a href="#set-u" class="headerlink" title="set -u"></a>set -u</h2><p>执行脚本的时候，如果遇到不存在的变量，Bash 默认忽略它。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span></span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>$a</code>是一个不存在的变量。执行结果如下。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line"></span><br><span class="line">bar</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，<code>echo $a</code>输出了一个空行，Bash 忽略了不存在的<code>$a</code>，然后继续执行<code>echo bar</code>。大多数情况下，这不是开发者想要的行为，遇到变量不存在，脚本应该报错，而不是一声不响地往下执行。</p>
+<p><code>set -u</code>就用来改变这种行为。脚本在头部加上它，遇到不存在的变量就会报错，并停止执行。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -u</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$a</span></span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">bash: script.sh:行4: a: 未绑定的变量</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，脚本报错了，并且不再执行后面的语句。</p>
+<p><code>-u</code>还有另一种写法<code>-o nounset</code>，两者是等价的。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -o nounset</span><br></pre></td></tr></table></figure>
+
+<h2 id="set-x"><a href="#set-x" class="headerlink" title="set -x"></a>set -x</h2><p>默认情况下，脚本执行后，屏幕只显示运行结果，没有其他内容。如果多个命令连续执行，它们的运行结果就会连续输出。有时会分不清，某一段内容是什么命令产生的。</p>
+<p><code>set -x</code>用来在运行结果之前，先输出执行的那一行命令。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -x</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
+
+<p>执行上面的脚本，结果如下。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">+ <span class="built_in">echo</span> bar</span><br><span class="line">bar</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，执行<code>echo bar</code>之前，该命令会先打印出来，行首以<code>+</code>表示。这对于调试复杂的脚本是很有用的。</p>
+<p><code>-x</code>还有另一种写法<code>-o xtrace</code>。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -o xtrace</span><br></pre></td></tr></table></figure>
+
+<h2 id="Bash-的错误处理"><a href="#Bash-的错误处理" class="headerlink" title="Bash 的错误处理"></a>Bash 的错误处理</h2><p>如果脚本里面有运行失败的命令（返回值非0），Bash 默认会继续执行后面的命令。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"></span><br><span class="line">foo</span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
+
+<p>上面脚本中，<code>foo</code>是一个不存在的命令，执行时会报错。但是，Bash 会忽略这个错误，继续往下执行。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">script.sh:行3: foo: 未找到命令</span><br><span class="line">bar</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，Bash 只是显示有错误，并没有终止执行。</p>
+<p>这种行为很不利于脚本安全和除错。实际开发中，如果某个命令失败，往往需要脚本停止执行，防止错误累积。这时，一般采用下面的写法。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">command</span> || <span class="built_in">exit</span> 1</span><br></pre></td></tr></table></figure>
+
+<p>上面的写法表示只要<code>command</code>有非零返回值，脚本就会停止执行。</p>
+<p>如果停止执行之前需要完成多个操作，就要采用下面三种写法。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 写法一</span></span><br><span class="line"><span class="built_in">command</span> || &#123; <span class="built_in">echo</span> <span class="string">"command failed"</span>; <span class="built_in">exit</span> 1; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写法二</span></span><br><span class="line"><span class="keyword">if</span> ! <span class="built_in">command</span>; <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">"command failed"</span>; <span class="built_in">exit</span> 1; <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 写法三</span></span><br><span class="line"><span class="built_in">command</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"$?"</span> -ne 0 ]; <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">"command failed"</span>; <span class="built_in">exit</span> 1; <span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>另外，除了停止执行，还有一种情况。如果两个命令有继承关系，只有第一个命令成功了，才能继续执行第二个命令，那么就要采用下面的写法。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">command1 &amp;&amp; command2</span><br></pre></td></tr></table></figure>
+
+<h2 id="set-e"><a href="#set-e" class="headerlink" title="set -e"></a>set -e</h2><p>上面这些写法多少有些麻烦，容易疏忽。<code>set -e</code>从根本上解决了这个问题，它使得脚本只要发生错误，就终止执行。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">foo</span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
+
+<p>执行结果如下。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">script.sh:行4: foo: 未找到命令</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，第4行执行失败以后，脚本就终止执行了。</p>
+<p><code>set -e</code>根据返回值来判断，一个命令是否运行失败。但是，某些命令的非零返回值可能不表示失败，或者开发者希望在命令失败的情况下，脚本继续执行下去。这时可以暂时关闭<code>set -e</code>，该命令执行结束后，再重新打开<code>set -e</code>。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> +e</span><br><span class="line">command1</span><br><span class="line">command2</span><br><span class="line"><span class="built_in">set</span> -e</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>set +e</code>表示关闭<code>-e</code>选项，<code>set -e</code>表示重新打开<code>-e</code>选项。</p>
+<p>还有一种方法是使用<code>command || true</code>，使得该命令即使执行失败，脚本也不会终止执行。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">foo || <span class="literal">true</span></span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>true</code>使得这一行语句总是会执行成功，后面的<code>echo bar</code>会执行。</p>
+<p><code>-e</code>还有另一种写法<code>-o errexit</code>。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -o errexit</span><br></pre></td></tr></table></figure>
+
+<h2 id="set-o-pipefail"><a href="#set-o-pipefail" class="headerlink" title="set -o pipefail"></a>set -o pipefail</h2><p><code>set -e</code>有一个例外情况，就是不适用于管道命令。</p>
+<p>所谓管道命令，就是多个子命令通过管道运算符（<code>|</code>）组合成为一个大的命令。Bash 会把最后一个子命令的返回值，作为整个命令的返回值。也就是说，只要最后一个子命令不失败，管道命令总是会执行成功，因此它后面命令依然会执行，<code>set -e</code>就失效了。</p>
+<p>请看下面这个例子。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">foo | <span class="built_in">echo</span> a</span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
+
+<p>执行结果如下。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">a</span><br><span class="line">script.sh:行4: foo: 未找到命令</span><br><span class="line">bar</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>foo</code>是一个不存在的命令，但是<code>foo | echo a</code>这个管道命令会执行成功，导致后面的<code>echo bar</code>会继续执行。</p>
+<p><code>set -o pipefail</code>用来解决这种情况，只要一个子命令失败，整个管道命令就失败，脚本就会终止执行。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env bash</span></span><br><span class="line"><span class="built_in">set</span> -eo pipefail</span><br><span class="line"></span><br><span class="line">foo | <span class="built_in">echo</span> a</span><br><span class="line"><span class="built_in">echo</span> bar</span><br></pre></td></tr></table></figure>
+
+<p>运行后，结果如下。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash script.sh</span><br><span class="line">a</span><br><span class="line">script.sh:行4: foo: 未找到命令</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，<code>echo bar</code>没有执行。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>set</code>命令的上面这四个参数，一般都放在一起使用。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 写法一</span></span><br><span class="line"><span class="built_in">set</span> -euxo pipefail</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写法二</span></span><br><span class="line"><span class="built_in">set</span> -eux</span><br><span class="line"><span class="built_in">set</span> -o pipefail</span><br></pre></td></tr></table></figure>
+
+<p>这两种写法建议放在所有 Bash 脚本的头部。</p>
+<p>另一种办法是在执行 Bash 脚本的时候，从命令行传入这些参数。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash -euxo pipefail script.sh</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Apt-get 常用示例</title>
+    <url>/archives/578d7cdf.html</url>
+    <content><![CDATA[<p>是Debian及其派生的Linux软件包管理器。在Debian系统中，APT建构于dpkg之上。APT的软件安装来源在Debian安装的时候即可进行初始设置，除了Debian官方的网络安装来源之外，也可以使用Debian的安装光盘，甚至可以从非官方的安装来源中下载非官方的软件。APT同时也可以从一些安装来源中下载源代码软件，并且自行编译、安装。</p>
+<a id="more"></a>
+
+<p>注意：’xyz’只是一个占位符。</p>
+<h2 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h2><ul>
+<li><code>apt-get update</code> 下载新的软件包列表。</li>
+<li><code>apt-get upgrade</code> 安装您拥有的软件包的较新版本。</li>
+<li><code>apt-get dist-upgrade</code> 在先前的命令中执行升级，并智能地处理新版本软件包的依赖关系，并在必要时尝试以不重要的软​​件包为代价来升级最重要的软件包；有时在极少数必要的情况下删除软件包。</li>
+</ul>
+<h2 id="软件包搜索和软件包信息"><a href="#软件包搜索和软件包信息" class="headerlink" title="软件包搜索和软件包信息"></a>软件包搜索和软件包信息</h2><ul>
+<li><code>apt-cache pkgnames</code> 列出所有可用的软件包。</li>
+<li><code>apt-cache xyz</code> 搜索软件包。</li>
+<li><code>apt-cache search xyz</code> 搜索包含说明的结果的软件包。</li>
+<li><code>apt-cache pkgnames xyz</code> 列出所有以“ xyz”开头的软件包。</li>
+<li><code>apt-cache show xyz</code> 检查包装信息。</li>
+<li><code>apt-cache showpkg xyz</code> 检查软件包的依赖关系。</li>
+<li><code>apt-cache stats</code> 显示有关缓存的整体统计信息。</li>
+</ul>
+<h2 id="软件包安装和删除"><a href="#软件包安装和删除" class="headerlink" title="软件包安装和删除"></a>软件包安装和删除</h2><ul>
+<li><code>apt-get download xyz</code> 仅将软件包下载到当前工作目录。</li>
+<li><code>apt-get install xyz</code> 下载并安装软件包。通过在第一个软件包之后拥有所需的多个软件包来安装。</li>
+<li><code>apt-get install xyz --no-upgrade</code> 将软件包标记为永不升级。</li>
+<li><code>apt-get install xyz --only-upgrade</code> 仅升级指定的软件包，并禁用软件包的新安装。</li>
+<li><code>apt-get install &#39;*name*&#39;</code> 使用<em>通配符将安装几个包含’</em> name *’字符串的软件包，如软件包名称中所示。</li>
+<li><code>apt-get changelog xyz</code> 下载软件包更改日志并显示已安装的软件包版本。</li>
+<li><code>apt-get check</code> 检查损坏的依赖关系。</li>
+<li><code>apt-get remove xyz</code> 卸载软件包。</li>
+<li><code>apt-get purge xyz</code> 删除软件包中剩余的配置文件。</li>
+<li><code>apt-get autoremove</code> 删除孤立的软件包。</li>
+<li><code>apt-get clean</code> 删除下载的deb文件。</li>
+<li><code>apt-get autoclean</code> 删除已下载的无法再下载的deb文件。</li>
+</ul>
+<h2 id="源代码包"><a href="#源代码包" class="headerlink" title="源代码包"></a>源代码包</h2><ul>
+<li><code>apt-get source xyz</code> 将包的源代码下载并解压缩到目录中。</li>
+<li><code>apt-get build-dep xyz</code> 下载并安装软件包的构建依赖项。</li>
+<li><code>apt-get --compile source xyz</code> 下载，解压缩和编译源代码。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>apt-get</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Apt-get 安装软件包过程被强制中断后</title>
+    <url>/archives/b9cfb6eb.html</url>
+    <content><![CDATA[<p>apt-get 操作被强行中断后，会出现无法进行新的安装和删除的情况只是提示您使用apt-get -f install来解决问题，但实际上，你按它的提示操作却解决不了任何问题。</p>
+<a id="more"></a>
+
+<p>这时你需要这样做：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># sudo dpkg --configure -a</span><br><span class="line"># sudo apt-get update</span><br><span class="line"># sudo apt-get install -f</span><br><span class="line"># sudo apt-get autoremove </span><br><span class="line"># sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>如果还有一些有问题的软件包可以用下面这个命令干掉它：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dpkg -r pack</span><br></pre></td></tr></table></figure>
+
+<p><code>-r</code> 选项：移除软件包（保留配置）</p>
+]]></content>
+      <categories>
+        <category>Debian</category>
+      </categories>
+      <tags>
+        <tag>apt-get</tag>
       </tags>
   </entry>
 </search>
