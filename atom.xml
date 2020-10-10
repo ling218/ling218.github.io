@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ling218.cn/"/>
-  <updated>2020-10-10T04:05:51.776Z</updated>
+  <updated>2020-10-10T12:58:24.696Z</updated>
   <id>https://www.ling218.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>H3CNE-V7-总结</title>
+    <link href="https://www.ling218.cn/archives/9887b9ce.html"/>
+    <id>https://www.ling218.cn/archives/9887b9ce.html</id>
+    <published>2020-10-10T12:01:37.456Z</published>
+    <updated>2020-10-10T12:58:24.696Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="计算机网络概述"><a href="#计算机网络概述" class="headerlink" title="计算机网络概述"></a>计算机网络概述</h2><ul><li>计算机网络的定义：一组自治计算机互连的集合</li><li>计算机网络的基本功能：资源共享、分布式处理与负载均衡、综合信息服务</li><li>计算机网络的演进：主机互连、局域网、互联网、因特网</li><li>计算机网络的覆盖范围：局域网、城域网、广域网</li><li>计算机网络的拓扑结构：总线型、星型、树型、环型、全网状、部分网状</li><li>计算机网络的数据交换技术：电路交换、报文交换、分组交换</li><li>衡量计算机网络的性能指标：带宽、延迟、吞吐量</li><li>网络标准化组织：ISO、IEEE、EIA、ANSI、ITU、IETF</li></ul><h2 id="OSI参考模型与TCP-IP模型"><a href="#OSI参考模型与TCP-IP模型" class="headerlink" title="OSI参考模型与TCP/IP模型"></a>OSI参考模型与TCP/IP模型</h2><ul><li><p>OSI参考模型定义了网络中设备所遵守的层次结构</p></li><li><p>分层结构的优点：</p><ol><li>开放的标准化接口</li><li>多厂商兼容性</li><li>易于理解、学习和更新协议标准</li><li>实现模块化工程，降低了开发实现的复杂度</li><li>便于故障排除</li></ol></li><li><p>OSI参考模型层次结构：</p><table><thead><tr><th align="center">层次</th><th align="center">传输</th><th align="center">作用</th></tr></thead><tbody><tr><td align="center">应用层</td><td align="center">APDU</td><td align="center">提供应用程序间通信</td></tr><tr><td align="center">表示层</td><td align="center">PPDU</td><td align="center">处理数据格式、数据加密等</td></tr><tr><td align="center">会话层</td><td align="center">SPDU</td><td align="center">建立、维护和管理会话</td></tr><tr><td align="center">传输层</td><td align="center">段</td><td align="center">建立主机端到端连接</td></tr><tr><td align="center">网络层</td><td align="center">包</td><td align="center">寻址和跌幅选择</td></tr><tr><td align="center">数据链路层</td><td align="center">帧</td><td align="center">提供介质访问、链路管理等</td></tr><tr><td align="center">物理层</td><td align="center">比特</td><td align="center">比特流传输</td></tr></tbody></table></li><li><p>TCP/IP模型层次结构：</p><table><thead><tr><th align="center">层次</th><th align="center">作用</th></tr></thead><tbody><tr><td align="center">应用层</td><td align="center">负责处理特定的应用程序细节、远程访问、资源共享</td></tr><tr><td align="center">传输层</td><td align="center">负责提供端到端通信、数据完整性校验、差错重传、数据重新排序</td></tr><tr><td align="center">网络层</td><td align="center">负责将数据包送达正确的目的、数据包的路由、路由的维护</td></tr><tr><td align="center">网络接口层</td><td align="center">负责处理与传输介质相关的细节、物理线路和接口、链路层通信</td></tr></tbody></table></li></ul><h2 id="局域网基本原理"><a href="#局域网基本原理" class="headerlink" title="局域网基本原理"></a>局域网基本原理</h2><ul><li>主要局域网技术：以太网、令牌环网、FDDI环网、无线局域网</li><li>以太网集线器<ol><li>集线器与主机构成物理星型拓扑</li><li>集线器内部采用总线结构，任意时间只有一台主机能占用总线</li></ol></li><li>MAC地址为48位二进制数，常用12位16进制数表示</li><li>以太网流量控制：<ol><li>背压式流控</li><li>PAUSE流控</li></ol></li></ul><p>～～～未完成！</p>]]></content>
+    
+    <summary type="html">
+    
+      H3CNE
+    
+    </summary>
+    
+    
+      <category term="H3CNE" scheme="https://www.ling218.cn/categories/H3CNE/"/>
+    
+    
+      <category term="NE" scheme="https://www.ling218.cn/tags/NE/"/>
+    
+  </entry>
   
   <entry>
     <title>项目：创建自定义Kali Linux ISO</title>
@@ -450,29 +473,6 @@
     
     
       <category term="gitlab" scheme="https://www.ling218.cn/tags/gitlab/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>定制带 Python3 的 Ubuntu 基础 Docker 镜像</title>
-    <link href="https://www.ling218.cn/archives/d5246505.html"/>
-    <id>https://www.ling218.cn/archives/d5246505.html</id>
-    <published>2020-05-14T01:13:00.373Z</published>
-    <updated>2020-10-10T03:56:25.328Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="制作Dockerfile"><a href="#制作Dockerfile" class="headerlink" title="制作Dockerfile"></a>制作Dockerfile</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FROM daocloud.io&#x2F;ubuntu:trusty</span><br><span class="line">MAINTAINER water-law &lt;dockerwaterlaw@daocloud.io&gt;</span><br><span class="line">RUN apt-get update &amp;&amp; \</span><br><span class="line">    apt-get install -y python3 \</span><br><span class="line">                        python3-dev \</span><br><span class="line">                        python3-pip \</span><br><span class="line">    &amp;&amp; apt-get clean \</span><br><span class="line">    &amp;&amp; apt-get autoclean \</span><br><span class="line">    &amp;&amp; rm -rf &#x2F;var&#x2F;lib&#x2F;apt&#x2F;lists&#x2F;*</span><br><span class="line">    </span><br><span class="line">RUN mkdir -p &#x2F;app</span><br><span class="line">WORKDIR &#x2F;app</span><br><span class="line">EXPOSE 80</span><br><span class="line">CMD [&quot;bash&quot;]</span><br></pre></td></tr></table></figure><h2 id="生成镜像"><a href="#生成镜像" class="headerlink" title="生成镜像"></a>生成镜像</h2><p>创建空文件夹， 将 Dockerfile 文件放在此目录。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">运行 docker build -t [tagname] .</span><br></pre></td></tr></table></figure><h2 id="导出镜像"><a href="#导出镜像" class="headerlink" title="导出镜像"></a>导出镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o [output_name] [image]</span><br></pre></td></tr></table></figure><p>其中 output_name 一般是 tar, tar.xz 格式。</p><h2 id="利用镜像生成容器"><a href="#利用镜像生成容器" class="headerlink" title="利用镜像生成容器"></a>利用镜像生成容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -v E:Projectswaterlawblog:&#x2F;home&#x2F;code [image] &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure><h2 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure><h2 id="再次启动容器"><a href="#再次启动容器" class="headerlink" title="再次启动容器"></a>再次启动容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure><p>说明: 对容器的修改是永久保存到文件系统的。</p><p>可发现<code>E:Projectswaterlawblog</code>是挂载到 docker 容器的<code>/home/code</code>目录的。</p><h2 id="修改容器"><a href="#修改容器" class="headerlink" title="修改容器"></a>修改容器</h2><p>比如 安装 virtualenv 且在 /home 目录使用 virtualenv -p python3 pysp</p><p>创建虚拟环境， 进入 /home/code, 运行 pip3 install -r requirements.txt</p><h2 id="提交容器修改"><a href="#提交容器修改" class="headerlink" title="提交容器修改"></a>提交容器修改</h2><p>先退出容器 exit</p><p>基于旧的 container 提交新的 docker 镜像</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m &quot;commit message&quot; -a &quot;author info&quot; [container_id] image_name:tag</span><br></pre></td></tr></table></figure><p>示例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m &quot;earth&quot; -a &quot;zjp&quot; 846edc550555 kuaiyun:earth</span><br></pre></td></tr></table></figure><p>提示： 以上命令会打了一个 REPOSITORY 为 kuaiyun、 TAG 为 earth 的镜像， 可通过<code>docker images</code>查看。</p><h2 id="导出容器"><a href="#导出容器" class="headerlink" title="导出容器"></a>导出容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| CONTAINER I D| IMAGE | COMMAND | CREATED STATUS | PORTS | NAMES |</span><br><span class="line"></span><br><span class="line">| caa1f263a254 | myubuntu-base | &quot;&#x2F;bin&#x2F;bash&quot; | 32 minutes ago Exited (0) 54 seconds ago | | relaxed_lumiere |</span><br><span class="line"></span><br><span class="line">docker export -o [outputfile] [container_id]</span><br></pre></td></tr></table></figure><h2 id="导入容器-tar-文件"><a href="#导入容器-tar-文件" class="headerlink" title="导入容器 tar 文件"></a>导入容器 tar 文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker import [container_file] [command]</span><br></pre></td></tr></table></figure><p>我这里 command 是 /bin/bash, 所以 docker import [container_file] bash。</p><h2 id="导入镜像-tar-文件"><a href="#导入镜像-tar-文件" class="headerlink" title="导入镜像 tar 文件"></a>导入镜像 tar 文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load &lt; [tar file]</span><br></pre></td></tr></table></figure><p>注意 save 和 load 是配对的， import 和 export 是配对的。 import 还要加上 command。</p>]]></content>
-    
-    <summary type="html">
-    
-      定制Dcoker镜像
-    
-    </summary>
-    
-    
-      <category term="Docker" scheme="https://www.ling218.cn/categories/Docker/"/>
-    
-    
-      <category term="python3" scheme="https://www.ling218.cn/tags/python3/"/>
     
   </entry>
   

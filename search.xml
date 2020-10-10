@@ -1,6 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>H3CNE-V7-总结</title>
+    <url>/archives/9887b9ce.html</url>
+    <content><![CDATA[<h2 id="计算机网络概述"><a href="#计算机网络概述" class="headerlink" title="计算机网络概述"></a>计算机网络概述</h2><ul>
+<li>计算机网络的定义：一组自治计算机互连的集合</li>
+<li>计算机网络的基本功能：资源共享、分布式处理与负载均衡、综合信息服务</li>
+<li>计算机网络的演进：主机互连、局域网、互联网、因特网</li>
+<li>计算机网络的覆盖范围：局域网、城域网、广域网</li>
+<li>计算机网络的拓扑结构：总线型、星型、树型、环型、全网状、部分网状</li>
+<li>计算机网络的数据交换技术：电路交换、报文交换、分组交换</li>
+<li>衡量计算机网络的性能指标：带宽、延迟、吞吐量</li>
+<li>网络标准化组织：ISO、IEEE、EIA、ANSI、ITU、IETF</li>
+</ul>
+<h2 id="OSI参考模型与TCP-IP模型"><a href="#OSI参考模型与TCP-IP模型" class="headerlink" title="OSI参考模型与TCP/IP模型"></a>OSI参考模型与TCP/IP模型</h2><ul>
+<li><p>OSI参考模型定义了网络中设备所遵守的层次结构</p>
+</li>
+<li><p>分层结构的优点：</p>
+<ol>
+<li>开放的标准化接口</li>
+<li>多厂商兼容性</li>
+<li>易于理解、学习和更新协议标准</li>
+<li>实现模块化工程，降低了开发实现的复杂度</li>
+<li>便于故障排除</li>
+</ol>
+</li>
+<li><p>OSI参考模型层次结构：</p>
+<table>
+<thead>
+<tr>
+<th align="center">层次</th>
+<th align="center">传输</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">应用层</td>
+<td align="center">APDU</td>
+<td align="center">提供应用程序间通信</td>
+</tr>
+<tr>
+<td align="center">表示层</td>
+<td align="center">PPDU</td>
+<td align="center">处理数据格式、数据加密等</td>
+</tr>
+<tr>
+<td align="center">会话层</td>
+<td align="center">SPDU</td>
+<td align="center">建立、维护和管理会话</td>
+</tr>
+<tr>
+<td align="center">传输层</td>
+<td align="center">段</td>
+<td align="center">建立主机端到端连接</td>
+</tr>
+<tr>
+<td align="center">网络层</td>
+<td align="center">包</td>
+<td align="center">寻址和跌幅选择</td>
+</tr>
+<tr>
+<td align="center">数据链路层</td>
+<td align="center">帧</td>
+<td align="center">提供介质访问、链路管理等</td>
+</tr>
+<tr>
+<td align="center">物理层</td>
+<td align="center">比特</td>
+<td align="center">比特流传输</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>TCP/IP模型层次结构：</p>
+<table>
+<thead>
+<tr>
+<th align="center">层次</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">应用层</td>
+<td align="center">负责处理特定的应用程序细节、远程访问、资源共享</td>
+</tr>
+<tr>
+<td align="center">传输层</td>
+<td align="center">负责提供端到端通信、数据完整性校验、差错重传、数据重新排序</td>
+</tr>
+<tr>
+<td align="center">网络层</td>
+<td align="center">负责将数据包送达正确的目的、数据包的路由、路由的维护</td>
+</tr>
+<tr>
+<td align="center">网络接口层</td>
+<td align="center">负责处理与传输介质相关的细节、物理线路和接口、链路层通信</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="局域网基本原理"><a href="#局域网基本原理" class="headerlink" title="局域网基本原理"></a>局域网基本原理</h2><ul>
+<li>主要局域网技术：以太网、令牌环网、FDDI环网、无线局域网</li>
+<li>以太网集线器<ol>
+<li>集线器与主机构成物理星型拓扑</li>
+<li>集线器内部采用总线结构，任意时间只有一台主机能占用总线</li>
+</ol>
+</li>
+<li>MAC地址为48位二进制数，常用12位16进制数表示</li>
+<li>以太网流量控制：<ol>
+<li>背压式流控</li>
+<li>PAUSE流控</li>
+</ol>
+</li>
+</ul>
+<p>～～～未完成！</p>
+]]></content>
+      <categories>
+        <category>H3CNE</category>
+      </categories>
+      <tags>
+        <tag>NE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>项目：创建自定义Kali Linux ISO</title>
     <url>/archives/8feaf38e.html</url>
     <content><![CDATA[<p>该存储库将允许您构建自定义的Kali ISO。主要好处是可以将其用作<a href="https://docs.kali.org/downloading/kali-linux-live-usb-install" target="_blank" rel="external nofollow noopener noreferrer">可启动USB驱动器</a>。</p>
