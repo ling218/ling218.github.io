@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.ling218.cn/"/>
-  <updated>2020-10-10T12:58:24.696Z</updated>
+  <updated>2020-10-11T02:53:39.531Z</updated>
   <id>https://www.ling218.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>H3CSE园区网-V7-总结</title>
+    <link href="https://www.ling218.cn/archives/13089a71.html"/>
+    <id>https://www.ling218.cn/archives/13089a71.html</id>
+    <published>2020-10-10T13:06:51.124Z</published>
+    <updated>2020-10-11T02:53:39.531Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h2 id="企业网模型"><a href="#企业网模型" class="headerlink" title="企业网模型"></a>企业网模型</h2><ul><li>企业IT系统发展趋势<ol><li>以计算为中心的静态架构</li><li>以业务为中心的动态架构</li><li>以战略为中心的知识架构</li></ol></li><li>IT资源整合：包括通信、计算、存储等在内的基础资源的整合</li><li>IT管理：内容管理、流量管理、安全管理、配置管理 </li><li>IT业务个性化：传统IT设施难以提供企业所需的灵活性、智能性和个性化</li><li>基于SOA的网络架构：应用层、服务层、基础设施层</li><li>IToIP关键特性：标准、融合、开放、智能</li><li>层级化网络模型：核心层、汇聚层、接入层<ol><li>接入层</li></ol><ul><li>为用户提供网络的访问接口</li><li>丰富大量的接口</li><li>接入安全控制</li><li>接入速率控制、基于策略的分类、数据包标记等 </li><li>较少考虑冗余性</li></ul><ol start="2"><li>汇聚层</li></ol><ul><li>将接入层数据汇集起来，依据策略对数据、信息等实施控制</li><li>必要的冗余设计</li><li>复杂的策略配置</li></ul><ol start="3"><li>核心层</li></ol><ul><li>对来自汇聚层的数据进行尽可能快速的交换</li><li>强大的数据交换能力</li><li>稳定、可靠的高冗余设计</li><li>不配置复杂策略</li></ul></li><li>层级化网络模型的优点：<ol><li>网络结构清晰</li><li>便于规划和维护</li><li>增强网络稳定性</li><li>增强网络可扩展性</li></ol></li><li>典型企业网结构：<ol><li>数据中心</li><li>园区网</li><li>大型分支机构</li><li>中型分支机构</li><li>远程/分布式办公人员</li></ol></li><li>模块化企业网架构：<ol><li>园区网主干</li><li>数据中心</li><li>网管中心</li><li>广域网汇聚</li><li>VPN接入</li><li>Internet接入</li><li>网站/电子商务</li><li>专线/分组交换接入</li><li>拨号接入 </li></ol></li><li>模块化网络架构的益处：<ol><li>确定网络，边界清晰，流量类型清楚</li><li>便于规划，增加伸缩性</li><li>模块化方便增删，降低复杂性</li><li>设计的完整性</li></ol></li><li>IToIP是基于SOA思想的解决方案，具有标准、融合、开放、智能的特性</li><li>H3C模块化企业网架构实现了网络规划、部署、管理的灵活性、伸缩性、可控性、便于构建复杂的大规模网络</li></ul><h2 id="园区网的网络模型发展历程"><a href="#园区网的网络模型发展历程" class="headerlink" title="园区网的网络模型发展历程"></a>园区网的网络模型发展历程</h2><ul><li>小型局域网：<ol><li>网络主机数量少，但都在同一个广播域内</li><li>甚至还存在多个主机在同一冲突域内</li></ol></li><li>中型局域网：<ol><li>虚拟局域网应用：网络主机数量增多，应用虚拟局域网技术隔离广播域</li><li>三层交换应用：应用三层交换技术解决路由转发的性能瓶颈</li></ol></li><li>大型局域网：大型局域网实际上就是多个中型或小型局域网的互连组合</li><li>大型局域网的功能层：核心层、汇聚层、接入层<ol><li>核心层的结构：</li></ol><ul><li>双机主备互连</li><li>多机环网互连 </li><li>多机全网状互连</li></ul><ol start="2"><li>汇聚层的结构：</li></ol><ul><li>双上行</li><li>路由备份</li></ul><ol start="3"><li>接入层的结构：</li></ol><ul><li>单上行</li><li>双上行</li><li>交叉互连 </li></ul></li><li>局域网应用<ol><li>典型两级网络结构：</li></ol><ul><li>双核心</li><li>边缘双上行接入 </li></ul><ol start="2"><li>典型三级网络结构：</li></ol><ul><li>核心汇聚跌幅备份</li><li>双核心</li><li>汇聚、接入双上行</li></ul></li></ul><h2 id="典型园区网的业务部署"><a href="#典型园区网的业务部署" class="headerlink" title="典型园区网的业务部署"></a>典型园区网的业务部署</h2><ul><li>构建高可靠可冗余网络<ol><li>网络的单点故障：星形拓扑和树形拓扑的单点故障可能带来全网性故障</li><li>网状网络：<ul><li>多冗余链路避免单点故障带来的高风险</li><li>STP阻塞冗余链路避免环路的形成</li></ul></li><li>以太环网：<ul><li>多核心环形链路提供核心链路的备份</li><li>接入双上行避免单点故障带来的风险</li><li>RRPP实现高效倒换</li></ul></li><li>双归属网络：<ul><li>双核心双上行提供冗余备份</li><li>Smart Link阻断冗余链路，实现链路的毫秒级切换</li></ul></li><li>链路聚合：<br> 链路聚合提高物理带宽，且实现负载分担和链路备份</li><li>三层路由网络：<ul><li>路由协议 实现最短路径转发，冗余链路提供备份选择</li><li>ECMP提供负载分担</li></ul></li><li>网关冗余备份：<ul><li>边缘网关运行VRRP提供网关的主备备份</li><li>多备份组+MSTP提供负载分担</li></ul></li><li>IRF设备级备份：<ul><li>IRF堆叠实现设备级的N+1冗余备份</li><li>分布式链路聚合实现链路负载分担</li></ul></li></ol></li><li>组播业务的快速开展<ol><li>路由网络中的组播部署：<ul><li>组播三层转发表的建立-组播路由协议 </li><li>网关和主机之间成员关系维护-IGMP</li></ul></li><li>二层网络中的组播部署<ul><li>查询器辅助二层交换机维护成员关系</li><li>IGMP Snooping完成组播表维护</li><li>MVR完成组播复制</li></ul></li></ol></li><li>语音业务的部署<ol><li>网络中的语音业务部署<ul><li>Voice VLAN自动语音识别</li><li>QoS保证</li><li>PoE简化供电</li></ul></li></ol></li><li>网络安全的部署<ol><li>IP网络安全部署：<ul><li>接入身份认证</li><li>流量控制</li></ul></li><li>综合防御-EAD<ul><li>EAD+交换机联运检查隔离用户</li></ul></li></ol></li><li>网络管理和维护应用  </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      H3CSE
+    
+    </summary>
+    
+    
+      <category term="H3CSE" scheme="https://www.ling218.cn/categories/H3CSE/"/>
+    
+    
+      <category term="SE" scheme="https://www.ling218.cn/tags/SE/"/>
+    
+  </entry>
   
   <entry>
     <title>H3CNE-V7-总结</title>
@@ -450,29 +473,6 @@
     
     
       <category term="debian" scheme="https://www.ling218.cn/tags/debian/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>将 Hexo 部署到 GitLab Pages</title>
-    <link href="https://www.ling218.cn/archives/4971f44e.html"/>
-    <id>https://www.ling218.cn/archives/4971f44e.html</id>
-    <published>2020-05-14T01:13:00.393Z</published>
-    <updated>2020-10-10T03:58:37.628Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">mkdir work</span><br><span class="line">cd work</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init</span><br><span class="line">hexo install</span><br><span class="line">hexo s</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br><span class="line">rm -rf themes&#x2F;next&#x2F;.git&#x2F;</span><br><span class="line">git init</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;gitlab.com&#x2F;ling218&#x2F;ling218.gitlab.io.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;Update&quot;</span><br><span class="line">git push -u origin master</span><br><span class="line">echo &quot;lab.ling218.cn&quot; &gt; source&#x2F;CNAME</span><br><span class="line">cat &lt;&lt;-EOF &gt;.gitlab-ci.yml</span><br><span class="line">image: node:11.15.0</span><br><span class="line">cache:</span><br><span class="line">  paths:</span><br><span class="line">    - node_modules&#x2F;</span><br><span class="line"></span><br><span class="line">before_script:</span><br><span class="line">  - npm install hexo-cli -g</span><br><span class="line">  - npm install</span><br><span class="line"></span><br><span class="line">pages:</span><br><span class="line">  script:</span><br><span class="line">    - hexo generate</span><br><span class="line">  artifacts:</span><br><span class="line">    paths:</span><br><span class="line">      - public</span><br><span class="line">  only:</span><br><span class="line">    - master</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      GitHub Pages 屏蔽了百度爬虫，GitLab Pages 可以让百度爬虫抓取。
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://www.ling218.cn/categories/Hexo/"/>
-    
-    
-      <category term="gitlab" scheme="https://www.ling218.cn/tags/gitlab/"/>
     
   </entry>
   
